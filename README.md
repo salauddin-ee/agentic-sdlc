@@ -159,10 +159,12 @@ agentic-sdlc/
 
 | Platform | Status |
 |---|---|
-| Codex | ✅ MVP — `AGENTS.md` |
-| Claude Code | 🗺️ Planned — see `docs/future-platforms.md` |
+| Codex | ✅ Available — see `AGENTS.md` |
+| Claude Code | ✅ Available — see `CLAUDE.md` and `.claude-plugin/plugin.json` |
+| Gemini CLI | ✅ Available — see `GEMINI.md` |
+| Antigravity | ✅ Available — see `ANTIGRAVITY.md` |
+| Amp (ampcode.com) | ✅ Available — Amp natively reads `.agents/skills/` (see `AMP.md`) |
 | Cursor | 🗺️ Planned |
-| Gemini CLI | 🗺️ Planned |
 
 ---
 

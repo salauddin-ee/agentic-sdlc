@@ -1,0 +1,7 @@
+{
+  "name": "agentic-sdlc",
+  "version": "1.0.0",
+  "description": "Agentic SDLC skills framework providing structured lifecycle methodology",
+  "skills": "./skills",
+  "entrypoint": "CLAUDE.md"
+}

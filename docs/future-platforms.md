@@ -1,30 +1,14 @@
 # Future Platform Support
 
-The agentic-sdlc MVP targets **Codex** via `AGENTS.md`. The following platforms are planned for future releases.
+## Platform Support Roadmap
 
----
+1. **Codex**: `AGENTS.md` (MVP)
+2. **Claude Code**: `CLAUDE.md` and `.claude-plugin/plugin.json`
+3. **Gemini CLI**: `GEMINI.md`
+4. **Antigravity**: `ANTIGRAVITY.md`
+5. **Amp (ampcode.com)**: Amp supports native lazy-loading skills in `.agents/skills/`. Simply symlink the framework's `skills/` directory there (see `AMP.md`)
+6. **Cursor**: *(coming soon)*
 
-## Claude Code
-
-**Entry point:** `CLAUDE.md`
-
-Claude Code loads `CLAUDE.md` from the project root automatically. The file should:
-1. Tell Claude to read `skills/using-agentic-sdlc/SKILL.md` at session start
-2. Reference the skills catalog
-
-**Plugin manifest:** `.claude-plugin/plugin.json`
-
-```json
-{
-  "name": "agentic-sdlc",
-  "version": "1.0.0",
-  "description": "Agentic SDLC skills framework",
-  "skills": "./skills"
-}
-```
-
-**Skill invocation in Claude Code:**
-Claude Code supports a `Skill` tool. Skills can be invoked by name. The `CLAUDE.md` should instruct Claude to use `Skill` before every action.
 
 ---
 
