@@ -54,7 +54,7 @@ All stage outputs are written here (at project root):
 ```
 /.agentic-sdlc/
   domain.md              ← inception
-  brd.md                 ← inception  
+  brd.md                 ← inception
   design-system.md       ← design-system
   accessibility.md       ← design-system
   tech-architecture.md   ← tech-architecture

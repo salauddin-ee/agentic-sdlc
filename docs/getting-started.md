@@ -24,9 +24,11 @@ Each stage has: explicit inputs, explicit outputs written to disk, a gate that m
 
 ### Option A: Install into your project
 
+Replace `<owner>` with the GitHub user or organization that hosts this repository.
+
 ```bash
 # From your project root
-git submodule add https://github.com/your-org/agentic-sdlc .agentic-sdlc-framework
+git submodule add https://github.com/<owner>/agentic-sdlc .agentic-sdlc-framework
 
 # Or just copy the files
 cp -r /path/to/agentic-sdlc/skills ./skills
@@ -42,7 +44,7 @@ Read AGENTS.md and then read skills/using-agentic-sdlc/SKILL.md before doing any
 
 Tell Codex:
 ```
-Fetch and follow instructions from https://raw.githubusercontent.com/your-org/agentic-sdlc/main/.codex/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/<owner>/agentic-sdlc/main/.codex/INSTALL.md
 ```
 
 ## Initialize Context Directory

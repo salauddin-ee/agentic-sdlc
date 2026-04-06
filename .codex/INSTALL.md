@@ -5,7 +5,7 @@
 Tell Codex to fetch and follow these instructions:
 
 ```
-Fetch and follow instructions from https://raw.githubusercontent.com/user/agentic-sdlc/main/.codex/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/<owner>/agentic-sdlc/main/.codex/INSTALL.md
 ```
 
 Or, if you've cloned this repository into your project:

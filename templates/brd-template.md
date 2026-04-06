@@ -25,9 +25,9 @@
 
 ## Functional requirements
 
-- [FR-001] 
-- [FR-002] 
-- [FR-003] 
+- [FR-001]
+- [FR-002]
+- [FR-003]
 
 *Each FR should be independently verifiable. If it can't be tested, rewrite it.*
 

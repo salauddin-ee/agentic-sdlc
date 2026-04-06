@@ -33,15 +33,17 @@ The agent loads `AGENTS.md` at session start, which instructs it to check for re
 
 ### Option A: Reference via URL
 
+Replace `<owner>` with the GitHub user or organization that hosts this repository.
+
 Tell Codex at the start of a session:
 ```
-Fetch and follow instructions from https://raw.githubusercontent.com/your-org/agentic-sdlc/main/.codex/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/<owner>/agentic-sdlc/main/.codex/INSTALL.md
 ```
 
 ### Option B: Clone into your project
 
 ```bash
-git clone https://github.com/your-org/agentic-sdlc.git
+git clone https://github.com/<owner>/agentic-sdlc.git
 cp agentic-sdlc/AGENTS.md ./AGENTS.md
 cp -r agentic-sdlc/skills ./skills
 ```
