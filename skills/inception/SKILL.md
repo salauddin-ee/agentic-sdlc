@@ -1,6 +1,7 @@
 ---
 name: inception
 description: Use when starting a new project from scratch with unclear or partially-formed requirements — before any design, architecture, or code is written.
+version: 1.0.0
 ---
 
 Establish shared understanding of what is being built, for whom, and why — before anything else is done.
@@ -17,7 +18,7 @@ Every project goes through inception. A todo app, a CLI tool, a config change �
 
 Complete in order:
 
-1. **Load domain context** — check for any existing files, docs, or prior context in `/.agentic-sdlc/`
+1. **Load domain context** — check for any existing files, docs, or prior context in `docs/sdlc/`
 2. **Identify the domain** — what industry, regulatory context, key entities, glossary terms apply?
 3. **Ask clarifying questions** — one at a time, across these axes:
    - Business objective and measurable success criteria
@@ -25,8 +26,8 @@ Complete in order:
    - Constraints (timeline, budget, compliance, existing systems)
    - Out-of-scope items (explicit)
    - Non-functional requirements (latency, availability, scale, geography)
-4. **Write `/.agentic-sdlc/domain.md`** — domain knowledge, industry context, glossary
-5. **Write `/.agentic-sdlc/brd.md`** — using the BRD format below
+4. **Write `docs/architecture/domain-model.md`** — domain knowledge, industry context, glossary
+5. **Write `docs/product/features/brd.md`** — using the BRD format below
 6. **Self-review the BRD** — check for placeholders, contradictions, missing metrics
 7. **Present BRD to user** — ask for explicit approval before proceeding
 8. **HITL checkpoint** — required before moving to Stage 2 (read `skills/hitl-protocol/SKILL.md`)
@@ -41,7 +42,7 @@ Complete in order:
 
 ## BRD Format
 
-Write to `/.agentic-sdlc/brd.md`:
+Write to `docs/product/features/brd.md`:
 
 ```markdown
 # Business Requirements Document
@@ -86,7 +87,7 @@ Evaluate before triggering HITL:
 [ ] NFRs captured (latency, availability, security baseline)
 [ ] Out-of-scope is explicit — not empty
 [ ] No open questions remain (or HITL scheduled to resolve them)
-[ ] domain.md and brd.md are written to /.agentic-sdlc/
+[ ] domain.md and brd.md are written to docs/sdlc/
 ```
 
 If any item fails, loop within this stage — do not proceed.
@@ -99,7 +100,7 @@ After the gate passes, trigger HITL using this format (or read `skills/hitl-prot
 HITL REQUIRED
 Stage: inception
 Question: Does this BRD accurately capture your requirements before we move to design/architecture?
-Context: BRD written to /.agentic-sdlc/brd.md
+Context: BRD written to docs/product/features/brd.md
 Options: [A] Approved — proceed to next stage
          [B] Changes needed — specify what to revise
 Default if no response: Wait for explicit approval

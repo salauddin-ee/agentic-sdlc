@@ -33,7 +33,7 @@ The agent should:
 
 ## Initialize Context Directory
 
-Run this script to create the `/.agentic-sdlc/` context directory in your project:
+Run this script to create the `docs/sdlc/` context directory in your project:
 
 ```bash
 bash scripts/init-context.sh /path/to/your/project

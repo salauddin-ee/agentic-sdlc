@@ -1,6 +1,7 @@
 ---
 name: brownfield-tech-plan
 description: Use when planning the technical approach for a story in an existing codebase — without re-architecting the system. Follow YAGNI and extend existing patterns.
+version: 1.0.0
 ---
 
 Plan the technical approach for this story without re-architecting the system. Implement exactly what the story requires. Prefer boring, obvious solutions over clever ones.
@@ -14,19 +15,19 @@ Plan the technical approach for this story without re-architecting the system. I
 
 ## Checklist
 
-1. **Read inputs**: `/.agentic-sdlc/existing-system.md`, story BRD section, `/.agentic-sdlc/brd.md`
+1. **Read inputs**: `docs/architecture/existing-system.md`, story BRD section, `docs/product/features/brd.md`
 2. **Read existing code** in the affected area — understand what's there before planning
 3. **DRY check**: does existing code already handle any part of this? Can it be extended?
 4. **Regression risk assessment** — which existing behavior could this change break?
 5. **Feature flag decision** — does this need to be behind a toggle to deploy safely?
 6. **Interface contract impact** — does this change any contract in `interface-contracts.md`? (triggers HITL)
-7. **Write `/.agentic-sdlc/tech-plan-[STORY-ID].md`** — using format below
+7. **Write `docs/sdlc/workspaces/tech-plan-[STORY-ID].md`** — using format below
 8. **Gate evaluation**
 9. **Transition** — invoke `implementation-planning` skill (story-scoped)
 
 ## Tech Plan Format
 
-`/.agentic-sdlc/tech-plan-[STORY-ID].md`:
+`docs/sdlc/workspaces/tech-plan-[STORY-ID].md`:
 
 ```markdown
 # Tech plan — [STORY-ID]: [Title] — [Date]
@@ -66,7 +67,7 @@ Plan the technical approach for this story without re-architecting the system. I
 ## Definition of done (story technical)
 - [ ] Acceptance criteria passing (from brownfield-brainstorm)
 - [ ] Regression tests still pass
-- [ ] Coverage not decreased from /.agentic-sdlc/existing-system.md baseline
+- [ ] Coverage not decreased from docs/architecture/existing-system.md baseline
 - [ ] No new patterns introduced without justification
 - [ ] Interface contracts updated if changed (HITL completed)
 ```
@@ -80,7 +81,7 @@ Plan the technical approach for this story without re-architecting the system. I
 [ ] Regression risk assessment complete
 [ ] Interface contract changes identified (triggers HITL if any)
 [ ] Feature flag decision made
-[ ] tech-plan-[STORY-ID].md written to /.agentic-sdlc/
+[ ] tech-plan-[STORY-ID].md written to docs/sdlc/
 ```
 
 ## Red Flags

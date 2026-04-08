@@ -4,7 +4,7 @@ This guide walks you through setting up and using the agentic-sdlc framework in 
 
 ## What is agentic-sdlc?
 
-A skills-based SDLC framework that gives your coding agent a structured, disciplined process for building software — from requirements through retrospective. Inspired by [Superpowers](https://github.com/obra/superpowers).
+A skills-based SDLC framework that gives your coding agent a structured, disciplined process for building software — from requirements through retrospective.
 
 Instead of ad-hoc coding, your agent follows a documented lifecycle:
 
@@ -49,7 +49,7 @@ Fetch and follow instructions from https://raw.githubusercontent.com/<owner>/age
 
 ## Initialize Context Directory
 
-Run the init script in your project root to create the `/.agentic-sdlc/` directory:
+Run the init script in your project root to create the `docs/sdlc/` directory:
 
 ```bash
 bash scripts/init-context.sh /path/to/your-project
@@ -99,7 +99,7 @@ If the agent starts writing code without going through these steps, it has not l
 ## The Context Directory
 
 ```
-/.agentic-sdlc/
+docs/sdlc/
   domain.md            — what the business domain is
   brd.md               — requirements (filled in at inception)
   design-system.md     — design tokens and components

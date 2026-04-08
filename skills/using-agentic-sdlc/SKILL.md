@@ -1,6 +1,7 @@
 ---
 name: using-agentic-sdlc
 description: Use when starting any conversation or project session — establishes how to find and invoke skills, and selects the correct workflow (greenfield vs brownfield) before any action is taken.
+version: 1.0.0
 ---
 
 Stop. Read this before doing anything else.
@@ -87,10 +88,10 @@ Is this a brand-new project with no existing codebase?
 
 ## Context Directory
 
-All stage outputs live in `/.agentic-sdlc/` at the project root. Every stage reads and writes specific files. Never rely on conversation memory alone.
+All stage outputs live in `docs/sdlc/` at the project root. Every stage reads and writes specific files. Never rely on conversation memory alone.
 
 ```
-/.agentic-sdlc/
+docs/sdlc/
   domain.md              ← inception writes this
   brd.md                 ← inception writes this
   design-system.md       ← design-system writes this

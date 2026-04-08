@@ -1,6 +1,7 @@
 ---
 name: coding-constitution
 description: Use when establishing coding standards for a new project, or when reviewing whether existing code conforms to established standards.
+version: 1.0.0
 ---
 
 Write or evaluate the coding constitution — the project's binding standards that every agent and developer follows for the duration of the project.
@@ -13,7 +14,7 @@ Write or evaluate the coding constitution — the project's binding standards th
 
 ## Writing the Coding Constitution
 
-Write to `/.agentic-sdlc/coding-constitution.md` using the structure below.
+Write to `docs/architecture/coding-standards.md` using the structure below.
 
 A coding constitution is **binding**, not aspirational. If it's in the constitution, it's enforced. If it can't be enforced, don't put it in.
 
@@ -118,5 +119,5 @@ For brownfield projects, the coding constitution documents the **existing** stan
 [ ] Security non-negotiables listed
 [ ] Forbidden patterns listed
 [ ] TDD workflow described
-[ ] coding-constitution.md written to /.agentic-sdlc/
+[ ] coding-constitution.md written to docs/sdlc/
 ```

@@ -1,6 +1,7 @@
 ---
 name: hitl-protocol
 description: Use when an irreversible action, ambiguous decision, or mandatory checkpoint requires explicit human approval before the agent proceeds.
+version: 1.0.0
 ---
 
 Some decisions cannot be undone. Some decisions are too ambiguous for the agent to resolve alone. Both require a human in the loop before proceeding.
@@ -39,7 +40,7 @@ Default if no response: [what the agent will do if human does not respond — us
 HITL REQUIRED
 Stage: inception
 Question: Does this BRD accurately capture your requirements before we move to design?
-Context: BRD written to /.agentic-sdlc/brd.md. 4 FRs, 3 NFRs, 2 personas defined.
+Context: BRD written to docs/product/features/brd.md. 4 FRs, 3 NFRs, 2 personas defined.
 Options: [A] Approved — proceed to design-system and tech-architecture
          [B] Changes needed — I will specify which sections to revise
 Default if no response: Wait for explicit approval
@@ -72,7 +73,7 @@ Default if no response: Wait for explicit approval
 
 ## After Receiving HITL Response
 
-1. Record the human's decision in the stage artifact (e.g., `/.agentic-sdlc/brd.md` Open questions section)
+1. Record the human's decision in the stage artifact (e.g., `docs/product/features/brd.md` Open questions section)
 2. If the decision changes context (e.g., new constraint, approved direction): update relevant artifacts
 3. Continue with the approved option
 

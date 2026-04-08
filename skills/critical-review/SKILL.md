@@ -1,6 +1,7 @@
 ---
 name: critical-review
 description: Use when implementation of a story or milestone is complete and needs adversarial quality review before testing begins. This stage is intentionally adversarial — find problems, do not confirm success.
+version: 1.0.0
 ---
 
 Evaluate the completed implementation with fresh eyes. Your job is to find problems, not to confirm everything is fine.
@@ -12,10 +13,10 @@ This is an adversarial review. Optimism bias will cause you to miss real problem
 ## Inputs
 
 Read before starting:
-- `/.agentic-sdlc/brd.md` — original requirements
-- `/.agentic-sdlc/task-graph.md` — accepted stories and acceptance criteria
-- `/.agentic-sdlc/interface-contracts.md` — locked contracts
-- `/.agentic-sdlc/coding-constitution.md` — standards
+- `docs/product/features/brd.md` — original requirements
+- `docs/sdlc/epics/task-graph.md` — accepted stories and acceptance criteria
+- `docs/architecture/data-domain.md` — locked contracts
+- `docs/architecture/coding-standards.md` — standards
 - Full codebase — read actual code, do not rely on summary
 
 ## Review Checklist
@@ -69,7 +70,7 @@ Classify every finding as:
 
 ## Output
 
-Write findings to `/.agentic-sdlc/critical-review.md`:
+Write findings to `docs/sdlc/retrospectives/critical-review.md`:
 
 ```markdown
 # Critical review — [Story/Milestone] — [Date]

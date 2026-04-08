@@ -23,7 +23,7 @@ Skills live in the `skills/` directory of this repository.
 
 ### Mandatory Context Directory
 
-All stage outputs are written to `/.agentic-sdlc/` at the project root. Never rely on conversation memory alone — write artifacts to disk using your file editing tools.
+All stage outputs are written to `docs/sdlc/` at the project root. Never rely on conversation memory alone — write artifacts to disk using your file editing tools.
 
 ### Hitl Checkpoints
 

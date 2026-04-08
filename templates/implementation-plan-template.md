@@ -13,7 +13,7 @@
 
 ## Interface contracts summary
 
-> Full contracts in `/.agentic-sdlc/interface-contracts.md`
+> Full contracts in `docs/architecture/data-domain.md`
 
 Key module boundaries:
 

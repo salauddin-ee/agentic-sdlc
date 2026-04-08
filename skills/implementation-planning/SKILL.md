@@ -1,6 +1,7 @@
 ---
 name: implementation-planning
 description: Use when you have approved architecture and need to create a machine-readable execution plan before implementation begins.
+version: 1.0.0
 ---
 
 Produce a concrete execution plan that deconstructs the architecture into milestones, defines interface contracts before parallel work begins, identifies risks, and establishes a clear definition of done.
@@ -11,20 +12,20 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 
 ## Checklist
 
-1. **Read inputs**: `/.agentic-sdlc/brd.md`, `/.agentic-sdlc/tech-architecture.md`, `/.agentic-sdlc/coding-constitution.md`
+1. **Read inputs**: `docs/product/features/brd.md`, `docs/architecture/tech-architecture.md`, `docs/architecture/coding-standards.md`
 2. **Define milestones** — logical groupings of work with clear exit criteria
 3. **Define interface contracts** — every module boundary documented before any code
 4. **Write risk log** — likelihood × impact for each identified risk
 5. **Write definition of done** — project-level checklist
-6. **Write `/.agentic-sdlc/implementation-plan.md`** — using format below
-7. **Write `/.agentic-sdlc/interface-contracts.md`** — API contracts, event schemas, type defs
+6. **Write `docs/sdlc/epics/implementation-plan.md`** — using format below
+7. **Write `docs/architecture/data-domain.md`** — API contracts, event schemas, type defs
 8. **Self-review** — check all FRs from BRD are traceable to a milestone
 9. **Present to user** — get approval
 10. **Transition** — invoke `story-breakdown` skill
 
 ## Implementation Plan Format
 
-`/.agentic-sdlc/implementation-plan.md`:
+`docs/sdlc/epics/implementation-plan.md`:
 
 ```markdown
 # Implementation plan
@@ -37,7 +38,7 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 | M3 | Polish & NFRs | Performance, accessibility | NFR targets met | M2 |
 
 ## Interface contracts summary
-[See /.agentic-sdlc/interface-contracts.md for full specs]
+[See docs/architecture/data-domain.md for full specs]
 
 Key boundaries:
 - [Module A] → [Module B]: [Brief contract description]
@@ -64,7 +65,7 @@ Key boundaries:
 
 ## Interface Contracts Format
 
-`/.agentic-sdlc/interface-contracts.md`:
+`docs/architecture/data-domain.md`:
 
 ```markdown
 # Interface contracts
@@ -100,7 +101,7 @@ Key boundaries:
 [ ] Risk log populated with at least the top 3 risks
 [ ] Assumptions explicitly listed
 [ ] Definition of done agreed with user
-[ ] implementation-plan.md and interface-contracts.md written to /.agentic-sdlc/
+[ ] implementation-plan.md and interface-contracts.md written to docs/sdlc/
 ```
 
 ## Red Flags

@@ -1,6 +1,17 @@
-# Agentic SDLC Framework
-
 A two-workflow agentic software development lifecycle framework for autonomous or semi-autonomous agents. Workflow 1 targets greenfield projects; Workflow 2 targets brownfield (story-level) changes to existing systems.
+
+---
+
+## ⚠️ The Prime Directive
+
+**Check for a relevant skill BEFORE taking any action — including asking clarifying questions.**
+
+If there is even a 1% chance a skill applies, invoke it. Skills override default behavior. User instructions override skills.
+
+Instruction priority:
+1. **User's explicit instructions** — highest
+2. **Agentic SDLC skills** — override default agent behavior
+3. **Default agent behavior** — lowest priority
 
 ---
 
@@ -17,21 +28,24 @@ A two-workflow agentic software development lifecycle framework for autonomous o
 
 ## Agent memory protocol
 
-The agent carries context across stages via a set of versioned markdown files written to a `/context` directory at the project root. Each stage declares which files it reads (inputs) and which it writes or updates (outputs). No stage may rely on conversation memory alone.
+The agent carries context across stages via a set of versioned markdown files written to a distributed `docs/` directory structure at the project root. Each stage declares which files it reads (inputs) and which it writes or updates (outputs). No stage should rely on conversation memory alone.
 
 ```
-/context
-  domain.md          — domain knowledge loaded at Stage 1
-  brd.md             — business requirements
-  design-system.md   — design tokens, component decisions
-  tech-architecture.md
-  adr/               — one file per architectural decision record
-  coding-constitution.md
-  implementation-plan.md
-  task-graph.md      — dependency DAG for parallel execution
-  interface-contracts.md  — API contracts, event schemas, type defs
-  test-plan.md
-  retrospective.md
+docs/
+  architecture/domain-model.md       ← inception
+  product/features/brd.md            ← inception
+  product/design-system.md           ← design-system
+  product/accessibility.md           ← design-system
+  architecture/tech-architecture.md  ← tech-architecture
+  architecture/adrs/                 ← tech-architecture
+  architecture/coding-standards.md   ← tech-architecture / coding-constitution
+  sdlc/epics/implementation-plan.md  ← implementation-planning
+  architecture/data-domain.md        ← implementation-planning / implementation
+  sdlc/epics/task-graph.md           ← story-breakdown
+  sdlc/stories/STORY-*.md            ← story-breakdown
+  sdlc/test-plans/test-plan.md       ← testing
+  sdlc/retrospectives/retrospective.md ← critical-review / retrospective
+  architecture/existing-system.md    ← context-harvest (brownfield)
 ```
 
 ---
@@ -72,11 +86,15 @@ RESULT: PASS | FAIL — reason if fail
 
 Mandatory human approval is required at:
 
-1. End of BRD (before design and architecture begin)
-2. End of architecture (before any code is written)
-3. Before implementation starts (after task graph is approved)
-4. Before any destructive operation (DB migration, data deletion, external API call in production)
-5. When the agent is blocked and cannot resolve ambiguity autonomously
+Mandatory human approval is required at these points (HARD-GATES):
+
+1. **Inception End**: After BRD is written and before design/architecture (Stage 1 exit).
+2. **Architecture End**: After tech stack, diagrams, and ADRs are approved (Stage 3 exit).
+3. **Task Graph Approval**: After story breakdown but before any code is written (Stage 5 exit).
+4. **Architectural Deviation**: If implementation reveals a Stage 3 decision was wrong (Stage 6 rollback).
+5. **Contract Change**: Any change to `interface-contracts.md` mid-implementation.
+6. **Destructive Operations**: Before any production DB migration or data deletion.
+7. **Ambiguity**: When the agent is blocked and cannot resolve a requirement autonomously.
 
 HITL prompt format:
 
@@ -613,7 +631,7 @@ Reference: [Martin Fowler — Practical Test Pyramid](https://martinfowler.com/a
    - Identify test coverage baseline (run existing test suite, record pass rate and coverage %)
    - Identify existing patterns (directory structure, naming conventions, error handling style)
    - Identify known tech debt (TODO comments, suppressed lint warnings, flagged issues)
-3. Write `context/existing-system.md`:
+3. Write `docs/architecture/existing-system.md`:
    - Tech stack
    - Test coverage baseline
    - Patterns in use
@@ -636,7 +654,7 @@ Reference: [Martin Fowler — Practical Test Pyramid](https://martinfowler.com/a
 
 **Purpose:** Resolve design for this story only. Inherit from the existing design system where one exists.
 
-**Inputs:** `context/existing-system.md`, story brief, existing design system (if available)
+**Inputs:** `docs/architecture/existing-system.md`, story brief, existing design system (if available)
 
 **Outputs:** `design-system.md` (delta only if inheriting), `accessibility.md`
 

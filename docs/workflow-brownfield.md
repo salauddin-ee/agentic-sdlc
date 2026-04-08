@@ -24,7 +24,7 @@ What happens (once per project, not per story):
 - Code patterns catalogued (error handling, logging, validation, directory structure)
 - Integration points mapped
 - Fragile / high-risk areas flagged
-- Output: `/.agentic-sdlc/existing-system.md`
+- Output: `docs/architecture/existing-system.md`
 
 **Critical rule:** Coverage baseline recorded here must NOT decrease by the end of any story.
 
@@ -40,7 +40,7 @@ What happens:
 - Given/When/Then acceptance criteria written
 - Scope risks identified
 - Existing behavior checked (can we extend it?)
-- Output: Story section appended to `/.agentic-sdlc/brd.md`
+- Output: Story section appended to `docs/product/features/brd.md`
 
 ---
 
@@ -51,7 +51,7 @@ What happens:
 What happens:
 - Existing design system read first
 - Delta design only — new tokens and components introduced only where nothing existing fits
-- Output: Design delta appended to `/.agentic-sdlc/design-system.md`
+- Output: Design delta appended to `docs/product/design-system.md`
 
 Skip if: story has no UI impact.
 
@@ -68,7 +68,7 @@ What happens:
 - Regression risk assessed (which existing tests could break?)
 - Interface contract change detected → triggers HITL if any
 - Feature flag decision made
-- Output: `/.agentic-sdlc/tech-plan-[STORY-ID].md`
+- Output: `docs/sdlc/workspaces/tech-plan-[STORY-ID].md`
 
 ---
 

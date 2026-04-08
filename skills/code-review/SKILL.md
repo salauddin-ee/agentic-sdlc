@@ -1,6 +1,7 @@
 ---
 name: code-review
 description: Use when performing the final structured review before merging or handing off completed work — after testing is complete and all tests pass.
+version: 1.0.0
 ---
 
 Final structured review before merge or handoff. This is a compliance check against the coding constitution, a test quality review, a security audit, and an operability check — in that order.
@@ -9,8 +10,8 @@ Final structured review before merge or handoff. This is a compliance check agai
 
 ### Standards Compliance
 ```
-[ ] Coding constitution followed throughout (read /.agentic-sdlc/coding-constitution.md and verify)
-[ ] All ADR decisions reflected in code — no silent deviations from /.agentic-sdlc/adr/
+[ ] Coding constitution followed throughout (read docs/architecture/coding-standards.md and verify)
+[ ] All ADR decisions reflected in code — no silent deviations from docs/architecture/adrs/
 [ ] No commented-out code in production files
 [ ] All public APIs documented (docstrings, JSDoc, or equivalent)
 [ ] No TODO/FIXME in production code

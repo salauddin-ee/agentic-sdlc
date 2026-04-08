@@ -1,28 +1,42 @@
 ---
+story_id: STORY-NNN
+status: TO_DO
+# status options: TO_DO | IN_PROGRESS | BLOCKED | DONE | ARCHIVED
+epic_id: EPIC-000
+milestone: M1
+track: A
+depends_on: []
+owner: ""
+branch: ""
+priority: medium
+# priority: critical | high | medium | low
+blocked_reason: ""
+---
 
-### STORY-NNN: [Title]
+# STORY-NNN: [Title]
 
-**Milestone:** [MN]
-**Track:** [A/B/C]
-**Depends on:** [STORY-NNN or —]
+## Acceptance Criteria
 
-**Acceptance criteria:**
 - Given [the user/system is in a specific state]
 - When [a specific action is taken]
 - Then [the expected outcome occurs]
-- And [additional outcome if needed]
 
-**Tasks:**
-- [ ] Write failing test(s)
-- [ ] Run tests — confirm RED (fails for the right reason)
-- [ ] Implement minimal code to make tests pass
-- [ ] Run tests — confirm GREEN
-- [ ] Refactor — apply coding-constitution.md
+## Tasks
+
+- [ ] Write failing test(s) — confirm RED
+- [ ] Implement minimal code to make tests pass — confirm GREEN
+- [ ] Refactor — apply `docs/architecture/coding-standards.md`
 - [ ] Run full test suite — confirm no regression
-- [ ] Update interface-contracts.md if any contract changed (triggers HITL)
+- [ ] Update `docs/architecture/data-domain.md` if any contract changed (triggers HITL)
 
-**Files owned:** `src/path/to/file.ts`, `src/path/to/file.test.ts`
-**Merge strategy:** Feature branch `feature/STORY-NNN-short-description`, squash merge to main
-**HITL before starting:** No / Yes — [reason if Yes]
+## Files Owned
 
----
+`src/path/to/file.ts`, `src/path/to/file.test.ts`
+
+## Merge Strategy
+
+Feature branch `feature/STORY-NNN-short-description`, squash merge to main
+
+## HITL Before Starting
+
+No / Yes — [reason if Yes]

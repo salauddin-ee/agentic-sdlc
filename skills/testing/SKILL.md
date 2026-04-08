@@ -1,6 +1,7 @@
 ---
 name: testing
 description: Use when executing the test plan and verifying the application works end-to-end after implementation and critical review are complete.
+version: 1.0.0
 ---
 
 Execute the test plan. Verify the application works end-to-end — including paths that were not directly implemented by the agent. All automated tests must be green before this stage completes.
@@ -11,17 +12,17 @@ Do NOT proceed to code-review until all automated tests pass, test pyramid targe
 
 ## Checklist
 
-1. **Read `/.agentic-sdlc/test-plan.md`** — full scope of this test cycle
+1. **Read `docs/sdlc/test-plans/test-plan.md`** — full scope of this test cycle
 2. **Run full automated test suite** — every test, zero failures
-3. **Verify test pyramid targets** — from `/.agentic-sdlc/coding-constitution.md`
+3. **Verify test pyramid targets** — from `docs/architecture/coding-standards.md`
 4. **Run HITL test cases** — scenarios the agent cannot verify alone
 5. **Run load/performance tests** if NFRs specify targets
-6. **Document results in `/.agentic-sdlc/test-plan.md`**
+6. **Document results in `docs/sdlc/test-plans/test-plan.md`**
 7. **Gate evaluation** — all criteria must pass before proceeding
 
 ## Test Plan Format
 
-Write / update `/.agentic-sdlc/test-plan.md`:
+Write / update `docs/sdlc/test-plans/test-plan.md`:
 
 ```markdown
 # Test plan

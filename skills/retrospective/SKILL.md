@@ -1,6 +1,7 @@
 ---
 name: retrospective
 description: Use when a project or story cycle is complete — to capture what happened, extract lessons, and feed knowledge back into the skills library for future runs.
+version: 1.0.0
 ---
 
 Close the loop. Account for what happened, extract reusable knowledge into the skills library, and make the next project or story run smarter.
@@ -13,16 +14,16 @@ Close the loop. Account for what happened, extract reusable knowledge into the s
 
 ## Checklist
 
-1. **Read the full context**: `/.agentic-sdlc/brd.md`, `/.agentic-sdlc/task-graph.md`, `/.agentic-sdlc/critical-review.md`, `/.agentic-sdlc/test-plan.md`
+1. **Read the full context**: `docs/product/features/brd.md`, `docs/sdlc/epics/task-graph.md`, `docs/sdlc/retrospectives/critical-review.md`, `docs/sdlc/test-plans/test-plan.md`
 2. **Write the retrospective** — using format below
 3. **Identify skills library updates** — new patterns worth capturing, existing skills to improve
 4. **Propose process improvements** — changes to the framework that would improve future runs
-5. **Write / append to `/.agentic-sdlc/retrospective.md`**
+5. **Write / append to `docs/sdlc/retrospectives/retrospective.md`**
 6. **If skills library updates are proposed**: invoke `writing-skills` skill
 
 ## Full Project Retrospective Format
 
-`/.agentic-sdlc/retrospective.md`:
+`docs/sdlc/retrospectives/retrospective.md`:
 
 ```markdown
 # Retrospective — [Project name] — [Date]
@@ -61,7 +62,7 @@ Close the loop. Account for what happened, extract reusable knowledge into the s
 
 ## Story Retrospective Format (Brownfield)
 
-Append to `/.agentic-sdlc/retrospective.md`:
+Append to `docs/sdlc/retrospectives/retrospective.md`:
 
 ```markdown
 ## Story retrospective — [STORY-ID]: [Title] — [Date]

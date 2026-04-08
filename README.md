@@ -2,8 +2,6 @@
 
 A skills-based Software Development Lifecycle framework for autonomous coding agents. Drop it into any project and your agent follows a structured, auditable process — from requirements through retrospective — instead of ad-hoc coding.
 
-Inspired by [Superpowers](https://github.com/obra/superpowers).
-
 ---
 
 ## Philosophy
@@ -18,6 +16,19 @@ Inspired by [Superpowers](https://github.com/obra/superpowers).
 
 ---
 
+## ⚠️ The Prime Directive
+
+**Check for a relevant skill BEFORE taking any action — including asking clarifying questions.**
+
+If there is even a 1% chance a skill applies, invoke it. Skills override default behavior. User instructions override skills.
+
+Instruction priority:
+1. **User's explicit instructions** — highest
+2. **Agentic SDLC skills** — override default agent behavior
+3. **Default agent behavior** — lowest priority
+
+---
+
 ## How It Works
 
 Each stage is a **skill** — a `SKILL.md` file the agent reads and follows. Skills contain:
@@ -29,35 +40,21 @@ The agent loads `AGENTS.md` at session start, which instructs it to check for re
 
 ---
 
-## Installation (Codex — MVP)
+## Installation
 
-### Option A: Reference via URL
+The Agentic SDLC framework is platform-agnostic. Installation instructions for supported agents can be found in the `docs/platforms/` directory:
 
-Replace `<owner>` with the GitHub user or organization that hosts this repository.
+- [Codex](docs/platforms/codex.md)
+- [Claude Code](CLAUDE.md)
+- [Gemini CLI](GEMINI.md)
+- [Antigravity](ANTIGRAVITY.md)
+- [Amp](AMP.md)
 
-Tell Codex at the start of a session:
-```
-Fetch and follow instructions from https://raw.githubusercontent.com/<owner>/agentic-sdlc/main/.codex/INSTALL.md
-```
-
-### Option B: Clone into your project
-
+### Initialize Context
+No matter which platform you use, initialize the context directory in your project root:
 ```bash
-git clone https://github.com/<owner>/agentic-sdlc.git
-cp agentic-sdlc/AGENTS.md ./AGENTS.md
-cp -r agentic-sdlc/skills ./skills
+./agentic-sdlc/scripts/init-context.sh .
 ```
-
-Then initialize the context directory:
-```bash
-bash agentic-sdlc/scripts/init-context.sh .
-```
-
-### Verify
-
-Start a Codex session and ask: *"What workflow should we follow for a new project?"*
-
-The agent should mention the Agentic SDLC framework, ask greenfield vs. brownfield, and name the starting skill.
 
 ---
 
@@ -127,7 +124,7 @@ agentic-sdlc/
 │   └── writing-skills/
 ├── templates/                ← Document templates for each stage
 ├── scripts/
-│   └── init-context.sh       ← Creates /.agentic-sdlc/ in your project
+│   └── init-context.sh       ← Creates docs/sdlc/ in your project
 └── docs/
     ├── getting-started.md
     ├── workflow-greenfield.md
@@ -139,32 +136,33 @@ agentic-sdlc/
 ### Context directory (in your project)
 
 ```
-/.agentic-sdlc/
-  domain.md, brd.md               ← inception
-  design-system.md, accessibility.md  ← design-system
-  tech-architecture.md, adr/       ← tech-architecture
-  coding-constitution.md           ← coding-constitution
-  implementation-plan.md, interface-contracts.md  ← implementation-planning
-  task-graph.md                    ← story-breakdown
-  critical-review.md               ← critical-review
-  test-plan.md                     ← testing
-  retrospective.md                 ← retrospective
-  existing-system.md               ← context-harvest (brownfield)
-  tech-plan-*.md                   ← brownfield-tech-plan (per story)
+docs/
+  architecture/domain-model.md, product/features/brd.md  ← inception
+  product/design-system.md, product/accessibility.md      ← design-system
+  architecture/tech-architecture.md, architecture/adrs/   ← tech-architecture
+  architecture/coding-standards.md                        ← coding-constitution
+  sdlc/epics/implementation-plan.md, architecture/data-domain.md ← implementation-planning
+  sdlc/epics/task-graph.md                                ← story-breakdown
+  sdlc/stories/STORY-*.md                                 ← story-breakdown
+  sdlc/retrospectives/critical-review.md                  ← critical-review
+  sdlc/test-plans/test-plan.md                            ← testing
+  sdlc/retrospectives/retrospective.md                    ← retrospective
+  architecture/existing-system.md                         ← context-harvest (brownfield)
+  sdlc/workspaces/tech-plan-*.md                          ← brownfield-tech-plan (per story)
 ```
 
 ---
 
 ## Platform Support
 
-| Platform | Status |
-|---|---|
-| Codex | ✅ Available — see `AGENTS.md` |
-| Claude Code | ✅ Available — see `CLAUDE.md` and `.claude-plugin/plugin.json` |
-| Gemini CLI | ✅ Available — see `GEMINI.md` |
-| Antigravity | ✅ Available — see `ANTIGRAVITY.md` |
-| Amp (ampcode.com) | ✅ Available — Amp natively reads `.agents/skills/` (see `AMP.md`) |
-| Cursor | 🗺️ Planned |
+| Platform | Status | Instructions |
+|---|---|---|
+| Codex | ✅ Available | [docs/platforms/codex.md](docs/platforms/codex.md) |
+| Claude Code | ✅ Available | [CLAUDE.md](CLAUDE.md) |
+| Gemini CLI | ✅ Available | [GEMINI.md](GEMINI.md) |
+| Antigravity | ✅ Available | [ANTIGRAVITY.md](ANTIGRAVITY.md) |
+| Amp | ✅ Available | [AMP.md](AMP.md) |
+| Cursor | 🗺️ Planned | |
 
 ---
 

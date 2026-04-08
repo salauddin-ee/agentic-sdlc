@@ -1,6 +1,7 @@
 ---
 name: brownfield-brainstorm
 description: Use when understanding the business impact and user impact of a story or feature request in an existing system — before any technical planning or implementation.
+version: 1.0.0
 ---
 
 Understand the business and user impact of this story in isolation before planning how to implement it. Small stories have large blast radii. Understand the blast radius first.
@@ -13,7 +14,7 @@ Understand the business and user impact of this story in isolation before planni
 
 ## Checklist
 
-1. **Read `/.agentic-sdlc/existing-system.md`** — understand the system context
+1. **Read `docs/architecture/existing-system.md`** — understand the system context
 2. **Ask clarifying questions** (one at a time):
    - What user job-to-be-done does this story serve?
    - What is the measurable business outcome? (conversion, retention, error rate reduction)
@@ -24,7 +25,7 @@ Understand the business and user impact of this story in isolation before planni
 4. **Write definition of done** for this story specifically
 5. **Identify scope risks** — what could expand this story's scope unintentionally?
 6. **Check existing behavior** — does anything like this already exist? Can we extend it?
-7. **Document in `/.agentic-sdlc/brd.md`** (append a story section) — using format below
+7. **Document in `docs/product/features/brd.md`** (append a story section) — using format below
 8. **Transition** — invoke `brownfield-design` (if UI changes) or `brownfield-tech-plan`
 
 ## Questions Protocol
@@ -35,7 +36,7 @@ Understand the business and user impact of this story in isolation before planni
 
 ## Story BRD Format
 
-Append to `/.agentic-sdlc/brd.md` (or create if brownfield project):
+Append to `docs/product/features/brd.md` (or create if brownfield project):
 
 ```markdown
 ## Story: [STORY-ID] — [Title] — [Date]

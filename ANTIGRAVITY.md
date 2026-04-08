@@ -23,7 +23,7 @@ Skills live in the `skills/` directory.
 
 ### Mandatory Context Directory
 
-All stage outputs are written to disk under `/.agentic-sdlc/`. Antigravity can use standard file editing tools (`write_to_file`, `replace_file_content`) to save these items. For larger analysis, write artifacts like implementation plans directly to the brain's artifact directory, but still maintain the local `.agentic-sdlc` stubs as the codebase's permanent record.
+All stage outputs are written to disk under `docs/sdlc/`. Antigravity can use standard file editing tools (`write_to_file`, `replace_file_content`) to save these items. For larger analysis, write artifacts like implementation plans directly to the brain's artifact directory, but still maintain the local `.agentic-sdlc` stubs as the codebase's permanent record.
 
 ### Hitl Checkpoints
 

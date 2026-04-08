@@ -1,6 +1,7 @@
 ---
 name: writing-skills
 description: Use when creating a new skill, editing an existing skill, or verifying that a skill works before adding it to the skills library.
+version: 1.0.0
 ---
 
 Creating skills IS test-driven development applied to process documentation. Write a test first (a pressure scenario). Watch it fail (observe what agents do without the skill). Write the skill. Watch tests pass (agents comply). Refactor (close loopholes).
@@ -27,6 +28,7 @@ Don't create a skill for:
 ---
 name: skill-name-with-hyphens
 description: Use when [specific triggering conditions and symptoms — NOT a workflow summary]
+version: 1.0.0
 ---
 
 [One-sentence core principle or what this skill achieves]
@@ -60,9 +62,11 @@ description: Use when [specific triggering conditions and symptoms — NOT a wor
 ```yaml
 # ❌ BAD — summarizes workflow
 description: Use when writing plans — breaks into tasks with file paths, exact code, and test steps
+version: 1.0.0
 
 # ✅ GOOD — triggering conditions only
 description: Use when you have a spec or requirements for a multi-step task, before touching code
+version: 1.0.0
 ```
 
 ## Description Quality Checklist

@@ -1,6 +1,7 @@
 ---
 name: design-system
 description: Use when establishing visual and interaction language for a project that has UI — before any frontend code is written and before technical architecture locks in visual decisions.
+version: 1.0.0
 ---
 
 Define the visual and interaction language before any technical decisions lock it in. Stages 2 and 3 (design-system and tech-architecture) may run in either order depending on whether UI is the primary driver.
@@ -15,11 +16,11 @@ Do NOT write any frontend code or select UI frameworks until design tokens, comp
 - Team needs a shared visual language before implementation
 - Existing design system needs extending for new components
 
-**Skip this stage** only if: the project is purely backend/API with no UI whatsoever. Document the skip decision in `/.agentic-sdlc/design-system.md` with a one-line rationale.
+**Skip this stage** only if: the project is purely backend/API with no UI whatsoever. Document the skip decision in `docs/product/design-system.md` with a one-line rationale.
 
 ## Checklist
 
-1. **Read `/.agentic-sdlc/brd.md`** — understand the user personas and functional requirements
+1. **Read `docs/product/features/brd.md`** — understand the user personas and functional requirements
 2. **Ask design context questions** (one at a time):
    - Is there an existing brand or design system to inherit from?
    - What devices and breakpoints must be supported?
@@ -29,15 +30,15 @@ Do NOT write any frontend code or select UI frameworks until design tokens, comp
 3. **Reference [component.gallery](https://component.gallery)** for component patterns relevant to the domain
 4. **Define design tokens** — color, typography, spacing, border radius, shadows, motion
 5. **Produce component inventory** — every UI component required, with state variants
-6. **Write `/.agentic-sdlc/accessibility.md`** — WCAG 2.2 AA requirements
-7. **Write `/.agentic-sdlc/design-system.md`** — using the format below
+6. **Write `docs/product/accessibility.md`** — WCAG 2.2 AA requirements
+7. **Write `docs/product/design-system.md`** — using the format below
 8. **Self-review** — check for missing components, incomplete token definitions
 9. **Present to user** — get approval section by section
 10. **Gate evaluation** — read `skills/stage-gates/SKILL.md`
 
 ## Design Tokens Format
 
-In `/.agentic-sdlc/design-system.md`:
+In `docs/product/design-system.md`:
 
 ```markdown
 ## Color palette
@@ -80,7 +81,7 @@ In `/.agentic-sdlc/design-system.md`:
 | ...   | ... | ... |
 ```
 
-## Accessibility Requirements (`/.agentic-sdlc/accessibility.md`)
+## Accessibility Requirements (`docs/product/accessibility.md`)
 
 ```markdown
 # Accessibility requirements
@@ -114,7 +115,7 @@ Respect `prefers-reduced-motion` — all animations must have a static fallback
 [ ] Accessibility requirements documented (WCAG 2.2 AA target confirmed)
 [ ] Responsive breakpoints defined and documented
 [ ] Dark mode decision made (required or explicitly out of scope)
-[ ] Design-system.md and accessibility.md written to /.agentic-sdlc/
+[ ] Design-system.md and accessibility.md written to docs/sdlc/
 [ ] User has reviewed and approved
 ```
 

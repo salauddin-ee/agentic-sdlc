@@ -21,8 +21,8 @@ inception → [design-system] → tech-architecture → implementation-planning
 
 What happens:
 - Agent asks clarifying questions (one at a time) to understand requirements
-- Domain knowledge documented in `/.agentic-sdlc/domain.md`
-- Business requirements documented in `/.agentic-sdlc/brd.md`
+- Domain knowledge documented in `docs/architecture/domain-model.md`
+- Business requirements documented in `docs/product/features/brd.md`
 - User reviews and approves the BRD before proceeding
 
 Gate (must pass):
@@ -42,7 +42,7 @@ What happens:
 - Design tokens defined (color, typography, spacing, motion, breakpoints)
 - Component inventory produced
 - Accessibility requirements documented (WCAG 2.2 AA)
-- Output: `/.agentic-sdlc/design-system.md`, `/.agentic-sdlc/accessibility.md`
+- Output: `docs/product/design-system.md`, `docs/product/accessibility.md`
 
 Skip if: purely backend/API project with no user-facing UI.
 
@@ -58,7 +58,7 @@ What happens:
 - C4 Level 1 + Level 2 diagrams produced
 - Key sequence diagrams for critical flows
 - Coding constitution authored (`skills/coding-constitution/SKILL.md`)
-- Output: `/.agentic-sdlc/tech-architecture.md`, `/.agentic-sdlc/adr/`, `/.agentic-sdlc/coding-constitution.md`
+- Output: `docs/architecture/tech-architecture.md`, `docs/architecture/adrs/`, `docs/architecture/coding-standards.md`
 
 Gate: ADRs written, diagrams present, directory structure defined, security approach documented.
 
@@ -73,7 +73,7 @@ What happens:
 - Interface contracts locked between all modules
 - Risk log populated
 - Definition of done agreed
-- Output: `/.agentic-sdlc/implementation-plan.md`, `/.agentic-sdlc/interface-contracts.md`
+- Output: `docs/sdlc/epics/implementation-plan.md`, `docs/architecture/data-domain.md`
 
 ---
 
@@ -86,7 +86,7 @@ What happens:
 - Each milestone decomposed into stories with Given/When/Then acceptance criteria
 - Dependency DAG built
 - Parallel tracks defined with file ownership rules
-- Output: `/.agentic-sdlc/task-graph.md`
+- Output: `docs/sdlc/epics/task-graph.md`
 
 ---
 
@@ -125,7 +125,7 @@ What happens:
 - Test pyramid targets verified
 - HITL test cases sent to human
 - Performance targets verified against NFRs
-- Output: `/.agentic-sdlc/test-plan.md`
+- Output: `docs/sdlc/test-plans/test-plan.md`
 
 ---
 
@@ -151,4 +151,4 @@ What happens:
 - Requirements fidelity table completed
 - Lessons learned documented
 - Skills library updates proposed
-- Output: `/.agentic-sdlc/retrospective.md`
+- Output: `docs/sdlc/retrospectives/retrospective.md`

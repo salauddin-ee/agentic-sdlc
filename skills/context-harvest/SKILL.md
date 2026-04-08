@@ -1,6 +1,7 @@
 ---
 name: context-harvest
 description: Use when starting work on an existing codebase you are unfamiliar with — before proposing any change, writing any code, or making any technical recommendation.
+version: 1.0.0
 ---
 
 Build accurate understanding of the existing system before proposing any change. Assumptions about unfamiliar code cause regressions. Evidence first, proposals second.
@@ -17,7 +18,7 @@ Do NOT propose any changes, write any code, or invoke any implementation skill u
 4. **Identify existing patterns**: directory structure, naming conventions, error handling style, logging format
 5. **Identify known tech debt**: TODO comments, suppressed lint warnings, flagged issues, known fragile areas
 6. **Identify integration points**: external services, downstream consumers, event streams, shared databases
-7. **Write `/.agentic-sdlc/existing-system.md`** — using format below
+7. **Write `docs/architecture/existing-system.md`** — using format below
 8. **Gate evaluation** — read `skills/stage-gates/SKILL.md`
 9. **Transition** — invoke `brownfield-brainstorm` skill
 
@@ -60,7 +61,7 @@ Read representative files from key directories. Identify:
 
 ## existing-system.md Format
 
-`/.agentic-sdlc/existing-system.md`:
+`docs/architecture/existing-system.md`:
 
 ```markdown
 # Existing system analysis
@@ -117,7 +118,7 @@ Read representative files from key directories. Identify:
 [ ] Integration points identified with direction and protocol
 [ ] Fragile / high-risk areas flagged
 [ ] Known tech debt inventoried (not to fix — just to be aware of)
-[ ] existing-system.md written to /.agentic-sdlc/
+[ ] existing-system.md written to docs/sdlc/
 ```
 
 ## Red Flags

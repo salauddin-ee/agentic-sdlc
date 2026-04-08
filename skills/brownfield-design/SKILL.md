@@ -1,6 +1,7 @@
 ---
 name: brownfield-design
 description: Use when a brownfield story introduces new UI components or changes visual contracts visible to end users — before any frontend code is written for that story.
+version: 1.0.0
 ---
 
 Resolve design for this story only. Inherit from the existing design system wherever possible. Introduce new design decisions only when the story genuinely requires them.
@@ -16,7 +17,7 @@ Resolve design for this story only. Inherit from the existing design system wher
 ## Principle: Inherit First, Extend Minimally
 
 Before proposing any new design:
-1. Read the existing design system (in `/.agentic-sdlc/design-system.md` or the project's design tokens)
+1. Read the existing design system (in `docs/product/design-system.md` or the project's design tokens)
 2. Check if any existing component can be reused or composed
 3. Only introduce new tokens or components if nothing existing fits
 
@@ -24,21 +25,21 @@ New tokens or components introduced by this story must conform to the existing s
 
 ## Checklist
 
-1. **Read `/.agentic-sdlc/existing-system.md`** — identify existing UI framework and component library
-2. **Read existing `/.agentic-sdlc/design-system.md`** (if present) or inspect existing components
+1. **Read `docs/architecture/existing-system.md`** — identify existing UI framework and component library
+2. **Read existing `docs/product/design-system.md`** (if present) or inspect existing components
 3. **Answer design questions** (one at a time):
    - Does this story introduce any new UI components? If so, can they be composed from existing ones?
    - Are there accessibility implications? (new form fields, modals, dynamic content, focus management)
    - Does this story change any existing visual contract visible to users?
    - Are there responsive or device-specific concerns?
 4. **Document delta** — only new tokens, only new components
-5. **Update `/.agentic-sdlc/design-system.md`** — append delta section (do not overwrite)
-6. **Update `/.agentic-sdlc/accessibility.md`** — append story-specific requirements
+5. **Update `docs/product/design-system.md`** — append delta section (do not overwrite)
+6. **Update `docs/product/accessibility.md`** — append story-specific requirements
 7. **Transition** — invoke `brownfield-tech-plan`
 
 ## Delta Design Format
 
-Append to `/.agentic-sdlc/design-system.md`:
+Append to `docs/product/design-system.md`:
 
 ```markdown
 ## Story delta — [STORY-ID]: [Title] — [Date]

@@ -1,6 +1,7 @@
 ---
 name: stage-gates
 description: Use when evaluating whether a stage's exit criteria are met before proceeding to the next stage. Mandatory at every stage boundary.
+version: 1.0.0
 ---
 
 Every stage ends with a self-evaluated gate. If the gate fails, loop within the stage. Do not proceed.
@@ -47,15 +48,15 @@ RESULT: PASS — proceed to design-system
 
 ## Gate Criteria Interpretation
 
-**"Written to `/.agentic-sdlc/`"** — File must physically exist at the specified path. Not drafted in conversation memory.
+**"Written to `docs/sdlc/`"** — File must physically exist at the specified path. Not drafted in conversation memory.
 
 **"User has reviewed and approved"** — HITL checkpoint completed (see `skills/hitl-protocol/SKILL.md`). Not assumed.
 
-**"No open questions"** — Every question in `/.agentic-sdlc/brd.md > Open questions` is resolved. Not merely noted.
+**"No open questions"** — Every question in `docs/product/features/brd.md > Open questions` is resolved. Not merely noted.
 
 **"All tests passing"** — Run the test suite. Zero failures. Not "probably passing."
 
-**"Interface contracts locked"** — The contracts in `/.agentic-sdlc/interface-contracts.md` are stable and approved. Not "mostly defined."
+**"Interface contracts locked"** — The contracts in `docs/architecture/data-domain.md` are stable and approved. Not "mostly defined."
 
 ## Common Gate Failures
 

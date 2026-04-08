@@ -72,38 +72,37 @@ Working on an existing codebase?
 
 ### Context Directory
 
-All stage outputs are written to `/.agentic-sdlc/` at the project root. Never rely on conversation memory alone — write artifacts to disk.
+All stage outputs are written to a distributed `docs/` structure at the project root. Never rely on conversation memory alone — write artifacts to disk.
 
 ```
-/.agentic-sdlc/
-  domain.md
-  brd.md
-  design-system.md
-  accessibility.md
-  tech-architecture.md
-  adr/
-  coding-constitution.md
-  implementation-plan.md
-  task-graph.md
-  interface-contracts.md
-  test-plan.md
-  critical-review.md
-  retrospective.md
+docs/
+  architecture/domain-model.md
+  product/features/brd.md
+  product/design-system.md
+  product/accessibility.md
+  architecture/tech-architecture.md
+  architecture/adrs/
+  architecture/coding-standards.md
+  sdlc/epics/implementation-plan.md
+  sdlc/epics/task-graph.md
+  architecture/data-domain.md
+  sdlc/test-plans/test-plan.md
+  sdlc/retrospectives/critical-review.md
+  sdlc/retrospectives/retrospective.md
 ```
 
 Run `scripts/init-context.sh` to create this structure in a new project.
 
 ---
 
-### Installation (Codex)
+### Installation
 
-Tell Codex:
+The Agentic SDLC framework is platform-agnostic. Documentation for supported agents (including installation and configuration) can be found in the `docs/platforms/` directory:
 
-```
-Fetch and follow instructions from https://raw.githubusercontent.com/user/agentic-sdlc/main/.codex/INSTALL.md
-```
-
-Or clone this repository into your project and point Codex at the `AGENTS.md` file.
+- [Codex](docs/platforms/codex.md)
+- [Claude Code](CLAUDE.md)
+- [Gemini CLI](GEMINI.md)
+- [Antigravity](ANTIGRAVITY.md)
 
 ### Red Flags — You Are Rationalizing
 
