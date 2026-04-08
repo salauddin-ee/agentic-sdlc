@@ -1,5 +1,21 @@
 # Agentic SDLC for Claude
 
+## Installation
+
+1. Clone the framework into your project:
+   ```bash
+   git submodule add https://github.com/salauddin-ee/agentic-sdlc.git .agentic-sdlc-framework
+   ```
+2. Copy the entry point and link skills:
+   ```bash
+   cp .agentic-sdlc-framework/CLAUDE.md ./CLAUDE.md
+   cp -r .agentic-sdlc-framework/skills ./skills
+   ```
+3. Initialize the context directory:
+   ```bash
+   bash .agentic-sdlc-framework/scripts/init-context.sh .
+   ```
+
 ## Initialization Instructions 
 
 **Read `skills/using-agentic-sdlc/SKILL.md` before taking action.**
@@ -23,7 +39,7 @@ Skills live in the `skills/` directory of this repository.
 
 ### Mandatory Context Directory
 
-All stage outputs are written to `docs/sdlc/` at the project root. Never rely on conversation memory alone — write artifacts to disk using your file editing tools.
+All stage outputs are written to `docs/` at the project root. Never rely on conversation memory alone — write artifacts to disk using your file editing tools.
 
 ### Hitl Checkpoints
 

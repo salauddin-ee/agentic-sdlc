@@ -86,18 +86,24 @@ If the agent starts writing code without going through these steps, it has not l
 ## The Context Directory
 
 ```
-docs/sdlc/
-  domain.md            — what the business domain is
-  brd.md               — requirements (filled in at inception)
-  design-system.md     — design tokens and components
-  tech-architecture.md — architecture decisions
-  adr/                 — one ADR per major decision
-  coding-constitution.md — project coding standards
-  implementation-plan.md — milestones and contracts
-  task-graph.md        — stories and dependency graph
-  test-plan.md         — test results
-  critical-review.md   — adversarial review findings
-  retrospective.md     — lessons learned
+docs/
+  architecture/
+    domain-model.md        — domain knowledge (inception)
+    tech-architecture.md   — architecture decisions
+    coding-standards.md    — coding standards
+    data-domain.md         — interface contracts
+    adrs/                  — one ADR per major decision
+  product/
+    features/brd.md        — business requirements (inception)
+    design-system.md       — design tokens and components
+    accessibility.md       — accessibility requirements
+  sdlc/
+    epics/
+      implementation-plan.md — milestones and contracts
+      task-graph.md          — stories and dependency graph
+    stories/               — individual story files
+    test-plans/            — test results
+    retrospectives/        — critical review and retrospective
 ```
 
 Never rely on conversation memory — every stage writes to these files.

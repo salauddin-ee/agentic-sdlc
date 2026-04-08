@@ -1,5 +1,21 @@
 # Agentic SDLC for Antigravity
 
+## Installation
+
+1. Clone the framework into your project:
+   ```bash
+   git submodule add https://github.com/salauddin-ee/agentic-sdlc.git .agentic-sdlc-framework
+   ```
+2. Copy the entry point and skills:
+   ```bash
+   cp .agentic-sdlc-framework/ANTIGRAVITY.md ./ANTIGRAVITY.md
+   cp -r .agentic-sdlc-framework/skills ./skills
+   ```
+3. Initialize the context directory:
+   ```bash
+   bash .agentic-sdlc-framework/scripts/init-context.sh .
+   ```
+
 ## Initialization Instructions 
 
 **Read `skills/using-agentic-sdlc/SKILL.md` before taking action.**
@@ -23,7 +39,7 @@ Skills live in the `skills/` directory.
 
 ### Mandatory Context Directory
 
-All stage outputs are written to disk under `docs/sdlc/`. Antigravity can use standard file editing tools (`write_to_file`, `replace_file_content`) to save these items. For larger analysis, write artifacts like implementation plans directly to the brain's artifact directory, but still maintain the local `.agentic-sdlc` stubs as the codebase's permanent record.
+All stage outputs are written to disk under `docs/`. Antigravity can use standard file editing tools (`write_to_file`, `replace_file_content`) to save these items. For larger analysis, write artifacts like implementation plans directly to the brain's artifact directory, but still maintain the local `.agentic-sdlc` stubs as the codebase's permanent record.
 
 ### Hitl Checkpoints
 

@@ -128,13 +128,13 @@ agentic-sdlc/
 │   └── writing-skills/
 ├── templates/                ← Document templates for each stage
 ├── scripts/
-│   └── init-context.sh       ← Creates docs/sdlc/ in your project
+│   └── init-context.sh       ← Creates docs/ context directory in your project
 └── docs/
     ├── getting-started.md
     ├── workflow-greenfield.md
     ├── workflow-brownfield.md
     ├── skill-reference.md
-    └── future-platforms.md   ← Claude Code, Cursor, Gemini CLI roadmap
+    └── future-platforms.md   ← Platform support details
 ```
 
 ### Context directory (in your project)

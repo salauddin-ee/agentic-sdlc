@@ -4,16 +4,19 @@ Amp natively supports lazy-loading "skills". This means Amp will automatically r
 
 ### Installation for Amp
 
-Amp looks for skills natively in the `.agents/skills/` directory.
-
-Since the Agentic SDLC framework keeps its skills in the `/skills/` directory by default, you can easily support Amp by creating a symlink in your project root:
-
-```bash
-mkdir -p .agents
-ln -s ../skills .agents/skills
-```
-
-By doing this, Amp will automatically discover all Agentic SDLC skills.
+1. Clone the framework into your project:
+   ```bash
+   git submodule add https://github.com/salauddin-ee/agentic-sdlc.git .agentic-sdlc-framework
+   ```
+2. Link skills to where Amp expects them:
+   ```bash
+   mkdir -p .agents
+   ln -s ../.agentic-sdlc-framework/skills .agents/skills
+   ```
+3. Initialize the context directory:
+   ```bash
+   bash .agentic-sdlc-framework/scripts/init-context.sh .
+   ```
 
 ### Starting a Session
 
