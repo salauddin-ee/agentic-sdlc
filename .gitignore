@@ -1,0 +1,22 @@
+# Build artifacts
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+
+# Framework specific
+test-install/
+test-asdlc/

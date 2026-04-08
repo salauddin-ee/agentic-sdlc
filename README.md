@@ -41,23 +41,27 @@ The agent loads `AGENTS.md` at session start, which instructs it to check for re
 ---
 
 ## Installation
+The framework is now installable via `pip`, or can be manually added as a submodule.
 
-The Agentic SDLC framework is platform-agnostic. Installation instructions for supported agents can be found in the `docs/platforms/` directory:
-
-- [Codex](docs/platforms/codex.md)
-- [Claude Code](CLAUDE.md)
-- [Gemini CLI](GEMINI.md)
-- [Antigravity](ANTIGRAVITY.md)
-- [Amp](AMP.md)
-
-### Initialize Context
-No matter which platform you use, initialize the context directory in your project root using the copy of the framework you installed:
+### Option A: Install via Pip (Recommended)
 ```bash
-# Framework kept in a subdirectory such as ./agentic-sdlc
-bash ./agentic-sdlc/scripts/init-context.sh .
+# From your project root, or globally
+pip install agentic-sdlc
+```
 
-# Framework scripts copied into the repo root
-bash ./scripts/init-context.sh .
+### Option B: Manual Git Submodule
+```bash
+git submodule add https://github.com/salauddin-ee/agentic-sdlc .agentic-sdlc-framework
+```
+
+### Initialize Project
+No matter how you install it, use the `asdlc` CLI to bootstrap your project:
+```bash
+# If installed via pip
+asdlc init
+
+# Or using the local source
+python3 -m agentic_sdlc.cli init
 ```
 
 ---
@@ -105,21 +109,6 @@ bash ./scripts/init-context.sh .
 
 ```
 agentic-sdlc/
-├── AGENTS.md                 ← Codex entry point (copy to your project)
-├── skills/                   ← All skills (flat namespace)
-│   ├── using-agentic-sdlc/
-│   ├── inception/
-│   ├── design-system/
-│   ├── tech-architecture/
-│   ├── implementation-planning/
-│   ├── story-breakdown/
-│   ├── implementation/
-│   ├── critical-review/
-│   ├── testing/
-│   ├── code-review/
-│   ├── retrospective/
-│   ├── context-harvest/
-│   ├── brownfield-brainstorm/
 │   ├── brownfield-design/
 │   ├── brownfield-tech-plan/
 │   ├── coding-constitution/

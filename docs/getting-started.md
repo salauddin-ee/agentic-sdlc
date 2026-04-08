@@ -20,29 +20,26 @@ Each stage has: explicit inputs, explicit outputs written to disk, a gate that m
 - A supported coding agent (Codex, Claude Code, Gemini CLI, Antigravity, or Amp)
 - Git (recommended)
 
-## Installation
+## Installation (Pip)
 
-See the installation guide for your platform:
-
-- [Codex](platforms/codex.md)
-- [Claude Code](../CLAUDE.md)
-- [Gemini CLI](../GEMINI.md)
-- [Antigravity](../ANTIGRAVITY.md)
-- [Amp](../AMP.md)
-
-## Initialize Context Directory
-
-Run the init script in your project root to create the `docs/` context directory:
+The easiest way to use Agentic SDLC is via pip:
 
 ```bash
-# If scripts were copied into your repo root
-bash scripts/init-context.sh .
-
-# If the framework is kept in a submodule or another directory
-bash .agentic-sdlc-framework/scripts/init-context.sh .
-# or
-bash /path/to/agentic-sdlc/scripts/init-context.sh .
+pip install agentic-sdlc
 ```
+
+## Initialize Your Project
+
+From within your project root, run:
+
+```bash
+asdlc init
+```
+
+This command will:
+1. Create the `docs/sdlc/` directory structure.
+2. Copy the necessary `skills/` and `templates/` into your project.
+3. Copy `AGENTS.md` and platform-specific instructions to your root.
 
 This creates stub files for every stage artifact. The agent will fill them in as it works through the lifecycle.
 

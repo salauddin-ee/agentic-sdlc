@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-sdlc"
+version = "1.0.0"
+description = "An agentic skills framework & software development lifecycle methodology for autonomous coding agents."
+readme = "README.md"
+authors = [
+    { name = "Salauddin", email = "salauddin.ee@gmail.com" }
+]
+license = { text = "MIT" }
+keywords = ["agentic", "sdlc", "ai", "coding-agent", "skills"]
+dependencies = [
+    "click>=8.1.0",
+    "pyyaml>=6.0.0"
+]
+
+[project.scripts]
+asdlc = "agentic_sdlc.cli:main"
+
+[tool.setuptools.package-data]
+"agentic_sdlc" = ["skills/**/*.md", "templates/*.md", "core/*.md"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

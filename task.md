@@ -43,9 +43,20 @@
 - [x] `templates/story-template.md`
 
 ## Phase 6: Scripts & Docs
-- [x] `scripts/init-context.sh`
+- [x] `scripts/init-context.sh` (Deprecated -> moved to CLI)
 - [x] `docs/getting-started.md`
 - [x] `docs/workflow-greenfield.md`
 - [x] `docs/workflow-brownfield.md`
 - [x] `docs/skill-reference.md`
 - [x] `docs/future-platforms.md`
+- [x] `scripts/serve-dashboard.py` (Deprecated -> moved to CLI)
+
+## Phase 7: Python Package & CLI
+- [x] `pyproject.toml` (Pip configuration)
+- [x] `src/agentic_sdlc/cli.py` (Unified asdlc tool)
+- [x] `src/agentic_sdlc/dashboard.py` (Refactored dashboard)
+- [x] `src/agentic_sdlc/skills/` (Relocated skills)
+- [x] `src/agentic_sdlc/templates/` (Relocated templates)
+- [x] `src/agentic_sdlc/core/` (Target project core instructions)
+- [x] `.gitignore`
+- [x] Removed `package.json` (deprecated Node.js manifest)
