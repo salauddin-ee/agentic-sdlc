@@ -17,43 +17,30 @@ Each stage has: explicit inputs, explicit outputs written to disk, a gate that m
 
 ## Prerequisites
 
-- A Codex-compatible coding agent
+- A supported coding agent (Codex, Claude Code, Gemini CLI, Antigravity, or Amp)
 - Git (recommended)
 
-## Installation (Codex)
+## Installation
 
-### Option A: Install into your project
+See the installation guide for your platform:
 
-Replace `<owner>` with the GitHub user or organization that hosts this repository.
-
-```bash
-# From your project root
-git submodule add https://github.com/<owner>/agentic-sdlc .agentic-sdlc-framework
-
-# Or just copy the files
-cp -r /path/to/agentic-sdlc/skills ./skills
-cp /path/to/agentic-sdlc/AGENTS.md ./AGENTS.md
-```
-
-Then tell Codex at the start of your session:
-```
-Read AGENTS.md and then read skills/using-agentic-sdlc/SKILL.md before doing anything else.
-```
-
-### Option B: Reference remotely
-
-Tell Codex:
-```
-Fetch and follow instructions from https://raw.githubusercontent.com/<owner>/agentic-sdlc/main/.codex/INSTALL.md
-```
+- [Codex](platforms/codex.md)
+- [Claude Code](../CLAUDE.md)
+- [Gemini CLI](../GEMINI.md)
+- [Antigravity](../ANTIGRAVITY.md)
+- [Amp](../AMP.md)
 
 ## Initialize Context Directory
 
-Run the init script in your project root to create the `docs/sdlc/` directory:
+Run the init script in your project root to create the `docs/` context directory:
 
 ```bash
-bash scripts/init-context.sh /path/to/your-project
-# or from within your project:
+# If scripts were copied into your repo root
+bash scripts/init-context.sh .
+
+# If the framework is kept in a submodule or another directory
+bash .agentic-sdlc-framework/scripts/init-context.sh .
+# or
 bash /path/to/agentic-sdlc/scripts/init-context.sh .
 ```
 
@@ -120,4 +107,4 @@ Never rely on conversation memory — every stage writes to these files.
 - [Workflow: Greenfield](workflow-greenfield.md)
 - [Workflow: Brownfield](workflow-brownfield.md)
 - [Skill Reference](skill-reference.md)
-- [Future Platform Support](future-platforms.md) — Claude Code, Cursor, Gemini CLI
+- [Platform Support](future-platforms.md)

@@ -8,11 +8,21 @@ Tell Codex to fetch and follow these instructions:
 Fetch and follow instructions from https://raw.githubusercontent.com/<owner>/agentic-sdlc/main/.codex/INSTALL.md
 ```
 
-Or, if you've cloned this repository into your project:
+Or install it locally in one of these layouts:
 
-1. Ensure `AGENTS.md` is at the root of your project (or this repo is cloned there)
-2. Codex will automatically load `AGENTS.md` at session start
-3. The agent will be instructed to read `skills/using-agentic-sdlc/SKILL.md` before any work begins
+```bash
+# Layout 1: keep the framework as a submodule
+git submodule add https://github.com/<owner>/agentic-sdlc.git .agentic-sdlc-framework
+cp .agentic-sdlc-framework/AGENTS.md ./AGENTS.md
+ln -s .agentic-sdlc-framework/skills ./skills
+
+# Layout 2: copy the framework files into your repo root
+cp /path/to/agentic-sdlc/AGENTS.md ./AGENTS.md
+cp -r /path/to/agentic-sdlc/skills ./skills
+cp -r /path/to/agentic-sdlc/scripts ./scripts
+```
+
+Codex should see `AGENTS.md` at the project root, and the `skills/` directory must also be reachable from the project root.
 
 ## Manual Setup
 
@@ -33,12 +43,16 @@ The agent should:
 
 ## Initialize Context Directory
 
-Run this script to create the `docs/sdlc/` context directory in your project:
+Run this script to create the `docs/` context directory in your project:
 
 ```bash
-bash scripts/init-context.sh /path/to/your/project
+# If scripts were copied into the repo root
+bash scripts/init-context.sh .
+
+# If the framework stays in a subdirectory
+bash .agentic-sdlc-framework/scripts/init-context.sh .
 ```
 
-## Future Platforms
+## Other Platforms
 
-Claude Code, Cursor, and Gemini CLI support is planned. See `docs/future-platforms.md`.
+Claude Code, Gemini CLI, Antigravity, and Amp are also supported. See `docs/future-platforms.md` for details.

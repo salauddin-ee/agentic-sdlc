@@ -103,6 +103,7 @@ The Agentic SDLC framework is platform-agnostic. Documentation for supported age
 - [Claude Code](CLAUDE.md)
 - [Gemini CLI](GEMINI.md)
 - [Antigravity](ANTIGRAVITY.md)
+- [Amp](AMP.md)
 
 ### Red Flags — You Are Rationalizing
 

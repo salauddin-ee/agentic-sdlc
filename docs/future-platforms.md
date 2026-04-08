@@ -1,13 +1,15 @@
-# Future Platform Support
+# Platform Support
 
-## Platform Support Roadmap
+## Supported Platforms
 
-1. **Codex**: `AGENTS.md` (MVP)
-2. **Claude Code**: `CLAUDE.md` and `.claude-plugin/plugin.json`
-3. **Gemini CLI**: `GEMINI.md`
-4. **Antigravity**: `ANTIGRAVITY.md`
-5. **Amp (ampcode.com)**: Amp supports native lazy-loading skills in `.agents/skills/`. Simply symlink the framework's `skills/` directory there (see `AMP.md`)
-6. **Cursor**: *(coming soon)*
+| Platform | Entry Point | Status |
+|---|---|---|
+| Codex | `AGENTS.md` | ✅ Available |
+| Claude Code | `CLAUDE.md` | ✅ Available |
+| Gemini CLI | `GEMINI.md` | ✅ Available |
+| Antigravity | `ANTIGRAVITY.md` | ✅ Available |
+| Amp | `AMP.md` | ✅ Available |
+| Cursor | `.cursor-plugin/plugin.json` | 🗺️ Planned |
 
 
 ---
@@ -67,4 +69,4 @@ When adding a new platform:
 
 ---
 
-*See README.md for current installation instructions (Codex MVP).*
+*See [README.md](../README.md) for full installation instructions.*

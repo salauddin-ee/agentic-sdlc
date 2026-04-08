@@ -51,9 +51,13 @@ The Agentic SDLC framework is platform-agnostic. Installation instructions for s
 - [Amp](AMP.md)
 
 ### Initialize Context
-No matter which platform you use, initialize the context directory in your project root:
+No matter which platform you use, initialize the context directory in your project root using the copy of the framework you installed:
 ```bash
-./agentic-sdlc/scripts/init-context.sh .
+# Framework kept in a subdirectory such as ./agentic-sdlc
+bash ./agentic-sdlc/scripts/init-context.sh .
+
+# Framework scripts copied into the repo root
+bash ./scripts/init-context.sh .
 ```
 
 ---
