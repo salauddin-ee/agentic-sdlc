@@ -3,6 +3,7 @@
 > **Project:** [Project name]
 > **Date:** YYYY-MM-DD
 > **Status:** Draft | Approved
+> **Version:** 0.1.0
 
 ## Objective
 

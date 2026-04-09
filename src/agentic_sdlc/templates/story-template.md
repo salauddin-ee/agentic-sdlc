@@ -13,15 +13,23 @@ priority: medium
 blocked_reason: ""
 ---
 
-# STORY-NNN: [Title]
+# Story: [Name]
+
+> **Story ID:** [S-NNN]
+> **Date:** YYYY-MM-DD
+> **Status:** Draft | In Progress | Approved
+> **Version:** 0.1.0
+
+## Description
+
+[User story format: As a... I want to... so that...]
 
 ## Acceptance Criteria
 
-- Given [the user/system is in a specific state]
-- When [a specific action is taken]
-- Then [the expected outcome occurs]
+- [ ] [AC-1]
+- [ ] [AC-2]
 
-## Tasks
+## Implementation Notes
 
 - [ ] Create feature branch: `git checkout main && git pull origin main && git checkout -b feature/STORY-NNN-short-description`
 - [ ] Write failing test(s) — confirm RED
@@ -32,14 +40,5 @@ blocked_reason: ""
 - [ ] Commit story: `git add . && git commit -m "{type}(STORY-NNN): {story title}"`
 - [ ] After code-review PASS: squash merge to main, delete feature branch
 
-## Files Owned
-
-`src/path/to/file.ts`, `src/path/to/file.test.ts`
-
-## Merge Strategy
-
-Feature branch `feature/STORY-NNN-short-description`, squash merge to main
-
-## HITL Before Starting
-
-No / Yes — [reason if Yes]
+---
+*Written by: agentic-sdlc story-breakdown skill*

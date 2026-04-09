@@ -31,7 +31,8 @@ Complete in order:
 6. **Self-review the BRD** — check for placeholders, contradictions, missing metrics
 7. **Present BRD to user** — ask for explicit approval before proceeding
 8. **HITL checkpoint** — required before moving to Stage 2 (read `skills/hitl-protocol/SKILL.md`)
-9. **Transition** — invoke `design-system` or `tech-architecture` skill (ask user which order)
+9. **Update Artifact Status** — Once approved, update `docs/product/features/brd.md` status to `Approved`.
+10. **Transition** — invoke `design-system` or `tech-architecture` skill (ask user which order)
 
 ## Clarifying Questions Protocol
 
@@ -46,6 +47,9 @@ Write to `docs/product/features/brd.md`:
 
 ```markdown
 # Business Requirements Document
+
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
 
 ## Objective
 [One paragraph. What problem does this solve and for whom?]

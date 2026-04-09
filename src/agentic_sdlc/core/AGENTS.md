@@ -91,7 +91,7 @@ docs/
   sdlc/retrospectives/retrospective.md
 ```
 
-Run `asdlc init` to create this structure in a new project.
+Run `asdlc init` to create this structure in a new project. Every primary artifact must be marked `Status: Approved` to pass its stage gate.
 
 ---
 

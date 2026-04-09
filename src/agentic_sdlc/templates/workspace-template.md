@@ -27,6 +27,25 @@ git_merge_status: pending
 > Log token estimates after each stage. Update `status` as you progress.
 > Delete this file only AFTER the story is squash merged to main (see `git-discipline` skill). Do NOT delete before code-review.
 
+## Context
+
+> **Task:** [Reason for workspace]
+> **Date:** YYYY-MM-DD
+> **Status:** Active | Archived
+> **Version:** 0.1.0
+
+## Active Context
+
+[Current focused work area]
+
+## Relevant Files
+
+- [File 1]
+
+## Key Constraints
+
+- [Constraint 1]
+
 ## Acceptance Criteria
 _(Copy from `docs/sdlc/stories/STORY-000.md`)_
 
@@ -47,3 +66,6 @@ _(Copy from `docs/sdlc/stories/STORY-000.md`)_
 
 ## Notes / Blockers
 _(Use this section for real-time notes during implementation. Record blocker details here and update `blocked_reason` in YAML.)_
+
+---
+*Written by: agentic-sdlc implementation skill*

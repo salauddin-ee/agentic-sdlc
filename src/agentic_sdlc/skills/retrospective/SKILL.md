@@ -28,6 +28,9 @@ Close the loop. Account for what happened, extract reusable knowledge into the s
 ```markdown
 # Retrospective — [Project name] — [Date]
 
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
+
 ## Execution summary
 - Stages with HITL interventions: [list stage + reason]
 - Rollbacks triggered: [list with architectural decision that was wrong]

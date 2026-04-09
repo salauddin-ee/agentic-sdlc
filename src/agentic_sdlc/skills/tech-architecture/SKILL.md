@@ -34,7 +34,8 @@ Each decision gets its own file: `docs/architecture/adrs/ADR-NNN-<title>.md`
 # ADR-NNN: [Decision title]
 
 **Date:** YYYY-MM-DD
-**Status:** Proposed | Accepted | Superseded
+**Status:** Proposed | Accepted | Superseded by ADR-NNN
+**Version:** 0.1.0
 
 ## Context
 [Why does this decision need to be made?]
@@ -67,6 +68,9 @@ Each decision gets its own file: `docs/architecture/adrs/ADR-NNN-<title>.md`
 
 ```markdown
 # Technical Architecture
+
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
 
 ## System context (C4 Level 1)
 [Mermaid diagram — actors, system boundary, external integrations]

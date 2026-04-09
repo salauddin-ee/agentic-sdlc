@@ -2,6 +2,7 @@
 
 **Date:** YYYY-MM-DD
 **Status:** Proposed | Accepted | Superseded by ADR-NNN
+**Version:** 0.1.0
 
 ---
 
