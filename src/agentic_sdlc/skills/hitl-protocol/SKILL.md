@@ -18,6 +18,30 @@ Human approval is **always** required at these points — no exceptions:
 6. **When an interface contract changes** — mid-implementation contract changes affect consumers
 7. **When a Stage 3 architectural decision is superseded** — rollback rule triggered
 
+## Git Protocol for HITL
+
+**Before requesting HITL** — always commit current state first so the human can review a clean diff:
+```
+git add .
+git commit -m "wip({stage-name}): pre-HITL checkpoint — {brief context}"
+```
+
+**After HITL approval (for stage artifact branches)** — HITL approval = merge:
+```
+git checkout main
+git merge --squash docs/{stage-name}
+git commit -m "docs({stage-name}): approved — merge to main"
+git branch -d docs/{stage-name}
+```
+
+**After HITL decision recorded in artifact:**
+```
+git add docs/
+git commit -m "docs({stage-name}): HITL decision recorded — {option chosen}"
+```
+
+> See `git-discipline` skill for full conventions.
+
 ## HITL Prompt Format
 
 Use this exact format when requesting human input:
@@ -74,8 +98,10 @@ Default if no response: Wait for explicit approval
 ## After Receiving HITL Response
 
 1. Record the human's decision in the stage artifact (e.g., `docs/product/features/brd.md` Open questions section)
-2. If the decision changes context (e.g., new constraint, approved direction): update relevant artifacts
-3. Continue with the approved option
+2. Commit the decision: `git add docs/ && git commit -m "docs({stage}): HITL decision recorded — {option chosen}"`
+3. If the decision changes context (e.g., new constraint, approved direction): update relevant artifacts and commit
+4. If approved — merge the `docs/{stage-name}` branch to main (see Git Protocol above)
+5. Continue with the approved option
 
 ## When the Agent Must WAIT
 

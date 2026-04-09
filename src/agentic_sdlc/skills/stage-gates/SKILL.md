@@ -20,9 +20,18 @@ There is no partial pass. Every criterion must be checked. Unchecked items are f
 1. Read the gate checklist for the current stage from its SKILL.md
 2. For each criterion: evaluate against actual output, not intent
 3. **MANDATORY**: Ensure the primary artifact has `Status: Approved` in its frontmatter.
-4. For each criterion: Mark `[x]` (pass) or `[ ]` (fail — with reason)
-5. If all pass: proceed to next stage
+4. Mark each criterion `[x]` (pass) or `[ ]` (fail — with reason)
+5. If all pass:
+   - Commit all stage artifacts to the current `docs/{stage-name}` branch
+     (this branch must have been created at the start of this stage — see `git-discipline` skill, Stage Artifact Protocol, step 1):
+     ```
+     git add docs/
+     git commit -m "docs({stage-name}): stage complete — gate passed"
+     ```
+   - Then proceed to HITL (if required) or the next stage
 6. If any fail: do not proceed. Return to the stage, fix the gap, re-evaluate the full gate
+
+> **Important:** If no `docs/{stage-name}` branch exists, create it now before committing: `git checkout -b docs/{stage-name}`. See `git-discipline` skill for full branch and commit conventions.
 
 ## Gate Format
 

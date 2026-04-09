@@ -93,7 +93,7 @@ A coding constitution is **binding**, not aspirational. If it's in the constitut
 4. Run the test — confirm it passes
 5. Run the full suite — confirm no regression
 6. Refactor — improve code quality without changing behavior
-7. Commit
+7. Commit per `git-discipline` skill (one commit per story on feature branch)
 
 ## Dependency management
 - Add dependencies: justify the addition, check alternatives, verify license
@@ -101,9 +101,10 @@ A coding constitution is **binding**, not aspirational. If it's in the constitut
 - Update policy: [e.g., monthly patch updates, quarterly minor updates]
 
 ## Git conventions
-- Commit format: [e.g., Conventional Commits: feat/fix/chore/docs/test/refactor]
-- Branch naming: [e.g., feature/STORY-ID-short-description]
-- Merge strategy: [e.g., squash merge to main]
+See `skills/git-discipline/SKILL.md` for full conventions. Project-specific overrides:
+- Commit format: Conventional Commits (feat/fix/chore/docs/test/refactor)
+- Branch naming: feature/STORY-{ID}-{short-desc} (stories), docs/{stage-name} (stages)
+- Merge strategy: squash merge to main
 - PR requirement: all PRs require passing CI + review (human or agent)
 ```
 
