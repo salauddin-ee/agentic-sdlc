@@ -24,19 +24,28 @@ For each active ticket:
 ```
 1. Pick a Story: Read `docs/sdlc/stories/` and pick a story that has `status: TO_DO` and whose dependencies are met (check `docs/sdlc/epics/`).
 2. Initialize Workspace: Copy `templates/workspace-template.md` to `docs/sdlc/workspaces/workspace-STORY-[ID].md`. Fill in YAML: `story_id`, `agent`, `model`, `branch`, `started_at`.
-3. Set State: Update `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: IN_PROGRESS`.
-4. Read any relevant skill (language/platform-specific if available)
-5. Write failing test(s) — unit first, integration if needed
-6. Run tests — confirm RED (test fails for the right reason)
-7. Write minimal implementation to pass tests — NOTHING more
-8. Run tests — confirm GREEN (test passes, no regressions)
-9. Refactor — apply docs/architecture/coding-standards.md
-10. Run full test suite — confirm no regression across all tests
-11. Log token usage in workspace YAML: `tokens_input`, `tokens_output`, `stage_tokens`, `elapsed_minutes`, `hitl_count`.
-12. Mark `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: DONE`.
-13. Cleanup Workspace: Delete your `workspace-STORY-[ID].md`.
+3. Create feature branch (invoke `git-discipline` skill):
+   git checkout main && git pull origin main
+   git checkout -b feature/STORY-[ID]-[short-desc]
+4. Set State: Update `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: IN_PROGRESS`.
+5. Read any relevant skill (language/platform-specific if available)
+6. Write failing test(s) — unit first, integration if needed
+7. Run tests — confirm RED (test fails for the right reason)
+8. Write minimal implementation to pass tests — NOTHING more
+9. Run tests — confirm GREEN (test passes, no regressions)
+10. Refactor — apply docs/architecture/coding-standards.md
+11. Run full test suite — confirm no regression across all tests
+12. Log token usage in workspace YAML: `tokens_input`, `tokens_output`, `stage_tokens`, `elapsed_minutes`, `hitl_count`.
+13. Mark `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: DONE`.
 14. If any interface contract changed: update docs/architecture/data-domain.md → triggers HITL
+15. Commit the completed story (ONE commit per story):
+    git add .
+    git commit -m "{type}(STORY-[ID]): [story title]"
+16. → Invoke critical-review and code-review (see Transition section below).
+17. Cleanup Workspace: Delete your `workspace-STORY-[ID].md` AFTER squash merge to main.
 ```
+
+> **Git note:** Keep all intermediate work on the feature branch. The single story commit captures the finished, reviewed state. Do NOT delete the workspace until after the story is merged — you may need it if reviews find issues. Invoke `git-discipline` skill if in doubt about any git operation.
 
 ## Test Pyramid Targets
 
@@ -148,4 +157,13 @@ stage_tokens:
 ## Transition
 
 After all tasks in a story are complete:
-→ Invoke `critical-review` skill before committing the story to the main branch.
+1. → Invoke `critical-review` skill.
+2. → Invoke `code-review` skill.
+3. → After code-review PASS, squash merge to main (invoke `git-discipline` skill):
+   ```
+   git checkout main && git pull origin main
+   git merge --squash feature/STORY-[ID]-[short-desc]
+   git commit -m "feat(STORY-[ID]): [story title]"
+   git branch -d feature/STORY-[ID]-[short-desc]
+   git push origin main
+   ```

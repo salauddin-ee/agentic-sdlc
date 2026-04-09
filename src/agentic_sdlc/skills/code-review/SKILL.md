@@ -89,6 +89,27 @@ All five sections must be PASS before merging. If any section is FAIL:
 2. Re-run the relevant section(s) of this review
 3. Do not re-run sections that already passed unless the fix might have affected them
 
+## Merge Protocol (after APPROVED verdict)
+
+Invoke `git-discipline` skill, then run:
+
+```bash
+# 1. Ensure story is committed on feature branch
+git status  # must show clean working tree
+
+# 2. Squash merge to main
+git checkout main
+git pull origin main
+git merge --squash feature/STORY-[ID]-[short-desc]
+git commit -m "feat(STORY-[ID]): [story title]"
+
+# 3. Push and clean up
+git push origin main
+git branch -d feature/STORY-[ID]-[short-desc]
+```
+
+> One squash commit per story on `main`. Feature branch is deleted after successful merge.
+
 ## Red Flags
 
 | Thought | Reality |

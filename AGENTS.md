@@ -66,6 +66,7 @@ Working on an existing codebase?
 | `coding-constitution` | Establishing or reviewing coding standards |
 | `stage-gates` | Evaluating whether a stage's exit criteria are met |
 | `hitl-protocol` | Irreversible action or ambiguous decision needing human input |
+| `git-discipline` | Any git operation — branch creation, commits, merges |
 | `writing-skills` | Creating new skills or editing existing ones |
 
 ---

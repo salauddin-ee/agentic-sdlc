@@ -39,3 +39,7 @@ All stage outputs are written to `docs/` at the project root. Never rely on conv
 ### Hitl Checkpoints
 
 If a skill specifies a `<HARD-GATE>` or a requirement for a HITL checkpoint, stop and explicitly ask the user for approval before modifying anything.
+
+### Git Discipline
+
+Read `skills/git-discipline/SKILL.md` before any git operation (branch creation, committing, merging). All stories run on feature branches; all stage artifacts run on `docs/{stage}` branches. Nothing goes directly to `main`.

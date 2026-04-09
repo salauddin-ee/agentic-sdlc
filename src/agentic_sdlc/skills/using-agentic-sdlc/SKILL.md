@@ -69,11 +69,12 @@ Is this a brand-new project with no existing codebase?
 | `coding-constitution` | Establishing or reviewing coding standards |
 | `stage-gates` | Evaluating whether a stage's exit criteria are met |
 | `hitl-protocol` | Irreversible action or ambiguous decision needing human input |
+| `git-discipline` | Any git operation — branch creation, commits, merges |
 | `writing-skills` | Creating new skills or editing existing ones |
 
 ## Skill Types
 
-**Rigid** (implementation, stage-gates, hitl-protocol): Follow exactly. No adaptation.
+**Rigid** (implementation, stage-gates, hitl-protocol, git-discipline): Follow exactly. No adaptation.
 
 **Flexible** (inception, design-system): Adapt the process to the scale of the project. A one-page app needs a shorter design than an enterprise platform — but both still go through the stage.
 

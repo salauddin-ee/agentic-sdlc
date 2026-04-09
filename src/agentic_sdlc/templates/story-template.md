@@ -7,7 +7,7 @@ milestone: M1
 track: A
 depends_on: []
 owner: ""
-branch: ""
+branch: feature/STORY-NNN-short-description
 priority: medium
 # priority: critical | high | medium | low
 blocked_reason: ""
@@ -23,11 +23,14 @@ blocked_reason: ""
 
 ## Tasks
 
+- [ ] Create feature branch: `git checkout main && git pull origin main && git checkout -b feature/STORY-NNN-short-description`
 - [ ] Write failing test(s) — confirm RED
 - [ ] Implement minimal code to make tests pass — confirm GREEN
 - [ ] Refactor — apply `docs/architecture/coding-standards.md`
 - [ ] Run full test suite — confirm no regression
 - [ ] Update `docs/architecture/data-domain.md` if any contract changed (triggers HITL)
+- [ ] Commit story: `git add . && git commit -m "{type}(STORY-NNN): {story title}"`
+- [ ] After code-review PASS: squash merge to main, delete feature branch
 
 ## Files Owned
 
