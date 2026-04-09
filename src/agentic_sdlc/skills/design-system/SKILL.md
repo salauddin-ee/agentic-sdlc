@@ -41,6 +41,11 @@ Do NOT write any frontend code or select UI frameworks until design tokens, comp
 In `docs/product/design-system.md`:
 
 ```markdown
+# Design system
+
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
+
 ## Color palette
 | Token | Value | Usage |
 |---|---|---|
@@ -85,6 +90,9 @@ In `docs/product/design-system.md`:
 
 ```markdown
 # Accessibility requirements
+
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
 
 ## Target
 WCAG 2.2 AA minimum

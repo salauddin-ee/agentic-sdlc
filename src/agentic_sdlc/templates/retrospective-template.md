@@ -1,72 +1,29 @@
-# Retrospective
+# Retrospective: [Name]
 
-> **Project:** [Project name]
-> **Type:** Full project / Story cycle
+> **Project/Epic:** [Name]
 > **Date:** YYYY-MM-DD
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
 
-## Execution summary
+## Highlights (What went well)
 
-| Item | Details |
-|---|---|
-| Stories completed | [N] |
-| HITL interventions | [N] — [list stages and reasons] |
-| Architectural rollbacks | [N] — [which ADRs were superseded] |
-| P0/P1 findings in critical-review | [N] (all fixed before release) |
-| Test coverage (final) | Unit [N]% / Integration [N]% / E2E [N]% |
+- [Item 1]
 
-## Requirements fidelity
+## Lowlights (What didn't go well)
 
-| FR ID | Implemented | Verified | Notes |
-|---|---|---|---|
-| FR-001 | ✅ | ✅ | |
-| FR-002 | ✅ | ✅ | |
-| FR-003 | ⚠️ | ✅ | Scoped down — [explain deviation] |
+- [Item 1]
 
-## What the plan got right
+## Analysis
 
-*Assumptions that held, decisions that worked well, process steps that added clear value:*
+- [Why did things happen this way?]
 
--
--
--
+## Technical debt incurred
 
-## What the plan got wrong
+- [Item 1]
 
-*Assumptions that failed, decisions requiring rollback, estimates that were off:*
+## Action items
 
--
--
--
-
-## Surprises
-
-*Anything not anticipated that materially affected the run:*
-
--
-
-## Tech debt logged (P2 findings)
-
-*Not fixed in this cycle — carry forward:*
-
-| Item | Location | Priority | Planned resolution |
-|---|---|---|---|
-| [Description] | `src/path/to/file.ts` | P2 | [Next sprint / story] |
-
-## Skills library updates
-
-*New patterns worth capturing as skills, or existing skills to improve:*
-
-| Type | Skill name / area | Proposed change |
-|---|---|---|
-| New skill | [name] | [What problem it solves] |
-| Update existing | [name] | [What to improve — close which loophole] |
-
-## Process improvements
-
-*Changes to the agentic-sdlc framework that would make the next run better:*
-
--
--
+- [ ] [Who] [What] [By when]
 
 ---
 *Written by: agentic-sdlc retrospective skill*

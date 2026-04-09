@@ -23,6 +23,9 @@ A coding constitution is **binding**, not aspirational. If it's in the constitut
 ```markdown
 # Coding constitution — [Project name]
 
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
+
 ## Language and runtime
 - Language: [e.g., TypeScript 5.2, strict mode]
 - Runtime: [e.g., Node.js 20 LTS]

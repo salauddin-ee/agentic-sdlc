@@ -30,6 +30,9 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 ```markdown
 # Implementation plan
 
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
+
 ## Milestones
 | ID | Name | Description | Exit criteria | Depends on |
 |---|---|---|---|---|
@@ -69,6 +72,9 @@ Key boundaries:
 
 ```markdown
 # Interface contracts
+
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
 
 ## REST endpoints
 ### POST /api/users

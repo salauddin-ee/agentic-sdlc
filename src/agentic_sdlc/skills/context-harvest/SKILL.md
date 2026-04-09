@@ -66,6 +66,9 @@ Read representative files from key directories. Identify:
 ```markdown
 # Existing system analysis
 
+> **Status:** Draft | Approved
+> **Version:** 0.1.0
+
 ## Tech stack
 | Component | Technology | Version | Notes |
 |---|---|---|---|

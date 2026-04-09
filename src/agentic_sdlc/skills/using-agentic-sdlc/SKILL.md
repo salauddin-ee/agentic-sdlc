@@ -108,7 +108,7 @@ docs/sdlc/
   existing-system.md     ← context-harvest writes this (brownfield only)
 ```
 
-Run `scripts/init-context.sh` to create this structure in a new project.
+Run `asdlc init` to create this structure in a new project.
 
 ## Red Flags — You Are Rationalizing
 
@@ -123,3 +123,4 @@ Run `scripts/init-context.sh` to create this structure in a new project.
 | "I already know what to build" | Unexamined assumptions are where wasted work hides. Run inception. |
 | "We can skip architecture, it's a small project" | Small projects grow. ADRs take 10 minutes. Tech debt lasts forever. |
 | "I'll document later" | Later never comes. Write artifacts now. |
+| "The status doesn't matter" | Documents must be 'Approved' to pass gates. Update the status. |

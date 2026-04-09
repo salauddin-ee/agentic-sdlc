@@ -19,9 +19,10 @@ There is no partial pass. Every criterion must be checked. Unchecked items are f
 
 1. Read the gate checklist for the current stage from its SKILL.md
 2. For each criterion: evaluate against actual output, not intent
-3. Mark each criterion `[x]` (pass) or `[ ]` (fail — with reason)
-4. If all pass: proceed to next stage
-5. If any fail: do not proceed. Return to the stage, fix the gap, re-evaluate the full gate
+3. **MANDATORY**: Ensure the primary artifact has `Status: Approved` in its frontmatter.
+4. For each criterion: Mark `[x]` (pass) or `[ ]` (fail — with reason)
+5. If all pass: proceed to next stage
+6. If any fail: do not proceed. Return to the stage, fix the gap, re-evaluate the full gate
 
 ## Gate Format
 
