@@ -17,6 +17,11 @@ env/
 .idea/
 .DS_Store
 
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
 # Framework specific
 test-install/
 test-asdlc/
