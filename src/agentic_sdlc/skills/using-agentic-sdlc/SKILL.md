@@ -89,24 +89,24 @@ Is this a brand-new project with no existing codebase?
 
 ## Context Directory
 
-All stage outputs live in `docs/sdlc/` at the project root. Every stage reads and writes specific files. Never rely on conversation memory alone.
+All stage outputs are written to a distributed `docs/` structure at the project root. Every stage reads and writes specific files. Never rely on conversation memory alone.
 
-```
-docs/sdlc/
-  domain.md              ← inception writes this
-  brd.md                 ← inception writes this
-  design-system.md       ← design-system writes this
-  accessibility.md       ← design-system writes this
-  tech-architecture.md   ← tech-architecture writes this
-  adr/                   ← tech-architecture writes this
-  coding-standards.md ← tech-architecture writes this
-  implementation-plan.md ← implementation-planning writes this
-  task-graph.md          ← story-breakdown writes this
-  data-domain.md ← implementation maintains this
-  test-plan.md           ← testing writes this
-  critical-review.md     ← critical-review writes this
-  retrospective.md       ← retrospective writes this
-  existing-system.md     ← context-harvest writes this (brownfield only)
+```text
+docs/
+  architecture/domain-model.md           ← inception
+  product/features/brd.md                ← inception
+  product/design-system.md               ← design-system
+  product/accessibility.md               ← design-system
+  architecture/tech-architecture.md      ← tech-architecture
+  architecture/adrs/                     ← tech-architecture
+  architecture/coding-standards.md       ← tech-architecture
+  sdlc/epics/implementation-plan.md      ← implementation-planning
+  sdlc/epics/task-graph.md               ← story-breakdown
+  architecture/data-domain.md            ← implementation-planning
+  sdlc/test-plans/test-plan.md           ← testing
+  sdlc/retrospectives/critical-review.md ← critical-review
+  sdlc/retrospectives/retrospective.md   ← retrospective
+  architecture/existing-system.md        ← context-harvest (brownfield only)
 ```
 
 Run `asdlc init` to create this structure in a new project.

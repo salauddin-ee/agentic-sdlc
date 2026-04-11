@@ -111,9 +111,9 @@ Read `stage-gates` skill and evaluate:
 [ ] Container diagram present (C4 Level 2)
 [ ] At least 2 sequence diagrams for the most critical flows
 [ ] Directory structure defined and documented
-[ ] Coding constitution written (see invoke `coding-constitution` skill (read the skill file))
+[ ] Coding constitution written (invoke the `coding-constitution` skill)
 [ ] Security approach documented
-[ ] All artifacts written to docs/sdlc/
+[ ] All artifacts written to docs/architecture/ (and ADRs to docs/architecture/adrs/)
 [ ] User has reviewed and approved via HITL
 ```
 

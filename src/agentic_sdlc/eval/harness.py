@@ -190,7 +190,9 @@ def run(repo_root: Path, fixtures_root: Path, skill_filter: Optional[str] = None
     fixtures = load_fixtures(fixtures_root, skill_filter=skill_filter)
 
     for fixture in fixtures:
-        skill_path = repo_root / "src" / "agentic_sdlc" / "skills" / fixture.skill / "SKILL.md"
+        skill_path = repo_root / "skills" / fixture.skill / "SKILL.md"
+        if not skill_path.exists():
+            skill_path = repo_root / "src" / "agentic_sdlc" / "skills" / fixture.skill / "SKILL.md"
 
         if not skill_path.exists():
             report.results.append(ScenarioResult(

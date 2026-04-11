@@ -172,6 +172,12 @@ def _check_old_style_skill_paths(skill_name: str, path: Path, content: str, repo
     In the packaged CLI, skills live at src/agentic_sdlc/skills/.
     Within skill instructions, references should use the name only: invoke `<name>` skill.
     """
+    # using-agentic-sdlc is the meta-skill that documents the post-init
+    # skills/<name>/SKILL.md convention for end users — those references are
+    # intentional and correct, not stale repo-root paths.
+    if skill_name == "using-agentic-sdlc":
+        return []
+
     issues = []
     for match in OLD_SKILL_PATH_RE.finditer(content):
         full_ref = match.group(0)
