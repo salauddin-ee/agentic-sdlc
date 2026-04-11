@@ -40,6 +40,23 @@ The agent loads `AGENTS.md` at session start, which instructs it to check for re
 
 ---
 
+## Dashboard & Evals
+
+The framework includes a built-in dashboard to monitor project progress and validate skill health.
+
+```bash
+# Start the local dashboard
+asdlc serve .
+```
+
+![Evals Dashboard](docs/assets/evals-dashboard.png)
+
+The `asdlc` CLI also includes an eval framework to ensure skills don't drift and remain robust:
+- `asdlc validate-skills .` — runs strict static and consistency checks across all skills.
+- `asdlc eval-skills .` — runs rule-based robustness scenarios via fixtures.
+
+---
+
 ## Installation
 The framework is now installable via `pip`, or can be manually added as a submodule.
 
