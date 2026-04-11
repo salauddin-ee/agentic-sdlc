@@ -4,13 +4,13 @@ Use this workflow when building a **new project from scratch** with no existing 
 
 ## Workflow Overview
 
-```
-inception → [design-system] → tech-architecture → implementation-planning
-         → story-breakdown → implementation → critical-review
-         → testing → code-review → retrospective
+```text
+inception → [design-system] → [ui-mockup-gate] → tech-architecture
+         → implementation-planning → story-breakdown → implementation
+         → critical-review → testing → code-review → retrospective
 ```
 
-`design-system` is required if the project has a UI. It can run before or after `tech-architecture` depending on whether UI is the primary driver.
+`design-system` is required if the project has a UI. `ui-mockup-gate` is required for a redesign, new landing page, or major visual contract change. `tech-architecture` can still run before or after `design-system`, but `ui-mockup-gate` must happen after `design-system` and before implementation-planning begins.
 
 ---
 
@@ -45,6 +45,20 @@ What happens:
 - Output: `docs/product/design-system.md`, `docs/product/accessibility.md`
 
 Skip if: purely backend/API project with no user-facing UI.
+
+---
+
+## Stage 2a: UI Mockup Gate (if major UI change)
+
+**Skill:** `skills/ui-mockup-gate/SKILL.md`
+**HITL:** Required before Stage 4
+
+What happens:
+- Agent asks whether to create a mockup or import existing mockups
+- A reviewable artifact is produced as screenshots or a coded prototype
+- Visual approval is recorded in `docs/product/mockups.md`
+
+Skip if: the UI work is not a redesign, new landing page, or major visual contract change.
 
 ---
 
