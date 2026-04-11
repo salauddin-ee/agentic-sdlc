@@ -92,6 +92,7 @@ python3 -m agentic_sdlc.cli init
 | `using-agentic-sdlc` | Meta | Starting any session |
 | `inception` | 1 | New project with unclear requirements |
 | `design-system` | 2 | Establishing visual/interaction language |
+| `ui-mockup-gate` | 2a | User-facing redesign, new landing page, or major visual contract change |
 | `tech-architecture` | 3 | Making technology or architecture decisions |
 | `coding-constitution` | 3a | Establishing coding standards |
 | `implementation-planning` | 4 | Creating execution plan from approved architecture |
@@ -109,6 +110,7 @@ python3 -m agentic_sdlc.cli init
 | `context-harvest` | 0 | Starting on an unfamiliar existing codebase |
 | `brownfield-brainstorm` | 1 | Understanding business impact of a story |
 | `brownfield-design` | 2 | Story introduces new UI |
+| `ui-mockup-gate` | 2a | UI redesign or major visual contract change needs approval |
 | `brownfield-tech-plan` | 3 | Planning technical approach for a story |
 | *(Stages 4–10 same as greenfield)* | | |
 
@@ -129,6 +131,7 @@ agentic-sdlc/
 │   ├── brownfield-design/
 │   ├── brownfield-tech-plan/
 │   ├── coding-constitution/
+│   ├── ui-mockup-gate/
 │   ├── stage-gates/
 │   ├── hitl-protocol/
 │   └── writing-skills/
@@ -149,6 +152,7 @@ agentic-sdlc/
 docs/
   architecture/domain-model.md, product/features/brd.md  ← inception
   product/design-system.md, product/accessibility.md      ← design-system
+  product/mockups.md                                      ← ui-mockup-gate
   architecture/tech-architecture.md, architecture/adrs/   ← tech-architecture
   architecture/coding-standards.md                        ← coding-constitution
   sdlc/epics/implementation-plan.md, architecture/data-domain.md ← implementation-planning

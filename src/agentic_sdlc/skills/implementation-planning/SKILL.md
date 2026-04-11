@@ -12,7 +12,7 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 
 ## Checklist
 
-1. **Read inputs**: `docs/product/features/brd.md`, `docs/architecture/tech-architecture.md`, `docs/architecture/coding-standards.md`
+1. **Read inputs**: `docs/product/features/brd.md`, `docs/architecture/tech-architecture.md`, `docs/architecture/coding-standards.md`, `docs/product/mockups.md` (if present)
 2. **Define milestones** — logical groupings of work with clear exit criteria
 3. **Define interface contracts** — every module boundary documented before any code
 4. **Write risk log** — likelihood × impact for each identified risk

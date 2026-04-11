@@ -48,6 +48,7 @@ CLI_CREATED_STUBS: set[str] = {
     "docs/architecture/domain-model.md",
     "docs/product/features/brd.md",
     "docs/product/design-system.md",
+    "docs/product/mockups.md",
     "docs/product/personas.md",
     "docs/architecture/tech-architecture.md",
     "docs/architecture/coding-standards.md",
