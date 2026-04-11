@@ -239,7 +239,9 @@ def _rule_gate_section(skill_name: str, path: Path, content: str, repo_root: Pat
 
 def _rule_broken_skill_refs(skill_name: str, path: Path, content: str, repo_root: Path) -> list[ValidationIssue]:
     """Check that any referenced skill names actually exist as directories."""
-    skills_dir = repo_root / "src" / "agentic_sdlc" / "skills"
+    skills_dir = repo_root / "skills"
+    if not skills_dir.exists():
+        skills_dir = repo_root / "src" / "agentic_sdlc" / "skills"
     existing_skills = {d.name for d in skills_dir.iterdir() if d.is_dir()}
     issues = []
     for match in SKILL_REF_RE.finditer(content):
@@ -291,7 +293,9 @@ def validate(repo_root: Path) -> ValidationReport:
         ValidationReport with all issues found.
     """
     report = ValidationReport()
-    skills_dir = repo_root / "src" / "agentic_sdlc" / "skills"
+    skills_dir = repo_root / "skills"
+    if not skills_dir.exists():
+        skills_dir = repo_root / "src" / "agentic_sdlc" / "skills"
 
     if not skills_dir.exists():
         report.errors.append(ValidationIssue(

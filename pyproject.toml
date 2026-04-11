@@ -27,7 +27,7 @@ dev = [
 asdlc = "agentic_sdlc.cli:main"
 
 [tool.setuptools.package-data]
-"agentic_sdlc" = ["skills/**/*.md", "templates/*.md", "core/*.md"]
+"agentic_sdlc" = ["skills/**/*.md", "templates/*.md", "core/*.md", "fixtures/**/*.yaml"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -103,7 +103,9 @@ def collect_eval_data(project_root):
     val_report = skill_validator.validate(root)
 
     # Group validation issues by skill for per-skill cards
-    skills_dir = root / "src" / "agentic_sdlc" / "skills"
+    skills_dir = root / "skills"
+    if not skills_dir.exists():
+        skills_dir = root / "src" / "agentic_sdlc" / "skills"
     all_skills = sorted([d.name for d in skills_dir.iterdir() if d.is_dir()]) if skills_dir.exists() else []
 
     skill_issues: dict[str, list] = {s: [] for s in all_skills}
@@ -118,6 +120,8 @@ def collect_eval_data(project_root):
 
     # ── Scenario evals ───────────────────────────────────────────────────────
     fixtures_root = root / "fixtures"
+    if not fixtures_root.exists():
+        fixtures_root = Path(__file__).parent / "fixtures"
     eval_report = None
     if fixtures_root.exists():
         eval_report = skill_harness.run(root, fixtures_root)
@@ -379,7 +383,7 @@ def render_evals_html(eval_data, project_root, generated_at):
     scenario_by_skill = eval_data["scenario_by_skill"]
 
     total_skills = len(all_skills)
-    passing_skills = sum(1 for s in all_skills if not skill_issues.get(s))
+    passing_skills = sum(1 for s in all_skills if not skill_issues.get(s) and all(r.ok for r in scenario_by_skill.get(s, [])))
     failing_skills = total_skills - passing_skills
 
     scenarios_run = eval_report.scenarios_run if eval_report else 0
@@ -419,7 +423,8 @@ def render_evals_html(eval_data, project_root, generated_at):
     for skill_name in all_skills:
         issues = skill_issues.get(skill_name, [])
         scenarios = scenario_by_skill.get(skill_name, [])
-        has_issues = bool(issues)
+        failed_scenarios = [r for r in scenarios if not r.ok]
+        has_issues = bool(issues) or bool(failed_scenarios)
         card_class = "fail" if has_issues else "pass"
         status_badge = f'<span class="badge badge-fail">FAIL</span>' if has_issues else f'<span class="badge badge-pass">PASS</span>'
 
@@ -441,7 +446,6 @@ def render_evals_html(eval_data, project_root, generated_at):
             issues_html = '<p class="issue-item pass">✓ All validation checks pass</p>'
 
         # Scenario failures for this skill
-        failed_scenarios = [r for r in scenarios if not r.ok]
         scenario_html = ""
         if failed_scenarios:
             rows = ""

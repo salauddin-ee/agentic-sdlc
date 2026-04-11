@@ -87,6 +87,16 @@ def init(target, force):
         shutil.copytree(package_root / "templates", target_path / "templates")
         click.echo("  Copied templates directory.")
 
+    # Copy fixtures
+    if (target_path / "fixtures").exists() and not force:
+        click.echo("  Fixtures directory already exists. Use --force to overwrite.")
+    else:
+        if (target_path / "fixtures").exists():
+            shutil.rmtree(target_path / "fixtures")
+        if (package_root / "fixtures").exists():
+            shutil.copytree(package_root / "fixtures", target_path / "fixtures")
+            click.echo("  Copied fixtures directory.")
+
     # Copy core files (AGENTS.md, etc.)
     for core_file in (package_root / "core").glob("*.md"):
         dest = target_path / core_file.name
@@ -143,6 +153,11 @@ def eval_skills(repo_root, skill, fixtures_dir, json_output):
     """Run deterministic scenario fixtures against selected skills."""
     root = Path(repo_root).resolve()
     fixtures_root = Path(fixtures_dir).resolve() if fixtures_dir else root / 'fixtures'
+
+    if not fixtures_root.exists():
+        package_fixtures = Path(__file__).parent / 'fixtures'
+        if package_fixtures.exists():
+            fixtures_root = package_fixtures
 
     if not fixtures_root.exists():
         click.echo(f"eval-skills: fixtures directory not found: {fixtures_root}", err=True)

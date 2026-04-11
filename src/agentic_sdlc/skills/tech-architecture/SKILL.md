@@ -19,7 +19,7 @@ Do NOT write any production code until tech-architecture.md, at least one ADR pe
 5. **Container diagram** — C4 Level 2 (major deployable units)
 6. **Sequence diagrams** — 2-3 most critical flows
 7. **Directory structure** — canonical directory tree in markdown
-8. **Write coding constitution** — invoke `invoke `coding-constitution` skill (read the skill file)`
+8. **Write coding constitution** — invoke `coding-constitution` skill
 9. **Write `docs/architecture/tech-architecture.md`** — using format below
 10. **Self-review** — check all ADR decisions are reflected in architecture, no gaps
 11. **Present to user** — section by section
@@ -102,7 +102,7 @@ Each decision gets its own file: `docs/architecture/adrs/ADR-NNN-<title>.md`
 
 ## Gate
 
-Read `invoke `stage-gates` skill (read the skill file)` and evaluate:
+Read `stage-gates` skill and evaluate:
 
 ```
 [ ] Tech stack justified via ADRs for each major component

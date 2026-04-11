@@ -67,7 +67,7 @@ WORKFLOW_CREATED_FILES: set[str] = {
 }
 
 # Pattern: old-style repo-root skill path reference
-OLD_SKILL_PATH_RE = re.compile(r"skills/([a-z-]+)/SKILL\.md")
+OLD_SKILL_PATH_RE = re.compile(r"skills/([\w<>-]+)/SKILL\.md")
 
 
 def _check_stale_filenames(skill_name: str, path: Path, content: str, repo_root: Path) -> list[ValidationIssue]:
@@ -115,7 +115,9 @@ def _check_stale_paths(skill_name: str, path: Path, content: str, repo_root: Pat
 def _check_template_refs(skill_name: str, path: Path, content: str, repo_root: Path) -> list[ValidationIssue]:
     """Check that any template file referenced in a skill actually exists in templates/."""
     issues = []
-    templates_dir = repo_root / "src" / "agentic_sdlc" / "templates"
+    templates_dir = repo_root / "templates"
+    if not templates_dir.exists():
+        templates_dir = repo_root / "src" / "agentic_sdlc" / "templates"
     # Find references like templates/foo-template.md or `foo-template.md`
     pattern = re.compile(r"templates/([a-z-]+\.md)")
     for match in pattern.finditer(content):
@@ -216,7 +218,9 @@ def check(repo_root: Path, report: ValidationReport) -> None:
         repo_root: Path to the repository root.
         report:    ValidationReport to append findings to.
     """
-    skills_dir = repo_root / "src" / "agentic_sdlc" / "skills"
+    skills_dir = repo_root / "skills"
+    if not skills_dir.exists():
+        skills_dir = repo_root / "src" / "agentic_sdlc" / "skills"
     if not skills_dir.exists():
         return  # already reported by static validator
 
