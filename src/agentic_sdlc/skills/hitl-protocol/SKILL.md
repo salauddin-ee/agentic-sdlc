@@ -105,19 +105,24 @@ Default if no response: Wait for explicit approval
 
 ## When the Agent Must WAIT
 
-The agent must not proceed — even if it feels like it could make a reasonable choice — when:
+**STOP. Do not proceed.** The agent must not take the next step — even if it feels like it could make a reasonable choice — when:
 - The action is irreversible (data loss, production write, deploy)
 - The ambiguity materially affects the implementation plan
 - The checklist explicitly calls for a HITL checkpoint
+- The human has not yet responded to a pending HITL request
 
 **Waiting is correct behavior.** Proceeding without approval on a mandatory checkpoint is a process violation.
+The next step being "clear" to the agent is not a substitute for human approval.
 
 ## Red Flags
 
 | Thought | Reality |
 |---|---|
-| "The human would probably approve this" | Probably is not approval. Ask. |
+| "The human would probably approve this" | Probably is not approval. Stop and ask. |
 | "This is a small destructive action" | All destructive actions require HITL regardless of size. |
 | "I'll ask forgiveness, not permission" | Irreversible mistakes don't have forgiveness. Ask first. |
 | "I can infer the answer from context" | Inferred approval is not approval. Ask explicitly. |
 | "The HITL will slow us down" | The HITL exists because the alternative is production incidents. |
+| "The next step is clear — I'll proceed" | Clarity of next step does not replace human approval. Stop and wait. |
+| "The user hasn't responded but I can continue" | No response is not approval. Stop and wait for an explicit answer. |
+

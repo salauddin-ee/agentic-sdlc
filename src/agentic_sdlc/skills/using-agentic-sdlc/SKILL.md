@@ -125,3 +125,6 @@ Run `asdlc init` to create this structure in a new project.
 | "We can skip architecture, it's a small project" | Small projects grow. ADRs take 10 minutes. Tech debt lasts forever. |
 | "I'll document later" | Later never comes. Write artifacts now. |
 | "The status doesn't matter" | Documents must be 'Approved' to pass gates. Update the status. |
+| "Just start coding, I'll explain requirements as we go" | Coding without inception produces the wrong thing. Run inception first — it's fast. |
+| "Let's skip inception and go straight to coding" | Inception exists to prevent this. Every project, every time. Run it. |
+
