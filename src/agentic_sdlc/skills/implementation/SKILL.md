@@ -154,6 +154,22 @@ stage_tokens:
 > If your agent platform exposes token counts via API, read them programmatically.
 > If not, estimate based on context window usage (e.g. 75% of 200k context = ~150k tokens).
 
+## Gate
+
+Before invoking `critical-review` skill, every item below must be true for the story:
+
+```
+[ ] All TDD cycles complete — every function/method has a test written BEFORE its implementation
+[ ] All tests pass (unit + integration + E2E relevant to this story) — zero failures
+[ ] Security non-negotiables checked against the full checklist above
+[ ] Coding constitution followed: naming, error handling, logging
+[ ] No TODO comments left in production code
+[ ] data-domain.md updated if any interface contract changed (triggers HITL)
+[ ] Token usage logged in workspace YAML
+[ ] Story status set to DONE in docs/sdlc/stories/STORY-[ID].md
+[ ] Story committed on feature branch (git status shows clean working tree)
+```
+
 ## Transition
 
 After all tasks in a story are complete:

@@ -1,6 +1,6 @@
 ---
 name: git-discipline
-description: Use for ALL git operations — commits, branch creation, merges — throughout the SDLC. Defines exactly when and how to commit at every stage boundary, HITL checkpoint, and story lifecycle point.
+description: Use when performing ANY git operation — commits, branch creation, merges — throughout the SDLC. Defines exactly when and how to commit at every stage boundary, HITL checkpoint, and story lifecycle point.
 version: 1.0.0
 ---
 

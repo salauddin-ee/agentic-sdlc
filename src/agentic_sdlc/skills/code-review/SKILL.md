@@ -110,6 +110,21 @@ git branch -d feature/STORY-[ID]-[short-desc]
 
 > One squash commit per story on `main`. Feature branch is deleted after successful merge.
 
+## Gate
+
+```
+[ ] Standards compliance section: PASS
+[ ] Test quality section: PASS
+[ ] Security audit section: PASS
+[ ] Operability section: PASS
+[ ] Documentation section: PASS
+[ ] Overall verdict: APPROVED
+[ ] Review result written to docs/sdlc/retrospectives/ or inline note committed
+```
+
+A single FAIL in any section means the overall verdict is CHANGES REQUIRED.
+Do not squash merge until all sections are PASS.
+
 ## Red Flags
 
 | Thought | Reality |

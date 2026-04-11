@@ -101,6 +101,17 @@ If you identify a pattern worth capturing as a reusable skill:
 2. Answer: would this benefit someone working on a completely different project? If yes → create a skill
 3. Invoke `writing-skills` skill to create or update the skill file
 
+## Gate
+
+```
+[ ] retrospective.md written (or appended) to docs/sdlc/retrospectives/
+[ ] All P2 tech debt from critical-review logged under 'Tech debt logged'
+[ ] Requirements fidelity table completed for all FRs
+[ ] Skills library updates section completed (even if empty — 'none this cycle' is valid)
+[ ] Process improvements section completed
+[ ] If skills updates proposed: writing-skills skill invoked
+```
+
 ## Red Flags
 
 | Thought | Reality |
