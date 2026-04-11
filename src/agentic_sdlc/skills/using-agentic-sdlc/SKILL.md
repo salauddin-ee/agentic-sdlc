@@ -99,10 +99,10 @@ docs/sdlc/
   accessibility.md       ← design-system writes this
   tech-architecture.md   ← tech-architecture writes this
   adr/                   ← tech-architecture writes this
-  coding-constitution.md ← tech-architecture writes this
+  coding-standards.md ← tech-architecture writes this
   implementation-plan.md ← implementation-planning writes this
   task-graph.md          ← story-breakdown writes this
-  interface-contracts.md ← implementation maintains this
+  data-domain.md ← implementation maintains this
   test-plan.md           ← testing writes this
   critical-review.md     ← critical-review writes this
   retrospective.md       ← retrospective writes this

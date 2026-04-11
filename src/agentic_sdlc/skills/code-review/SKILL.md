@@ -15,7 +15,7 @@ Final structured review before merge or handoff. This is a compliance check agai
 [ ] No commented-out code in production files
 [ ] All public APIs documented (docstrings, JSDoc, or equivalent)
 [ ] No TODO/FIXME in production code
-[ ] Naming conventions from coding-constitution.md applied consistently
+[ ] Naming conventions from coding-standards.md applied consistently
 ```
 
 ### Test Quality

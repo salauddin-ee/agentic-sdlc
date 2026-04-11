@@ -36,7 +36,18 @@ This means static validation (M2) and consistency checks (M3) each have a built-
 | M3 | Consistency checks | Detect drift between skills, docs, templates, and CLI-created paths | All known path/reference inconsistencies are caught and **fixed**; false-positive rate is acceptable for local use | M2 |
 | M4 | Scenario eval harness | Add file-based scenario loading and deterministic rule-based assertions | Fixtures run through `asdlc eval-skills`; results include failure reasons per scenario | M1 |
 | M5 | Initial skill suite | Cover the five highest-risk skills with fixtures written to ideal behavior | At least 2 scenarios per skill pass; any skills that failed evals have been improved to meet the ideal | M4 |
-| M6 | Documentation and rollout | Document usage and wire commands into the developer workflow | README/docs updated; eval-driven improvement loop is documented as the standard workflow for skill changes | M2, M3, M5 |
+| M6 | Documentation and rollout | Document usage, wire commands into the developer workflow, and surface eval results in the `asdlc serve` dashboard | README/docs updated; validation and eval results visible in dashboard per skill; eval-driven improvement loop documented as standard workflow | M2, M3, M5 |
+
+## Design Decision: CLI + Dashboard (Dual Surface)
+
+Eval results are exposed on **two surfaces** for different audiences:
+
+| Surface | Command | Audience | Use case |
+|---|---|---|---|
+| CLI | `asdlc validate-skills` / `asdlc eval-skills` | CI pipelines, automation, agents | Non-zero exit on failure; machine-readable JSON |
+| Dashboard | `asdlc serve` → Evals tab | Human users, maintainers | Visual per-skill pass/fail; no terminal required |
+
+Both surfaces read from the same eval modules — the dashboard calls the same `validator.validate()` and `harness.run()` functions and renders the results visually. No separate eval logic for the dashboard.
 
 ## Scope traceability
 | Requirement ID | Requirement | Milestones |

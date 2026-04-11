@@ -27,6 +27,8 @@ from typing import Optional
 import yaml
 
 from .models import ValidationIssue, ValidationReport
+from . import consistency as _consistency
+from .utils import rel as _rel
 
 # ---------------------------------------------------------------------------
 # Skills that MUST have a ## Red Flags section (discipline / guardrail skills)
@@ -101,13 +103,6 @@ def _parse_frontmatter(text: str) -> tuple[Optional[dict], str]:
         return data, body
     except yaml.YAMLError:
         return None, text
-
-
-def _rel(path: Path, root: Path) -> str:
-    try:
-        return str(path.relative_to(root))
-    except ValueError:
-        return str(path)
 
 
 # ---------------------------------------------------------------------------
@@ -334,5 +329,8 @@ def validate(repo_root: Path) -> ValidationReport:
                     report.errors.append(issue)
                 else:
                     report.warnings.append(issue)
+
+    # M3: run cross-file consistency checks
+    _consistency.check(repo_root, report)
 
     return report

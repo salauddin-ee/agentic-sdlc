@@ -101,7 +101,7 @@ A coding constitution is **binding**, not aspirational. If it's in the constitut
 - Update policy: [e.g., monthly patch updates, quarterly minor updates]
 
 ## Git conventions
-See `skills/git-discipline/SKILL.md` for full conventions. Project-specific overrides:
+See `invoke `git-discipline` skill (read the skill file)` for full conventions. Project-specific overrides:
 - Commit format: Conventional Commits (feat/fix/chore/docs/test/refactor)
 - Branch naming: feature/STORY-{ID}-{short-desc} (stories), docs/{stage-name} (stages)
 - Merge strategy: squash merge to main

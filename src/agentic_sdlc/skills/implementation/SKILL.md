@@ -96,7 +96,7 @@ Only after GREEN:
 - Remove duplication
 - Improve naming for clarity
 - Extract helpers where complexity grows
-- Apply coding-constitution.md standards
+- Apply coding-standards.md standards
 
 Keep all tests green throughout. Do not add new behavior.
 
@@ -106,7 +106,7 @@ If implementation reveals a Stage 3 architectural decision was wrong:
 
 1. **Stop immediately** — do not work around it
 2. Write a superseding ADR in `docs/architecture/adrs/` documenting the conflict
-3. Trigger HITL (read `skills/hitl-protocol/SKILL.md`)
+3. Trigger HITL (invoke `hitl-protocol` skill)
 4. Update `docs/architecture/tech-architecture.md`
 5. Only resume implementation after HITL approval
 
