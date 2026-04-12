@@ -91,7 +91,7 @@ Evaluate before triggering HITL:
 [ ] NFRs captured (latency, availability, security baseline)
 [ ] Out-of-scope is explicit — not empty
 [ ] No open questions remain (or HITL scheduled to resolve them)
-[ ] domain.md and brd.md are written to docs/sdlc/
+[ ] domain-model.md written to docs/architecture/ and brd.md written to docs/product/features/
 ```
 
 If any item fails, loop within this stage — do not proceed.

@@ -124,7 +124,7 @@ Respect `prefers-reduced-motion` — all animations must have a static fallback
 [ ] Accessibility requirements documented (WCAG 2.2 AA target confirmed)
 [ ] Responsive breakpoints defined and documented
 [ ] Dark mode decision made (required or explicitly out of scope)
-[ ] Design-system.md and accessibility.md written to docs/sdlc/
+[ ] design-system.md and accessibility.md written to docs/product/
 [ ] User has reviewed and approved
 ```
 

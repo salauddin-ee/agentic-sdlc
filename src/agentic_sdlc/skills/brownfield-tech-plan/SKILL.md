@@ -81,7 +81,7 @@ Plan the technical approach for this story without re-architecting the system. I
 [ ] Regression risk assessment complete
 [ ] Interface contract changes identified (triggers HITL if any)
 [ ] Feature flag decision made
-[ ] tech-plan-[STORY-ID].md written to docs/sdlc/
+[ ] tech-plan-[STORY-ID].md written to docs/sdlc/workspaces/
 ```
 
 ## Red Flags

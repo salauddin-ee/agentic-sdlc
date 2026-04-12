@@ -95,6 +95,7 @@ All stage outputs are written to a distributed `docs/` structure at the project 
 ```text
 docs/
   architecture/domain-model.md           ← inception
+  architecture/existing-system.md        ← context-harvest (brownfield only)
   product/features/brd.md                ← inception
   product/design-system.md               ← design-system
   product/accessibility.md               ← design-system
@@ -102,13 +103,14 @@ docs/
   architecture/tech-architecture.md      ← tech-architecture
   architecture/adrs/                     ← tech-architecture
   architecture/coding-standards.md       ← tech-architecture
+  architecture/data-domain.md            ← implementation-planning
   sdlc/epics/implementation-plan.md      ← implementation-planning
   sdlc/epics/task-graph.md               ← story-breakdown
-  architecture/data-domain.md            ← implementation-planning
+  sdlc/stories/                          ← story-breakdown
+  sdlc/workspaces/                       ← implementation, brownfield-tech-plan
   sdlc/test-plans/test-plan.md           ← testing
   sdlc/retrospectives/critical-review.md ← critical-review
   sdlc/retrospectives/retrospective.md   ← retrospective
-  architecture/existing-system.md        ← context-harvest (brownfield only)
 ```
 
 Run `asdlc init` to create this structure in a new project.

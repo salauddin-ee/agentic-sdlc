@@ -121,7 +121,7 @@ Read representative files from key directories. Identify:
 [ ] Integration points identified with direction and protocol
 [ ] Fragile / high-risk areas flagged
 [ ] Known tech debt inventoried (not to fix — just to be aware of)
-[ ] existing-system.md written to docs/sdlc/
+[ ] existing-system.md written to docs/architecture/
 ```
 
 ## Red Flags

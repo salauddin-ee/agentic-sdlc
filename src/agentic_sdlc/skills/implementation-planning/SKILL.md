@@ -107,7 +107,7 @@ Key boundaries:
 [ ] Risk log populated with at least the top 3 risks
 [ ] Assumptions explicitly listed
 [ ] Definition of done agreed with user
-[ ] implementation-plan.md and data-domain.md written to docs/sdlc/
+[ ] implementation-plan.md written to docs/sdlc/epics/ and data-domain.md written to docs/architecture/
 ```
 
 ## Red Flags

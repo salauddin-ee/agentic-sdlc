@@ -81,6 +81,7 @@ All stage outputs are written to a distributed `docs/` structure at the project 
 ```
 docs/
   architecture/domain-model.md
+  architecture/existing-system.md
   product/features/brd.md
   product/design-system.md
   product/accessibility.md
@@ -88,9 +89,11 @@ docs/
   architecture/tech-architecture.md
   architecture/adrs/
   architecture/coding-standards.md
+  architecture/data-domain.md
   sdlc/epics/implementation-plan.md
   sdlc/epics/task-graph.md
-  architecture/data-domain.md
+  sdlc/stories/
+  sdlc/workspaces/
   sdlc/test-plans/test-plan.md
   sdlc/retrospectives/critical-review.md
   sdlc/retrospectives/retrospective.md
