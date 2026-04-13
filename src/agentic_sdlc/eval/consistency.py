@@ -11,7 +11,7 @@ Rules implemented:
   consistency.template.missing             Skill instructs copying a template that doesn't exist
   consistency.cli.missing_stub             Skill references a doc path that CLI init does not create
   consistency.skill_path.old_style         Skill references skills using old repo-root style
-                                           (skills/<name>/SKILL.md) instead of packaged path
+                                           (.agents/skills/<name>/SKILL.md) instead of packaged path
 
 All findings are ERRORS because path drift directly causes agent confusion.
 """
@@ -68,7 +68,8 @@ WORKFLOW_CREATED_FILES: set[str] = {
 }
 
 # Pattern: old-style repo-root skill path reference
-OLD_SKILL_PATH_RE = re.compile(r"skills/([\w<>-]+)/SKILL\.md")
+OLD_SKILL_PATH_RE = re.compile(r"skills/([\w<>.-]+)/SKILL\.md")
+STD_SKILL_PATH_RE = re.compile(r"\.agents/skills/([\w<>.-]+)/SKILL\.md")
 
 
 def _check_stale_filenames(skill_name: str, path: Path, content: str, repo_root: Path) -> list[ValidationIssue]:
@@ -169,31 +170,38 @@ def _check_doc_path_refs(skill_name: str, path: Path, content: str, repo_root: P
 
 def _check_old_style_skill_paths(skill_name: str, path: Path, content: str, repo_root: Path) -> list[ValidationIssue]:
     """
-    Flag old-style skill path references (skills/<name>/SKILL.md).
-    In the packaged CLI, skills live at src/agentic_sdlc/skills/.
-    Within skill instructions, references should use the name only: invoke `<name>` skill.
-    """
-    # using-agentic-sdlc is the meta-skill that documents the post-init
-    # skills/<name>/SKILL.md convention for end users — those references are
-    # intentional and correct, not stale repo-root paths.
-    if skill_name == "using-agentic-sdlc":
-        return []
+    Flag old-style bare skill path references (skills/<name>/SKILL.md)
+    which should now be .agents/skills/<name>/SKILL.md.
+    We allow relative internal paths if resolving inside the package, but warn if we see
+    the outdated skills/<name>/SKILL.md convention.
 
+    Args:
+        content: The text content to check.
+        repo_root: The repo root path.
+    Returns:
+        List of CheckIssue containing any warnings.
+    """
     issues = []
+    
+    # We want to flag 'skills/foo/SKILL.md' but NOT '.agents/skills/foo/SKILL.md'
+    # and NOT 'src/agentic_sdlc/skills/foo/SKILL.md'
     for match in OLD_SKILL_PATH_RE.finditer(content):
-        full_ref = match.group(0)
-        line_num = content[:match.start()].count("\n") + 1
-        issues.append(ValidationIssue(
-            rule_id="consistency.skill_path.old_style",
-            severity="error",
-            path=_rel(path, repo_root),
-            message=(
-                f"References skill using old repo-root path '{full_ref}'. "
-                "In packaged form, skills are installed by asdlc init. "
-                "Within skill instructions, reference by name only: invoke `<skill-name>` skill."
-            ),
-            line=line_num,
-        ))
+        start_idx = match.start()
+        # Only flag if it's perfectly matching the start of a word or boundary
+        if start_idx == 0 or content[start_idx - 1] not in ["/", ".", "_", "-"]:
+            full_ref = match.group(0)
+            line_num = content[:match.start()].count("\n") + 1
+            issues.append(ValidationIssue(
+                rule_id="consistency.skill_path.old_style",
+                severity="error",
+                path=_rel(path, repo_root),
+                line=line_num,
+                message=(
+                    f"References skill using old repo-root path '{full_ref}'. "
+                    "Update to use '.agents/skills/<name>/SKILL.md'."
+                )
+            ))
+    
     return issues
 
 

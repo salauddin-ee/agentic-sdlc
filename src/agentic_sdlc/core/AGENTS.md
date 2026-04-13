@@ -17,19 +17,19 @@ Instruction priority:
 
 ### How to Use Skills
 
-Skills live in the `skills/` directory of this repository. Each skill is a `SKILL.md` file with:
+Skills live in the `.agents/skills/` directory of this repository. Each skill is a `SKILL.md` file with:
 - A `name` and `description` (YAML frontmatter) — tells you WHEN to invoke it
 - Detailed instructions for HOW to execute the stage or activity
 
-**To use a skill:** Read the relevant `skills/<name>/SKILL.md` file at the start of any task that matches its trigger. Follow it exactly.
+**To use a skill:** Read the relevant `.agents/skills/asdlc-<name>/SKILL.md` file at the start of any task that matches its trigger. Follow it exactly.
 
-**Start here:** Always read `skills/using-agentic-sdlc/SKILL.md` at the beginning of a new project or conversation.
+**Start here:** Always read `.agents/skills/asdlc-using-agentic-sdlc/SKILL.md` at the beginning of a new project or conversation.
 
 ---
 
 ### Workflow Selection
 
-```
+`asdlc-``
 Starting a new project from scratch?
   → Use Workflow 1 (Greenfield): inception → design-system → ui-mockups
     → tech-architecture
@@ -42,7 +42,7 @@ Working on an existing codebase?
     → implementation-planning
     → story-breakdown → implementation → critical-review → testing
     → code-review → retrospective
-```
+`asdlc-``
 
 ---
 
@@ -50,26 +50,26 @@ Working on an existing codebase?
 
 | Skill | Trigger |
 |---|---|
-| `using-agentic-sdlc` | Starting any project or session |
-| `inception` | New project with unclear requirements |
-| `design-system` | Establishing visual/interaction language |
-| `ui-mockups` | User-facing redesign, new landing page, or major visual contract change needing visual approval |
-| `tech-architecture` | Making technology or architecture decisions |
-| `implementation-planning` | Creating execution plan from approved architecture |
-| `story-breakdown` | Decomposing a plan into executable tasks |
-| `implementation` | Writing production code for any task |
-| `critical-review` | Adversarial quality review of completed implementation |
-| `testing` | Executing test plan and verifying end-to-end behavior |
-| `code-review` | Final structured review before merge or handoff |
-| `retrospective` | Closing a project or story cycle |
-| `context-harvest` | Starting work on an unfamiliar existing codebase |
-| `brownfield-design` | Story introduces new UI in existing system |
-| `brownfield-brainstorm` | Understanding business impact of a story |
-| `brownfield-tech-plan` | Planning technical approach for a story |
-| `coding-constitution` | Establishing or reviewing coding standards |
-| `stage-gates` | Evaluating whether a stage's exit criteria are met |
-| `hitl-protocol` | Irreversible action or ambiguous decision needing human input |
-| `writing-skills` | Creating new skills or editing existing ones |
+| `asdlc-using-agentic-sdlc` | Starting any project or session |
+| `asdlc-inception` | New project with unclear requirements |
+| `asdlc-design-system` | Establishing visual/interaction language |
+| `asdlc-ui-mockups` | User-facing redesign, new landing page, or major visual contract change needing visual approval |
+| `asdlc-tech-architecture` | Making technology or architecture decisions |
+| `asdlc-implementation-planning` | Creating execution plan from approved architecture |
+| `asdlc-story-breakdown` | Decomposing a plan into executable tasks |
+| `asdlc-implementation` | Writing production code for any task |
+| `asdlc-critical-review` | Adversarial quality review of completed implementation |
+| `asdlc-testing` | Executing test plan and verifying end-to-end behavior |
+| `asdlc-code-review` | Final structured review before merge or handoff |
+| `asdlc-retrospective` | Closing a project or story cycle |
+| `asdlc-context-harvest` | Starting work on an unfamiliar existing codebase |
+| `asdlc-brownfield-design` | Story introduces new UI in existing system |
+| `asdlc-brownfield-brainstorm` | Understanding business impact of a story |
+| `asdlc-brownfield-tech-plan` | Planning technical approach for a story |
+| `asdlc-coding-constitution` | Establishing or reviewing coding standards |
+| `asdlc-stage-gates` | Evaluating whether a stage's exit criteria are met |
+| `asdlc-hitl-protocol` | Irreversible action or ambiguous decision needing human input |
+| `asdlc-writing-skills` | Creating new skills or editing existing ones |
 
 ---
 
@@ -77,7 +77,7 @@ Working on an existing codebase?
 
 All stage outputs are written to a distributed `docs/` structure at the project root. Never rely on conversation memory alone — write artifacts to disk.
 
-```
+`asdlc-``
 docs/
   architecture/domain-model.md
   product/features/brd.md
@@ -93,7 +93,7 @@ docs/
   sdlc/test-plans/test-plan.md
   sdlc/retrospectives/critical-review.md
   sdlc/retrospectives/retrospective.md
-```
+`asdlc-``
 
 Run `asdlc init` to create this structure in a new project. Every primary artifact must be marked `Status: Approved` to pass its stage gate.
 

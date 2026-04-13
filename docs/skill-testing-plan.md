@@ -14,19 +14,19 @@ This plan intentionally avoids a large benchmark platform or broad model-scoring
 
 Evals do not just verify skills — they **drive skill quality**. The workflow mirrors TDD:
 
-```
+`asdlc-``
 NO SKILL CHANGE WITHOUT A FAILING EVAL FIRST.
-```
+`asdlc-``
 
 ### The Loop
 
-```
+`asdlc-``
 1. Write eval → define the ideal behavior you want from the skill
 2. Run eval  → the current skill may fail (that is expected and good)
 3. Fix skill → improve the skill text until the eval passes
 4. Commit    → the eval now permanently guards against regression
 5. Repeat    → new failure pattern observed? Add a fixture first, then fix the skill
-```
+`asdlc-``
 
 ### Why Order Matters
 
@@ -110,11 +110,11 @@ Examples of the consistency problems this should catch:
 
 Start with only these five skills:
 
-1. `using-agentic-sdlc`
-2. `implementation`
-3. `stage-gates`
-4. `hitl-protocol`
-5. `git-discipline`
+1. `asdlc-using-agentic-sdlc`
+2. `asdlc-implementation`
+3. `asdlc-stage-gates`
+4. `asdlc-hitl-protocol`
+5. `asdlc-git-discipline`
 
 For each skill, create 2-4 fixtures covering:
 
@@ -160,7 +160,7 @@ Observed failures should become permanent regression cases.
 
 ## CLI Surface
 
-> **Note:** The `validate-skills` and `eval-skills` commands are internal dev tools available on the `asdlc-dev` CLI. They are not exported in the public `asdlc` CLI.
+> **Note:** The `asdlc-validate-skills` and `asdlc-eval-skills` commands are internal dev tools available on the `asdlc-dev` CLI. They are not exported in the public `asdlc` CLI.
 
 ## CI Rollout
 

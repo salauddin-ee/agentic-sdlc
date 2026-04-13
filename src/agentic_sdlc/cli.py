@@ -68,12 +68,12 @@ def init(target, force):
     package_root = Path(__file__).parent
     
     # Copy skills
-    if (target_path / "skills").exists() and not force:
+    if (target_path / ".agents" / "skills").exists() and not force:
         click.echo("  Skill directory already exists. Use --force to overwrite.")
     else:
-        if (target_path / "skills").exists():
-            shutil.rmtree(target_path / "skills")
-        shutil.copytree(package_root / "skills", target_path / "skills")
+        if (target_path / ".agents" / "skills").exists():
+            shutil.rmtree(target_path / ".agents" / "skills")
+        shutil.copytree(package_root / "skills", target_path / ".agents" / "skills")
         click.echo("  Copied skills directory.")
 
     # Copy templates
@@ -94,7 +94,7 @@ def init(target, force):
 
     click.echo("\nDone! Agentic SDLC is ready.")
     click.echo("Next steps:")
-    click.echo("  1. Instruct your agent: 'Read AGENTS.md and skills/using-agentic-sdlc/SKILL.md'")
+    click.echo("  1. Instruct your agent: 'Read AGENTS.md and .agents/skills/asdlc-using-agentic-sdlc/SKILL.md'")
     click.echo("  2. Start with 'inception' (greenfield) or 'context-harvest' (brownfield)")
 
 @main.command()

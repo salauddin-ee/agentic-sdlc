@@ -8,10 +8,10 @@ A skills-based SDLC framework that gives your coding agent a structured, discipl
 
 Instead of ad-hoc coding, your agent follows a documented lifecycle:
 
-```text
+`asdlc-``text
 Greenfield: inception → design → mockup gate → architecture → planning → stories → code → review → test → retro
 Brownfield: context harvest → brainstorm → design → mockup gate → plan → stories → code → review → test → retro
-```
+`asdlc-``
 
 Each stage has: explicit inputs, explicit outputs written to disk, a gate that must pass before proceeding, and HITL checkpoints at critical transitions.
 
@@ -24,21 +24,21 @@ Each stage has: explicit inputs, explicit outputs written to disk, a gate that m
 
 The easiest way to use Agentic SDLC is via pip:
 
-```bash
+`asdlc-``bash
 pip install agentic-sdlc
-```
+`asdlc-``
 
 ## Initialize Your Project
 
 From within your project root, run:
 
-```bash
+`asdlc-``bash
 asdlc init
-```
+`asdlc-``
 
 This command will:
 1. Create the `docs/sdlc/` directory structure.
-2. Copy the necessary `skills/` and `templates/` into your project.
+2. Copy the necessary `.agents/skills/` and `templates/` into your project.
 3. Copy `AGENTS.md` and platform-specific instructions to your root.
 
 This creates stub files for every stage artifact. The agent will fill them in as it works through the lifecycle.
@@ -46,27 +46,27 @@ This creates stub files for every stage artifact. The agent will fill them in as
 ## Starting a Session
 
 ### New project (greenfield)
-```
+`asdlc-``
 Tell your agent: "Start a new project. Read AGENTS.md first."
-```
+`asdlc-``
 
 The agent should:
 1. Read `AGENTS.md`
-2. Read `skills/using-agentic-sdlc/SKILL.md`
+2. Read `.agents/skills/asdlc-using-agentic-sdlc/SKILL.md`
 3. Determine this is greenfield
-4. Invoke `skills/inception/SKILL.md`
+4. Invoke `.agents/skills/asdlc-inception/SKILL.md`
 5. Begin asking clarifying questions before any code is written
 
 ### Existing project (brownfield)
-```
+`asdlc-``
 Tell your agent: "We're adding a new feature to an existing codebase. Read AGENTS.md first."
-```
+`asdlc-``
 
 The agent should:
 1. Read `AGENTS.md`
-2. Read `skills/using-agentic-sdlc/SKILL.md`
+2. Read `.agents/skills/asdlc-using-agentic-sdlc/SKILL.md`
 3. Determine this is brownfield
-4. Invoke `skills/context-harvest/SKILL.md`
+4. Invoke `.agents/skills/asdlc-context-harvest/SKILL.md`
 5. Analyze the codebase before proposing any changes
 
 ## Verify It's Working
@@ -76,13 +76,13 @@ Ask your agent: *"What workflow should we follow?"*
 Expected response:
 - References agentic-sdlc framework
 - Asks greenfield vs brownfield
-- Names the starting skill (`inception` or `context-harvest`)
+- Names the starting skill (`asdlc-inception` or `asdlc-context-harvest`)
 
 If the agent starts writing code without going through these steps, it has not loaded the skills correctly.
 
 ## The Context Directory
 
-```
+`asdlc-``
 docs/
   architecture/
     domain-model.md        — domain knowledge (inception)
@@ -102,7 +102,7 @@ docs/
     stories/               — individual story files
     test-plans/            — test results
     retrospectives/        — critical review and retrospective
-```
+`asdlc-``
 
 Never rely on conversation memory — every stage writes to these files.
 

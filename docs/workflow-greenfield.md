@@ -4,19 +4,19 @@ Use this workflow when building a **new project from scratch** with no existing 
 
 ## Workflow Overview
 
-```text
+`asdlc-``text
 inception → [design-system] → [ui-mockups] → tech-architecture
          → implementation-planning → story-breakdown → implementation
          → critical-review → testing → code-review → retrospective
-```
+`asdlc-``
 
-`design-system` is required if the project has a UI. `ui-mockups` is required for a redesign, new landing page, or major visual contract change. `tech-architecture` can still run before or after `design-system`, but `ui-mockups` must happen after `design-system` and before implementation-planning begins.
+`asdlc-design-system` is required if the project has a UI. `asdlc-ui-mockups` is required for a redesign, new landing page, or major visual contract change. `asdlc-tech-architecture` can still run before or after `asdlc-design-system`, but `asdlc-ui-mockups` must happen after `asdlc-design-system` and before implementation-planning begins.
 
 ---
 
 ## Stage 1: Inception
 
-**Skill:** `skills/inception/SKILL.md`
+**Skill:** `.agents/skills/asdlc-inception/SKILL.md`
 **HITL:** Required before Stage 2
 
 What happens:
@@ -36,7 +36,7 @@ Gate (must pass):
 
 ## Stage 2: Design System (if UI)
 
-**Skill:** `skills/design-system/SKILL.md`
+**Skill:** `.agents/skills/asdlc-design-system/SKILL.md`
 
 What happens:
 - Design tokens defined (color, typography, spacing, motion, breakpoints)
@@ -50,7 +50,7 @@ Skip if: purely backend/API project with no user-facing UI.
 
 ## Stage 2a: UI Mockup Gate (if major UI change)
 
-**Skill:** `skills/ui-mockups/SKILL.md`
+**Skill:** `.agents/skills/asdlc-ui-mockups/SKILL.md`
 **HITL:** Required before Stage 4
 
 What happens:
@@ -64,14 +64,14 @@ Skip if: the UI work is not a redesign, new landing page, or major visual contra
 
 ## Stage 3: Tech Architecture
 
-**Skill:** `skills/tech-architecture/SKILL.md`
+**Skill:** `.agents/skills/asdlc-tech-architecture/SKILL.md`
 **HITL:** Required before Stage 4
 
 What happens:
 - Tech stack selected with ADRs written for every major decision
 - C4 Level 1 + Level 2 diagrams produced
 - Key sequence diagrams for critical flows
-- Coding constitution authored (`skills/coding-constitution/SKILL.md`)
+- Coding constitution authored (`.agents/skills/asdlc-coding-constitution/SKILL.md`)
 - Output: `docs/architecture/tech-architecture.md`, `docs/architecture/adrs/`, `docs/architecture/coding-standards.md`
 
 Gate: ADRs written, diagrams present, directory structure defined, security approach documented.
@@ -80,7 +80,7 @@ Gate: ADRs written, diagrams present, directory structure defined, security appr
 
 ## Stage 4: Implementation Planning
 
-**Skill:** `skills/implementation-planning/SKILL.md`
+**Skill:** `.agents/skills/asdlc-implementation-planning/SKILL.md`
 
 What happens:
 - Milestones defined with exit criteria
@@ -93,7 +93,7 @@ What happens:
 
 ## Stage 5: Story Breakdown
 
-**Skill:** `skills/story-breakdown/SKILL.md`
+**Skill:** `.agents/skills/asdlc-story-breakdown/SKILL.md`
 **HITL:** Required before Stage 6
 
 What happens:
@@ -106,7 +106,7 @@ What happens:
 
 ## Stage 6: Implementation
 
-**Skill:** `skills/implementation/SKILL.md`
+**Skill:** `.agents/skills/asdlc-implementation/SKILL.md`
 
 What happens (per story):
 1. Write failing test (RED)
@@ -120,7 +120,7 @@ What happens (per story):
 
 ## Stage 7: Critical Review
 
-**Skill:** `skills/critical-review/SKILL.md`
+**Skill:** `.agents/skills/asdlc-critical-review/SKILL.md`
 
 What happens:
 - Adversarial review: requirements coverage, code quality, security, integration
@@ -132,7 +132,7 @@ What happens:
 
 ## Stage 8: Testing
 
-**Skill:** `skills/testing/SKILL.md`
+**Skill:** `.agents/skills/asdlc-testing/SKILL.md`
 
 What happens:
 - Full automated test suite runs (zero failures required)
@@ -145,7 +145,7 @@ What happens:
 
 ## Stage 9: Code Review
 
-**Skill:** `skills/code-review/SKILL.md`
+**Skill:** `.agents/skills/asdlc-code-review/SKILL.md`
 
 What happens:
 - Standards compliance check
@@ -158,7 +158,7 @@ What happens:
 
 ## Stage 10: Retrospective
 
-**Skill:** `skills/retrospective/SKILL.md`
+**Skill:** `.agents/skills/asdlc-retrospective/SKILL.md`
 
 What happens:
 - Execution summary written

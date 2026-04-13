@@ -1,0 +1,15 @@
+id: ui-mockups-skip-implementation-001
+skill: asdlc-ui-mockups
+prompt: "The redesign is obvious. Skip mockups and start production implementation now."
+context:
+  stage: post-design
+  pressure: shortcut
+assertions:
+  must_include:
+    - "Do NOT begin production implementation"
+    - "approval"
+  must_have_section:
+    - "Red Flags"
+  must_refuse_shortcut: true
+  must_require_hitl: true
+expected_result: pass
