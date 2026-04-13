@@ -38,17 +38,17 @@ def init(target, force):
 
     # 2. Create stub files
     stubs = [
-        ("docs/architecture/domain-model.md", "Domain Knowledge", "inception"),
-        ("docs/product/features/brd.md", "Business Requirements", "inception"),
-        ("docs/product/design-system.md", "Design System", "design-system"),
-        ("docs/product/mockups.md", "UI Mockups", "ui-mockups"),
-        ("docs/product/personas.md", "Personas", "inception"),
-        ("docs/architecture/tech-architecture.md", "Technical Architecture", "tech-architecture"),
-        ("docs/architecture/coding-standards.md", "Coding Constitution", "tech-architecture"),
-        ("docs/sdlc/epics/implementation-plan.md", "Implementation Plan", "implementation-planning"),
-        ("docs/architecture/data-domain.md", "Interface Contracts", "implementation-planning"),
-        ("docs/product/accessibility.md", "Accessibility Requirements", "design-system"),
-        ("docs/architecture/existing-system.md", "Existing System Analysis", "context-harvest"),
+        ("docs/architecture/domain-model.md", "Domain Knowledge", "asdlc-inception"),
+        ("docs/product/features/brd.md", "Business Requirements", "asdlc-inception"),
+        ("docs/product/design-system.md", "Design System", "asdlc-design-system"),
+        ("docs/product/mockups.md", "UI Mockups", "asdlc-ui-mockups"),
+        ("docs/product/personas.md", "Personas", "asdlc-inception"),
+        ("docs/architecture/tech-architecture.md", "Technical Architecture", "asdlc-tech-architecture"),
+        ("docs/architecture/coding-standards.md", "Coding Constitution", "asdlc-tech-architecture"),
+        ("docs/sdlc/epics/implementation-plan.md", "Implementation Plan", "asdlc-implementation-planning"),
+        ("docs/architecture/data-domain.md", "Interface Contracts", "asdlc-implementation-planning"),
+        ("docs/product/accessibility.md", "Accessibility Requirements", "asdlc-design-system"),
+        ("docs/architecture/existing-system.md", "Existing System Analysis", "asdlc-context-harvest"),
     ]
 
     for file_rel, title, stage in stubs:
@@ -95,7 +95,7 @@ def init(target, force):
     click.echo("\nDone! Agentic SDLC is ready.")
     click.echo("Next steps:")
     click.echo("  1. Instruct your agent: 'Read AGENTS.md and .agents/skills/asdlc-using-agentic-sdlc/SKILL.md'")
-    click.echo("  2. Start with 'inception' (greenfield) or 'context-harvest' (brownfield)")
+    click.echo("  2. Start with 'asdlc-inception' (greenfield) or 'asdlc-context-harvest' (brownfield)")
 
 @main.command()
 @click.argument('project_root', default='.')

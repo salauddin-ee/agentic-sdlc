@@ -34,34 +34,34 @@ from .utils import rel as _rel
 # Skills that MUST have a ## Red Flags section (discipline / guardrail skills)
 # ---------------------------------------------------------------------------
 DISCIPLINE_SKILLS = {
-    "implementation",
-    "git-discipline",
-    "hitl-protocol",
-    "stage-gates",
-    "ui-mockups",
-    "critical-review",
-    "code-review",
-    "coding-constitution",
-    "writing-skills",
+    "asdlc-implementation",
+    "asdlc-git-discipline",
+    "asdlc-hitl-protocol",
+    "asdlc-stage-gates",
+    "asdlc-ui-mockups",
+    "asdlc-critical-review",
+    "asdlc-code-review",
+    "asdlc-coding-constitution",
+    "asdlc-writing-skills",
 }
 
 # Skills that MUST have a ## Gate section (have explicit exit criteria)
 GATED_SKILLS = {
-    "inception",
-    "design-system",
-    "tech-architecture",
-    "implementation-planning",
-    "story-breakdown",
-    "implementation",
-    "critical-review",
-    "testing",
-    "code-review",
-    "retrospective",
-    "context-harvest",
-    "ui-mockups",
-    "brownfield-tech-plan",
-    "git-discipline",
-    "stage-gates",
+    "asdlc-inception",
+    "asdlc-design-system",
+    "asdlc-tech-architecture",
+    "asdlc-implementation-planning",
+    "asdlc-story-breakdown",
+    "asdlc-implementation",
+    "asdlc-critical-review",
+    "asdlc-testing",
+    "asdlc-code-review",
+    "asdlc-retrospective",
+    "asdlc-context-harvest",
+    "asdlc-ui-mockups",
+    "asdlc-brownfield-tech-plan",
+    "asdlc-git-discipline",
+    "asdlc-stage-gates",
 }
 
 # Placeholder patterns that should never appear in a published skill
@@ -105,6 +105,13 @@ def _parse_frontmatter(text: str) -> tuple[Optional[dict], str]:
         return data, body
     except yaml.YAMLError:
         return None, text
+
+def _resolve_skills_dir(repo_root: Path) -> Optional[Path]:
+    for p in [".agents/skills", "skills", "src/agentic_sdlc/skills"]:
+        full_path = repo_root / p
+        if full_path.exists():
+            return full_path
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -241,9 +248,9 @@ def _rule_gate_section(skill_name: str, path: Path, content: str, repo_root: Pat
 
 def _rule_broken_skill_refs(skill_name: str, path: Path, content: str, repo_root: Path) -> list[ValidationIssue]:
     """Check that any referenced skill names actually exist as directories."""
-    skills_dir = repo_root / "skills"
-    if not skills_dir.exists():
-        skills_dir = repo_root / "src" / "agentic_sdlc" / "skills"
+    skills_dir = _resolve_skills_dir(repo_root)
+    if not skills_dir:
+        return []
     existing_skills = {d.name for d in skills_dir.iterdir() if d.is_dir()}
     issues = []
     for match in SKILL_REF_RE.finditer(content):
@@ -295,16 +302,14 @@ def validate(repo_root: Path) -> ValidationReport:
         ValidationReport with all issues found.
     """
     report = ValidationReport()
-    skills_dir = repo_root / "skills"
-    if not skills_dir.exists():
-        skills_dir = repo_root / "src" / "agentic_sdlc" / "skills"
+    skills_dir = _resolve_skills_dir(repo_root)
 
-    if not skills_dir.exists():
+    if not skills_dir:
         report.errors.append(ValidationIssue(
             rule_id="validator.skills_dir.missing",
             severity="error",
-            path=str(skills_dir),
-            message=f"Skills directory not found: {skills_dir}",
+            path="skills",
+            message="Skills directory not found in the repository.",
         ))
         return report
 

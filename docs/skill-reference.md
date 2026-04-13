@@ -56,20 +56,20 @@ All stage outputs are written here (at project root):
 
 `asdlc-``text
 docs/
-  architecture/domain-model.md           ← inception
-  product/features/brd.md                ← inception
-  product/design-system.md               ← design-system
-  product/accessibility.md               ← design-system
-  product/mockups.md                     ← ui-mockups
-  architecture/tech-architecture.md      ← tech-architecture
-  architecture/coding-standards.md       ← tech-architecture
-  architecture/adrs/                     ← tech-architecture (one file per decision)
-  sdlc/epics/implementation-plan.md      ← implementation-planning
-  architecture/data-domain.md            ← implementation-planning
-  sdlc/epics/task-graph.md               ← story-breakdown
-  sdlc/retrospectives/critical-review.md ← critical-review
-  sdlc/test-plans/test-plan.md           ← testing
-  sdlc/retrospectives/retrospective.md   ← retrospective
-  architecture/existing-system.md        ← context-harvest (brownfield only)
-  sdlc/workspaces/tech-plan-*.md         ← brownfield-tech-plan (one per story)
+  architecture/domain-model.md           ← asdlc-inception
+  product/features/brd.md                ← asdlc-inception
+  product/design-system.md               ← asdlc-design-system
+  product/accessibility.md               ← asdlc-design-system
+  product/mockups.md                     ← asdlc-ui-mockups
+  architecture/tech-architecture.md      ← asdlc-tech-architecture
+  architecture/coding-standards.md       ← asdlc-tech-architecture
+  architecture/adrs/                     ← asdlc-tech-architecture (one file per decision)
+  sdlc/epics/implementation-plan.md      ← asdlc-implementation-planning
+  architecture/data-domain.md            ← asdlc-implementation-planning
+  sdlc/epics/task-graph.md               ← asdlc-story-breakdown
+  sdlc/retrospectives/critical-review.md ← asdlc-critical-review
+  sdlc/test-plans/test-plan.md           ← asdlc-testing
+  sdlc/retrospectives/retrospective.md   ← asdlc-retrospective
+  architecture/existing-system.md        ← asdlc-context-harvest (brownfield only)
+  sdlc/workspaces/tech-plan-*.md         ← asdlc-brownfield-tech-plan (one per story)
 `asdlc-``

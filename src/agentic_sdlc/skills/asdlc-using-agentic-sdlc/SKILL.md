@@ -33,16 +33,16 @@ Before any work, determine which workflow applies:
 ```
 Is this a brand-new project with no existing codebase?
   YES → Workflow 1 (Greenfield)
-        inception → design-system → ui-mockups → tech-architecture
-        → implementation-planning → story-breakdown → implementation
-        → critical-review → testing → code-review → retrospective
+        asdlc-inception → asdlc-design-system → asdlc-ui-mockups → asdlc-tech-architecture
+        → asdlc-implementation-planning → asdlc-story-breakdown → asdlc-implementation
+        → asdlc-critical-review → asdlc-testing → asdlc-code-review → asdlc-retrospective
 
   NO  → Is this a story/feature on an existing codebase?
         YES → Workflow 2 (Brownfield)
-              context-harvest → brownfield-brainstorm → brownfield-design
-              → ui-mockups → brownfield-tech-plan → implementation-planning
-              → story-breakdown → implementation → critical-review
-              → testing → code-review → retrospective
+              asdlc-context-harvest → asdlc-brownfield-brainstorm → asdlc-brownfield-design
+              → asdlc-ui-mockups → asdlc-brownfield-tech-plan → asdlc-implementation-planning
+              → asdlc-story-breakdown → asdlc-implementation → asdlc-critical-review
+              → asdlc-testing → asdlc-code-review → asdlc-retrospective
 ```
 
 **When in doubt, ask the user one question:** "Is this a new project from scratch, or are we adding to an existing codebase?"
@@ -51,42 +51,42 @@ Is this a brand-new project with no existing codebase?
 
 | Skill | Trigger |
 |---|---|
-| `using-agentic-sdlc` | Starting any project or session |
-| `inception` | New project with unclear requirements |
-| `design-system` | Establishing visual/interaction language |
-| `ui-mockups` | User-facing redesign, new landing page, or major visual contract change needs visual approval |
-| `tech-architecture` | Making technology or architecture decisions |
-| `implementation-planning` | Creating execution plan from approved architecture |
-| `story-breakdown` | Decomposing a plan into executable tasks |
-| `implementation` | Writing production code for any task |
-| `critical-review` | Adversarial quality review of completed implementation |
-| `testing` | Executing test plan and verifying end-to-end behavior |
-| `code-review` | Final structured review before merge or handoff |
-| `retrospective` | Closing a project or story cycle |
-| `context-harvest` | Starting work on an unfamiliar existing codebase |
-| `brownfield-design` | Story introduces new UI in existing system |
-| `brownfield-brainstorm` | Understanding business impact of a story |
-| `brownfield-tech-plan` | Planning technical approach for a story |
-| `coding-constitution` | Establishing or reviewing coding standards |
-| `stage-gates` | Evaluating whether a stage's exit criteria are met |
-| `hitl-protocol` | Irreversible action or ambiguous decision needing human input |
-| `git-discipline` | Any git operation — branch creation, commits, merges |
-| `writing-skills` | Creating new skills or editing existing ones |
+| `asdlc-using-agentic-sdlc` | Starting any project or session |
+| `asdlc-inception` | New project with unclear requirements |
+| `asdlc-design-system` | Establishing visual/interaction language |
+| `asdlc-ui-mockups` | User-facing redesign, new landing page, or major visual contract change needs visual approval |
+| `asdlc-tech-architecture` | Making technology or architecture decisions |
+| `asdlc-implementation-planning` | Creating execution plan from approved architecture |
+| `asdlc-story-breakdown` | Decomposing a plan into executable tasks |
+| `asdlc-implementation` | Writing production code for any task |
+| `asdlc-critical-review` | Adversarial quality review of completed implementation |
+| `asdlc-testing` | Executing test plan and verifying end-to-end behavior |
+| `asdlc-code-review` | Final structured review before merge or handoff |
+| `asdlc-retrospective` | Closing a project or story cycle |
+| `asdlc-context-harvest` | Starting work on an unfamiliar existing codebase |
+| `asdlc-brownfield-design` | Story introduces new UI in existing system |
+| `asdlc-brownfield-brainstorm` | Understanding business impact of a story |
+| `asdlc-brownfield-tech-plan` | Planning technical approach for a story |
+| `asdlc-coding-constitution` | Establishing or reviewing coding standards |
+| `asdlc-stage-gates` | Evaluating whether a stage's exit criteria are met |
+| `asdlc-hitl-protocol` | Irreversible action or ambiguous decision needing human input |
+| `asdlc-git-discipline` | Any git operation — branch creation, commits, merges |
+| `asdlc-writing-skills` | Creating new skills or editing existing ones |
 
 ## Skill Types
 
-**Rigid** (implementation, stage-gates, hitl-protocol, git-discipline): Follow exactly. No adaptation.
+**Rigid** (asdlc-implementation, asdlc-stage-gates, asdlc-hitl-protocol, asdlc-git-discipline): Follow exactly. No adaptation.
 
-**Flexible** (inception, design-system): Adapt the process to the scale of the project. A one-page app needs a shorter design than an enterprise platform — but both still go through the stage.
+**Flexible** (asdlc-inception, asdlc-design-system): Adapt the process to the scale of the project. A one-page app needs a shorter design than an enterprise platform — but both still go through the stage.
 
 ## Rule: When Multiple Skills Apply
 
-1. **Process skills first** (inception, context-harvest, critical-review) — these determine HOW to approach
-2. **Implementation skills second** (implementation, testing) — these guide execution
+1. **Process skills first** (asdlc-inception, asdlc-context-harvest, asdlc-critical-review) — these determine HOW to approach
+2. **Implementation skills second** (asdlc-implementation, asdlc-testing) — these guide execution
 
-"Let's build X" → inception first, then subsequent stages.
-"Fix this bug" → Read implementation skill, apply TDD.
-"Add a feature to existing code" → context-harvest first (if not done), then brownfield-brainstorm.
+"Let's build X" → asdlc-inception first, then subsequent stages.
+"Fix this bug" → Read asdlc-implementation skill, apply TDD.
+"Add a feature to existing code" → asdlc-context-harvest first (if not done), then asdlc-brownfield-brainstorm.
 
 ## Context Directory
 

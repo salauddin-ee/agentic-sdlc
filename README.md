@@ -185,19 +185,19 @@ your-project/
 
 ```
 docs/
-  architecture/domain-model.md, product/features/brd.md  ← inception
-  product/design-system.md, product/accessibility.md      ← design-system
-  product/mockups.md                                      ← ui-mockups
-  architecture/tech-architecture.md, architecture/adrs/   ← tech-architecture
-  architecture/coding-standards.md                        ← coding-constitution
-  sdlc/epics/implementation-plan.md, architecture/data-domain.md ← implementation-planning
-  sdlc/epics/task-graph.md                                ← story-breakdown
-  sdlc/stories/STORY-*.md                                 ← story-breakdown
-  sdlc/retrospectives/critical-review.md                  ← critical-review
-  sdlc/test-plans/test-plan.md                            ← testing
-  sdlc/retrospectives/retrospective.md                    ← retrospective
-  architecture/existing-system.md                         ← context-harvest (brownfield)
-  sdlc/workspaces/tech-plan-*.md                          ← brownfield-tech-plan (per story)
+  architecture/domain-model.md, product/features/brd.md  ← asdlc-inception
+  product/design-system.md, product/accessibility.md      ← asdlc-design-system
+  product/mockups.md                                      ← asdlc-ui-mockups
+  architecture/tech-architecture.md, architecture/adrs/   ← asdlc-tech-architecture
+  architecture/coding-standards.md                        ← asdlc-coding-constitution
+  sdlc/epics/implementation-plan.md, architecture/data-domain.md ← asdlc-implementation-planning
+  sdlc/epics/task-graph.md                                ← asdlc-story-breakdown
+  sdlc/stories/STORY-*.md                                 ← asdlc-story-breakdown
+  sdlc/retrospectives/critical-review.md                  ← asdlc-critical-review
+  sdlc/test-plans/test-plan.md                            ← asdlc-testing
+  sdlc/retrospectives/retrospective.md                    ← asdlc-retrospective
+  architecture/existing-system.md                         ← asdlc-context-harvest (brownfield)
+  sdlc/workspaces/tech-plan-*.md                          ← asdlc-brownfield-tech-plan (per story)
 ```
 
 ---

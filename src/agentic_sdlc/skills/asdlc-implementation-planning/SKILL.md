@@ -21,7 +21,7 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 7. **Write `docs/architecture/data-domain.md`** — API contracts, event schemas, type defs
 8. **Self-review** — check all FRs from BRD are traceable to a milestone
 9. **Present to user** — get approval
-10. **Transition** — invoke `story-breakdown` skill
+10. **Transition** — invoke `asdlc-story-breakdown` skill
 
 ## Implementation Plan Format
 

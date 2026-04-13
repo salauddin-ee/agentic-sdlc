@@ -30,7 +30,7 @@ Failure result:
   "errors": [
     {
       "rule_id": "skill.path_reference.invalid",
-      "path": "src/agentic_sdlc/skills/using-agentic-sdlc/SKILL.md",
+      "path": "src/agentic_sdlc/skills/asdlc-using-agentic-sdlc/SKILL.md",
       "message": "Reference points to skills/<name>/SKILL.md but packaged source lives under src/agentic_sdlc/skills/."
     }
   ],

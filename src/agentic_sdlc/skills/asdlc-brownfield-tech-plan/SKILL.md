@@ -23,7 +23,7 @@ Plan the technical approach for this story without re-architecting the system. I
 6. **Interface contract impact** — does this change any contract in `data-domain.md`? (triggers HITL)
 7. **Write `docs/sdlc/workspaces/tech-plan-[STORY-ID].md`** — using format below
 8. **Gate evaluation**
-9. **Transition** — invoke `implementation-planning` skill (story-scoped)
+9. **Transition** — invoke `asdlc-implementation-planning` skill (story-scoped)
 
 ## Tech Plan Format
 

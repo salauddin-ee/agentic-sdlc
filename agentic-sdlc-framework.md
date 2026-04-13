@@ -32,20 +32,20 @@ The agent carries context across stages via a set of versioned markdown files wr
 
 ```
 docs/
-  architecture/domain-model.md       ← inception
-  product/features/brd.md            ← inception
-  product/design-system.md           ← design-system
-  product/accessibility.md           ← design-system
-  architecture/tech-architecture.md  ← tech-architecture
-  architecture/adrs/                 ← tech-architecture
-  architecture/coding-standards.md   ← tech-architecture / coding-constitution
-  sdlc/epics/implementation-plan.md  ← implementation-planning
-  architecture/data-domain.md        ← implementation-planning / implementation
-  sdlc/epics/task-graph.md           ← story-breakdown
-  sdlc/stories/STORY-*.md            ← story-breakdown
-  sdlc/test-plans/test-plan.md       ← testing
-  sdlc/retrospectives/retrospective.md ← critical-review / retrospective
-  architecture/existing-system.md    ← context-harvest (brownfield)
+  architecture/domain-model.md       ← asdlc-inception
+  product/features/brd.md            ← asdlc-inception
+  product/design-system.md           ← asdlc-design-system
+  product/accessibility.md           ← asdlc-design-system
+  architecture/tech-architecture.md  ← asdlc-tech-architecture
+  architecture/adrs/                 ← asdlc-tech-architecture
+  architecture/coding-standards.md   ← asdlc-tech-architecture / asdlc-coding-constitution
+  sdlc/epics/implementation-plan.md  ← asdlc-implementation-planning
+  architecture/data-domain.md        ← asdlc-implementation-planning / asdlc-implementation
+  sdlc/epics/task-graph.md           ← asdlc-story-breakdown
+  sdlc/stories/STORY-*.md            ← asdlc-story-breakdown
+  sdlc/test-plans/test-plan.md       ← asdlc-testing
+  sdlc/retrospectives/retrospective.md ← asdlc-critical-review / asdlc-retrospective
+  architecture/existing-system.md    ← asdlc-context-harvest (brownfield)
 ```
 
 ---

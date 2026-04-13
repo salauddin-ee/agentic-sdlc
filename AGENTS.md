@@ -31,17 +31,17 @@ Skills live in the `.agents/skills/` directory of this repository. Each skill is
 
 `asdlc-``
 Starting a new project from scratch?
-  → Use Workflow 1 (Greenfield): inception → design-system → ui-mockups
-    → tech-architecture
-    → implementation-planning → story-breakdown → implementation
-    → critical-review → testing → code-review → retrospective
+  → Use Workflow 1 (Greenfield): asdlc-inception → asdlc-design-system → asdlc-ui-mockups
+    → asdlc-tech-architecture
+    → asdlc-implementation-planning → asdlc-story-breakdown → asdlc-implementation
+    → asdlc-critical-review → asdlc-testing → asdlc-code-review → asdlc-retrospective
 
 Working on an existing codebase?
-  → Use Workflow 2 (Brownfield): context-harvest → brownfield-brainstorm
-    → brownfield-design → ui-mockups → brownfield-tech-plan
-    → implementation-planning
-    → story-breakdown → implementation → critical-review → testing
-    → code-review → retrospective
+  → Use Workflow 2 (Brownfield): asdlc-context-harvest → asdlc-brownfield-brainstorm
+    → asdlc-brownfield-design → asdlc-ui-mockups → asdlc-brownfield-tech-plan
+    → asdlc-implementation-planning
+    → asdlc-story-breakdown → asdlc-implementation → asdlc-critical-review → asdlc-testing
+    → asdlc-code-review → asdlc-retrospective
 `asdlc-``
 
 ---

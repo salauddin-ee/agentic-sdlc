@@ -8,29 +8,29 @@
 - [x] `README.md`
 
 ## Phase 2: Greenfield Workflow Skills (Stages 1–10)
-- [x] `skills/using-agentic-sdlc/SKILL.md` — Meta skill
-- [x] `skills/inception/SKILL.md` — Stage 1: Brainstorm + BRD
-- [x] `skills/design-system/SKILL.md` — Stage 2: Design system
-- [x] `skills/tech-architecture/SKILL.md` — Stage 3: Architecture + ADRs
-- [x] `skills/implementation-planning/SKILL.md` — Stage 4: Impl plan
-- [x] `skills/story-breakdown/SKILL.md` — Stage 5: Task DAG
-- [x] `skills/implementation/SKILL.md` — Stage 6: TDD loop
-- [x] `skills/critical-review/SKILL.md` — Stage 7: Adversarial review
-- [x] `skills/testing/SKILL.md` — Stage 8: Test execution
-- [x] `skills/code-review/SKILL.md` — Stage 9: Final review
-- [x] `skills/retrospective/SKILL.md` — Stage 10: Retrospective
+- [x] `.agents/skills/asdlc-using-agentic-sdlc/SKILL.md` — Meta skill
+- [x] `.agents/skills/asdlc-inception/SKILL.md` — Stage 1: Brainstorm + BRD
+- [x] `.agents/skills/asdlc-design-system/SKILL.md` — Stage 2: Design system
+- [x] `.agents/skills/asdlc-tech-architecture/SKILL.md` — Stage 3: Architecture + ADRs
+- [x] `.agents/skills/asdlc-implementation-planning/SKILL.md` — Stage 4: Impl plan
+- [x] `.agents/skills/asdlc-story-breakdown/SKILL.md` — Stage 5: Task DAG
+- [x] `.agents/skills/asdlc-implementation/SKILL.md` — Stage 6: TDD loop
+- [x] `.agents/skills/asdlc-critical-review/SKILL.md` — Stage 7: Adversarial review
+- [x] `.agents/skills/asdlc-testing/SKILL.md` — Stage 8: Test execution
+- [x] `.agents/skills/asdlc-code-review/SKILL.md` — Stage 9: Final review
+- [x] `.agents/skills/asdlc-retrospective/SKILL.md` — Stage 10: Retrospective
 
 ## Phase 3: Brownfield Workflow Skills
-- [x] `skills/context-harvest/SKILL.md` — Stage 0: Context harvest
-- [x] `skills/brownfield-design/SKILL.md` — Stage 1 lite
-- [x] `skills/brownfield-brainstorm/SKILL.md` — Stage 2 lite
-- [x] `skills/brownfield-tech-plan/SKILL.md` — Stage 3 lite
+- [x] `.agents/skills/asdlc-context-harvest/SKILL.md` — Stage 0: Context harvest
+- [x] `.agents/skills/asdlc-brownfield-design/SKILL.md` — Stage 1 lite
+- [x] `.agents/skills/asdlc-brownfield-brainstorm/SKILL.md` — Stage 2 lite
+- [x] `.agents/skills/asdlc-brownfield-tech-plan/SKILL.md` — Stage 3 lite
 
 ## Phase 4: Shared Infrastructure Skills
-- [x] `skills/coding-constitution/SKILL.md`
-- [x] `skills/stage-gates/SKILL.md`
-- [x] `skills/hitl-protocol/SKILL.md`
-- [x] `skills/writing-skills/SKILL.md`
+- [x] `.agents/skills/asdlc-coding-constitution/SKILL.md`
+- [x] `.agents/skills/asdlc-stage-gates/SKILL.md`
+- [x] `.agents/skills/asdlc-hitl-protocol/SKILL.md`
+- [x] `.agents/skills/asdlc-writing-skills/SKILL.md`
 
 ## Phase 5: Templates
 - [x] `templates/brd-template.md`

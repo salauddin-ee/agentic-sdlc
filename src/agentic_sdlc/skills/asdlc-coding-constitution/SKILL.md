@@ -93,7 +93,7 @@ A coding constitution is **binding**, not aspirational. If it's in the constitut
 4. Run the test — confirm it passes
 5. Run the full suite — confirm no regression
 6. Refactor — improve code quality without changing behavior
-7. Commit per `git-discipline` skill (one commit per story on feature branch)
+7. Commit per `asdlc-git-discipline` skill (one commit per story on feature branch)
 
 ## Dependency management
 - Add dependencies: justify the addition, check alternatives, verify license
@@ -101,7 +101,7 @@ A coding constitution is **binding**, not aspirational. If it's in the constitut
 - Update policy: [e.g., monthly patch updates, quarterly minor updates]
 
 ## Git conventions
-See `git-discipline` skill for full conventions. Project-specific overrides:
+See `asdlc-git-discipline` skill for full conventions. Project-specific overrides:
 - Commit format: Conventional Commits (feat/fix/chore/docs/test/refactor)
 - Branch naming: feature/STORY-{ID}-{short-desc} (stories), docs/{stage-name} (stages)
 - Merge strategy: squash merge to main
@@ -110,7 +110,7 @@ See `git-discipline` skill for full conventions. Project-specific overrides:
 
 ## Inheriting for Brownfield
 
-For brownfield projects, the coding constitution documents the **existing** standards, not new ones. Read the codebase first (via `context-harvest`), then write what you observe. Only add new standards if the story absolutely requires them — and mark new standards explicitly.
+For brownfield projects, the coding constitution documents the **existing** standards, not new ones. Read the codebase first (via `asdlc-context-harvest`), then write what you observe. Only add new standards if the story absolutely requires them — and mark new standards explicitly.
 
 ## Gate
 

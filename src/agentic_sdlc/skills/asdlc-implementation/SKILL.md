@@ -24,7 +24,7 @@ For each active ticket:
 ```
 1. Pick a Story: Read `docs/sdlc/stories/` and pick a story that has `status: TO_DO` and whose dependencies are met (check `docs/sdlc/epics/`).
 2. Initialize Workspace: Copy `templates/workspace-template.md` to `docs/sdlc/workspaces/workspace-STORY-[ID].md`. Fill in YAML: `story_id`, `agent`, `model`, `branch`, `started_at`.
-3. Create feature branch (invoke `git-discipline` skill):
+3. Create feature branch (invoke `asdlc-git-discipline` skill):
    git checkout main && git pull origin main
    git checkout -b feature/STORY-[ID]-[short-desc]
 4. Set State: Update `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: IN_PROGRESS`.
@@ -45,7 +45,7 @@ For each active ticket:
 17. Cleanup Workspace: Delete your `workspace-STORY-[ID].md` AFTER squash merge to main.
 ```
 
-> **Git note:** Keep all intermediate work on the feature branch. The single story commit captures the finished, reviewed state. Do NOT delete the workspace until after the story is merged — you may need it if reviews find issues. Invoke `git-discipline` skill if in doubt about any git operation.
+> **Git note:** Keep all intermediate work on the feature branch. The single story commit captures the finished, reviewed state. Do NOT delete the workspace until after the story is merged — you may need it if reviews find issues. Invoke `asdlc-git-discipline` skill if in doubt about any git operation.
 
 ## Test Pyramid Targets
 
@@ -106,7 +106,7 @@ If implementation reveals a Stage 3 architectural decision was wrong:
 
 1. **Stop immediately** — do not work around it
 2. Write a superseding ADR in `docs/architecture/adrs/` documenting the conflict
-3. Trigger HITL (invoke `hitl-protocol` skill)
+3. Trigger HITL (invoke `asdlc-hitl-protocol` skill)
 4. Update `docs/architecture/tech-architecture.md`
 5. Only resume implementation after HITL approval
 
@@ -156,7 +156,7 @@ stage_tokens:
 
 ## Gate
 
-Before invoking `critical-review` skill, every item below must be true for the story:
+Before invoking `asdlc-critical-review` skill, every item below must be true for the story:
 
 ```
 [ ] All TDD cycles complete — every function/method has a test written BEFORE its implementation
@@ -173,9 +173,9 @@ Before invoking `critical-review` skill, every item below must be true for the s
 ## Transition
 
 After all tasks in a story are complete:
-1. → Invoke `critical-review` skill.
-2. → Invoke `code-review` skill.
-3. → After code-review PASS, squash merge to main (invoke `git-discipline` skill):
+1. → Invoke `asdlc-critical-review` skill.
+2. → Invoke `asdlc-code-review` skill.
+3. → After code-review PASS, squash merge to main (invoke `asdlc-git-discipline` skill):
    ```
    git checkout main && git pull origin main
    git merge --squash feature/STORY-[ID]-[short-desc]

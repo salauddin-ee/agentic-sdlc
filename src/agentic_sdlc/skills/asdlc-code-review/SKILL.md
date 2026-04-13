@@ -85,13 +85,13 @@ Record review result (can be inline comment or separate note):
 ## Merge Criteria
 
 All five sections must be PASS before merging. If any section is FAIL:
-1. Return to `implementation` skill to fix the specific findings
+1. Return to `asdlc-implementation` skill to fix the specific findings
 2. Re-run the relevant section(s) of this review
 3. Do not re-run sections that already passed unless the fix might have affected them
 
 ## Merge Protocol (after APPROVED verdict)
 
-Invoke `git-discipline` skill, then run:
+Invoke `asdlc-git-discipline` skill, then run:
 
 ```bash
 # 1. Ensure story is committed on feature branch

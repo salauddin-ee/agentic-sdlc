@@ -19,8 +19,8 @@ Do NOT propose any changes, write any code, or invoke any implementation skill u
 5. **Identify known tech debt**: TODO comments, suppressed lint warnings, flagged issues, known fragile areas
 6. **Identify integration points**: external services, downstream consumers, event streams, shared databases
 7. **Write `docs/architecture/existing-system.md`** — using format below
-8. **Gate evaluation** — invoke `stage-gates` skill
-9. **Transition** — invoke `brownfield-brainstorm` skill
+8. **Gate evaluation** — invoke `asdlc-stage-gates` skill
+9. **Transition** — invoke `asdlc-brownfield-brainstorm` skill
 
 ## Codebase Fingerprinting Process
 

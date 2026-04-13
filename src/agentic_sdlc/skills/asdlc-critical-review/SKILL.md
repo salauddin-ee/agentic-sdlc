@@ -91,9 +91,9 @@ Write findings to `docs/sdlc/retrospectives/critical-review.md`:
 
 ## Loop Rule
 
-- **P0 or P1 findings present**: return to `implementation` skill, fix, and re-run this review
-- **Only P2 findings**: proceed to `testing` skill
-- **No findings**: proceed to `testing` skill
+- **P0 or P1 findings present**: return to `asdlc-implementation` skill, fix, and re-run this review
+- **Only P2 findings**: proceed to `asdlc-testing` skill
+- **No findings**: proceed to `asdlc-testing` skill
 
 ## Gate
 
@@ -105,7 +105,7 @@ Write findings to `docs/sdlc/retrospectives/critical-review.md`:
 [ ] If FAIL: implementation skill invoked to fix before re-running this review
 ```
 
-Only proceed to `testing` skill when verdict is PASS (all P0 and P1 findings resolved).
+Only proceed to `asdlc-testing` skill when verdict is PASS (all P0 and P1 findings resolved).
 
 ## Red Flags
 

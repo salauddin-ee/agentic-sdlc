@@ -26,11 +26,11 @@ Do NOT begin production implementation, implementation-planning, or brownfield-t
    - If importing: record where the existing mockups came from and summarize what they cover
 4. **Write `docs/product/mockups.md`** — using the format below
 5. **Share the artifact for review** — screenshots or coded prototype must be reviewable by the user
-6. **HITL checkpoint** — invoke `hitl-protocol` skill for explicit approval of the visual direction
+6. **HITL checkpoint** — invoke `asdlc-hitl-protocol` skill for explicit approval of the visual direction
 7. **Record the decision** — update `docs/product/mockups.md` with the selected direction and any requested revisions
 8. **Transition**:
-   - Greenfield: continue to `tech-architecture` or `implementation-planning` only after approval
-   - Brownfield: continue to `brownfield-tech-plan` only after approval
+   - Greenfield: continue to `asdlc-tech-architecture` or `asdlc-implementation-planning` only after approval
+   - Brownfield: continue to `asdlc-brownfield-tech-plan` only after approval
 
 ## Mockup Artifact Format
 
@@ -89,4 +89,4 @@ Write `docs/product/mockups.md`:
 | "A text description is enough" | Major visual changes require screenshots or a coded prototype that the user can review. |
 | "We already have Figma screens, so I can proceed without documenting them" | Existing mockups still need to be imported, referenced, and explicitly approved in the project artifact. |
 | "I'll start coding and refine the visuals later" | Violating the letter of the gate is violating the spirit. Do NOT begin production implementation before approval. |
-| "The user hasn't answered but the direction is clear" | No response is not approval. Invoke `hitl-protocol` and wait. |
+| "The user hasn't answered but the direction is clear" | No response is not approval. Invoke `asdlc-hitl-protocol` and wait. |

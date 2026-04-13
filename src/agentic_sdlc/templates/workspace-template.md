@@ -25,7 +25,7 @@ git_merge_status: pending
 
 > **Instructions for agent:** Fill in the YAML frontmatter above as you work.
 > Log token estimates after each stage. Update `status` as you progress.
-> Delete this file only AFTER the story is squash merged to main (see `git-discipline` skill). Do NOT delete before code-review.
+> Delete this file only AFTER the story is squash merged to main (see `asdlc-git-discipline` skill). Do NOT delete before code-review.
 
 ## Context
 

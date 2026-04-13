@@ -23,7 +23,7 @@ There is no partial pass. Every criterion must be checked. Unchecked items are f
 4. Mark each criterion `[x]` (pass) or `[ ]` (fail — with reason)
 5. If all pass:
    - Commit all stage artifacts to the current `docs/{stage-name}` branch
-     (this branch must have been created at the start of this stage — see `git-discipline` skill, Stage Artifact Protocol, step 1):
+     (this branch must have been created at the start of this stage — see `asdlc-git-discipline` skill, Stage Artifact Protocol, step 1):
      ```
      git add docs/
      git commit -m "docs({stage-name}): stage complete — gate passed"
@@ -31,7 +31,7 @@ There is no partial pass. Every criterion must be checked. Unchecked items are f
    - Then proceed to HITL (if required) or the next stage
 6. If any fail: do not proceed. Return to the stage, fix the gap, re-evaluate the full gate
 
-> **Important:** If no `docs/{stage-name}` branch exists, create it now before committing: `git checkout -b docs/{stage-name}`. See `git-discipline` skill for full branch and commit conventions.
+> **Important:** If no `docs/{stage-name}` branch exists, create it now before committing: `git checkout -b docs/{stage-name}`. See `asdlc-git-discipline` skill for full branch and commit conventions.
 
 ## Gate Format
 
@@ -60,7 +60,7 @@ RESULT: PASS — proceed to design-system
 
 **"Written to `docs/sdlc/`"** — File must physically exist at the specified path. Not drafted in conversation memory.
 
-**"User has reviewed and approved"** — HITL checkpoint completed (invoke `hitl-protocol` skill). Not assumed.
+**"User has reviewed and approved"** — HITL checkpoint completed (invoke `asdlc-hitl-protocol` skill). Not assumed.
 
 **"No open questions"** — Every question in `docs/product/features/brd.md > Open questions` is resolved. Not merely noted.
 

@@ -19,12 +19,12 @@ Do NOT write any production code until tech-architecture.md, at least one ADR pe
 5. **Container diagram** — C4 Level 2 (major deployable units)
 6. **Sequence diagrams** — 2-3 most critical flows
 7. **Directory structure** — canonical directory tree in markdown
-8. **Write coding constitution** — invoke `coding-constitution` skill
+8. **Write coding constitution** — invoke `asdlc-coding-constitution` skill
 9. **Write `docs/architecture/tech-architecture.md`** — using format below
 10. **Self-review** — check all ADR decisions are reflected in architecture, no gaps
 11. **Present to user** — section by section
 12. **HITL checkpoint** — required before any code is written
-13. **Transition** — invoke `implementation-planning` skill
+13. **Transition** — invoke `asdlc-implementation-planning` skill
 
 ## ADR Format
 
@@ -102,7 +102,7 @@ Each decision gets its own file: `docs/architecture/adrs/ADR-NNN-<title>.md`
 
 ## Gate
 
-Read `stage-gates` skill and evaluate:
+Read `asdlc-stage-gates` skill and evaluate:
 
 ```
 [ ] Tech stack justified via ADRs for each major component
@@ -111,7 +111,7 @@ Read `stage-gates` skill and evaluate:
 [ ] Container diagram present (C4 Level 2)
 [ ] At least 2 sequence diagrams for the most critical flows
 [ ] Directory structure defined and documented
-[ ] Coding constitution written (invoke the `coding-constitution` skill)
+[ ] Coding constitution written (invoke the `asdlc-coding-constitution` skill)
 [ ] Security approach documented
 [ ] All artifacts written to docs/architecture/ (and ADRs to docs/architecture/adrs/)
 [ ] User has reviewed and approved via HITL

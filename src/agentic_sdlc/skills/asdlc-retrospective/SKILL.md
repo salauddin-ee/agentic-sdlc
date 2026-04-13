@@ -19,7 +19,7 @@ Close the loop. Account for what happened, extract reusable knowledge into the s
 3. **Identify skills library updates** — new patterns worth capturing, existing skills to improve
 4. **Propose process improvements** — changes to the framework that would improve future runs
 5. **Write / append to `docs/sdlc/retrospectives/retrospective.md`**
-6. **If skills library updates are proposed**: invoke `writing-skills` skill
+6. **If skills library updates are proposed**: invoke `asdlc-writing-skills` skill
 
 ## Full Project Retrospective Format
 
@@ -99,7 +99,7 @@ If you identify a pattern worth capturing as a reusable skill:
 
 1. Note it in the retrospective under "Skills library updates"
 2. Answer: would this benefit someone working on a completely different project? If yes → create a skill
-3. Invoke `writing-skills` skill to create or update the skill file
+3. Invoke `asdlc-writing-skills` skill to create or update the skill file
 
 ## Gate
 

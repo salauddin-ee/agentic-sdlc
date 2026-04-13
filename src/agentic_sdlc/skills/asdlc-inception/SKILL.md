@@ -7,7 +7,7 @@ version: 1.0.0
 Establish shared understanding of what is being built, for whom, and why — before anything else is done.
 
 <HARD-GATE>
-Do NOT invoke design-system, tech-architecture, or any implementation skill until you have produced a BRD and the user has approved it. This applies to every project regardless of perceived simplicity.
+Do NOT invoke asdlc-design-system, asdlc-tech-architecture, or any implementation skill until you have produced a BRD and the user has approved it. This applies to every project regardless of perceived simplicity.
 </HARD-GATE>
 
 ## Anti-Pattern: "This Is Too Simple to Need a BRD"
@@ -30,9 +30,9 @@ Complete in order:
 5. **Write `docs/product/features/brd.md`** — using the BRD format below
 6. **Self-review the BRD** — check for placeholders, contradictions, missing metrics
 7. **Present BRD to user** — ask for explicit approval before proceeding
-8. **HITL checkpoint** — required before moving to Stage 2 (invoke `hitl-protocol` skill)
+8. **HITL checkpoint** — required before moving to Stage 2 (invoke `asdlc-hitl-protocol` skill)
 9. **Update Artifact Status** — Once approved, update `docs/product/features/brd.md` status to `Approved`.
-10. **Transition** — invoke `design-system` or `tech-architecture` skill (ask user which order)
+10. **Transition** — invoke `asdlc-design-system` or `asdlc-tech-architecture` skill (ask user which order)
 
 ## Clarifying Questions Protocol
 
@@ -98,7 +98,7 @@ If any item fails, loop within this stage — do not proceed.
 
 ## HITL Checkpoint
 
-After the gate passes, trigger HITL using this format (or invoke `hitl-protocol` skill):
+After the gate passes, trigger HITL using this format (or invoke `asdlc-hitl-protocol` skill):
 
 ```
 HITL REQUIRED

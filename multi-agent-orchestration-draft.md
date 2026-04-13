@@ -1,6 +1,6 @@
 # Multi-Agent Orchestration Skill (Draft)
 
-*This is a draft of the proposed `agent-orchestration` skill, to be used when the `story-breakdown` DAG has parallel tracks.*
+*This is a draft of the proposed `agent-orchestration` skill, to be used when the `asdlc-story-breakdown` DAG has parallel tracks.*
 
 ---
 name: agent-orchestration
@@ -12,7 +12,7 @@ Governs how multiple agents (or sub-agents) execute parallel tracks from the dep
 
 ## When to Use
 
-- When the `story-breakdown` DAG has 2+ independent parallel tracks.
+- When the `asdlc-story-breakdown` DAG has 2+ independent parallel tracks.
 - When the agent platform supports sub-agent spawning (e.g., Antigravity `browser_subagent`, Claude parallel tool calls, Codex multi-task).
 
 ## Orchestration Protocol
@@ -26,14 +26,14 @@ Governs how multiple agents (or sub-agents) execute parallel tracks from the dep
 4. **Spawn sub-agents** — one per parallel track:
    - Each sub-agent receives: story file, workspace template, coding standards, `data-domain.md` (read-only).
    - Each sub-agent creates its own feature branch.
-   - Each sub-agent follows the `implementation` skill independently.
+   - Each sub-agent follows the `asdlc-implementation` skill independently.
 5. **Synchronization points:**
    - **Merge point:** When tracks converge (DAG merge node), all upstream tracks must be merged to main before the downstream story begins.
    - **Contract change:** If any sub-agent needs to modify `data-domain.md`, it must STOP, raise HITL, and all other agents must pause until the change is approved and propagated.
    - **Conflict detection:** Before merging any track, run `git merge --no-commit --no-ff main` to detect conflicts. If conflicts exist → HITL.
 6. **Completion protocol:**
-   - Each sub-agent runs `critical-review` and `code-review` on its own track.
-   - After all tracks merge, run a final integration `critical-review` on the combined result.
+   - Each sub-agent runs `asdlc-critical-review` and `asdlc-code-review` on its own track.
+   - After all tracks merge, run a final integration `asdlc-critical-review` on the combined result.
    - Run full test suite on `main` after all merges.
 
 ## Sub-Agent Context Template
@@ -56,7 +56,7 @@ feature/TRACK-[X]-STORY-[ID]
 [copy of data-domain.md — do NOT modify without HITL]
 
 ## Rules:
-1. Follow `implementation` skill exactly (TDD, commits, workspace)
+1. Follow `asdlc-implementation` skill exactly (TDD, commits, workspace)
 2. Only modify files in your ownership list
 3. If you need to change a contract → STOP and report back
 4. Commit after every RED/GREEN/REFACTOR cycle
@@ -68,7 +68,7 @@ feature/TRACK-[X]-STORY-[ID]
 - **Maximum parallel tracks:** 3 (more than 3 increases merge conflict risk beyond manageable).
 - Each track must be independently testable.
 - No shared mutable state between tracks (contracts are read-only during parallel execution).
-- If ANY track fails `critical-review` with P0/P1 → ALL tracks pause until resolved.
+- If ANY track fails `asdlc-critical-review` with P0/P1 → ALL tracks pause until resolved.
 
 ## Gate
 

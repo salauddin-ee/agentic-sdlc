@@ -9,8 +9,8 @@ Understand the business and user impact of this story in isolation before planni
 ## When to Use
 
 - A story or feature request arrives for an existing system
-- After `context-harvest` has been completed (existing-system.md exists)
-- Before `brownfield-tech-plan` begins
+- After `asdlc-context-harvest` has been completed (existing-system.md exists)
+- Before `asdlc-brownfield-tech-plan` begins
 
 ## Checklist
 
@@ -26,7 +26,7 @@ Understand the business and user impact of this story in isolation before planni
 5. **Identify scope risks** — what could expand this story's scope unintentionally?
 6. **Check existing behavior** — does anything like this already exist? Can we extend it?
 7. **Document in `docs/product/features/brd.md`** (append a story section) — using format below
-8. **Transition** — invoke `brownfield-design` (if UI changes) or `brownfield-tech-plan`
+8. **Transition** — invoke `asdlc-brownfield-design` (if UI changes) or `asdlc-brownfield-tech-plan`
 
 ## Questions Protocol
 

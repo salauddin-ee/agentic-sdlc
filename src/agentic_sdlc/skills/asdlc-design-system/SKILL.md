@@ -34,8 +34,8 @@ Do NOT write any frontend code or select UI frameworks until design tokens, comp
 7. **Write `docs/product/design-system.md`** — using the format below
 8. **Self-review** — check for missing components, incomplete token definitions
 9. **Present to user** — get approval section by section
-10. **Gate evaluation** — invoke `stage-gates` skill
-11. **Transition** — if this is a user-facing redesign, new landing page, or major visual contract change, invoke `ui-mockups` before implementation-planning begins
+10. **Gate evaluation** — invoke `asdlc-stage-gates` skill
+11. **Transition** — if this is a user-facing redesign, new landing page, or major visual contract change, invoke `asdlc-ui-mockups` before implementation-planning begins
 
 ## Design Tokens Format
 

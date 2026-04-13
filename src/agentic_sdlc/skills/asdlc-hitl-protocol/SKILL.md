@@ -41,7 +41,7 @@ git add docs/
 git commit -m "docs({stage-name}): HITL decision recorded — {option chosen}"
 ```
 
-> See `git-discipline` skill for full conventions.
+> See `asdlc-git-discipline` skill for full conventions.
 
 ## HITL Prompt Format
 
