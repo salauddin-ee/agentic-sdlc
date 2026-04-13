@@ -45,7 +45,7 @@ def init(target, force):
         ("docs/architecture/domain-model.md", "Domain Knowledge", "inception"),
         ("docs/product/features/brd.md", "Business Requirements", "inception"),
         ("docs/product/design-system.md", "Design System", "design-system"),
-        ("docs/product/mockups.md", "UI Mockups", "ui-mockup-gate"),
+        ("docs/product/mockups.md", "UI Mockups", "ui-mockups"),
         ("docs/product/personas.md", "Personas", "inception"),
         ("docs/architecture/tech-architecture.md", "Technical Architecture", "tech-architecture"),
         ("docs/architecture/coding-standards.md", "Coding Constitution", "tech-architecture"),

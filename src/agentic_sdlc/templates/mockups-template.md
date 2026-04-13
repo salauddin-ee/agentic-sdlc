@@ -42,4 +42,4 @@
 - Notes: [Requested revisions or approval scope]
 
 ---
-*Written by: agentic-sdlc ui-mockup-gate skill*
+*Written by: agentic-sdlc ui-mockups skill*

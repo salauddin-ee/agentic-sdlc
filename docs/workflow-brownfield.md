@@ -5,13 +5,13 @@ Use this workflow when adding a **feature or fix to an existing codebase**.
 ## Workflow Overview
 
 ```text
-context-harvest → brownfield-brainstorm → [brownfield-design] → [ui-mockup-gate]
+context-harvest → brownfield-brainstorm → [brownfield-design] → [ui-mockups]
                → brownfield-tech-plan → implementation-planning → story-breakdown
                → implementation → critical-review → testing → code-review
                → retrospective
 ```
 
-`brownfield-design` is only needed if the story introduces UI changes. `ui-mockup-gate` is required when that UI change is a redesign, new landing page, or major visual contract change.
+`brownfield-design` is only needed if the story introduces UI changes. `ui-mockups` is required when that UI change is a redesign, new landing page, or major visual contract change.
 
 ---
 
@@ -60,7 +60,7 @@ Skip if: story has no UI impact.
 
 ## Stage 2a: UI Mockup Gate (if major UI change)
 
-**Skill:** `skills/ui-mockup-gate/SKILL.md`
+**Skill:** `skills/ui-mockups/SKILL.md`
 **HITL:** Required before Stage 3
 
 What happens:

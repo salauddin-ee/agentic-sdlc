@@ -31,14 +31,14 @@ Skills live in the `skills/` directory of this repository. Each skill is a `SKIL
 
 ```
 Starting a new project from scratch?
-  → Use Workflow 1 (Greenfield): inception → design-system → ui-mockup-gate
+  → Use Workflow 1 (Greenfield): inception → design-system → ui-mockups
     → tech-architecture
     → implementation-planning → story-breakdown → implementation
     → critical-review → testing → code-review → retrospective
 
 Working on an existing codebase?
   → Use Workflow 2 (Brownfield): context-harvest → brownfield-brainstorm
-    → brownfield-design → ui-mockup-gate → brownfield-tech-plan
+    → brownfield-design → ui-mockups → brownfield-tech-plan
     → implementation-planning
     → story-breakdown → implementation → critical-review → testing
     → code-review → retrospective
@@ -53,7 +53,7 @@ Working on an existing codebase?
 | `using-agentic-sdlc` | Starting any project or session |
 | `inception` | New project with unclear requirements |
 | `design-system` | Establishing visual/interaction language |
-| `ui-mockup-gate` | User-facing redesign, new landing page, or major visual contract change needing visual approval |
+| `ui-mockups` | User-facing redesign, new landing page, or major visual contract change needing visual approval |
 | `tech-architecture` | Making technology or architecture decisions |
 | `implementation-planning` | Creating execution plan from approved architecture |
 | `story-breakdown` | Decomposing a plan into executable tasks |

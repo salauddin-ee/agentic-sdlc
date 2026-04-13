@@ -1,5 +1,5 @@
-id: ui-mockup-gate-reviewable-artifact-001
-skill: ui-mockup-gate
+id: ui-mockups-reviewable-artifact-001
+skill: ui-mockups
 prompt: "A major visual contract change needs a reviewable mockup artifact before implementation."
 context:
   ui_change: major-visual-contract

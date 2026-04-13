@@ -12,7 +12,7 @@ Human approval is **always** required at these points — no exceptions:
 
 1. **End of inception** — before design and architecture begin
 2. **End of tech-architecture** — before any code is written
-3. **End of ui-mockup-gate** — before implementation-planning, brownfield-tech-plan, or production implementation continue for the affected UI
+3. **End of ui-mockups** — before implementation-planning, brownfield-tech-plan, or production implementation continue for the affected UI
 4. **End of story-breakdown** — before implementation begins
 5. **Before any destructive operation** — DB migration, data deletion, external API write in production
 6. **When the agent is blocked** — cannot resolve ambiguity autonomously
@@ -96,10 +96,10 @@ Options: [A] JWT approach (ADR-003) — remove legacy session code for this endp
 Default if no response: Wait for explicit approval
 ```
 
-**End of ui-mockup-gate:**
+**End of ui-mockups:**
 ```
 HITL REQUIRED
-Stage: ui-mockup-gate
+Stage: ui-mockups
 Question: Do these mockups establish the visual direction we should implement?
 Context: Mockup artifact recorded in docs/product/mockups.md. Review includes screenshots or a coded prototype for the affected UI surface.
 Options: [A] Approved — proceed with this visual direction

@@ -9,7 +9,7 @@ Quick reference for all agentic-sdlc skills. For full instructions, read the `SK
 | 0 | `using-agentic-sdlc` | Starting any session | Workflow selection |
 | 1 | `inception` | New project from scratch | `docs/product/features/brd.md` |
 | 2 | `design-system` | UI project | `docs/product/design-system.md` |
-| 2a | `ui-mockup-gate` | Redesign, landing page, or major visual contract change | `docs/product/mockups.md` |
+| 2a | `ui-mockups` | Redesign, landing page, or major visual contract change | `docs/product/mockups.md` |
 | 3 | `tech-architecture` | Before any code | `docs/architecture/tech-architecture.md`, ADRs |
 | 3a | `coding-constitution` | Within tech-architecture | `docs/architecture/coding-standards.md` |
 | 4 | `implementation-planning` | After architecture approved | `docs/sdlc/epics/implementation-plan.md` |
@@ -27,7 +27,7 @@ Quick reference for all agentic-sdlc skills. For full instructions, read the `SK
 | 0 | `context-harvest` | Unfamiliar existing codebase | `docs/architecture/existing-system.md` |
 | 1 | `brownfield-brainstorm` | Story arrives | Story BRD appended to `brd.md` |
 | 2 | `brownfield-design` | Story has UI changes | Design delta appended to `design-system.md` |
-| 2a | `ui-mockup-gate` | Major visible UI change needs approval | `docs/product/mockups.md` |
+| 2a | `ui-mockups` | Major visible UI change needs approval | `docs/product/mockups.md` |
 | 3 | `brownfield-tech-plan` | Story needs tech plan | `docs/sdlc/workspaces/tech-plan-[STORY-ID].md` |
 | 4–10 | Same as greenfield from `implementation-planning` → `retrospective` | | |
 
@@ -43,7 +43,7 @@ Quick reference for all agentic-sdlc skills. For full instructions, read the `SK
 
 1. After `inception` — before design/architecture
 2. After `tech-architecture` — before any code
-3. After `ui-mockup-gate` — before implementation-planning, brownfield-tech-plan, or production implementation continue for the affected UI
+3. After `ui-mockups` — before implementation-planning, brownfield-tech-plan, or production implementation continue for the affected UI
 4. After `story-breakdown` — before implementation
 5. Before any destructive operation (DB migration, data deletion, production write)
 6. When agent is blocked by ambiguity
@@ -60,7 +60,7 @@ docs/
   product/features/brd.md                ← inception
   product/design-system.md               ← design-system
   product/accessibility.md               ← design-system
-  product/mockups.md                     ← ui-mockup-gate
+  product/mockups.md                     ← ui-mockups
   architecture/tech-architecture.md      ← tech-architecture
   architecture/coding-standards.md       ← tech-architecture
   architecture/adrs/                     ← tech-architecture (one file per decision)

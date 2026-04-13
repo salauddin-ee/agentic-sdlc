@@ -1,5 +1,5 @@
 ---
-name: ui-mockup-gate
+name: ui-mockups
 description: Use when a user-facing redesign, new landing page, or major visual contract change needs visual approval before implementation proceeds.
 version: 1.0.0
 ---

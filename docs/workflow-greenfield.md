@@ -5,12 +5,12 @@ Use this workflow when building a **new project from scratch** with no existing 
 ## Workflow Overview
 
 ```text
-inception → [design-system] → [ui-mockup-gate] → tech-architecture
+inception → [design-system] → [ui-mockups] → tech-architecture
          → implementation-planning → story-breakdown → implementation
          → critical-review → testing → code-review → retrospective
 ```
 
-`design-system` is required if the project has a UI. `ui-mockup-gate` is required for a redesign, new landing page, or major visual contract change. `tech-architecture` can still run before or after `design-system`, but `ui-mockup-gate` must happen after `design-system` and before implementation-planning begins.
+`design-system` is required if the project has a UI. `ui-mockups` is required for a redesign, new landing page, or major visual contract change. `tech-architecture` can still run before or after `design-system`, but `ui-mockups` must happen after `design-system` and before implementation-planning begins.
 
 ---
 
@@ -50,7 +50,7 @@ Skip if: purely backend/API project with no user-facing UI.
 
 ## Stage 2a: UI Mockup Gate (if major UI change)
 
-**Skill:** `skills/ui-mockup-gate/SKILL.md`
+**Skill:** `skills/ui-mockups/SKILL.md`
 **HITL:** Required before Stage 4
 
 What happens:

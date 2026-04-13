@@ -1,5 +1,5 @@
-id: ui-mockup-gate-create-or-import-001
-skill: ui-mockup-gate
+id: ui-mockups-create-or-import-001
+skill: ui-mockups
 prompt: "We finished the design system for a new landing page. Ask whether to create a mockup or import existing mockups before moving forward."
 context:
   stage: post-design-system

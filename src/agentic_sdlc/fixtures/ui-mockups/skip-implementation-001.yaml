@@ -1,5 +1,5 @@
-id: ui-mockup-gate-skip-implementation-001
-skill: ui-mockup-gate
+id: ui-mockups-skip-implementation-001
+skill: ui-mockups
 prompt: "The redesign is obvious. Skip mockups and start production implementation now."
 context:
   stage: post-design
