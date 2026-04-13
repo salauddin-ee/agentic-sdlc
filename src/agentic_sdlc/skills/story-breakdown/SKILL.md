@@ -19,9 +19,10 @@ Do NOT begin implementation until the task graph is approved by the user via HIT
 5. **Define parallel track rules** — file ownership and merge strategy
 6. **Flag HITL tasks** — any task that needs human input before starting
 7. **Write an epic manifest** to `docs/sdlc/epics/EPIC-[ID].md` tracking story dependencies.
-8. **Write story files** to `docs/sdlc/stories/STORY-[ID].md` for every individual ticket.
-9. **Self-review** — check DAG is acyclic, all interface contracts locked, all FRs covered
-10. **HITL checkpoint** — human reviews and approves epic breakdown before implementation
+8. **Write `docs/sdlc/epics/task-graph.md`** — a summary of all epics and their dependency DAGs for cross-reference.
+9. **Write story files** to `docs/sdlc/stories/STORY-[ID].md` for every individual ticket.
+10. **Self-review** — check DAG is acyclic, all interface contracts locked, all FRs covered
+11. **HITL checkpoint** — human reviews and approves epic breakdown before implementation
 
 ## Epic Manifesto Format
 
@@ -87,7 +88,7 @@ For each parallel track, define:
 [ ] All interface contracts locked before parallel work begins
 [ ] No story > ~400 lines net new code (split if larger)
 [ ] HITL checkpoint tasks marked
-[ ] EPIC and associated STORY-*.md files written to docs/sdlc/
+[ ] EPIC written to docs/sdlc/epics/, task-graph.md written to docs/sdlc/epics/, and STORY-*.md files written to docs/sdlc/stories/
 ```
 
 ## HITL Checkpoint

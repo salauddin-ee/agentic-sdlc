@@ -9,6 +9,7 @@ Quick reference for all agentic-sdlc skills. For full instructions, read the `SK
 | 0 | `using-agentic-sdlc` | Starting any session | Workflow selection |
 | 1 | `inception` | New project from scratch | `docs/product/features/brd.md` |
 | 2 | `design-system` | UI project | `docs/product/design-system.md` |
+| 2a | `ui-mockups` | Redesign, landing page, or major visual contract change | `docs/product/mockups.md` |
 | 3 | `tech-architecture` | Before any code | `docs/architecture/tech-architecture.md`, ADRs |
 | 3a | `coding-constitution` | Within tech-architecture | `docs/architecture/coding-standards.md` |
 | 4 | `implementation-planning` | After architecture approved | `docs/sdlc/epics/implementation-plan.md` |
@@ -26,6 +27,7 @@ Quick reference for all agentic-sdlc skills. For full instructions, read the `SK
 | 0 | `context-harvest` | Unfamiliar existing codebase | `docs/architecture/existing-system.md` |
 | 1 | `brownfield-brainstorm` | Story arrives | Story BRD appended to `brd.md` |
 | 2 | `brownfield-design` | Story has UI changes | Design delta appended to `design-system.md` |
+| 2a | `ui-mockups` | Major visible UI change needs approval | `docs/product/mockups.md` |
 | 3 | `brownfield-tech-plan` | Story needs tech plan | `docs/sdlc/workspaces/tech-plan-[STORY-ID].md` |
 | 4–10 | Same as greenfield from `implementation-planning` → `retrospective` | | |
 
@@ -41,31 +43,33 @@ Quick reference for all agentic-sdlc skills. For full instructions, read the `SK
 
 1. After `inception` — before design/architecture
 2. After `tech-architecture` — before any code
-3. After `story-breakdown` — before implementation
-4. Before any destructive operation (DB migration, data deletion, production write)
-5. When agent is blocked by ambiguity
-6. When an interface contract changes mid-implementation
-7. When a Stage 3 architectural decision is superseded
+3. After `ui-mockups` — before implementation-planning, brownfield-tech-plan, or production implementation continue for the affected UI
+4. After `story-breakdown` — before implementation
+5. Before any destructive operation (DB migration, data deletion, production write)
+6. When agent is blocked by ambiguity
+7. When an interface contract changes mid-implementation
+8. When a Stage 3 architectural decision is superseded
 
 ## Context Directory
 
 All stage outputs are written here (at project root):
 
-```
-docs/sdlc/
-  domain.md              ← inception
-  brd.md                 ← inception
-  design-system.md       ← design-system
-  accessibility.md       ← design-system
-  tech-architecture.md   ← tech-architecture
-  coding-constitution.md ← tech-architecture
-  adr/                   ← tech-architecture (one file per decision)
-  implementation-plan.md ← implementation-planning
-  interface-contracts.md ← implementation-planning
-  task-graph.md          ← story-breakdown
-  critical-review.md     ← critical-review
-  test-plan.md           ← testing
-  retrospective.md       ← retrospective
-  existing-system.md     ← context-harvest (brownfield only)
-  tech-plan-*.md         ← brownfield-tech-plan (one per story)
+```text
+docs/
+  architecture/domain-model.md           ← inception
+  product/features/brd.md                ← inception
+  product/design-system.md               ← design-system
+  product/accessibility.md               ← design-system
+  product/mockups.md                     ← ui-mockups
+  architecture/tech-architecture.md      ← tech-architecture
+  architecture/coding-standards.md       ← tech-architecture
+  architecture/adrs/                     ← tech-architecture (one file per decision)
+  sdlc/epics/implementation-plan.md      ← implementation-planning
+  architecture/data-domain.md            ← implementation-planning
+  sdlc/epics/task-graph.md               ← story-breakdown
+  sdlc/retrospectives/critical-review.md ← critical-review
+  sdlc/test-plans/test-plan.md           ← testing
+  sdlc/retrospectives/retrospective.md   ← retrospective
+  architecture/existing-system.md        ← context-harvest (brownfield only)
+  sdlc/workspaces/tech-plan-*.md         ← brownfield-tech-plan (one per story)
 ```

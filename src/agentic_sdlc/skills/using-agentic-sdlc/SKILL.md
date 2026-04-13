@@ -33,14 +33,14 @@ Before any work, determine which workflow applies:
 ```
 Is this a brand-new project with no existing codebase?
   YES → Workflow 1 (Greenfield)
-        inception → design-system → tech-architecture
+        inception → design-system → ui-mockups → tech-architecture
         → implementation-planning → story-breakdown → implementation
         → critical-review → testing → code-review → retrospective
 
   NO  → Is this a story/feature on an existing codebase?
         YES → Workflow 2 (Brownfield)
               context-harvest → brownfield-brainstorm → brownfield-design
-              → brownfield-tech-plan → implementation-planning
+              → ui-mockups → brownfield-tech-plan → implementation-planning
               → story-breakdown → implementation → critical-review
               → testing → code-review → retrospective
 ```
@@ -54,6 +54,7 @@ Is this a brand-new project with no existing codebase?
 | `using-agentic-sdlc` | Starting any project or session |
 | `inception` | New project with unclear requirements |
 | `design-system` | Establishing visual/interaction language |
+| `ui-mockups` | User-facing redesign, new landing page, or major visual contract change needs visual approval |
 | `tech-architecture` | Making technology or architecture decisions |
 | `implementation-planning` | Creating execution plan from approved architecture |
 | `story-breakdown` | Decomposing a plan into executable tasks |
@@ -89,24 +90,27 @@ Is this a brand-new project with no existing codebase?
 
 ## Context Directory
 
-All stage outputs live in `docs/sdlc/` at the project root. Every stage reads and writes specific files. Never rely on conversation memory alone.
+All stage outputs are written to a distributed `docs/` structure at the project root. Every stage reads and writes specific files. Never rely on conversation memory alone.
 
-```
-docs/sdlc/
-  domain.md              ← inception writes this
-  brd.md                 ← inception writes this
-  design-system.md       ← design-system writes this
-  accessibility.md       ← design-system writes this
-  tech-architecture.md   ← tech-architecture writes this
-  adr/                   ← tech-architecture writes this
-  coding-constitution.md ← tech-architecture writes this
-  implementation-plan.md ← implementation-planning writes this
-  task-graph.md          ← story-breakdown writes this
-  interface-contracts.md ← implementation maintains this
-  test-plan.md           ← testing writes this
-  critical-review.md     ← critical-review writes this
-  retrospective.md       ← retrospective writes this
-  existing-system.md     ← context-harvest writes this (brownfield only)
+```text
+docs/
+  architecture/domain-model.md           ← inception
+  architecture/existing-system.md        ← context-harvest (brownfield only)
+  product/features/brd.md                ← inception
+  product/design-system.md               ← design-system
+  product/accessibility.md               ← design-system
+  product/mockups.md                     ← ui-mockups
+  architecture/tech-architecture.md      ← tech-architecture
+  architecture/adrs/                     ← tech-architecture
+  architecture/coding-standards.md       ← tech-architecture
+  architecture/data-domain.md            ← implementation-planning
+  sdlc/epics/implementation-plan.md      ← implementation-planning
+  sdlc/epics/task-graph.md               ← story-breakdown
+  sdlc/stories/                          ← story-breakdown
+  sdlc/workspaces/                       ← implementation, brownfield-tech-plan
+  sdlc/test-plans/test-plan.md           ← testing
+  sdlc/retrospectives/critical-review.md ← critical-review
+  sdlc/retrospectives/retrospective.md   ← retrospective
 ```
 
 Run `asdlc init` to create this structure in a new project.
@@ -125,3 +129,5 @@ Run `asdlc init` to create this structure in a new project.
 | "We can skip architecture, it's a small project" | Small projects grow. ADRs take 10 minutes. Tech debt lasts forever. |
 | "I'll document later" | Later never comes. Write artifacts now. |
 | "The status doesn't matter" | Documents must be 'Approved' to pass gates. Update the status. |
+| "Just start coding, I'll explain requirements as we go" | Coding without inception produces the wrong thing. Run inception first — it's fast. |
+| "Let's skip inception and go straight to coding" | Inception exists to prevent this. Every project, every time. Run it. |

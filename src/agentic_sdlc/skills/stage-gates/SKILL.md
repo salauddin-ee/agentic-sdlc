@@ -60,7 +60,7 @@ RESULT: PASS — proceed to design-system
 
 **"Written to `docs/sdlc/`"** — File must physically exist at the specified path. Not drafted in conversation memory.
 
-**"User has reviewed and approved"** — HITL checkpoint completed (see `skills/hitl-protocol/SKILL.md`). Not assumed.
+**"User has reviewed and approved"** — HITL checkpoint completed (invoke `hitl-protocol` skill). Not assumed.
 
 **"No open questions"** — Every question in `docs/product/features/brd.md > Open questions` is resolved. Not merely noted.
 

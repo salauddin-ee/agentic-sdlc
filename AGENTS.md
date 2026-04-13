@@ -31,13 +31,15 @@ Skills live in the `skills/` directory of this repository. Each skill is a `SKIL
 
 ```
 Starting a new project from scratch?
-  → Use Workflow 1 (Greenfield): inception → design-system → tech-architecture
+  → Use Workflow 1 (Greenfield): inception → design-system → ui-mockups
+    → tech-architecture
     → implementation-planning → story-breakdown → implementation
     → critical-review → testing → code-review → retrospective
 
 Working on an existing codebase?
   → Use Workflow 2 (Brownfield): context-harvest → brownfield-brainstorm
-    → brownfield-design → brownfield-tech-plan → implementation-planning
+    → brownfield-design → ui-mockups → brownfield-tech-plan
+    → implementation-planning
     → story-breakdown → implementation → critical-review → testing
     → code-review → retrospective
 ```
@@ -51,6 +53,7 @@ Working on an existing codebase?
 | `using-agentic-sdlc` | Starting any project or session |
 | `inception` | New project with unclear requirements |
 | `design-system` | Establishing visual/interaction language |
+| `ui-mockups` | User-facing redesign, new landing page, or major visual contract change needing visual approval |
 | `tech-architecture` | Making technology or architecture decisions |
 | `implementation-planning` | Creating execution plan from approved architecture |
 | `story-breakdown` | Decomposing a plan into executable tasks |
@@ -78,15 +81,19 @@ All stage outputs are written to a distributed `docs/` structure at the project 
 ```
 docs/
   architecture/domain-model.md
+  architecture/existing-system.md
   product/features/brd.md
   product/design-system.md
   product/accessibility.md
+  product/mockups.md
   architecture/tech-architecture.md
   architecture/adrs/
   architecture/coding-standards.md
+  architecture/data-domain.md
   sdlc/epics/implementation-plan.md
   sdlc/epics/task-graph.md
-  architecture/data-domain.md
+  sdlc/stories/
+  sdlc/workspaces/
   sdlc/test-plans/test-plan.md
   sdlc/retrospectives/critical-review.md
   sdlc/retrospectives/retrospective.md

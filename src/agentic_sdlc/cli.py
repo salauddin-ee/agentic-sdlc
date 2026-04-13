@@ -23,6 +23,7 @@ def init(target, force):
         "docs/architecture/adrs",
         "docs/architecture/rfcs",
         "docs/product/features",
+        "docs/product/mockups",
         "docs/investigations/spikes",
         "docs/sdlc/epics",
         "docs/sdlc/stories",
@@ -40,6 +41,7 @@ def init(target, force):
         ("docs/architecture/domain-model.md", "Domain Knowledge", "inception"),
         ("docs/product/features/brd.md", "Business Requirements", "inception"),
         ("docs/product/design-system.md", "Design System", "design-system"),
+        ("docs/product/mockups.md", "UI Mockups", "ui-mockups"),
         ("docs/product/personas.md", "Personas", "inception"),
         ("docs/architecture/tech-architecture.md", "Technical Architecture", "tech-architecture"),
         ("docs/architecture/coding-standards.md", "Coding Constitution", "tech-architecture"),
@@ -101,6 +103,88 @@ def init(target, force):
 def serve(project_root, port):
     """Start the Agnetic SDLC dashboard."""
     dashboard.serve(project_root, port)
+
+
+@click.group()
+def dev_main():
+    """Agentic SDLC Developer CLI - includes eval and validation tools."""
+    pass
+
+# Register all public commands on dev_main too
+dev_main.add_command(init)
+dev_main.add_command(serve)
+
+
+@dev_main.command('validate-skills')
+@click.argument('repo_root', default='.', type=click.Path(exists=True, file_okay=False, dir_okay=True))
+@click.option('--json-output', 'json_output', is_flag=True, default=False,
+              help='Emit results as JSON instead of human-readable text.')
+def validate_skills(repo_root, json_output):
+    """Validate all SKILL.md files for structural correctness and consistency."""
+    import json
+    import sys
+    from .eval import validator as skill_validator
+
+    root = Path(repo_root).resolve()
+    report = skill_validator.validate(root)
+
+    if json_output:
+        click.echo(json.dumps(report.as_dict(), indent=2))
+    else:
+        status = "PASS" if report.ok else "FAIL"
+        click.echo(f"validate-skills: {status} ({report.checks_run} checks, "
+                   f"{len(report.errors)} errors, {len(report.warnings)} warnings)")
+        for issue in report.errors:
+            loc = f":{issue.line}" if issue.line else ""
+            click.echo(f"  ERROR  [{issue.rule_id}] {issue.path}{loc} — {issue.message}")
+        for issue in report.warnings:
+            loc = f":{issue.line}" if issue.line else ""
+            click.echo(f"  WARN   [{issue.rule_id}] {issue.path}{loc} — {issue.message}")
+
+    sys.exit(0 if report.ok else 1)
+
+
+@dev_main.command('eval-skills')
+@click.argument('repo_root', default='.', type=click.Path(exists=True, file_okay=False, dir_okay=True))
+@click.option('--skill', default=None, help='Only eval fixtures for this skill name.')
+@click.option('--fixtures', 'fixtures_dir', default=None,
+              help='Path to fixtures directory. Defaults to <repo_root>/fixtures.')
+@click.option('--json-output', 'json_output', is_flag=True, default=False,
+              help='Emit results as JSON instead of human-readable text.')
+def eval_skills(repo_root, skill, fixtures_dir, json_output):
+    """Run deterministic scenario fixtures against selected skills."""
+    import json
+    import sys
+    from .eval import harness as skill_harness
+
+    root = Path(repo_root).resolve()
+    fixtures_root = Path(fixtures_dir).resolve() if fixtures_dir else root / 'fixtures'
+
+    if not fixtures_root.exists():
+        package_fixtures = Path(__file__).parent / 'fixtures'
+        if package_fixtures.exists():
+            fixtures_root = package_fixtures
+
+    if not fixtures_root.exists():
+        click.echo(f"eval-skills: fixtures directory not found: {fixtures_root}", err=True)
+        sys.exit(1)
+
+    report = skill_harness.run(root, fixtures_root, skill_filter=skill)
+
+    if json_output:
+        click.echo(json.dumps(report.as_dict(), indent=2))
+    else:
+        status = "PASS" if report.ok else "FAIL"
+        click.echo(f"eval-skills: {status} ({report.scenarios_run} scenarios, "
+                   f"{report.passed} passed, {report.failed} failed)")
+        for result in report.results:
+            if not result.ok:
+                click.echo(f"  FAIL [{result.scenario_id}] skill={result.skill}")
+                for failure in result.failures:
+                    click.echo(f"       - {failure}")
+
+    sys.exit(0 if report.ok else 1)
+
 
 if __name__ == "__main__":
     main()

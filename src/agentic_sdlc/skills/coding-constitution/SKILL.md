@@ -101,7 +101,7 @@ A coding constitution is **binding**, not aspirational. If it's in the constitut
 - Update policy: [e.g., monthly patch updates, quarterly minor updates]
 
 ## Git conventions
-See `skills/git-discipline/SKILL.md` for full conventions. Project-specific overrides:
+See `git-discipline` skill for full conventions. Project-specific overrides:
 - Commit format: Conventional Commits (feat/fix/chore/docs/test/refactor)
 - Branch naming: feature/STORY-{ID}-{short-desc} (stories), docs/{stage-name} (stages)
 - Merge strategy: squash merge to main
@@ -123,5 +123,16 @@ For brownfield projects, the coding constitution documents the **existing** stan
 [ ] Security non-negotiables listed
 [ ] Forbidden patterns listed
 [ ] TDD workflow described
-[ ] coding-constitution.md written to docs/sdlc/
+[ ] coding-standards.md written to docs/architecture/
 ```
+
+## Red Flags
+
+| Thought | Reality |
+|---|---|
+| "These are guidelines, not rules" | A coding constitution is binding. If it can't be enforced, don't put it in. |
+| "We'll add the security rules later" | Later never comes. Security non-negotiables go in before any code is written. |
+| "The team already knows the standards" | Implicit standards diverge silently. Write them down. |
+| "Aspirational standards are fine" | Aspirational standards are fiction. Only include what you will actually enforce. |
+| "We can inherit the existing standards without documenting them" | Implicit is undiscoverable. Document what you inherit from context-harvest. |
+

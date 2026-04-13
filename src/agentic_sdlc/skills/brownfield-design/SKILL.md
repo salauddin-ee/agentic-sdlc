@@ -35,7 +35,7 @@ New tokens or components introduced by this story must conform to the existing s
 4. **Document delta** — only new tokens, only new components
 5. **Update `docs/product/design-system.md`** — append delta section (do not overwrite)
 6. **Update `docs/product/accessibility.md`** — append story-specific requirements
-7. **Transition** — invoke `brownfield-tech-plan`
+7. **Transition** — if this story changes a visible contract in a major way, invoke `ui-mockups`; otherwise invoke `brownfield-tech-plan`
 
 ## Delta Design Format
 

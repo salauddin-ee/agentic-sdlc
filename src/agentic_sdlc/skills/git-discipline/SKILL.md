@@ -1,6 +1,6 @@
 ---
 name: git-discipline
-description: Use for ALL git operations — commits, branch creation, merges — throughout the SDLC. Defines exactly when and how to commit at every stage boundary, HITL checkpoint, and story lifecycle point.
+description: Use when performing ANY git operation — commits, branch creation, merges — throughout the SDLC. Defines exactly when and how to commit at every stage boundary, HITL checkpoint, and story lifecycle point.
 version: 1.0.0
 ---
 
@@ -31,14 +31,14 @@ Never commit directly to `main`. Always go through a branch.
 
 ## Stage Artifact Protocol
 
-Each planning/documentation stage (inception, design-system, tech-architecture, implementation-planning, story-breakdown) follows this pattern:
+Each planning/documentation stage (inception, design-system, ui-mockups, tech-architecture, implementation-planning, story-breakdown) follows this pattern:
 
 ```
 1. Create branch:
    git checkout main
    git pull origin main
    git checkout -b docs/{stage-name}
-   # e.g. docs/inception, docs/tech-architecture, docs/story-breakdown
+   # e.g. docs/inception, docs/ui-mockups, docs/tech-architecture
 
 2. Do the stage work (write artifacts to docs/)
 

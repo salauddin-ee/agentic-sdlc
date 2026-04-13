@@ -15,7 +15,7 @@ Final structured review before merge or handoff. This is a compliance check agai
 [ ] No commented-out code in production files
 [ ] All public APIs documented (docstrings, JSDoc, or equivalent)
 [ ] No TODO/FIXME in production code
-[ ] Naming conventions from coding-constitution.md applied consistently
+[ ] Naming conventions from coding-standards.md applied consistently
 ```
 
 ### Test Quality
@@ -109,6 +109,21 @@ git branch -d feature/STORY-[ID]-[short-desc]
 ```
 
 > One squash commit per story on `main`. Feature branch is deleted after successful merge.
+
+## Gate
+
+```
+[ ] Standards compliance section: PASS
+[ ] Test quality section: PASS
+[ ] Security audit section: PASS
+[ ] Operability section: PASS
+[ ] Documentation section: PASS
+[ ] Overall verdict: APPROVED
+[ ] Review result written to docs/sdlc/retrospectives/ or inline note committed
+```
+
+A single FAIL in any section means the overall verdict is CHANGES REQUIRED.
+Do not squash merge until all sections are PASS.
 
 ## Red Flags
 

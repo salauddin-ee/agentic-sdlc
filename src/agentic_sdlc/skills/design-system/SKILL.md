@@ -34,7 +34,8 @@ Do NOT write any frontend code or select UI frameworks until design tokens, comp
 7. **Write `docs/product/design-system.md`** — using the format below
 8. **Self-review** — check for missing components, incomplete token definitions
 9. **Present to user** — get approval section by section
-10. **Gate evaluation** — read `skills/stage-gates/SKILL.md`
+10. **Gate evaluation** — invoke `stage-gates` skill
+11. **Transition** — if this is a user-facing redesign, new landing page, or major visual contract change, invoke `ui-mockups` before implementation-planning begins
 
 ## Design Tokens Format
 
@@ -123,7 +124,7 @@ Respect `prefers-reduced-motion` — all animations must have a static fallback
 [ ] Accessibility requirements documented (WCAG 2.2 AA target confirmed)
 [ ] Responsive breakpoints defined and documented
 [ ] Dark mode decision made (required or explicitly out of scope)
-[ ] Design-system.md and accessibility.md written to docs/sdlc/
+[ ] design-system.md and accessibility.md written to docs/product/
 [ ] User has reviewed and approved
 ```
 

@@ -8,9 +8,9 @@ A skills-based SDLC framework that gives your coding agent a structured, discipl
 
 Instead of ad-hoc coding, your agent follows a documented lifecycle:
 
-```
-Greenfield: inception → design → architecture → planning → stories → code → review → test → retro
-Brownfield: context harvest → brainstorm → design → plan → stories → code → review → test → retro
+```text
+Greenfield: inception → design → mockup gate → architecture → planning → stories → code → review → test → retro
+Brownfield: context harvest → brainstorm → design → mockup gate → plan → stories → code → review → test → retro
 ```
 
 Each stage has: explicit inputs, explicit outputs written to disk, a gate that must pass before proceeding, and HITL checkpoints at critical transitions.
@@ -94,6 +94,7 @@ docs/
     features/brd.md        — business requirements (inception)
     design-system.md       — design tokens and components
     accessibility.md       — accessibility requirements
+    mockups.md             — reviewed UI direction for major visual changes
   sdlc/
     epics/
       implementation-plan.md — milestones and contracts
