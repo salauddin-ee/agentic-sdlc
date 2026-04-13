@@ -40,20 +40,14 @@ The agent loads `AGENTS.md` at session start, which instructs it to check for re
 
 ---
 
-## Dashboard & Evals
+## Dashboard
 
-The framework includes a built-in dashboard to monitor project progress and validate skill health.
+The framework includes a built-in dashboard to monitor project progress.
 
 ```bash
 # Start the local dashboard
 asdlc serve .
 ```
-
-![Evals Dashboard](docs/assets/evals-dashboard.png)
-
-The `asdlc` CLI also includes an eval framework to ensure skills don't drift and remain robust:
-- `asdlc validate-skills .` — runs strict static and consistency checks across all skills.
-- `asdlc eval-skills .` — runs rule-based robustness scenarios via fixtures.
 
 ---
 
@@ -66,7 +60,16 @@ The framework is now installable via `pip`, or can be manually added as a submod
 pip install agentic-sdlc
 ```
 
-### Option B: Manual Git Submodule
+### Option B: Clone and Install Locally (for development)
+```bash
+git clone https://github.com/salauddin-ee/agentic-sdlc.git
+cd agentic-sdlc
+pip install -e ".[dev]"
+```
+
+This gives you both `asdlc` and `asdlc-dev` commands.
+
+### Option C: Manual Git Submodule
 ```bash
 git submodule add https://github.com/salauddin-ee/agentic-sdlc .agentic-sdlc-framework
 ```
@@ -74,12 +77,27 @@ git submodule add https://github.com/salauddin-ee/agentic-sdlc .agentic-sdlc-fra
 ### Initialize Project
 No matter how you install it, use the `asdlc` CLI to bootstrap your project:
 ```bash
-# If installed via pip
 asdlc init
-
-# Or using the local source
-python3 -m agentic_sdlc.cli init
 ```
+
+---
+
+## Developer CLI
+
+For contributors and CI, a separate `asdlc-dev` CLI exposes eval and validation tools. It is installed with the package entrypoints, including standard installs and editable dev installs:
+
+```bash
+# Validate all SKILL.md files for structural correctness
+asdlc-dev validate-skills .
+
+# Run deterministic scenario fixtures against skills
+asdlc-dev eval-skills .
+
+# Eval a single skill
+asdlc-dev eval-skills . --skill implementation
+```
+
+`asdlc-dev` also includes all public commands (`init`, `serve`).
 
 ---
 
@@ -92,6 +110,7 @@ python3 -m agentic_sdlc.cli init
 | `using-agentic-sdlc` | Meta | Starting any session |
 | `inception` | 1 | New project with unclear requirements |
 | `design-system` | 2 | Establishing visual/interaction language |
+| `ui-mockups` | 2a | User-facing redesign, new landing page, or major visual contract change |
 | `tech-architecture` | 3 | Making technology or architecture decisions |
 | `coding-constitution` | 3a | Establishing coding standards |
 | `implementation-planning` | 4 | Creating execution plan from approved architecture |
@@ -109,6 +128,7 @@ python3 -m agentic_sdlc.cli init
 | `context-harvest` | 0 | Starting on an unfamiliar existing codebase |
 | `brownfield-brainstorm` | 1 | Understanding business impact of a story |
 | `brownfield-design` | 2 | Story introduces new UI |
+| `ui-mockups` | 2a | UI redesign or major visual contract change needs approval |
 | `brownfield-tech-plan` | 3 | Planning technical approach for a story |
 | *(Stages 4–10 same as greenfield)* | | |
 
@@ -126,21 +146,23 @@ python3 -m agentic_sdlc.cli init
 
 ```
 agentic-sdlc/
-│   ├── brownfield-design/
-│   ├── brownfield-tech-plan/
-│   ├── coding-constitution/
-│   ├── stage-gates/
-│   ├── hitl-protocol/
-│   └── writing-skills/
-├── templates/                ← Document templates for each stage
-├── scripts/
-│   └── init-context.sh       ← Creates docs/ context directory in your project
+├── src/agentic_sdlc/
+│   ├── skills/               ← One directory per skill, each with SKILL.md
+│   │   ├── using-agentic-sdlc/
+│   │   ├── inception/
+│   │   ├── implementation/
+│   │   ├── brownfield-design/
+│   │   ├── stage-gates/
+│   │   ├── hitl-protocol/
+│   │   └── ...
+│   ├── templates/            ← Document templates for each stage
+│   └── fixtures/             ← Packaged eval fixtures for developer workflows
 └── docs/
     ├── getting-started.md
     ├── workflow-greenfield.md
     ├── workflow-brownfield.md
     ├── skill-reference.md
-    └── future-platforms.md   ← Platform support details
+    └── future-platforms.md
 ```
 
 ### Context directory (in your project)
@@ -149,6 +171,7 @@ agentic-sdlc/
 docs/
   architecture/domain-model.md, product/features/brd.md  ← inception
   product/design-system.md, product/accessibility.md      ← design-system
+  product/mockups.md                                      ← ui-mockups
   architecture/tech-architecture.md, architecture/adrs/   ← tech-architecture
   architecture/coding-standards.md                        ← coding-constitution
   sdlc/epics/implementation-plan.md, architecture/data-domain.md ← implementation-planning
@@ -169,10 +192,10 @@ docs/
 |---|---|---|
 | Codex | ✅ Available | [docs/platforms/codex.md](docs/platforms/codex.md) |
 | Claude Code | ✅ Available | [CLAUDE.md](CLAUDE.md) |
-| Gemini CLI | ✅ Available | [GEMINI.md](GEMINI.md) |
-| Antigravity | ✅ Available | [ANTIGRAVITY.md](ANTIGRAVITY.md) |
-| Amp | ✅ Available | [AMP.md](AMP.md) |
-| Cursor | 🗺️ Planned | |
+| Gemini CLI | ✅ Available | [docs/platforms/gemini.md](docs/platforms/gemini.md) |
+| Antigravity | ✅ Available | [docs/platforms/antigravity.md](docs/platforms/antigravity.md) |
+| Amp | ✅ Available | [docs/platforms/amp.md](docs/platforms/amp.md) |
+| Cursor | 🗺️ Planned | [docs/future-platforms.md](docs/future-platforms.md)|
 
 ---
 

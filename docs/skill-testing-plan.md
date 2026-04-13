@@ -160,18 +160,7 @@ Observed failures should become permanent regression cases.
 
 ## CLI Surface
 
-Add only two commands initially:
-
-```bash
-asdlc validate-skills
-asdlc eval-skills
-```
-
-Optional later extension:
-
-```bash
-asdlc eval-skills --skill implementation
-```
+> **Note:** The `validate-skills` and `eval-skills` commands are internal dev tools available on the `asdlc-dev` CLI. They are not exported in the public `asdlc` CLI.
 
 ## CI Rollout
 

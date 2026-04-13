@@ -9,7 +9,7 @@ Add a small, file-based evaluation system for Agentic SDLC skills that first cat
 ## DRY check
 Existing code already provides the right foundations for a minimal solution:
 
-- Reuse the Click CLI in `src/agentic_sdlc/cli.py` for `validate-skills` and `eval-skills`.
+- Reuse the Click CLI in `src/agentic_sdlc/cli.py` for `asdlc-dev validate-skills` and `asdlc-dev eval-skills`.
 - Reuse the existing `src/agentic_sdlc/skills/` directory as the source of truth for static validation.
 - Reuse repo documentation and generated artifact paths as the comparison targets for consistency checks.
 - Introduce only a small evaluator module plus fixtures instead of inventing a generalized scoring platform.
@@ -26,20 +26,20 @@ Existing code already provides the right foundations for a minimal solution:
 ## New files required
 | File | Purpose |
 |---|---|
-| `src/agentic_sdlc/evals/__init__.py` | Package for eval-related logic |
-| `src/agentic_sdlc/evals/validator.py` | Static and cross-file validation rules |
-| `src/agentic_sdlc/evals/harness.py` | Scenario loading and pass/fail execution |
-| `src/agentic_sdlc/evals/models.py` | Shared dataclasses or typed structures for results and fixtures |
+| `src/agentic_sdlc/eval/__init__.py` | Package for eval-related logic |
+| `src/agentic_sdlc/eval/validator.py` | Static and cross-file validation rules |
+| `src/agentic_sdlc/eval/harness.py` | Scenario loading and pass/fail execution |
+| `src/agentic_sdlc/eval/models.py` | Shared dataclasses or typed structures for results and fixtures |
 | `tests/test_skill_validator.py` | Unit coverage for validation behavior |
 | `tests/test_skill_eval_harness.py` | Unit coverage for scenario harness behavior |
-| `tests/fixtures/skill_evals/*.yml` | Scenario fixtures for targeted skills |
+| `src/agentic_sdlc/fixtures/<skill-name>/*.yaml` | Scenario fixtures for targeted skills |
 
 ## Interface contract changes
 New local CLI surface only:
 
-- `asdlc validate-skills`
-- `asdlc eval-skills`
-- optional follow-up: `asdlc eval-skills --skill <name>`
+- `asdlc-dev validate-skills`
+- `asdlc-dev eval-skills`
+- optional follow-up: `asdlc-dev eval-skills --skill <name>`
 
 No external API, packaging, or generated-project contract changes are required for the first implementation.
 
@@ -55,8 +55,8 @@ No external API, packaging, or generated-project contract changes are required f
 Not needed. The work is additive and can be safely shipped behind new non-default CLI commands.
 
 ## Definition of done (story technical)
-- [ ] `validate-skills` reports malformed frontmatter, placeholder content, and path/reference drift
-- [ ] `eval-skills` runs a small scenario suite with deterministic pass/fail output
+- [ ] `asdlc-dev validate-skills` reports malformed frontmatter, placeholder content, and path/reference drift
+- [ ] `asdlc-dev eval-skills` runs a small scenario suite with deterministic pass/fail output
 - [ ] Initial fixtures cover `using-agentic-sdlc`, `implementation`, `stage-gates`, `hitl-protocol`, and `git-discipline`
 - [ ] Automated tests cover validator rules and harness behavior
 - [ ] CLI help text and docs explain how to run the checks locally

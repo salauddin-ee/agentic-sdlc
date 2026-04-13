@@ -33,14 +33,14 @@ Before any work, determine which workflow applies:
 ```
 Is this a brand-new project with no existing codebase?
   YES → Workflow 1 (Greenfield)
-        inception → design-system → tech-architecture
+        inception → design-system → ui-mockups → tech-architecture
         → implementation-planning → story-breakdown → implementation
         → critical-review → testing → code-review → retrospective
 
   NO  → Is this a story/feature on an existing codebase?
         YES → Workflow 2 (Brownfield)
               context-harvest → brownfield-brainstorm → brownfield-design
-              → brownfield-tech-plan → implementation-planning
+              → ui-mockups → brownfield-tech-plan → implementation-planning
               → story-breakdown → implementation → critical-review
               → testing → code-review → retrospective
 ```
@@ -54,6 +54,7 @@ Is this a brand-new project with no existing codebase?
 | `using-agentic-sdlc` | Starting any project or session |
 | `inception` | New project with unclear requirements |
 | `design-system` | Establishing visual/interaction language |
+| `ui-mockups` | User-facing redesign, new landing page, or major visual contract change needs visual approval |
 | `tech-architecture` | Making technology or architecture decisions |
 | `implementation-planning` | Creating execution plan from approved architecture |
 | `story-breakdown` | Decomposing a plan into executable tasks |
@@ -94,19 +95,22 @@ All stage outputs are written to a distributed `docs/` structure at the project 
 ```text
 docs/
   architecture/domain-model.md           ← inception
+  architecture/existing-system.md        ← context-harvest (brownfield only)
   product/features/brd.md                ← inception
   product/design-system.md               ← design-system
   product/accessibility.md               ← design-system
+  product/mockups.md                     ← ui-mockups
   architecture/tech-architecture.md      ← tech-architecture
   architecture/adrs/                     ← tech-architecture
   architecture/coding-standards.md       ← tech-architecture
+  architecture/data-domain.md            ← implementation-planning
   sdlc/epics/implementation-plan.md      ← implementation-planning
   sdlc/epics/task-graph.md               ← story-breakdown
-  architecture/data-domain.md            ← implementation-planning
+  sdlc/stories/                          ← story-breakdown
+  sdlc/workspaces/                       ← implementation, brownfield-tech-plan
   sdlc/test-plans/test-plan.md           ← testing
   sdlc/retrospectives/critical-review.md ← critical-review
   sdlc/retrospectives/retrospective.md   ← retrospective
-  architecture/existing-system.md        ← context-harvest (brownfield only)
 ```
 
 Run `asdlc init` to create this structure in a new project.
@@ -127,4 +131,3 @@ Run `asdlc init` to create this structure in a new project.
 | "The status doesn't matter" | Documents must be 'Approved' to pass gates. Update the status. |
 | "Just start coding, I'll explain requirements as we go" | Coding without inception produces the wrong thing. Run inception first — it's fast. |
 | "Let's skip inception and go straight to coding" | Inception exists to prevent this. Every project, every time. Run it. |
-

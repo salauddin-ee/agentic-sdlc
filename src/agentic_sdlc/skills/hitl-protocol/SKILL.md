@@ -12,11 +12,12 @@ Human approval is **always** required at these points — no exceptions:
 
 1. **End of inception** — before design and architecture begin
 2. **End of tech-architecture** — before any code is written
-3. **End of story-breakdown** — before implementation begins
-4. **Before any destructive operation** — DB migration, data deletion, external API write in production
-5. **When the agent is blocked** — cannot resolve ambiguity autonomously
-6. **When an interface contract changes** — mid-implementation contract changes affect consumers
-7. **When a Stage 3 architectural decision is superseded** — rollback rule triggered
+3. **End of ui-mockups** — before implementation-planning, brownfield-tech-plan, or production implementation continue for the affected UI
+4. **End of story-breakdown** — before implementation begins
+5. **Before any destructive operation** — DB migration, data deletion, external API write in production
+6. **When the agent is blocked** — cannot resolve ambiguity autonomously
+7. **When an interface contract changes** — mid-implementation contract changes affect consumers
+8. **When a Stage 3 architectural decision is superseded** — rollback rule triggered
 
 ## Git Protocol for HITL
 
@@ -95,6 +96,17 @@ Options: [A] JWT approach (ADR-003) — remove legacy session code for this endp
 Default if no response: Wait for explicit approval
 ```
 
+**End of ui-mockups:**
+```
+HITL REQUIRED
+Stage: ui-mockups
+Question: Do these mockups establish the visual direction we should implement?
+Context: Mockup artifact recorded in docs/product/mockups.md. Review includes screenshots or a coded prototype for the affected UI surface.
+Options: [A] Approved — proceed with this visual direction
+         [B] Changes needed — revise the mockup and re-present it
+Default if no response: Wait for explicit approval
+```
+
 ## After Receiving HITL Response
 
 1. Record the human's decision in the stage artifact (e.g., `docs/product/features/brd.md` Open questions section)
@@ -125,4 +137,3 @@ The next step being "clear" to the agent is not a substitute for human approval.
 | "The HITL will slow us down" | The HITL exists because the alternative is production incidents. |
 | "The next step is clear — I'll proceed" | Clarity of next step does not replace human approval. Stop and wait. |
 | "The user hasn't responded but I can continue" | No response is not approval. Stop and wait for an explicit answer. |
-

@@ -15,7 +15,7 @@ Plan the technical approach for this story without re-architecting the system. I
 
 ## Checklist
 
-1. **Read inputs**: `docs/architecture/existing-system.md`, story BRD section, `docs/product/features/brd.md`
+1. **Read inputs**: `docs/architecture/existing-system.md`, story BRD section, `docs/product/features/brd.md`, `docs/product/mockups.md` (if present)
 2. **Read existing code** in the affected area — understand what's there before planning
 3. **DRY check**: does existing code already handle any part of this? Can it be extended?
 4. **Regression risk assessment** — which existing behavior could this change break?
@@ -81,7 +81,7 @@ Plan the technical approach for this story without re-architecting the system. I
 [ ] Regression risk assessment complete
 [ ] Interface contract changes identified (triggers HITL if any)
 [ ] Feature flag decision made
-[ ] tech-plan-[STORY-ID].md written to docs/sdlc/
+[ ] tech-plan-[STORY-ID].md written to docs/sdlc/workspaces/
 ```
 
 ## Red Flags

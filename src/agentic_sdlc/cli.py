@@ -1,13 +1,9 @@
-import json
 import os
 import shutil
-import sys
 import click
 from pathlib import Path
 from datetime import datetime
 from . import dashboard
-from .eval import validator as skill_validator
-from .eval import harness as skill_harness
 
 @click.group()
 def main():
@@ -27,6 +23,7 @@ def init(target, force):
         "docs/architecture/adrs",
         "docs/architecture/rfcs",
         "docs/product/features",
+        "docs/product/mockups",
         "docs/investigations/spikes",
         "docs/sdlc/epics",
         "docs/sdlc/stories",
@@ -44,6 +41,7 @@ def init(target, force):
         ("docs/architecture/domain-model.md", "Domain Knowledge", "inception"),
         ("docs/product/features/brd.md", "Business Requirements", "inception"),
         ("docs/product/design-system.md", "Design System", "design-system"),
+        ("docs/product/mockups.md", "UI Mockups", "ui-mockups"),
         ("docs/product/personas.md", "Personas", "inception"),
         ("docs/architecture/tech-architecture.md", "Technical Architecture", "tech-architecture"),
         ("docs/architecture/coding-standards.md", "Coding Constitution", "tech-architecture"),
@@ -87,16 +85,6 @@ def init(target, force):
         shutil.copytree(package_root / "templates", target_path / "templates")
         click.echo("  Copied templates directory.")
 
-    # Copy fixtures
-    if (target_path / "fixtures").exists() and not force:
-        click.echo("  Fixtures directory already exists. Use --force to overwrite.")
-    else:
-        if (target_path / "fixtures").exists():
-            shutil.rmtree(target_path / "fixtures")
-        if (package_root / "fixtures").exists():
-            shutil.copytree(package_root / "fixtures", target_path / "fixtures")
-            click.echo("  Copied fixtures directory.")
-
     # Copy core files (AGENTS.md, etc.)
     for core_file in (package_root / "core").glob("*.md"):
         dest = target_path / core_file.name
@@ -117,12 +105,26 @@ def serve(project_root, port):
     dashboard.serve(project_root, port)
 
 
-@main.command('validate-skills')
+@click.group()
+def dev_main():
+    """Agentic SDLC Developer CLI - includes eval and validation tools."""
+    pass
+
+# Register all public commands on dev_main too
+dev_main.add_command(init)
+dev_main.add_command(serve)
+
+
+@dev_main.command('validate-skills')
 @click.argument('repo_root', default='.', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.option('--json-output', 'json_output', is_flag=True, default=False,
               help='Emit results as JSON instead of human-readable text.')
 def validate_skills(repo_root, json_output):
     """Validate all SKILL.md files for structural correctness and consistency."""
+    import json
+    import sys
+    from .eval import validator as skill_validator
+
     root = Path(repo_root).resolve()
     report = skill_validator.validate(root)
 
@@ -142,7 +144,7 @@ def validate_skills(repo_root, json_output):
     sys.exit(0 if report.ok else 1)
 
 
-@main.command('eval-skills')
+@dev_main.command('eval-skills')
 @click.argument('repo_root', default='.', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.option('--skill', default=None, help='Only eval fixtures for this skill name.')
 @click.option('--fixtures', 'fixtures_dir', default=None,
@@ -151,6 +153,10 @@ def validate_skills(repo_root, json_output):
               help='Emit results as JSON instead of human-readable text.')
 def eval_skills(repo_root, skill, fixtures_dir, json_output):
     """Run deterministic scenario fixtures against selected skills."""
+    import json
+    import sys
+    from .eval import harness as skill_harness
+
     root = Path(repo_root).resolve()
     fixtures_root = Path(fixtures_dir).resolve() if fixtures_dir else root / 'fixtures'
 

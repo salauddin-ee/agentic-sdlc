@@ -5,7 +5,7 @@
 
 ## CLI commands
 
-### `asdlc validate-skills`
+### `asdlc-dev validate-skills`
 Purpose: run static and cross-file validation against the local repository.
 
 Inputs:
@@ -42,7 +42,7 @@ Exit behavior:
 - `0` when no errors are found
 - non-zero when one or more validation errors are found
 
-### `asdlc eval-skills`
+### `asdlc-dev eval-skills`
 Purpose: run deterministic scenario fixtures against selected skills.
 
 Inputs:
