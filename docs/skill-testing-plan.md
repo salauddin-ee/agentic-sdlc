@@ -160,7 +160,7 @@ Observed failures should become permanent regression cases.
 
 ## CLI Surface
 
-> **Note:** The `asdlc-validate-skills` and `asdlc-eval-skills` commands are internal dev tools available on the `asdlc-dev` CLI. They are not exported in the public `asdlc` CLI.
+> **Note:** `validate-skills` and `eval-skills` are internal dev subcommands on the `asdlc-dev` CLI (`asdlc-dev validate-skills`, `asdlc-dev eval-skills`). They are not exported in the public `asdlc` CLI.
 
 ## CI Rollout
 
