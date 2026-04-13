@@ -25,7 +25,7 @@ jobs:
           pip install -e ".[dev]"
 
       - name: Run Static and Consistency Validation
-        run: asdlc validate-skills .
+        run: asdlc-dev validate-skills .
 
       - name: Run Scenario Evals
-        run: asdlc eval-skills .
+        run: asdlc-dev eval-skills .
