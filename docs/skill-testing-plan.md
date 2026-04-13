@@ -160,7 +160,7 @@ Observed failures should become permanent regression cases.
 
 ## CLI Surface
 
-> **Note:** The `validate-skills` and `eval-skills` commands are internal dev tools available on the `asdlc-dev` CLI (`pip install agentic-sdlc[dev]`). They are not exported in the public `asdlc` CLI.
+> **Note:** The `validate-skills` and `eval-skills` commands are internal dev tools available on the `asdlc-dev` CLI. They are not exported in the public `asdlc` CLI.
 
 ## CI Rollout
 

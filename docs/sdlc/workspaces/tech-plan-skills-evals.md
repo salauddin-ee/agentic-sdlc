@@ -9,7 +9,7 @@ Add a small, file-based evaluation system for Agentic SDLC skills that first cat
 ## DRY check
 Existing code already provides the right foundations for a minimal solution:
 
-- Reuse the Click CLI in `src/agentic_sdlc/cli.py` for `asdlc-dev validate-skills` and `asdlc-dev eval-skills` (available via `pip install agentic-sdlc[dev]`).
+- Reuse the Click CLI in `src/agentic_sdlc/cli.py` for `asdlc-dev validate-skills` and `asdlc-dev eval-skills`.
 - Reuse the existing `src/agentic_sdlc/skills/` directory as the source of truth for static validation.
 - Reuse repo documentation and generated artifact paths as the comparison targets for consistency checks.
 - Introduce only a small evaluator module plus fixtures instead of inventing a generalized scoring platform.

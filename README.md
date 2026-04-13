@@ -84,7 +84,7 @@ asdlc init
 
 ## Developer CLI
 
-For contributors and CI, a separate `asdlc-dev` CLI exposes eval and validation tools. It is available when installed with dev extras (Option B above, or `pip install agentic-sdlc[dev]`):
+For contributors and CI, a separate `asdlc-dev` CLI exposes eval and validation tools. It is installed with the package entrypoints, including standard installs and editable dev installs:
 
 ```bash
 # Validate all SKILL.md files for structural correctness
