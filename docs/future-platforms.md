@@ -144,7 +144,7 @@ Resolver logic:
 | `asdlc resolve-skills` CLI | Medium | Reads all installed skills, detects conflicts, generates manifest |
 | Bootstrap skill update | Medium | `using-agentic-sdlc` reads manifest before dispatching to skills |
 | Dashboard integration | Small | Show active vs overridden skills in `asdlc serve` |
-| Validator extension | Small | `asdlc validate-skills` checks for unresolved conflicts |
+| Validator extension | Small | `asdlc-dev validate-skills` checks for unresolved conflicts |
 
 ### Strategic Value
 

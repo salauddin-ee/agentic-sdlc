@@ -40,20 +40,14 @@ The agent loads `AGENTS.md` at session start, which instructs it to check for re
 
 ---
 
-## Dashboard & Evals
+## Dashboard
 
-The framework includes a built-in dashboard to monitor project progress and validate skill health.
+The framework includes a built-in dashboard to monitor project progress.
 
 ```bash
 # Start the local dashboard
 asdlc serve .
 ```
-
-![Evals Dashboard](docs/assets/evals-dashboard.png)
-
-The `asdlc` CLI also includes an eval framework to ensure skills don't drift and remain robust:
-- `asdlc validate-skills .` — runs strict static and consistency checks across all skills.
-- `asdlc eval-skills .` — runs rule-based robustness scenarios via fixtures.
 
 ---
 
@@ -66,7 +60,16 @@ The framework is now installable via `pip`, or can be manually added as a submod
 pip install agentic-sdlc
 ```
 
-### Option B: Manual Git Submodule
+### Option B: Clone and Install Locally (for development)
+```bash
+git clone https://github.com/salauddin-ee/agentic-sdlc.git
+cd agentic-sdlc
+pip install -e ".[dev]"
+```
+
+This gives you both `asdlc` and `asdlc-dev` commands.
+
+### Option C: Manual Git Submodule
 ```bash
 git submodule add https://github.com/salauddin-ee/agentic-sdlc .agentic-sdlc-framework
 ```
@@ -74,12 +77,27 @@ git submodule add https://github.com/salauddin-ee/agentic-sdlc .agentic-sdlc-fra
 ### Initialize Project
 No matter how you install it, use the `asdlc` CLI to bootstrap your project:
 ```bash
-# If installed via pip
 asdlc init
-
-# Or using the local source
-python3 -m agentic_sdlc.cli init
 ```
+
+---
+
+## Developer CLI
+
+For contributors and CI, a separate `asdlc-dev` CLI exposes eval and validation tools. It is available when installed with dev extras (Option B above, or `pip install agentic-sdlc[dev]`):
+
+```bash
+# Validate all SKILL.md files for structural correctness
+asdlc-dev validate-skills .
+
+# Run deterministic scenario fixtures against skills
+asdlc-dev eval-skills .
+
+# Eval a single skill
+asdlc-dev eval-skills . --skill implementation
+```
+
+`asdlc-dev` also includes all public commands (`init`, `serve`).
 
 ---
 
@@ -128,22 +146,23 @@ python3 -m agentic_sdlc.cli init
 
 ```
 agentic-sdlc/
-│   ├── brownfield-design/
-│   ├── brownfield-tech-plan/
-│   ├── coding-constitution/
-│   ├── ui-mockups/
-│   ├── stage-gates/
-│   ├── hitl-protocol/
-│   └── writing-skills/
-├── templates/                ← Document templates for each stage
-├── scripts/
-│   └── init-context.sh       ← Creates docs/ context directory in your project
+├── src/agentic_sdlc/
+│   ├── skills/               ← One directory per skill, each with SKILL.md
+│   │   ├── using-agentic-sdlc/
+│   │   ├── inception/
+│   │   ├── implementation/
+│   │   ├── brownfield-design/
+│   │   ├── stage-gates/
+│   │   ├── hitl-protocol/
+│   │   └── ...
+│   ├── templates/            ← Document templates for each stage
+│   └── fixtures/             ← Packaged eval fixtures for developer workflows
 └── docs/
     ├── getting-started.md
     ├── workflow-greenfield.md
     ├── workflow-brownfield.md
     ├── skill-reference.md
-    └── future-platforms.md   ← Platform support details
+    └── future-platforms.md
 ```
 
 ### Context directory (in your project)
