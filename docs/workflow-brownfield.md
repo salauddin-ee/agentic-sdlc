@@ -4,12 +4,12 @@ Use this workflow when adding a **feature or fix to an existing codebase**.
 
 ## Workflow Overview
 
-`asdlc-``text
+```text
 context-harvest → brownfield-brainstorm → [brownfield-design] → [ui-mockups]
                → brownfield-tech-plan → implementation-planning → story-breakdown
                → implementation → critical-review → testing → code-review
                → retrospective
-`asdlc-``
+```
 
 `asdlc-brownfield-design` is only needed if the story introduces UI changes. `asdlc-ui-mockups` is required when that UI change is a redesign, new landing page, or major visual contract change.
 

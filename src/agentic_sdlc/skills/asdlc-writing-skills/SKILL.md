@@ -107,7 +107,7 @@ Run harder pressure scenarios (time pressure, sunk cost, authority challenge). F
 | Type | Examples | Test with |
 |---|---|---|
 | Discipline/rules | implementation (TDD), stage-gates | Pressure scenarios — does agent comply under stress? |
-| Process/technique | inception, context-harvest | Application scenarios — can agent apply the process correctly? |
+| Process/technique | asdlc-inception, asdlc-context-harvest | Application scenarios — can agent apply the process correctly? |
 | Reference | templates, ADR format | Retrieval scenarios — can agent find and use the right information? |
 
 ## File Structure

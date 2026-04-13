@@ -4,11 +4,11 @@ Use this workflow when building a **new project from scratch** with no existing 
 
 ## Workflow Overview
 
-`asdlc-``text
+```text
 inception → [design-system] → [ui-mockups] → tech-architecture
          → implementation-planning → story-breakdown → implementation
          → critical-review → testing → code-review → retrospective
-`asdlc-``
+```
 
 `asdlc-design-system` is required if the project has a UI. `asdlc-ui-mockups` is required for a redesign, new landing page, or major visual contract change. `asdlc-tech-architecture` can still run before or after `asdlc-design-system`, but `asdlc-ui-mockups` must happen after `asdlc-design-system` and before implementation-planning begins.
 

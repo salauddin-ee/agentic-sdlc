@@ -102,7 +102,7 @@ After the gate passes, trigger HITL using this format (or invoke `asdlc-hitl-pro
 
 ```
 HITL REQUIRED
-Stage: inception
+Stage: asdlc-inception
 Question: Does this BRD accurately capture your requirements before we move to design/architecture?
 Context: BRD written to docs/product/features/brd.md
 Options: [A] Approved — proceed to next stage

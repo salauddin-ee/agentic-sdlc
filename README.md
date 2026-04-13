@@ -94,7 +94,7 @@ asdlc-dev validate-skills .
 asdlc-dev eval-skills .
 
 # Eval a single skill
-asdlc-dev eval-skills . --skill implementation
+asdlc-dev eval-skills . --skill asdlc-implementation
 ```
 
 `asdlc-dev` also includes all public commands (`init`, `serve`).

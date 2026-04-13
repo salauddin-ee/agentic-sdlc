@@ -29,20 +29,20 @@ Skills live in the `.agents/skills/` directory of this repository. Each skill is
 
 ### Workflow Selection
 
-`asdlc-``
+```
 Starting a new project from scratch?
-  → Use Workflow 1 (Greenfield): inception → design-system → ui-mockups
-    → tech-architecture
-    → implementation-planning → story-breakdown → implementation
-    → critical-review → testing → code-review → retrospective
+  → Use Workflow 1 (Greenfield): asdlc-inception → asdlc-design-system → asdlc-ui-mockups
+    → asdlc-tech-architecture
+    → asdlc-implementation-planning → asdlc-story-breakdown → asdlc-implementation
+    → asdlc-critical-review → asdlc-testing → asdlc-code-review → asdlc-retrospective
 
 Working on an existing codebase?
-  → Use Workflow 2 (Brownfield): context-harvest → brownfield-brainstorm
-    → brownfield-design → ui-mockups → brownfield-tech-plan
-    → implementation-planning
-    → story-breakdown → implementation → critical-review → testing
-    → code-review → retrospective
-`asdlc-``
+  → Use Workflow 2 (Brownfield): asdlc-context-harvest → asdlc-brownfield-brainstorm
+    → asdlc-brownfield-design → asdlc-ui-mockups → asdlc-brownfield-tech-plan
+    → asdlc-implementation-planning
+    → asdlc-story-breakdown → asdlc-implementation → asdlc-critical-review → asdlc-testing
+    → asdlc-code-review → asdlc-retrospective
+```
 
 ---
 
@@ -69,6 +69,7 @@ Working on an existing codebase?
 | `asdlc-coding-constitution` | Establishing or reviewing coding standards |
 | `asdlc-stage-gates` | Evaluating whether a stage's exit criteria are met |
 | `asdlc-hitl-protocol` | Irreversible action or ambiguous decision needing human input |
+| `asdlc-git-discipline` | Any git operation — branch creation, commits, merges |
 | `asdlc-writing-skills` | Creating new skills or editing existing ones |
 
 ---
@@ -77,9 +78,10 @@ Working on an existing codebase?
 
 All stage outputs are written to a distributed `docs/` structure at the project root. Never rely on conversation memory alone — write artifacts to disk.
 
-`asdlc-``
+```
 docs/
   architecture/domain-model.md
+  architecture/existing-system.md
   product/features/brd.md
   product/design-system.md
   product/accessibility.md
@@ -87,15 +89,17 @@ docs/
   architecture/tech-architecture.md
   architecture/adrs/
   architecture/coding-standards.md
+  architecture/data-domain.md
   sdlc/epics/implementation-plan.md
   sdlc/epics/task-graph.md
-  architecture/data-domain.md
+  sdlc/stories/
+  sdlc/workspaces/
   sdlc/test-plans/test-plan.md
   sdlc/retrospectives/critical-review.md
   sdlc/retrospectives/retrospective.md
-`asdlc-``
+```
 
-Run `asdlc init` to create this structure in a new project. Every primary artifact must be marked `Status: Approved` to pass its stage gate.
+Run `asdlc init` to create this structure in a new project.
 
 ---
 

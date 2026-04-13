@@ -14,19 +14,19 @@ This plan intentionally avoids a large benchmark platform or broad model-scoring
 
 Evals do not just verify skills — they **drive skill quality**. The workflow mirrors TDD:
 
-`asdlc-``
+```
 NO SKILL CHANGE WITHOUT A FAILING EVAL FIRST.
-`asdlc-``
+```
 
 ### The Loop
 
-`asdlc-``
+```
 1. Write eval → define the ideal behavior you want from the skill
 2. Run eval  → the current skill may fail (that is expected and good)
 3. Fix skill → improve the skill text until the eval passes
 4. Commit    → the eval now permanently guards against regression
 5. Repeat    → new failure pattern observed? Add a fixture first, then fix the skill
-`asdlc-``
+```
 
 ### Why Order Matters
 

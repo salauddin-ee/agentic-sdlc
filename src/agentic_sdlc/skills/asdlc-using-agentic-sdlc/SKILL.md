@@ -94,23 +94,23 @@ All stage outputs are written to a distributed `docs/` structure at the project 
 
 ```text
 docs/
-  architecture/domain-model.md           ← inception
-  architecture/existing-system.md        ← context-harvest (brownfield only)
-  product/features/brd.md                ← inception
-  product/design-system.md               ← design-system
-  product/accessibility.md               ← design-system
-  product/mockups.md                     ← ui-mockups
-  architecture/tech-architecture.md      ← tech-architecture
-  architecture/adrs/                     ← tech-architecture
-  architecture/coding-standards.md       ← tech-architecture
-  architecture/data-domain.md            ← implementation-planning
-  sdlc/epics/implementation-plan.md      ← implementation-planning
-  sdlc/epics/task-graph.md               ← story-breakdown
-  sdlc/stories/                          ← story-breakdown
-  sdlc/workspaces/                       ← implementation, brownfield-tech-plan
-  sdlc/test-plans/test-plan.md           ← testing
-  sdlc/retrospectives/critical-review.md ← critical-review
-  sdlc/retrospectives/retrospective.md   ← retrospective
+  architecture/domain-model.md           ← asdlc-inception
+  architecture/existing-system.md        ← asdlc-context-harvest (brownfield only)
+  product/features/brd.md                ← asdlc-inception
+  product/design-system.md               ← asdlc-design-system
+  product/accessibility.md               ← asdlc-design-system
+  product/mockups.md                     ← asdlc-ui-mockups
+  architecture/tech-architecture.md      ← asdlc-tech-architecture
+  architecture/adrs/                     ← asdlc-tech-architecture
+  architecture/coding-standards.md       ← asdlc-tech-architecture
+  architecture/data-domain.md            ← asdlc-implementation-planning
+  sdlc/epics/implementation-plan.md      ← asdlc-implementation-planning
+  sdlc/epics/task-graph.md               ← asdlc-story-breakdown
+  sdlc/stories/                          ← asdlc-story-breakdown
+  sdlc/workspaces/                       ← asdlc-implementation, brownfield-tech-plan
+  sdlc/test-plans/test-plan.md           ← asdlc-testing
+  sdlc/retrospectives/critical-review.md ← asdlc-critical-review
+  sdlc/retrospectives/retrospective.md   ← asdlc-retrospective
 ```
 
 Run `asdlc init` to create this structure in a new project.
@@ -125,9 +125,9 @@ Run `asdlc init` to create this structure in a new project.
 | "I remember what the skill says" | Skills evolve. Read the current version. |
 | "This doesn't need TDD" | If it's production code, it needs a failing test first. |
 | "Let me write some code first to explore" | Exploration prototypes must be thrown away before TDD begins. |
-| "I already know what to build" | Unexamined assumptions are where wasted work hides. Run inception. |
+| "I already know what to build" | Unexamined assumptions are where wasted work hides. Run asdlc-inception. |
 | "We can skip architecture, it's a small project" | Small projects grow. ADRs take 10 minutes. Tech debt lasts forever. |
 | "I'll document later" | Later never comes. Write artifacts now. |
 | "The status doesn't matter" | Documents must be 'Approved' to pass gates. Update the status. |
-| "Just start coding, I'll explain requirements as we go" | Coding without inception produces the wrong thing. Run inception first — it's fast. |
+| "Just start coding, I'll explain requirements as we go" | Coding without inception produces the wrong thing. Run asdlc-inception first — it's fast. |
 | "Let's skip inception and go straight to coding" | Inception exists to prevent this. Every project, every time. Run it. |

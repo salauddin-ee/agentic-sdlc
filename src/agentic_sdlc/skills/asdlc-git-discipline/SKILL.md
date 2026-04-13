@@ -31,7 +31,7 @@ Never commit directly to `main`. Always go through a branch.
 
 ## Stage Artifact Protocol
 
-Each planning/documentation stage (inception, design-system, ui-mockups, tech-architecture, implementation-planning, story-breakdown) follows this pattern:
+Each planning/documentation stage (asdlc-inception, asdlc-design-system, asdlc-ui-mockups, asdlc-tech-architecture, asdlc-implementation-planning, asdlc-story-breakdown) follows this pattern:
 
 ```
 1. Create branch:
@@ -99,8 +99,8 @@ Scope:  STORY-{ID} | {stage-name} | {module-name}
 
 Examples:
   feat(STORY-042): add user authentication endpoint
-  docs(inception): stage complete — gate passed
-  docs(tech-architecture): approved — merge to main
+  docs(asdlc-inception): stage complete — gate passed
+  docs(asdlc-tech-architecture): approved — merge to main
   fix(STORY-017): handle null user in session validator
 ```
 

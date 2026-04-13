@@ -2,7 +2,7 @@ id: ui-mockups-create-or-import-001
 skill: asdlc-ui-mockups
 prompt: "We finished the design system for a new landing page. Ask whether to create a mockup or import existing mockups before moving forward."
 context:
-  stage: post-design-system
+  stage: post-asdlc-design-system
   ui_change: landing-page
 assertions:
   must_include:

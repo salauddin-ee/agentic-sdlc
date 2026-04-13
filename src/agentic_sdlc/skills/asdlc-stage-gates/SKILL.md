@@ -53,7 +53,7 @@ GATE [stage name] — [date]
 [x] Criterion 3 — verified: success metrics quantified (P95 < 200ms)
 [x] Criterion 4 — verified: NFRs listed in brd.md
 [x] Criterion 5 — verified: out-of-scope section has 3 explicit items
-RESULT: PASS — proceed to design-system
+RESULT: PASS — proceed to asdlc-design-system
 ```
 
 ## Gate Criteria Interpretation

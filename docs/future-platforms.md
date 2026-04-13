@@ -8,7 +8,7 @@ Cursor supports plugins with a `plugin.json` manifest. Rules can be injected via
 
 **Plugin manifest:** `.cursor-plugin/plugin.json`
 
-`asdlc-``json
+```json
 {
   "name": "agentic-sdlc",
   "version": "1.0.0",
@@ -17,7 +17,7 @@ Cursor supports plugins with a `plugin.json` manifest. Rules can be injected via
   ],
   "context": ["./skills/**/*.md"]
 }
-`asdlc-``
+```
 
 ---
 
@@ -42,7 +42,7 @@ Even when folder names don't collide (e.g., Superpowers has `brainstorming/`, Ag
 
 Each framework prefixes its skills so they are unambiguous:
 
-`asdlc-``
+```
 skills/
   asdlc--inception/SKILL.md
   asdlc--implementation/SKILL.md
@@ -50,7 +50,7 @@ skills/
   sp--brainstorming/SKILL.md
   sp--test-driven-development/SKILL.md
   sp--systematic-debugging/SKILL.md
-`asdlc-``
+```
 
 This solves naming collisions but does **not** resolve trigger conflicts.
 
@@ -58,7 +58,7 @@ This solves naming collisions but does **not** resolve trigger conflicts.
 
 A `skill-manifest.json` at the project root declares which framework owns each stage:
 
-`asdlc-``json
+```json
 {
   "frameworks": {
     "agentic-sdlc": { "prefix": "asdlc", "version": "1.0.0" },
@@ -81,7 +81,7 @@ A `skill-manifest.json` at the project root declares which framework owns each s
     }
   ]
 }
-`asdlc-``
+```
 
 The agent reads this manifest **first** and knows: *"For planning, use Agentic SDLC skills. For debugging, use Superpowers skills."*
 
@@ -89,7 +89,7 @@ The agent reads this manifest **first** and knows: *"For planning, use Agentic S
 
 Each SKILL.md declares what it **provides**, what it **conflicts with**, and what it **depends on** via extended YAML frontmatter:
 
-`asdlc-``yaml
+```yaml
 ---
 name: inception
 namespace: agentic-sdlc
@@ -98,9 +98,9 @@ conflicts-with: [sp/brainstorming]
 depends-on: []
 outputs: [docs/product/features/brd.md]
 ---
-`asdlc-``
+```
 
-`asdlc-``yaml
+```yaml
 ---
 name: brainstorming
 namespace: superpowers
@@ -109,7 +109,7 @@ conflicts-with: [asdlc/inception]
 depends-on: []
 outputs: [design-doc.md]
 ---
-`asdlc-``
+```
 
 The resolver sees both provide `asdlc-requirements` → checks `skill-manifest.json` for the winner → only activates one.
 
@@ -126,14 +126,14 @@ A smart resolver would:
 2. For **complementary** capabilities → activate both
 3. If no manifest exists → fall back to `AGENTS.md` priority order
 
-`asdlc-``
+```
 Resolver logic:
   1. Read skill-manifest.json (if present)
   2. For each task, find applicable skills from ALL installed frameworks
   3. If multiple skills provide the same capability → use routing rules
   4. If a skill provides a unique capability → always activate it
   5. If no manifest → honor AGENTS.md load order (last writer wins)
-`asdlc-``
+```
 
 ### Implementation Roadmap
 

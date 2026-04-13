@@ -7,7 +7,7 @@ context:
 assertions:
   must_include:
     - "greenfield"
-    - "inception"
+    - "asdlc-inception"
   must_have_section:
     - "Workflow Selection"
   must_refuse_shortcut: false

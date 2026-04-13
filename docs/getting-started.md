@@ -8,10 +8,10 @@ A skills-based SDLC framework that gives your coding agent a structured, discipl
 
 Instead of ad-hoc coding, your agent follows a documented lifecycle:
 
-`asdlc-``text
+```text
 Greenfield: inception → design → mockup gate → architecture → planning → stories → code → review → test → retro
 Brownfield: context harvest → brainstorm → design → mockup gate → plan → stories → code → review → test → retro
-`asdlc-``
+```
 
 Each stage has: explicit inputs, explicit outputs written to disk, a gate that must pass before proceeding, and HITL checkpoints at critical transitions.
 
@@ -24,17 +24,17 @@ Each stage has: explicit inputs, explicit outputs written to disk, a gate that m
 
 The easiest way to use Agentic SDLC is via pip:
 
-`asdlc-``bash
+```bash
 pip install agentic-sdlc
-`asdlc-``
+```
 
 ## Initialize Your Project
 
 From within your project root, run:
 
-`asdlc-``bash
+```bash
 asdlc init
-`asdlc-``
+```
 
 This command will:
 1. Create the `docs/sdlc/` directory structure.
@@ -46,9 +46,9 @@ This creates stub files for every stage artifact. The agent will fill them in as
 ## Starting a Session
 
 ### New project (greenfield)
-`asdlc-``
+```
 Tell your agent: "Start a new project. Read AGENTS.md first."
-`asdlc-``
+```
 
 The agent should:
 1. Read `AGENTS.md`
@@ -58,9 +58,9 @@ The agent should:
 5. Begin asking clarifying questions before any code is written
 
 ### Existing project (brownfield)
-`asdlc-``
+```
 Tell your agent: "We're adding a new feature to an existing codebase. Read AGENTS.md first."
-`asdlc-``
+```
 
 The agent should:
 1. Read `AGENTS.md`
@@ -82,7 +82,7 @@ If the agent starts writing code without going through these steps, it has not l
 
 ## The Context Directory
 
-`asdlc-``
+```
 docs/
   architecture/
     domain-model.md        — domain knowledge (inception)
@@ -102,7 +102,7 @@ docs/
     stories/               — individual story files
     test-plans/            — test results
     retrospectives/        — critical review and retrospective
-`asdlc-``
+```
 
 Never rely on conversation memory — every stage writes to these files.
 

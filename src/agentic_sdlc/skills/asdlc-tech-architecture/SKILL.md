@@ -124,7 +124,7 @@ HITL REQUIRED
 Stage: tech-architecture
 Question: Does this architecture document and set of ADRs represent the right technical approach before we begin implementation?
 Context: Architecture at docs/architecture/tech-architecture.md, ADRs at docs/architecture/adrs/
-Options: [A] Approved — proceed to implementation planning
+Options: [A] Approved — proceed to asdlc-implementation planning
          [B] Changes needed — specify which decisions to revisit
 Default if no response: Wait for explicit approval
 ```

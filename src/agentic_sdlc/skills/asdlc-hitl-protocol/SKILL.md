@@ -10,7 +10,7 @@ Some decisions cannot be undone. Some decisions are too ambiguous for the agent 
 
 Human approval is **always** required at these points — no exceptions:
 
-1. **End of inception** — before design and architecture begin
+1. **End of asdlc-inception** — before design and architecture begin
 2. **End of tech-architecture** — before any code is written
 3. **End of ui-mockups** — before implementation-planning, brownfield-tech-plan, or production implementation continue for the affected UI
 4. **End of story-breakdown** — before implementation begins
@@ -60,13 +60,13 @@ Default if no response: [what the agent will do if human does not respond — us
 
 ## Example HITL Prompts
 
-**End of inception:**
+**End of asdlc-inception:**
 ```
 HITL REQUIRED
-Stage: inception
+Stage: asdlc-inception
 Question: Does this BRD accurately capture your requirements before we move to design?
 Context: BRD written to docs/product/features/brd.md. 4 FRs, 3 NFRs, 2 personas defined.
-Options: [A] Approved — proceed to design-system and tech-architecture
+Options: [A] Approved — proceed to asdlc-design-system and tech-architecture
          [B] Changes needed — I will specify which sections to revise
 Default if no response: Wait for explicit approval
 ```

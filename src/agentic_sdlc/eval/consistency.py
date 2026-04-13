@@ -233,7 +233,9 @@ def check(repo_root: Path, report: ValidationReport) -> None:
         repo_root: Path to the repository root.
         report:    ValidationReport to append findings to.
     """
-    skills_dir = repo_root / "skills"
+    skills_dir = repo_root / ".agents" / "skills"
+    if not skills_dir.exists():
+        skills_dir = repo_root / "skills"
     if not skills_dir.exists():
         skills_dir = repo_root / "src" / "agentic_sdlc" / "skills"
     if not skills_dir.exists():

@@ -29,7 +29,7 @@ Skills live in the `.agents/skills/` directory of this repository. Each skill is
 
 ### Workflow Selection
 
-`asdlc-``
+```
 Starting a new project from scratch?
   → Use Workflow 1 (Greenfield): asdlc-inception → asdlc-design-system → asdlc-ui-mockups
     → asdlc-tech-architecture
@@ -42,7 +42,7 @@ Working on an existing codebase?
     → asdlc-implementation-planning
     → asdlc-story-breakdown → asdlc-implementation → asdlc-critical-review → asdlc-testing
     → asdlc-code-review → asdlc-retrospective
-`asdlc-``
+```
 
 ---
 
@@ -78,7 +78,7 @@ Working on an existing codebase?
 
 All stage outputs are written to a distributed `docs/` structure at the project root. Never rely on conversation memory alone — write artifacts to disk.
 
-`asdlc-``
+```
 docs/
   architecture/domain-model.md
   architecture/existing-system.md
@@ -97,7 +97,7 @@ docs/
   sdlc/test-plans/test-plan.md
   sdlc/retrospectives/critical-review.md
   sdlc/retrospectives/retrospective.md
-`asdlc-``
+```
 
 Run `asdlc init` to create this structure in a new project.
 

@@ -7,7 +7,7 @@ version: 1.0.0
 Execute the test plan. Verify the application works end-to-end — including paths that were not directly implemented by the agent. All automated tests must be green before this stage completes.
 
 <HARD-GATE>
-Do NOT proceed to code-review until all automated tests pass, test pyramid targets are met, and all HITL test cases are resolved. A single failing test is a blocker.
+Do NOT proceed to asdlc-code-review until all automated tests pass, test pyramid targets are met, and all HITL test cases are resolved. A single failing test is a blocker.
 </HARD-GATE>
 
 ## Checklist

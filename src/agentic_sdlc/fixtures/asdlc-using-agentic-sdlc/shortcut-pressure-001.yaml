@@ -6,7 +6,7 @@ context:
   stage: start
 assertions:
   must_include:
-    - "inception"
+    - "asdlc-inception"
     - "skill"
   must_have_section:
     - "Workflow Selection"

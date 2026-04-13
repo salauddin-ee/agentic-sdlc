@@ -54,7 +54,7 @@ Quick reference for all agentic-sdlc skills. For full instructions, read the `SK
 
 All stage outputs are written here (at project root):
 
-`asdlc-``text
+```text
 docs/
   architecture/domain-model.md           ← asdlc-inception
   product/features/brd.md                ← asdlc-inception
@@ -72,4 +72,4 @@ docs/
   sdlc/retrospectives/retrospective.md   ← asdlc-retrospective
   architecture/existing-system.md        ← asdlc-context-harvest (brownfield only)
   sdlc/workspaces/tech-plan-*.md         ← asdlc-brownfield-tech-plan (one per story)
-`asdlc-``
+```
