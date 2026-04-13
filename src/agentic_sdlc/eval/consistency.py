@@ -187,8 +187,8 @@ def _check_old_style_skill_paths(skill_name: str, path: Path, content: str, repo
     # and NOT 'src/agentic_sdlc/skills/foo/SKILL.md'
     for match in OLD_SKILL_PATH_RE.finditer(content):
         start_idx = match.start()
-        # Only flag if it's perfectly matching the start of a word or boundary
-        if start_idx == 0 or content[start_idx - 1] not in ["/", ".", "_", "-"]:
+        prefix = content[max(0, start_idx - 15):start_idx]
+        if not prefix.endswith(".agents/") and not prefix.endswith("agentic_sdlc/"):
             full_ref = match.group(0)
             line_num = content[:match.start()].count("\n") + 1
             issues.append(ValidationIssue(

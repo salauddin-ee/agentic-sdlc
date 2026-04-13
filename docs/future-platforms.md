@@ -13,9 +13,9 @@ Cursor supports plugins with a `plugin.json` manifest. Rules can be injected via
   "name": "agentic-sdlc",
   "version": "1.0.0",
   "rules": [
-    "Before any action, check if a skill in ./skills/ applies. Read the SKILL.md and follow it."
+    "Before any action, check if a skill in .agents/skills/ applies. Read the SKILL.md and follow it."
   ],
-  "context": ["./skills/**/*.md"]
+  "context": [".agents/skills/**/*.md"]
 }
 ```
 

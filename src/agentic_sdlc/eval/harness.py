@@ -200,6 +200,8 @@ def run(repo_root: Path, fixtures_root: Path, skill_filter: Optional[str] = None
     for fixture in fixtures:
         skill_path = repo_root / ".agents" / "skills" / fixture.skill / "SKILL.md"
         if not skill_path.exists():
+            skill_path = repo_root / "skills" / fixture.skill / "SKILL.md"
+        if not skill_path.exists():
             skill_path = repo_root / "src" / "agentic_sdlc" / "skills" / fixture.skill / "SKILL.md"
 
         if not skill_path.exists():
