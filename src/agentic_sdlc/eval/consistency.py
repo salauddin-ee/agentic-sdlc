@@ -67,9 +67,15 @@ WORKFLOW_CREATED_FILES: set[str] = {
     "docs/sdlc/retrospectives/critical-review.md",
 }
 
-# Pattern: old-style repo-root skill path reference
-OLD_SKILL_PATH_RE = re.compile(r"skills/([\w<>.-]+)/SKILL\.md")
-STD_SKILL_PATH_RE = re.compile(r"\.agents/skills/([\w<>.-]+)/SKILL\.md")
+# Pattern: old-style skill path references. Match:
+#   - skills/<name>/SKILL.md
+#   - ./skills/<name>/SKILL.md
+# while excluding:
+#   - .agents/skills/<name>/SKILL.md
+#   - src/agentic_sdlc/skills/<name>/SKILL.md
+OLD_SKILL_PATH_RE = re.compile(
+    r"(?<!\.agents/)(?<!src/agentic_sdlc/)(?:\./)?skills/([\w<>.-]+)/SKILL\.md"
+)
 
 
 def _check_stale_filenames(skill_name: str, path: Path, content: str, repo_root: Path) -> list[ValidationIssue]:
@@ -183,24 +189,19 @@ def _check_old_style_skill_paths(skill_name: str, path: Path, content: str, repo
     """
     issues = []
     
-    # We want to flag 'skills/foo/SKILL.md' but NOT '.agents/skills/foo/SKILL.md'
-    # and NOT 'src/agentic_sdlc/skills/foo/SKILL.md'
     for match in OLD_SKILL_PATH_RE.finditer(content):
-        start_idx = match.start()
-        prefix = content[max(0, start_idx - 15):start_idx]
-        if not prefix.endswith(".agents/") and not prefix.endswith("agentic_sdlc/"):
-            full_ref = match.group(0)
-            line_num = content[:match.start()].count("\n") + 1
-            issues.append(ValidationIssue(
-                rule_id="consistency.skill_path.old_style",
-                severity="error",
-                path=_rel(path, repo_root),
-                line=line_num,
-                message=(
-                    f"References skill using old repo-root path '{full_ref}'. "
-                    "Update to use '.agents/skills/<name>/SKILL.md'."
-                )
-            ))
+        full_ref = match.group(0)
+        line_num = content[:match.start()].count("\n") + 1
+        issues.append(ValidationIssue(
+            rule_id="consistency.skill_path.old_style",
+            severity="error",
+            path=_rel(path, repo_root),
+            line=line_num,
+            message=(
+                f"References skill using old repo-root path '{full_ref}'. "
+                "Update to use '.agents/skills/<name>/SKILL.md'."
+            )
+        ))
     
     return issues
 
