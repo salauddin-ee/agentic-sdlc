@@ -14,7 +14,7 @@ Do NOT write any production code until tech-architecture.md, at least one ADR pe
 
 1. **Read inputs**: `docs/product/features/brd.md`, `docs/product/design-system.md` (if exists)
 2. **Tech stack selection** — evaluate options against NFRs, constraints, ecosystem maturity
-3. **Write ADRs** — one file per major decision in `docs/architecture/adrs/`
+3. **Write ADRs** — one file per major decision in `docs/architecture/adrs/` using the `adr-template.md` file in this skill's directory
 4. **System context diagram** — C4 Level 1 (what the system is, who uses it, what it integrates with)
 5. **Container diagram** — C4 Level 2 (major deployable units)
 6. **Sequence diagrams** — 2-3 most critical flows
@@ -24,34 +24,9 @@ Do NOT write any production code until tech-architecture.md, at least one ADR pe
 10. **Self-review** — check all ADR decisions are reflected in architecture, no gaps
 11. **Present to user** — section by section
 12. **HITL checkpoint** — required before any code is written
-13. **Transition** — invoke `asdlc-implementation-planning` skill
+13. **Update AGENTS.md** — enrichment Phase 2 (see detailed instructions below)
+14. **Transition** — invoke `asdlc-implementation-planning` skill
 
-## ADR Format
-
-Each decision gets its own file: `docs/architecture/adrs/ADR-NNN-<title>.md`
-
-```markdown
-# ADR-NNN: [Decision title]
-
-**Date:** YYYY-MM-DD
-**Status:** Proposed | Accepted | Superseded by ADR-NNN
-**Version:** 0.1.0
-
-## Context
-[Why does this decision need to be made?]
-
-## Decision
-[What was decided?]
-
-## Rationale
-[Why this option over alternatives?]
-
-## Alternatives considered
-[What else was evaluated and why rejected?]
-
-## Consequences
-[Trade-offs, risks, follow-up actions]
-```
 
 **Decisions that always require an ADR:**
 - Programming language selection
@@ -100,6 +75,16 @@ Each decision gets its own file: `docs/architecture/adrs/ADR-NNN-<title>.md`
 - Dependency scanning: [e.g. npm audit in CI]
 ```
 
+## AGENTS.md Enrichment (Phase 2)
+
+Once technical architecture and coding standards are approved via the HITL checkpoint, you must update the `AGENTS.md` file in the project root to include project-specific context. This helps future agent sessions operate with the correct constraints.
+
+Append a `## Project Context` section to `AGENTS.md` containing:
+- **Tech Stack**: Summary of decisions from `tech-architecture.md` (Language, Framework, DB, Auth).
+- **Directory Structure**: Important paths defined in `tech-architecture.md`.
+- **Coding Standards**: Crucial rules extracted from `coding-standards.md`.
+- **Project-specific Agent Instructions**: Any project-specific constraints.
+
 ## Gate
 
 Read `asdlc-stage-gates` skill and evaluate:
@@ -115,6 +100,7 @@ Read `asdlc-stage-gates` skill and evaluate:
 [ ] Security approach documented
 [ ] All artifacts written to docs/architecture/ (and ADRs to docs/architecture/adrs/)
 [ ] User has reviewed and approved via HITL
+[ ] AGENTS.md has been updated with Project Context (Phase 2 enrichment)
 ```
 
 ## HITL Checkpoint

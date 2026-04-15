@@ -121,23 +121,21 @@ def _check_stale_paths(skill_name: str, path: Path, content: str, repo_root: Pat
 
 
 def _check_template_refs(skill_name: str, path: Path, content: str, repo_root: Path) -> list[ValidationIssue]:
-    """Check that any template file referenced in a skill actually exists in templates/."""
+    """Check that any template file referenced in a skill actually exists in that skill's directory."""
     issues = []
-    templates_dir = repo_root / "templates"
-    if not templates_dir.exists():
-        templates_dir = repo_root / "src" / "agentic_sdlc" / "templates"
-    # Find references like templates/foo-template.md or `foo-template.md`
-    pattern = re.compile(r"templates/([a-z-]+\.md)")
+    
+    # Find references like `foo-template.md`
+    pattern = re.compile(r"([a-z-]+-template\.md)")
     for match in pattern.finditer(content):
         template_name = match.group(1)
-        template_path = templates_dir / template_name
+        template_path = path.parent / template_name
         if not template_path.exists():
             line_num = content[:match.start()].count("\n") + 1
             issues.append(ValidationIssue(
                 rule_id="consistency.template.missing",
                 severity="error",
                 path=_rel(path, repo_root),
-                message=f"References template '{template_name}' which does not exist in templates/.",
+                message=f"References template '{template_name}' which does not exist in the skill's directory.",
                 line=line_num,
             ))
     return issues

@@ -103,13 +103,7 @@ Run `asdlc init` to create this structure in a new project.
 
 ---
 
-The Agentic SDLC framework is platform-agnostic. Installation instructions for supported agents can be found in the README and the following files:
 
-- [Codex](AGENTS.md)
-- [Claude Code](CLAUDE.md)
-- [Gemini CLI](GEMINI.md)
-- [Antigravity](ANTIGRAVITY.md)
-- [Amp](AMP.md)
 
 ### Red Flags — You Are Rationalizing
 

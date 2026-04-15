@@ -76,26 +76,48 @@ def init(target, force):
         shutil.copytree(package_root / "skills", target_path / ".agents" / "skills")
         click.echo("  Copied skills directory.")
 
-    # Copy templates
-    if (target_path / "templates").exists() and not force:
-        click.echo("  Templates directory already exists. Use --force to overwrite.")
-    else:
-        if (target_path / "templates").exists():
-            shutil.rmtree(target_path / "templates")
-        shutil.copytree(package_root / "templates", target_path / "templates")
-        click.echo("  Copied templates directory.")
-
-    # Copy core files (AGENTS.md, etc.)
-    for core_file in (package_root / "core").glob("*.md"):
-        dest = target_path / core_file.name
-        if not dest.exists() or force:
-            shutil.copy(core_file, dest)
-            click.echo(f"  Copied {core_file.name}")
+    # Copy core files (only AGENTS.md)
+    core_file = package_root / "core" / "AGENTS.md"
+    dest = target_path / "AGENTS.md"
+    if not dest.exists() or force:
+        shutil.copy(core_file, dest)
+        click.echo("  Copied AGENTS.md")
 
     click.echo("\nDone! Agentic SDLC is ready.")
     click.echo("Next steps:")
     click.echo("  1. Instruct your agent: 'Read AGENTS.md and .agents/skills/asdlc-using-agentic-sdlc/SKILL.md'")
     click.echo("  2. Start with 'asdlc-inception' (greenfield) or 'asdlc-context-harvest' (brownfield)")
+
+@main.command()
+@click.argument('target', default='.', type=click.Path(exists=True, file_okay=False, dir_okay=True))
+def update_agents(target):
+    """Update AGENTS.md with Phase 2 project context."""
+    target_path = Path(target).resolve()
+    agents_path = target_path / "AGENTS.md"
+    if not agents_path.exists():
+        click.echo("AGENTS.md not found in project root. Run 'asdlc init' first.", err=True)
+        return
+
+    click.echo(f"Updating '{agents_path}' with project context...")
+    
+    # Read context files
+    tech_arch = target_path / "docs" / "architecture" / "tech-architecture.md"
+    coding_standards = target_path / "docs" / "architecture" / "coding-standards.md"
+
+    context_block = "\n## Project Context (Phase 2)\n\nThis section contains project-specific context established during the Tech Architecture stage.\n\n"
+    if tech_arch.exists():
+        context_block += f"- **Tech Stack**: Refer to [{tech_arch.name}]({tech_arch.relative_to(target_path)})\n"
+        context_block += f"- **Directory Structure**: Refer to [{tech_arch.name}]({tech_arch.relative_to(target_path)})\n"
+    else:
+        context_block += "- **Tech Stack & Architecture**: Not yet defined.\n"
+
+    if coding_standards.exists():
+        context_block += f"- **Coding Standards**: Refer to [{coding_standards.name}]({coding_standards.relative_to(target_path)})\n"
+
+    with open(agents_path, "a") as f:
+        f.write(context_block)
+        
+    click.echo("Added Phase 2 Project Context to AGENTS.md")
 
 @main.command()
 @click.argument('project_root', default='.')
@@ -113,6 +135,7 @@ def dev_main():
 # Register all public commands on dev_main too
 dev_main.add_command(init)
 dev_main.add_command(serve)
+dev_main.add_command(update_agents)
 
 
 @dev_main.command('validate-skills')

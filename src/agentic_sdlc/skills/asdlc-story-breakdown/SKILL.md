@@ -18,59 +18,12 @@ Do NOT begin implementation until the task graph is approved by the user via HIT
 4. **Build the dependency DAG** — identify which stories can run in parallel
 5. **Define parallel track rules** — file ownership and merge strategy
 6. **Flag HITL tasks** — any task that needs human input before starting
-7. **Write an epic manifest** to `docs/sdlc/epics/EPIC-[ID].md` tracking story dependencies.
+7. **Write an epic manifest** to `docs/sdlc/epics/EPIC-[ID].md` using the `task-graph-template.md` file in this skill's directory.
 8. **Write `docs/sdlc/epics/task-graph.md`** — a summary of all epics and their dependency DAGs for cross-reference.
-9. **Write story files** to `docs/sdlc/stories/STORY-[ID].md` for every individual ticket.
+9. **Write story files** to `docs/sdlc/stories/STORY-[ID].md` for every individual ticket using the `story-template.md` file in this skill's directory.
 10. **Self-review** — check DAG is acyclic, all interface contracts locked, all FRs covered
 11. **HITL checkpoint** — human reviews and approves epic breakdown before implementation
 
-## Epic Manifesto Format
-
-In `docs/sdlc/epics/EPIC-[ID].md`:
-
-```markdown
-# Epic: [Name]
-
-## Task dependency graph
-
-STORY-001 (Foundation scaffold)
-  └── STORY-002 (Auth module)      ← depends on STORY-001
-  └── STORY-003 (Database layer)   ← depends on STORY-001
-        └── STORY-005 (User CRUD)  ← depends on STORY-003
-
-Parallel tracks:
-- Track A: STORY-002
-- Track B: STORY-003 → STORY-005
-```
-
-## Story Data Model
-
-For every ticket, create a file in `docs/sdlc/stories/STORY-[ID].md`:
-
-```markdown
----
-status: TO_DO
-milestone: M1
-track: A
-depends_on: STORY-NNN-1
----
-
-# STORY-NNN: [Title]
-
-**Acceptance criteria:**
-- Given [context]
-- When [action]
-- Then [outcome]
-
-**Tasks:**
-- [ ] Write failing test(s)
-- [ ] Implement to make tests pass
-- [ ] Refactor
-
-**Files owned:** src/module/foo.ts
-**Merge strategy:** Feature branch, squash merge to main
-**HITL before starting:** [Yes/No]
-```
 
 ## Parallel Track Rules
 
