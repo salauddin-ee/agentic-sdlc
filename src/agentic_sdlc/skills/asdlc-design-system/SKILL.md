@@ -31,61 +31,11 @@ Do NOT write any frontend code or select UI frameworks until design tokens, comp
 4. **Define design tokens** — color, typography, spacing, border radius, shadows, motion
 5. **Produce component inventory** — every UI component required, with state variants
 6. **Write `docs/product/accessibility.md`** — WCAG 2.2 AA requirements
-7. **Write `docs/product/design-system.md`** — using the format below
+7. **Write `docs/product/design-system.md`** — using the `design-system-template.md` file in this skill's directory
 8. **Self-review** — check for missing components, incomplete token definitions
 9. **Present to user** — get approval section by section
 10. **Gate evaluation** — invoke `asdlc-stage-gates` skill
 11. **Transition** — if this is a user-facing redesign, new landing page, or major visual contract change, invoke `asdlc-ui-mockups` before implementation-planning begins
-
-## Design Tokens Format
-
-In `docs/product/design-system.md`:
-
-```markdown
-# Design system
-
-> **Status:** Draft | Approved
-> **Version:** 0.1.0
-
-## Color palette
-| Token | Value | Usage |
-|---|---|---|
-| color-primary | #... | Primary actions, CTAs |
-| color-surface | #... | Card backgrounds |
-| color-text | #... | Body text |
-| color-error | #... | Error states |
-
-## Typography
-| Token | Size | Weight | Line height | Usage |
-|---|---|---|---|---|
-| type-heading-1 | 2rem | 700 | 1.2 | Page headings |
-| type-body | 1rem | 400 | 1.6 | Body copy |
-
-## Spacing scale
-[4px base unit — 4, 8, 12, 16, 24, 32, 48, 64px]
-
-## Border radius
-[sm: 4px | md: 8px | lg: 16px | full: 9999px]
-
-## Shadow levels
-[0 (flat) | 1 (card) | 2 (modal) | 3 (popover)]
-
-## Motion
-[duration-fast: 150ms | duration-normal: 300ms | easing: ease-out]
-```
-
-## Component Inventory Format
-
-```markdown
-## Component inventory
-
-| Component | States | Notes |
-|---|---|---|
-| Button | default, hover, focus, disabled, loading | Primary / secondary / ghost variants |
-| Input | default, focus, filled, error, disabled | |
-| Modal | closed, open, loading | Trap focus when open |
-| ...   | ... | ... |
-```
 
 ## Accessibility Requirements (`docs/product/accessibility.md`)
 

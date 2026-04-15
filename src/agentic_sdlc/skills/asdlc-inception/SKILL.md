@@ -27,7 +27,7 @@ Complete in order:
    - Out-of-scope items (explicit)
    - Non-functional requirements (latency, availability, scale, geography)
 4. **Write `docs/architecture/domain-model.md`** — domain knowledge, industry context, glossary
-5. **Write `docs/product/features/brd.md`** — using the BRD format below
+5. **Write `docs/product/features/brd.md`** — using the `brd-template.md` file in this skill's directory
 6. **Self-review the BRD** — check for placeholders, contradictions, missing metrics
 7. **Present BRD to user** — ask for explicit approval before proceeding
 8. **HITL checkpoint** — required before moving to Stage 2 (invoke `asdlc-hitl-protocol` skill)
@@ -40,45 +40,6 @@ Complete in order:
 - Prefer **multiple-choice** when options are clear
 - Focus on: purpose, constraints, success criteria, who is affected
 - If the project scope is very large (multiple independent subsystems), flag it and help decompose into sub-projects before continuing
-
-## BRD Format
-
-Write to `docs/product/features/brd.md`:
-
-```markdown
-# Business Requirements Document
-
-> **Status:** Draft | Approved
-> **Version:** 0.1.0
-
-## Objective
-[One paragraph. What problem does this solve and for whom?]
-
-## Success metrics
-[Measurable. e.g. "P95 API latency < 200ms", "checkout conversion > X%"]
-
-## User personas
-| Name | Role | Primary goal | Pain point |
-|---|---|---|---|
-
-## Functional requirements
-- [FR-001] ...
-- [FR-002] ...
-
-## Non-functional requirements
-- [NFR-001] Availability: 99.9% uptime
-- [NFR-002] Security: OWASP Top 10 compliance
-- [NFR-003] ...
-
-## Constraints
-[Budget, timeline, technology mandates, compliance requirements]
-
-## Out of scope
-[Explicit list — if something is NOT being built, say so]
-
-## Open questions
-[Unresolved items requiring HITL before proceeding]
-```
 
 ## Gate
 

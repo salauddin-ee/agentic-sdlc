@@ -17,52 +17,9 @@ Do NOT proceed to asdlc-code-review until all automated tests pass, test pyramid
 3. **Verify test pyramid targets** — from `docs/architecture/coding-standards.md`
 4. **Run HITL test cases** — scenarios the agent cannot verify alone
 5. **Run load/performance tests** if NFRs specify targets
-6. **Document results in `docs/sdlc/test-plans/test-plan.md`**
+6. **Document results in `docs/sdlc/test-plans/test-plan.md`** using the `test-plan-template.md` file in this skill's directory
 7. **Gate evaluation** — all criteria must pass before proceeding
 
-## Test Plan Format
-
-Write / update `docs/sdlc/test-plans/test-plan.md`:
-
-```markdown
-# Test plan
-
-> **Status:** Draft | Approved
-> **Version:** 0.1.0
-
-## Scope
-[What is in scope for this test cycle — which stories, which milestone]
-
-## Environment
-[Required infrastructure, test data, mocks/stubs vs. real services]
-
-## Test cases
-| ID | Story | Type | Given | When | Then | Pass/Fail |
-|---|---|---|---|---|---|---|
-| TC-001 | STORY-001 | E2E | User is on login page | Submits valid credentials | Redirected to dashboard | |
-
-## Regression scope
-[Which existing tests must remain green — list specific test files/suites]
-
-## Performance targets (from NFRs)
-| Metric | Target | Result |
-|---|---|---|
-| P95 API latency | < 200ms | |
-| Throughput | 1000 req/s | |
-
-## HITL test cases
-| ID | Scenario | Question for human | Expected outcome |
-|---|---|---|---|
-| HTC-001 | Password reset email | Did you receive the reset email? | Yes, within 30 seconds |
-
-## Results summary
-- Total automated tests: [N]
-- Passing: [N]
-- Failing: [N]
-- Test pyramid: Unit [N]% / Integration [N]% / E2E [N]%
-- Performance targets: Pass / Fail (details below)
-- HITL test cases resolved: [N/N]
-```
 
 ## Running Tests
 

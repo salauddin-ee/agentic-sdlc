@@ -23,7 +23,7 @@ For each active ticket:
 
 ```
 1. Pick a Story: Read `docs/sdlc/stories/` and pick a story that has `status: TO_DO` and whose dependencies are met (check `docs/sdlc/epics/`).
-2. Initialize Workspace: Copy `templates/workspace-template.md` to `docs/sdlc/workspaces/workspace-STORY-[ID].md`. Fill in YAML: `story_id`, `agent`, `model`, `branch`, `started_at`.
+2. Initialize Workspace: Copy `workspace-template.md` (in this skill's directory) to `docs/sdlc/workspaces/workspace-STORY-[ID].md`. Fill in YAML: `story_id`, `agent`, `model`, `branch`, `started_at`.
 3. Create feature branch (invoke `asdlc-git-discipline` skill):
    git checkout main && git pull origin main
    git checkout -b feature/STORY-[ID]-[short-desc]

@@ -24,7 +24,7 @@ Do NOT begin production implementation, implementation-planning, or brownfield-t
 3. **Produce or import a reviewable artifact**:
    - If creating: create a mockup as screenshots or a coded prototype
    - If importing: record where the existing mockups came from and summarize what they cover
-4. **Write `docs/product/mockups.md`** — using the format below
+4. **Write `docs/product/mockups.md`** — using the `mockups-template.md` file in this skill's directory
 5. **Share the artifact for review** — screenshots or coded prototype must be reviewable by the user
 6. **HITL checkpoint** — invoke `asdlc-hitl-protocol` skill for explicit approval of the visual direction
 7. **Record the decision** — update `docs/product/mockups.md` with the selected direction and any requested revisions
@@ -32,42 +32,10 @@ Do NOT begin production implementation, implementation-planning, or brownfield-t
    - Greenfield: continue to `asdlc-tech-architecture` or `asdlc-implementation-planning` only after approval
    - Brownfield: continue to `asdlc-brownfield-tech-plan` only after approval
 
+
 ## Mockup Artifact Format
 
-Write `docs/product/mockups.md`:
-
-```markdown
-# UI mockups
-
-> **Status:** Draft | Approved
-> **Version:** 0.1.0
-
-## Trigger
-- User-facing redesign | New landing page | Major visual contract change
-
-## Mockup approach
-- Decision: create a mockup | import existing mockups
-- Rationale: [Why this path was chosen]
-
-## Artifacts
-| Artifact | Type | Path / source | Notes |
-|---|---|---|---|
-| Homepage hero v1 | screenshot | docs/product/mockups/homepage-hero-v1.png | Agent-created |
-| Landing page flow | coded prototype | apps/web/src/routes/landing.tsx | Reviewable prototype |
-| Existing Figma export | imported mockup | https://... or local path | Imported from design team |
-
-## Visual direction under review
-- [Brief summary of layout, hierarchy, tone, and key interaction choices]
-
-## Accessibility review notes
-- [Any screen-level accessibility considerations surfaced by the mockup]
-
-## Approval record
-- Status: Pending | Approved | Changes requested
-- Reviewer: [Name]
-- Date: YYYY-MM-DD
-- Notes: [Requested revisions or approval scope]
-```
+Write `docs/product/mockups.md` using the `mockups-template.md` file located in this skill's directory.
 
 ## Gate
 

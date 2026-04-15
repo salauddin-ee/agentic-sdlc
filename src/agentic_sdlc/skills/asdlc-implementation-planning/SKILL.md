@@ -17,54 +17,12 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 3. **Define interface contracts** — every module boundary documented before any code
 4. **Write risk log** — likelihood × impact for each identified risk
 5. **Write definition of done** — project-level checklist
-6. **Write `docs/sdlc/epics/implementation-plan.md`** — using format below
+6. **Write `docs/sdlc/epics/implementation-plan.md`** — using the `implementation-plan-template.md` file in this skill's directory
 7. **Write `docs/architecture/data-domain.md`** — API contracts, event schemas, type defs
 8. **Self-review** — check all FRs from BRD are traceable to a milestone
 9. **Present to user** — get approval
 10. **Transition** — invoke `asdlc-story-breakdown` skill
 
-## Implementation Plan Format
-
-`docs/sdlc/epics/implementation-plan.md`:
-
-```markdown
-# Implementation plan
-
-> **Status:** Draft | Approved
-> **Version:** 0.1.0
-
-## Milestones
-| ID | Name | Description | Exit criteria | Depends on |
-|---|---|---|---|---|
-| M1 | Foundation | Project scaffold, CI, auth | All tests green, deploy to staging | — |
-| M2 | Core features | FR-001 through FR-005 | Acceptance tests pass | M1 |
-| M3 | Polish & NFRs | Performance, accessibility | NFR targets met | M2 |
-
-## Interface contracts summary
-[See docs/architecture/data-domain.md for full specs]
-
-Key boundaries:
-- [Module A] → [Module B]: [Brief contract description]
-- [Frontend] → [API]: REST endpoints defined in data-domain.md
-
-## Risk log
-| Risk | Likelihood | Impact | Mitigation |
-|---|---|---|---|
-| Third-party API unavailable | M | H | Mock in tests; fallback strategy documented |
-| Performance targets missed | L | H | Load test at M2 gate; optimize before M3 |
-
-## Assumptions
-- [List explicit assumptions. If any is wrong, trigger HITL before continuing.]
-
-## Definition of done (project level)
-- [ ] All FRs implemented and verified with passing tests
-- [ ] All NFRs verified with evidence (benchmarks, audit reports)
-- [ ] Test pyramid targets met (see coding-standards.md)
-- [ ] Security checklist passed
-- [ ] Documentation complete (README, API docs, ADRs up to date)
-- [ ] No P0/P1 open bugs
-- [ ] Deployed to production (or staging, if production deploy is out of scope)
-```
 
 ## Interface Contracts Format
 
