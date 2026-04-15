@@ -110,7 +110,7 @@ def collect_eval_data(project_root):
 
     skill_issues: dict[str, list] = {s: [] for s in all_skills}
     for issue in val_report.errors + val_report.warnings:
-        # Extract skill name from path like src/agentic_sdlc/skills/<name>/SKILL.md
+        # Extract skill name from path like src/agentic_sdlc/skills/asdlc-<name>/SKILL.md
         parts = Path(issue.path).parts
         if "skills" in parts:
             idx = list(parts).index("skills")

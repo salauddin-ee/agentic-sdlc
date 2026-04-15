@@ -38,17 +38,17 @@ def init(target, force):
 
     # 2. Create stub files
     stubs = [
-        ("docs/architecture/domain-model.md", "Domain Knowledge", "inception"),
-        ("docs/product/features/brd.md", "Business Requirements", "inception"),
-        ("docs/product/design-system.md", "Design System", "design-system"),
-        ("docs/product/mockups.md", "UI Mockups", "ui-mockups"),
-        ("docs/product/personas.md", "Personas", "inception"),
-        ("docs/architecture/tech-architecture.md", "Technical Architecture", "tech-architecture"),
-        ("docs/architecture/coding-standards.md", "Coding Constitution", "tech-architecture"),
-        ("docs/sdlc/epics/implementation-plan.md", "Implementation Plan", "implementation-planning"),
-        ("docs/architecture/data-domain.md", "Interface Contracts", "implementation-planning"),
-        ("docs/product/accessibility.md", "Accessibility Requirements", "design-system"),
-        ("docs/architecture/existing-system.md", "Existing System Analysis", "context-harvest"),
+        ("docs/architecture/domain-model.md", "Domain Knowledge", "asdlc-inception"),
+        ("docs/product/features/brd.md", "Business Requirements", "asdlc-inception"),
+        ("docs/product/design-system.md", "Design System", "asdlc-design-system"),
+        ("docs/product/mockups.md", "UI Mockups", "asdlc-ui-mockups"),
+        ("docs/product/personas.md", "Personas", "asdlc-inception"),
+        ("docs/architecture/tech-architecture.md", "Technical Architecture", "asdlc-tech-architecture"),
+        ("docs/architecture/coding-standards.md", "Coding Constitution", "asdlc-tech-architecture"),
+        ("docs/sdlc/epics/implementation-plan.md", "Implementation Plan", "asdlc-implementation-planning"),
+        ("docs/architecture/data-domain.md", "Interface Contracts", "asdlc-implementation-planning"),
+        ("docs/product/accessibility.md", "Accessibility Requirements", "asdlc-design-system"),
+        ("docs/architecture/existing-system.md", "Existing System Analysis", "asdlc-context-harvest"),
     ]
 
     for file_rel, title, stage in stubs:
@@ -68,12 +68,12 @@ def init(target, force):
     package_root = Path(__file__).parent
     
     # Copy skills
-    if (target_path / "skills").exists() and not force:
+    if (target_path / ".agents" / "skills").exists() and not force:
         click.echo("  Skill directory already exists. Use --force to overwrite.")
     else:
-        if (target_path / "skills").exists():
-            shutil.rmtree(target_path / "skills")
-        shutil.copytree(package_root / "skills", target_path / "skills")
+        if (target_path / ".agents" / "skills").exists():
+            shutil.rmtree(target_path / ".agents" / "skills")
+        shutil.copytree(package_root / "skills", target_path / ".agents" / "skills")
         click.echo("  Copied skills directory.")
 
     # Copy templates
@@ -94,8 +94,8 @@ def init(target, force):
 
     click.echo("\nDone! Agentic SDLC is ready.")
     click.echo("Next steps:")
-    click.echo("  1. Instruct your agent: 'Read AGENTS.md and skills/using-agentic-sdlc/SKILL.md'")
-    click.echo("  2. Start with 'inception' (greenfield) or 'context-harvest' (brownfield)")
+    click.echo("  1. Instruct your agent: 'Read AGENTS.md and .agents/skills/asdlc-using-agentic-sdlc/SKILL.md'")
+    click.echo("  2. Start with 'asdlc-inception' (greenfield) or 'asdlc-context-harvest' (brownfield)")
 
 @main.command()
 @click.argument('project_root', default='.')

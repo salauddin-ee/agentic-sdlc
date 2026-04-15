@@ -19,7 +19,8 @@ Or install it locally:
 2. Copy the entry point and link skills:
    ```bash
    cp .agentic-sdlc-framework/AGENTS.md ./AGENTS.md
-   ln -s .agentic-sdlc-framework/skills ./skills
+   mkdir -p .agents
+   ln -s ../.agentic-sdlc-framework/skills ./.agents/skills
    ```
 3. Initialize the context directory:
    ```bash
@@ -31,7 +32,8 @@ Or install it locally:
 1. Copy the needed files from a local clone:
    ```bash
    cp /path/to/agentic-sdlc/AGENTS.md ./AGENTS.md
-   cp -r /path/to/agentic-sdlc/skills ./skills
+   mkdir -p .agents
+   cp -r /path/to/agentic-sdlc/skills ./.agents/skills
    cp -r /path/to/agentic-sdlc/scripts ./scripts
    ```
 2. Initialize the context directory:
@@ -39,14 +41,14 @@ Or install it locally:
    bash scripts/init-context.sh .
    ```
 
-Codex should see `AGENTS.md` at the project root, and the `skills/` directory must also be reachable from the project root.
+Codex should see `AGENTS.md` at the project root, and the `.agents/skills/` directory must also be reachable from the project root.
 
 ## Manual Setup
 
 If automatic loading does not work, tell Codex at the start of each session:
 
 ```
-Read AGENTS.md and then read skills/using-agentic-sdlc/SKILL.md before doing anything else.
+Read AGENTS.md and then read .agents/skills/asdlc-using-agentic-sdlc/SKILL.md before doing anything else.
 ```
 
 ## Verify Installation
@@ -56,7 +58,7 @@ Start a new Codex session and ask: *"What workflow should we follow for a new pr
 The agent should:
 1. Mention the Agentic SDLC framework
 2. Ask whether this is greenfield or brownfield
-3. Reference the `inception` or `context-harvest` skill as the starting point
+3. Reference the `asdlc-inception` or `asdlc-context-harvest` skill as the starting point
 
 ## Other Platforms
 

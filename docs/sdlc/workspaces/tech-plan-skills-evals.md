@@ -57,7 +57,7 @@ Not needed. The work is additive and can be safely shipped behind new non-defaul
 ## Definition of done (story technical)
 - [ ] `asdlc-dev validate-skills` reports malformed frontmatter, placeholder content, and path/reference drift
 - [ ] `asdlc-dev eval-skills` runs a small scenario suite with deterministic pass/fail output
-- [ ] Initial fixtures cover `using-agentic-sdlc`, `implementation`, `stage-gates`, `hitl-protocol`, and `git-discipline`
+- [ ] Initial fixtures cover `asdlc-using-agentic-sdlc`, `asdlc-implementation`, `asdlc-stage-gates`, `asdlc-hitl-protocol`, and `asdlc-git-discipline`
 - [ ] Automated tests cover validator rules and harness behavior
 - [ ] CLI help text and docs explain how to run the checks locally
 - [ ] No unrelated architecture or workflow changes are introduced

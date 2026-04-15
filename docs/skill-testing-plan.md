@@ -110,11 +110,11 @@ Examples of the consistency problems this should catch:
 
 Start with only these five skills:
 
-1. `using-agentic-sdlc`
-2. `implementation`
-3. `stage-gates`
-4. `hitl-protocol`
-5. `git-discipline`
+1. `asdlc-using-agentic-sdlc`
+2. `asdlc-implementation`
+3. `asdlc-stage-gates`
+4. `asdlc-hitl-protocol`
+5. `asdlc-git-discipline`
 
 For each skill, create 2-4 fixtures covering:
 
@@ -160,7 +160,7 @@ Observed failures should become permanent regression cases.
 
 ## CLI Surface
 
-> **Note:** The `validate-skills` and `eval-skills` commands are internal dev tools available on the `asdlc-dev` CLI. They are not exported in the public `asdlc` CLI.
+> **Note:** `validate-skills` and `eval-skills` are internal dev subcommands on the `asdlc-dev` CLI (`asdlc-dev validate-skills`, `asdlc-dev eval-skills`). They are not exported in the public `asdlc` CLI.
 
 ## CI Rollout
 

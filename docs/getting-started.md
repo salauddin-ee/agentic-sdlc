@@ -38,7 +38,7 @@ asdlc init
 
 This command will:
 1. Create the `docs/sdlc/` directory structure.
-2. Copy the necessary `skills/` and `templates/` into your project.
+2. Copy the necessary `.agents/skills/` and `templates/` into your project.
 3. Copy `AGENTS.md` and platform-specific instructions to your root.
 
 This creates stub files for every stage artifact. The agent will fill them in as it works through the lifecycle.
@@ -52,9 +52,9 @@ Tell your agent: "Start a new project. Read AGENTS.md first."
 
 The agent should:
 1. Read `AGENTS.md`
-2. Read `skills/using-agentic-sdlc/SKILL.md`
+2. Read `.agents/skills/asdlc-using-agentic-sdlc/SKILL.md`
 3. Determine this is greenfield
-4. Invoke `skills/inception/SKILL.md`
+4. Invoke `.agents/skills/asdlc-inception/SKILL.md`
 5. Begin asking clarifying questions before any code is written
 
 ### Existing project (brownfield)
@@ -64,9 +64,9 @@ Tell your agent: "We're adding a new feature to an existing codebase. Read AGENT
 
 The agent should:
 1. Read `AGENTS.md`
-2. Read `skills/using-agentic-sdlc/SKILL.md`
+2. Read `.agents/skills/asdlc-using-agentic-sdlc/SKILL.md`
 3. Determine this is brownfield
-4. Invoke `skills/context-harvest/SKILL.md`
+4. Invoke `.agents/skills/asdlc-context-harvest/SKILL.md`
 5. Analyze the codebase before proposing any changes
 
 ## Verify It's Working
@@ -76,7 +76,7 @@ Ask your agent: *"What workflow should we follow?"*
 Expected response:
 - References agentic-sdlc framework
 - Asks greenfield vs brownfield
-- Names the starting skill (`inception` or `context-harvest`)
+- Names the starting skill (`asdlc-inception` or `asdlc-context-harvest`)
 
 If the agent starts writing code without going through these steps, it has not loaded the skills correctly.
 

@@ -11,13 +11,13 @@ context-harvest → brownfield-brainstorm → [brownfield-design] → [ui-mockup
                → retrospective
 ```
 
-`brownfield-design` is only needed if the story introduces UI changes. `ui-mockups` is required when that UI change is a redesign, new landing page, or major visual contract change.
+`asdlc-brownfield-design` is only needed if the story introduces UI changes. `asdlc-ui-mockups` is required when that UI change is a redesign, new landing page, or major visual contract change.
 
 ---
 
 ## Stage 0: Context Harvest
 
-**Skill:** `skills/context-harvest/SKILL.md`
+**Skill:** `.agents/skills/asdlc-context-harvest/SKILL.md`
 
 What happens (once per project, not per story):
 - Tech stack and versions documented
@@ -33,7 +33,7 @@ What happens (once per project, not per story):
 
 ## Stage 1: Brownfield Brainstorm
 
-**Skill:** `skills/brownfield-brainstorm/SKILL.md`
+**Skill:** `.agents/skills/asdlc-brownfield-brainstorm/SKILL.md`
 
 What happens:
 - Job-to-be-done identified
@@ -47,7 +47,7 @@ What happens:
 
 ## Stage 2: Brownfield Design (if UI)
 
-**Skill:** `skills/brownfield-design/SKILL.md`
+**Skill:** `.agents/skills/asdlc-brownfield-design/SKILL.md`
 
 What happens:
 - Existing design system read first
@@ -60,7 +60,7 @@ Skip if: story has no UI impact.
 
 ## Stage 2a: UI Mockup Gate (if major UI change)
 
-**Skill:** `skills/ui-mockups/SKILL.md`
+**Skill:** `.agents/skills/asdlc-ui-mockups/SKILL.md`
 **HITL:** Required before Stage 3
 
 What happens:
@@ -74,7 +74,7 @@ Skip if: the UI change is minor and does not alter the visible contract in a maj
 
 ## Stage 3: Brownfield Tech Plan
 
-**Skill:** `skills/brownfield-tech-plan/SKILL.md`
+**Skill:** `.agents/skills/asdlc-brownfield-tech-plan/SKILL.md`
 
 What happens:
 - Existing code in affected area read first
@@ -93,13 +93,13 @@ From this point, the brownfield workflow follows the same stages as greenfield:
 
 | Stage | Skill |
 |---|---|
-| 4 | `implementation-planning` — scoped to this story |
-| 5 | `story-breakdown` |
-| 6 | `implementation` — TDD, security non-negotiables |
-| 7 | `critical-review` |
-| 8 | `testing` — regression suite must still pass |
-| 9 | `code-review` |
-| 10 | `retrospective` — story retrospective appended |
+| 4 | `asdlc-implementation-planning` — scoped to this story |
+| 5 | `asdlc-story-breakdown` |
+| 6 | `asdlc-implementation` — TDD, security non-negotiables |
+| 7 | `asdlc-critical-review` |
+| 8 | `asdlc-testing` — regression suite must still pass |
+| 9 | `asdlc-code-review` |
+| 10 | `asdlc-retrospective` — story retrospective appended |
 
 ## Key Differences vs. Greenfield
 

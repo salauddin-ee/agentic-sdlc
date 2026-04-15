@@ -4,7 +4,7 @@
 
 **Entry point:** `.cursor-plugin/plugin.json`
 
-Cursor supports plugins with a `plugin.json` manifest. Rules can be injected via `rules` or `context` fields.
+Cursor supports plugins with a `plugin.json` manifest. Rules can be injected via `asdlc-rules` or `asdlc-context` fields.
 
 **Plugin manifest:** `.cursor-plugin/plugin.json`
 
@@ -13,9 +13,9 @@ Cursor supports plugins with a `plugin.json` manifest. Rules can be injected via
   "name": "agentic-sdlc",
   "version": "1.0.0",
   "rules": [
-    "Before any action, check if a skill in ./skills/ applies. Read the SKILL.md and follow it."
+    "Before any action, check if a skill in .agents/skills/ applies. Read the SKILL.md and follow it."
   ],
-  "context": ["./skills/**/*.md"]
+  "context": [".agents/skills/**/*.md"]
 }
 ```
 
@@ -111,14 +111,14 @@ outputs: [design-doc.md]
 ---
 ```
 
-The resolver sees both provide `requirements` → checks `skill-manifest.json` for the winner → only activates one.
+The resolver sees both provide `asdlc-requirements` → checks `skill-manifest.json` for the winner → only activates one.
 
 #### Level 4 — Complementary Skill Routing
 
 Many skills **don't conflict** — they fill gaps in the other framework. For example:
 
-- Superpowers' `systematic-debugging` covers a stage Agentic SDLC doesn't address
-- Agentic SDLC's `stage-gates` adds governance Superpowers doesn't have
+- Superpowers' `asdlc-systematic-debugging` covers a stage Agentic SDLC doesn't address
+- Agentic SDLC's `asdlc-stage-gates` adds governance Superpowers doesn't have
 
 A smart resolver would:
 
@@ -139,10 +139,10 @@ Resolver logic:
 
 | Component | Effort | Description |
 |---|---|---|
-| YAML frontmatter extension | Small | Add `namespace`, `provides`, `conflicts-with` fields to SKILL.md schema |
+| YAML frontmatter extension | Small | Add `asdlc-namespace`, `asdlc-provides`, `asdlc-conflicts-with` fields to SKILL.md schema |
 | `skill-manifest.json` spec | Small | Define the routing/override JSON format |
 | `asdlc resolve-skills` CLI | Medium | Reads all installed skills, detects conflicts, generates manifest |
-| Bootstrap skill update | Medium | `using-agentic-sdlc` reads manifest before dispatching to skills |
+| Bootstrap skill update | Medium | `asdlc-using-agentic-sdlc` reads manifest before dispatching to skills |
 | Dashboard integration | Small | Show active vs overridden skills in `asdlc serve` |
 | Validator extension | Small | `asdlc-dev validate-skills` checks for unresolved conflicts |
 
@@ -163,7 +163,7 @@ When adding a new platform:
 2. Create the platform plugin manifest if applicable
 3. Map tool names from Claude Code equivalents
 4. Update `README.md` installation section
-5. Test by running the `using-agentic-sdlc` skill on the new platform
+5. Test by running the `asdlc-using-agentic-sdlc` skill on the new platform
 6. Document any behavioral differences in this file
 
 ---

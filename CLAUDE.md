@@ -13,7 +13,7 @@
 
 ## Initialization Instructions 
 
-**Read `skills/using-agentic-sdlc/SKILL.md` before taking action.**
+**Read `.agents/skills/asdlc-using-agentic-sdlc/SKILL.md` before taking action.**
 
 You have the **Agentic SDLC** framework installed. This gives you a structured, multi-stage software development lifecycle to follow — replacing ad-hoc coding with a disciplined, auditable process.
 
@@ -27,10 +27,10 @@ You have the **Agentic SDLC** framework installed. This gives you a structured, 
 
 ### How to Use Skills
 
-Skills live in the `skills/` directory of this repository.
+Skills live in the `.agents/skills/` directory of this repository.
 
 *   To invoke a skill, read its `SKILL.md` file using your file reading tools.
-*   Always start your first task by reading `skills/using-agentic-sdlc/SKILL.md`.
+*   Always start your first task by reading `.agents/skills/asdlc-using-agentic-sdlc/SKILL.md`.
 
 ### Mandatory Context Directory
 
@@ -42,4 +42,4 @@ If a skill specifies a `<HARD-GATE>` or a requirement for a HITL checkpoint, sto
 
 ### Git Discipline
 
-Read `skills/git-discipline/SKILL.md` before any git operation (branch creation, committing, merging). All stories run on feature branches; all stage artifacts run on `docs/{stage}` branches. Nothing goes directly to `main`.
+Read `.agents/skills/asdlc-git-discipline/SKILL.md` before any git operation (branch creation, committing, merging). All stories run on feature branches; all stage artifacts run on `docs/{stage}` branches. Nothing goes directly to `main`.

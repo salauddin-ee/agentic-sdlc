@@ -94,7 +94,7 @@ asdlc-dev validate-skills .
 asdlc-dev eval-skills .
 
 # Eval a single skill
-asdlc-dev eval-skills . --skill implementation
+asdlc-dev eval-skills . --skill asdlc-implementation
 ```
 
 `asdlc-dev` also includes all public commands (`init`, `serve`).
@@ -107,54 +107,56 @@ asdlc-dev eval-skills . --skill implementation
 
 | Skill | Stage | Trigger |
 |---|---|---|
-| `using-agentic-sdlc` | Meta | Starting any session |
-| `inception` | 1 | New project with unclear requirements |
-| `design-system` | 2 | Establishing visual/interaction language |
-| `ui-mockups` | 2a | User-facing redesign, new landing page, or major visual contract change |
-| `tech-architecture` | 3 | Making technology or architecture decisions |
-| `coding-constitution` | 3a | Establishing coding standards |
-| `implementation-planning` | 4 | Creating execution plan from approved architecture |
-| `story-breakdown` | 5 | Decomposing plan into executable tasks |
-| `implementation` | 6 | Writing production code |
-| `critical-review` | 7 | Adversarial quality review of completed implementation |
-| `testing` | 8 | Executing test plan and verifying end-to-end behavior |
-| `code-review` | 9 | Final structured review before merge |
-| `retrospective` | 10 | Closing a project or story cycle |
+| `asdlc-using-agentic-sdlc` | Meta | Starting any session |
+| `asdlc-inception` | 1 | New project with unclear requirements |
+| `asdlc-design-system` | 2 | Establishing visual/interaction language |
+| `asdlc-ui-mockups` | 2a | User-facing redesign, new landing page, or major visual contract change |
+| `asdlc-tech-architecture` | 3 | Making technology or architecture decisions |
+| `asdlc-coding-constitution` | 3a | Establishing coding standards |
+| `asdlc-implementation-planning` | 4 | Creating execution plan from approved architecture |
+| `asdlc-story-breakdown` | 5 | Decomposing plan into executable tasks |
+| `asdlc-implementation` | 6 | Writing production code |
+| `asdlc-critical-review` | 7 | Adversarial quality review of completed implementation |
+| `asdlc-testing` | 8 | Executing test plan and verifying end-to-end behavior |
+| `asdlc-code-review` | 9 | Final structured review before merge |
+| `asdlc-retrospective` | 10 | Closing a project or story cycle |
 
 ### Workflow 2: Brownfield (existing codebase)
 
 | Skill | Stage | Trigger |
 |---|---|---|
-| `context-harvest` | 0 | Starting on an unfamiliar existing codebase |
-| `brownfield-brainstorm` | 1 | Understanding business impact of a story |
-| `brownfield-design` | 2 | Story introduces new UI |
-| `ui-mockups` | 2a | UI redesign or major visual contract change needs approval |
-| `brownfield-tech-plan` | 3 | Planning technical approach for a story |
+| `asdlc-context-harvest` | 0 | Starting on an unfamiliar existing codebase |
+| `asdlc-brownfield-brainstorm` | 1 | Understanding business impact of a story |
+| `asdlc-brownfield-design` | 2 | Story introduces new UI |
+| `asdlc-ui-mockups` | 2a | UI redesign or major visual contract change needs approval |
+| `asdlc-brownfield-tech-plan` | 3 | Planning technical approach for a story |
 | *(Stages 4–10 same as greenfield)* | | |
 
 ### Shared Infrastructure
 
 | Skill | Trigger |
 |---|---|
-| `stage-gates` | Evaluating whether a stage's exit criteria are met |
-| `hitl-protocol` | Irreversible action or ambiguous decision needing human input |
-| `writing-skills` | Creating or editing skills |
+| `asdlc-stage-gates` | Evaluating whether a stage's exit criteria are met |
+| `asdlc-hitl-protocol` | Irreversible action or ambiguous decision needing human input |
+| `asdlc-writing-skills` | Creating or editing skills |
 
 ---
 
 ## Directory Structure
 
+**Source repo** (packaged skills live under `src/agentic_sdlc/skills/`):
+
 ```
 agentic-sdlc/
 ├── src/agentic_sdlc/
-│   ├── skills/               ← One directory per skill, each with SKILL.md
-│   │   ├── using-agentic-sdlc/
-│   │   ├── inception/
-│   │   ├── implementation/
-│   │   ├── brownfield-design/
-│   │   ├── stage-gates/
-│   │   ├── hitl-protocol/
-│   │   └── ...
+│   ├── skills/               ← Packaged skills (asdlc- prefixed)
+│   │   ├── asdlc-using-agentic-sdlc/
+│   │   ├── asdlc-inception/
+│   │   ├── asdlc-implementation/
+│   │   ├── asdlc-brownfield-design/
+│   │   ├── asdlc-stage-gates/
+│   │   ├── asdlc-hitl-protocol/
+│   │   └── ... (21 skills total)
 │   ├── templates/            ← Document templates for each stage
 │   └── fixtures/             ← Packaged eval fixtures for developer workflows
 └── docs/
@@ -165,23 +167,37 @@ agentic-sdlc/
     └── future-platforms.md
 ```
 
+**Installed project** (after `asdlc init`, standard Agent Skills layout):
+
+```
+your-project/
+├── .agents/
+│   └── skills/               ← Natively discoverable by Codex, Gemini, Amp, Cursor
+│       ├── asdlc-using-agentic-sdlc/SKILL.md
+│       ├── asdlc-inception/SKILL.md
+│       ├── asdlc-implementation/SKILL.md
+│       └── ... (21 skills total)
+├── AGENTS.md
+└── docs/
+```
+
 ### Context directory (in your project)
 
 ```
 docs/
-  architecture/domain-model.md, product/features/brd.md  ← inception
-  product/design-system.md, product/accessibility.md      ← design-system
-  product/mockups.md                                      ← ui-mockups
-  architecture/tech-architecture.md, architecture/adrs/   ← tech-architecture
-  architecture/coding-standards.md                        ← coding-constitution
-  sdlc/epics/implementation-plan.md, architecture/data-domain.md ← implementation-planning
-  sdlc/epics/task-graph.md                                ← story-breakdown
-  sdlc/stories/STORY-*.md                                 ← story-breakdown
-  sdlc/retrospectives/critical-review.md                  ← critical-review
-  sdlc/test-plans/test-plan.md                            ← testing
-  sdlc/retrospectives/retrospective.md                    ← retrospective
-  architecture/existing-system.md                         ← context-harvest (brownfield)
-  sdlc/workspaces/tech-plan-*.md                          ← brownfield-tech-plan (per story)
+  architecture/domain-model.md, product/features/brd.md  ← asdlc-inception
+  product/design-system.md, product/accessibility.md      ← asdlc-design-system
+  product/mockups.md                                      ← asdlc-ui-mockups
+  architecture/tech-architecture.md, architecture/adrs/   ← asdlc-tech-architecture
+  architecture/coding-standards.md                        ← asdlc-coding-constitution
+  sdlc/epics/implementation-plan.md, architecture/data-domain.md ← asdlc-implementation-planning
+  sdlc/epics/task-graph.md                                ← asdlc-story-breakdown
+  sdlc/stories/STORY-*.md                                 ← asdlc-story-breakdown
+  sdlc/retrospectives/critical-review.md                  ← asdlc-critical-review
+  sdlc/test-plans/test-plan.md                            ← asdlc-testing
+  sdlc/retrospectives/retrospective.md                    ← asdlc-retrospective
+  architecture/existing-system.md                         ← asdlc-context-harvest (brownfield)
+  sdlc/workspaces/tech-plan-*.md                          ← asdlc-brownfield-tech-plan (per story)
 ```
 
 ---
