@@ -17,12 +17,14 @@ Do NOT begin implementation until the task graph is approved by the user via HIT
 3. **Write acceptance criteria** — Given/When/Then for every story
 4. **Build the dependency DAG** — identify which stories can run in parallel
 5. **Define parallel track rules** — file ownership and merge strategy
-6. **Flag HITL tasks** — any task that needs human input before starting
-7. **Write an epic manifest** to `docs/sdlc/epics/EPIC-[ID].md` using the `task-graph-template.md` file in this skill's directory.
-8. **Write `docs/sdlc/epics/task-graph.md`** — a summary of all epics and their dependency DAGs for cross-reference.
-9. **Write story files** to `docs/sdlc/stories/STORY-[ID].md` for every individual ticket using the `story-template.md` file in this skill's directory.
-10. **Self-review** — check DAG is acyclic, all interface contracts locked, all FRs covered
-11. **HITL checkpoint** — human reviews and approves epic breakdown before implementation
+6. **Flag HITL tasks** — any task that needs human input before starting (set `hitl_required: true`)
+7. **Assess complexity & risk** — for each story set `complexity` (low|medium|high) for decomposition risk and `risk` (low|medium|high) for critical-path impact. These are independent dimensions.
+8. **List files touched** — populate `files_touched` per story. Cross-check across parallel tracks for overlap; overlapping files require explicit merge strategy or track reassignment.
+9. **Write an epic manifest** to `docs/sdlc/epics/EPIC-[ID].md` using the `task-graph-template.md` file in this skill's directory.
+10. **Write `docs/sdlc/epics/task-graph.md`** — a summary of all epics and their dependency DAGs for cross-reference.
+11. **Write story files** to `docs/sdlc/stories/STORY-[ID].md` for every individual ticket using the `story-template.md` file in this skill's directory.
+12. **Self-review** — check DAG is acyclic, all interface contracts locked, all FRs covered, no `files_touched` overlap without merge strategy
+13. **HITL checkpoint** — human reviews and approves epic breakdown before implementation
 
 
 ## Parallel Track Rules
@@ -40,7 +42,10 @@ For each parallel track, define:
 [ ] All parallel tracks have exclusive file ownership or explicit merge strategy
 [ ] All interface contracts locked before parallel work begins
 [ ] No story > ~400 lines net new code (split if larger)
-[ ] HITL checkpoint tasks marked
+[ ] Every story has complexity and risk assessed
+[ ] Every story has files_touched populated
+[ ] No files_touched overlap between parallel stories without explicit merge strategy
+[ ] HITL checkpoint tasks marked (hitl_required: true where needed)
 [ ] EPIC written to docs/sdlc/epics/, task-graph.md written to docs/sdlc/epics/, and STORY-*.md files written to docs/sdlc/stories/
 ```
 

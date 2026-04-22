@@ -17,9 +17,9 @@ graph TD
 
 ## Story List
 
-| ID | Title | Priority | Status |
-|---|---|---|---|
-| [S-001] | [Title] | [P0] | [Todo] |
+| ID | Title | Priority | Complexity | Risk | HITL | Files Touched | Status |
+|---|---|---|---|---|---|---|---|
+| [S-001] | [Title] | [P0] | [medium] | [low] | [no] | [file1, file2] | [Todo] |
 
 ---
 *Written by: agentic-sdlc story-breakdown skill*
