@@ -28,7 +28,7 @@ Do NOT begin production implementation, implementation-planning, or brownfield-t
 
 3. **Ask the user explicitly** — one question at a time:
    - "Do you want me to create a mockup, or import existing mockups?"
-   - If creating: "Should I use AI image generation, a coded HTML/CSS prototype, or a sketch/description?" (see Mockup Techniques below)
+   - If creating: "Should I use AI image generation or a coded HTML/CSS prototype?" (see Mockup Techniques below)
    - "Which breakpoints are required? (e.g., mobile 375px + desktop 1280px)"
 
 4. **Produce the mockup artifact** using the chosen technique (see Mockup Techniques section):

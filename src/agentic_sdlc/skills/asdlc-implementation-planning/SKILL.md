@@ -62,7 +62,7 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 [ ] All milestones have explicit, verifiable exit criteria
 [ ] Every FR from brd.md is traceable to at least one milestone
 [ ] All inter-module interface contracts defined before story-breakdown begins
-[ ] Risk log populated with at least the top 3 risks
+[ ] Risk log populated with at least 2 risks (3+ for small/medium/large per Scale Guide)
 [ ] Assumptions explicitly listed
 [ ] Definition of done agreed with user
 [ ] implementation-plan.md written to docs/sdlc/epics/ and data-domain.md written to docs/architecture/
@@ -74,7 +74,7 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 |---|---|
 | "Interface contracts can be defined as we go" | Parallel work requires contracts upfront. Define them now. |
 | "The milestones are obvious" | Undocumented milestones have no exit criteria. Write them. |
-| "We don't have enough risks to list" | There are always risks. Forcing 3 makes you think harder. |
+| "We don't have enough risks to list" | There are always risks. Identify at least 2 (3+ for larger projects per Scale Guide). |
 | "Definition of done is too detailed" | Detailed DoD prevents "it's done... mostly" shipping. |
 
 ## Scale Guide

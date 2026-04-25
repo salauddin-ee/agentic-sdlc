@@ -7,7 +7,7 @@ version: 1.0.0
 Produce a defensible, documented technical architecture before any code is written. Every significant decision gets an ADR. No silent choices.
 
 <HARD-GATE>
-Do NOT write any production code until tech-architecture.md, at least one ADR per major decision, and coding-standards.md are written and the user has approved them via HITL.
+Do NOT write any production code until tech-architecture.md, at least one ADR per major decision (or fewer per Scale Guide), and coding-standards.md are written and the user has approved them via HITL.
 </HARD-GATE>
 
 ## Checklist
@@ -20,9 +20,9 @@ Do NOT write any production code until tech-architecture.md, at least one ADR pe
    - Search for any recent deprecations or upcoming breaking changes
    - Document findings in a "Research notes" subsection of the ADR for each major decision
 4. **Write ADRs** — one file per major decision in `docs/architecture/adrs/` using the `adr-template.md` file in this skill's directory
-5. **System context diagram** — C4 Level 1 (what the system is, who uses it, what it integrates with)
-6. **Container diagram** — C4 Level 2 (major deployable units)
-7. **Sequence diagrams** — 2-3 most critical flows
+5. **System context diagram** — C4 Level 1 (or skip per Scale Guide)
+6. **Container diagram** — C4 Level 2 (or skip per Scale Guide)
+7. **Sequence diagrams** — 2-3 most critical flows (or fewer per Scale Guide)
 8. **Directory structure** — canonical directory tree in markdown
 9. **Write coding constitution** — invoke `asdlc-coding-constitution` skill
 10. **Write `docs/architecture/tech-architecture.md`** — using format below
@@ -33,7 +33,7 @@ Do NOT write any production code until tech-architecture.md, at least one ADR pe
 15. **Transition** — invoke `asdlc-implementation-planning` skill
 
 
-**Decisions that always require an ADR:**
+**Decisions that typically require an ADR (subject to Scale Guide):**
 - Programming language selection
 - Framework selection (frontend, backend, testing)
 - Database technology
@@ -97,10 +97,10 @@ Read `asdlc-stage-gates` skill and evaluate:
 ```
 [ ] Tech stack justified via ADRs for each major component
 [ ] Stack research completed — gotchas, anti-patterns, and community conventions documented in ADR research notes
-[ ] At least one ADR per: language, framework, database, auth strategy
-[ ] System context diagram present (C4 Level 1)
-[ ] Container diagram present (C4 Level 2)
-[ ] At least 2 sequence diagrams for the most critical flows
+[ ] At least one ADR per major decision (language, framework, DB, auth) — OR fewer per Scale Guide (tiny/small projects)
+[ ] System context diagram present (C4 Level 1) — OR skipped per Scale Guide (tiny projects only) with rationale
+[ ] Container diagram present (C4 Level 2) — OR skipped per Scale Guide (tiny/small projects) with rationale
+[ ] At least 2 sequence diagrams for the most critical flows — OR fewer per Scale Guide with rationale
 [ ] Directory structure defined and documented
 [ ] Coding constitution written (invoke the `asdlc-coding-constitution` skill)
 [ ] Security approach documented

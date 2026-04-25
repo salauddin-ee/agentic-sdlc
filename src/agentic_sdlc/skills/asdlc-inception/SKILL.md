@@ -20,7 +20,7 @@ Complete in order:
 
 1. **Load domain context** — check for any existing files, docs, or prior context in `docs/sdlc/`
 2. **Identify the domain** — what industry, regulatory context, key entities, glossary terms apply?
-3. **Research comparable products** — search the web for 3-5 products that solve a similar problem:
+3. **Research comparable products** — search the web for 1-5 products that solve a similar problem (see Scale Guide):
    - What do they do well? What are their known weaknesses or gaps?
    - What UX patterns, naming conventions, or feature sets are standard in this domain?
    - Document findings in the `## Prior art` section of the BRD
@@ -51,12 +51,12 @@ Evaluate before triggering HITL:
 
 ```
 [ ] Business objective is stated and measurable
-[ ] At least 2 user personas defined (or explicitly N/A for internal tools)
+[ ] At least 2 user personas defined — OR fewer per Scale Guide (tiny projects / explicitly N/A for internal tools)
 [ ] Success metrics are quantified — no vague statements
 [ ] NFRs captured (latency, availability, security baseline)
 [ ] Out-of-scope is explicit — not empty
 [ ] No open questions remain (or HITL scheduled to resolve them)
-[ ] Prior art section completed — at least 3 comparable products researched
+[ ] Prior art section completed — at least 1 comparable product researched (3+ for small/medium/large per Scale Guide)
 [ ] domain-model.md written to docs/architecture/ and brd.md written to docs/product/features/
 ```
 

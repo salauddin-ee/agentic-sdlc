@@ -11,7 +11,7 @@
 
 ## Prior art / competitive research
 
-*Search the web for 3-5 comparable products or solutions before writing requirements. Document what exists so you build on — not against — the state of the art.*
+*Search the web for comparable products or solutions (1-5 depending on Scale Guide) before writing requirements. Document what exists so you build on — not against — the state of the art.*
 
 | Product / Solution | What it does well | Known gaps / weaknesses | Relevance to this project |
 |---|---|---|---|

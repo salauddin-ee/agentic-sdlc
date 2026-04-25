@@ -33,7 +33,7 @@ Do NOT write any frontend code or select UI frameworks until design tokens, comp
    - Dark mode required?
 4. **Reference [component.gallery](https://component.gallery)** for component patterns relevant to the domain
 5. **Define design tokens** — color, typography, spacing, border radius, shadows, motion
-6. **Generate a visual style tile** — produce a small HTML/CSS preview page (or describe one clearly) showing:
+6. **Generate a visual style tile** (unless skipped per Scale Guide) — produce a small HTML/CSS preview page (or describe one clearly) showing:
    - Color palette swatches with labels
    - Typography specimens (heading, body, caption examples)
    - Key UI elements (primary button, input field, card) rendered with the tokens
@@ -79,7 +79,7 @@ Respect `prefers-reduced-motion` — all animations must have a static fallback
 
 ```
 [ ] Design inspiration researched — at least 3 reference URLs/screenshots documented
-[ ] Visual style tile produced — tokens confirmed to look correct together before committing
+[ ] Visual style tile produced — OR explicitly skipped per Scale Guide (tiny projects only) with rationale documented
 [ ] Design tokens defined: color, typography, spacing, border radius, shadow, motion
 [ ] Component inventory complete — covers all components implied by FR list in BRD
 [ ] Accessibility requirements documented (WCAG 2.2 AA target confirmed)
@@ -98,7 +98,7 @@ Respect `prefers-reduced-motion` — all animations must have a static fallback
 | "The tokens don't need to be exact yet" | Approximate tokens lead to approximate implementations. Define them now. |
 | "We only need a few components" | Component inventory always grows. Identify all of them upfront. |
 | "I don't need to look at references — I'll invent the design" | Inventing without research produces generic or worse-than-existing solutions. Search first. |
-| "The style tile is extra work" | Undefined tokens look fine on paper, wrong on screen. Generate the tile before committing. |
+| "The style tile is extra work" | Undefined tokens look fine on paper, wrong on screen. Generate the tile unless the Scale Guide explicitly permits skipping it for tiny projects. |
 
 ## Scale Guide
 

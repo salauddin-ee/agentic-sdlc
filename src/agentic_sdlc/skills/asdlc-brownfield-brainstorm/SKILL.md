@@ -22,7 +22,7 @@ Understand the business and user impact of this story in isolation before planni
    - Are there dependencies on other in-flight stories or parallel work?
    - Is there a deadline or regulatory driver?
 3. **Research comparable implementations** — before writing acceptance criteria:
-   - Search for how 2-3 similar products or open-source projects implement this feature
+   - Search for how 1-3 similar products or open-source projects implement this feature (see Scale Guide)
    - Note: patterns that are industry standard vs. differentiators worth owning
    - Document findings in the `### Comparable implementations` subsection of the story BRD
 4. **Write acceptance criteria** in Given/When/Then format
@@ -55,7 +55,7 @@ Append to `docs/product/features/brd.md` (or create if brownfield project):
 [Which personas from the system context? New personas if this story introduces them?]
 
 ### Comparable implementations
-[How do 2-3 similar products or open-source projects solve this? What patterns are worth borrowing?]
+[How do 1-3 similar products or open-source projects (per Scale Guide) solve this? What patterns are worth borrowing?]
 - [Product/project]: [How they handle it] — [What to borrow / what to avoid]
 
 ### Acceptance criteria
