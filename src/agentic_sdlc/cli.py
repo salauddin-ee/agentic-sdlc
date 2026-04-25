@@ -11,11 +11,12 @@ def main():
     pass
 
 @main.command()
-@click.argument('target', default='.', type=click.Path(exists=True, file_okay=False, dir_okay=True))
+@click.argument('target', default='.', type=click.Path(file_okay=False, dir_okay=True, path_type=Path))
 @click.option('--force', is_flag=True, help="Overwrite existing files.")
 def init(target, force):
     """Initialize the Agentic SDLC structure in a target project."""
-    target_path = Path(target).resolve()
+    target_path = target.resolve()
+    target_path.mkdir(parents=True, exist_ok=True)
     click.echo(f"Initializing Agentic SDLC in {target_path}...")
 
     # 1. Create directory structure
@@ -89,10 +90,10 @@ def init(target, force):
     click.echo("  2. Start with 'asdlc-inception' (greenfield) or 'asdlc-context-harvest' (brownfield)")
 
 @main.command()
-@click.argument('target', default='.', type=click.Path(exists=True, file_okay=False, dir_okay=True))
+@click.argument('target', default='.', type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path))
 def update_agents(target):
     """Update AGENTS.md with Phase 2 project context."""
-    target_path = Path(target).resolve()
+    target_path = target.resolve()
     agents_path = target_path / "AGENTS.md"
     if not agents_path.exists():
         click.echo("AGENTS.md not found in project root. Run 'asdlc init' first.", err=True)
