@@ -10,25 +10,7 @@ Use the canonical instructions in [docs/installation.md](../installation.md), or
 Fetch and follow instructions from https://raw.githubusercontent.com/salauddin-ee/agentic-sdlc/main/.codex/INSTALL.md
 ```
 
-The supported local install flow is:
-
-```bash
-git clone https://github.com/salauddin-ee/agentic-sdlc.git
-cd agentic-sdlc
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -e .
-mkdir -p /path/to/your/project
-asdlc init /path/to/your/project
-```
-
-Manual fallback:
-
-```bash
-mkdir -p /path/to/your-project/.agents
-cp /path/to/agentic-sdlc/AGENTS.md /path/to/your-project/AGENTS.md
-cp -r /path/to/agentic-sdlc/src/agentic_sdlc/skills /path/to/your-project/.agents/skills
-```
+For local setup, use Flow A or Flow B from [docs/installation.md](../installation.md).
 
 ## Notes
 
