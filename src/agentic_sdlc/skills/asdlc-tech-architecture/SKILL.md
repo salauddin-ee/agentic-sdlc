@@ -1,7 +1,7 @@
 ---
 name: asdlc-tech-architecture
 description: Use when making technology stack or architecture decisions for a project — before any code is written. Also use when a major architectural decision must be made mid-project.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Produce a defensible, documented technical architecture before any code is written. Every significant decision gets an ADR. No silent choices.

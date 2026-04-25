@@ -1,7 +1,7 @@
 ---
 name: asdlc-implementation-planning
 description: Use when you have approved architecture and need to create a machine-readable execution plan before implementation begins.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Produce a concrete execution plan that deconstructs the architecture into milestones, defines interface contracts before parallel work begins, identifies risks, and establishes a clear definition of done.

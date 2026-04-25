@@ -1,7 +1,7 @@
 ---
 name: asdlc-critical-review
 description: Use when implementation of a story or milestone is complete and needs adversarial quality review before testing begins. This stage is intentionally adversarial — find problems, do not confirm success.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Evaluate the completed implementation with fresh eyes. Your job is to find problems, not to confirm everything is fine.

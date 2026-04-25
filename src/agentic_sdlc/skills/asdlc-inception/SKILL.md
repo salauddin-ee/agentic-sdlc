@@ -1,7 +1,7 @@
 ---
 name: asdlc-inception
 description: Use when starting a new project from scratch with unclear or partially-formed requirements — before any design, architecture, or code is written.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Establish shared understanding of what is being built, for whom, and why — grounded in research about the real world — before anything else is done.

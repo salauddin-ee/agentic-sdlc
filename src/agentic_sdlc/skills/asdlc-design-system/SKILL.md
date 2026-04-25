@@ -1,7 +1,7 @@
 ---
 name: asdlc-design-system
 description: Use when establishing visual and interaction language for a project that has UI — before any frontend code is written and before technical architecture locks in visual decisions.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Define the visual and interaction language before any technical decisions lock it in. Stages 2 and 3 (design-system and tech-architecture) may run in either order depending on whether UI is the primary driver.

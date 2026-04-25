@@ -1,7 +1,7 @@
 ---
 name: asdlc-using-agentic-sdlc
 description: Use when starting any conversation or project session — establishes how to find and invoke skills, and selects the correct workflow (greenfield vs brownfield) before any action is taken.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Stop. Read this before doing anything else.

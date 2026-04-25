@@ -1,7 +1,7 @@
 ---
 name: asdlc-brownfield-design
 description: Use when a brownfield story introduces new UI components or changes visual contracts visible to end users — before any frontend code is written for that story.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Resolve design for this story only. Inherit from the existing design system wherever possible. Introduce new design decisions only when the story genuinely requires them.

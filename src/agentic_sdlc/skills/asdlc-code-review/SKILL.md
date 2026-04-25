@@ -1,7 +1,7 @@
 ---
 name: asdlc-code-review
 description: Use when performing the final structured review before merging or handing off completed work — after testing is complete and all tests pass.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Final structured review before merge or handoff. This is a compliance check against the coding constitution, a test quality review, a security audit, and an operability check — in that order.

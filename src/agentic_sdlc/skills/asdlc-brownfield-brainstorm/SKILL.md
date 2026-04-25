@@ -1,7 +1,7 @@
 ---
 name: asdlc-brownfield-brainstorm
 description: Use when understanding the business impact and user impact of a story or feature request in an existing system — before any technical planning or implementation.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Understand the business and user impact of this story in isolation before planning how to implement it. Small stories have large blast radii. Understand the blast radius first.
