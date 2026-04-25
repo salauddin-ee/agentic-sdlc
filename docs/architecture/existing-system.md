@@ -11,7 +11,7 @@
 | CLI framework | Click | >=8.1.0 | Used in `src/agentic_sdlc/cli.py` |
 | Markdown/YAML parsing | PyYAML | >=6.0.0 | Used in `src/agentic_sdlc/dashboard.py` |
 | Runtime surface | Python package + stdlib HTTP server | n/a | Dashboard serves via `http.server` |
-| Test runner | pytest | not installed in current environment | `python3 -m pytest -q` failed with `No module named pytest` |
+| Test runner | pytest | >=7.0 (dev dependency) | `python3 -m pytest -q` passes in a venv with dev dependencies installed |
 
 ## Test coverage baseline
 - Total tests discovered in repo: 1 test file (`tests/test_cli.py`, 4 tests)
@@ -30,7 +30,7 @@
 - Naming: snake_case Python modules and functions, kebab-case skill/template directories, markdown-driven configuration with YAML frontmatter.
 
 ## Known tech debt
-- Test infrastructure absent: no committed automated test suite or coverage reporting.
+- Test coverage is minimal: `tests/test_cli.py` covers CLI init and entry-point guards (4 tests); no coverage for eval modules, validator rules, harness, or dashboard logic.
 - Documentation drift risk: repo-root agent docs and the packaged `src/agentic_sdlc/core/AGENTS.md` file can diverge if they are edited independently.
 - Packaging/install drift risk: `pyproject.toml` uses PEP 517 build isolation, which currently fails in a clean offline venv because build dependencies are fetched from the index.
 - Dashboard/frontend polish is bundled inline in `dashboard.py`, which makes larger UI changes harder to review and test.
@@ -50,5 +50,5 @@
 
 ## Constraints
 - The framework relies on markdown skill files as executable process guidance; textual inconsistencies are product defects, not merely editorial issues.
-- Repo currently lacks a verified automated test baseline, so review conclusions rely primarily on diff inspection plus targeted command verification.
+- Automated test coverage is limited to CLI behavior (`tests/test_cli.py`). Eval modules, validator rules, harness, and dashboard logic have no committed test coverage yet.
 - Plain `pip install` on externally-managed Python (Homebrew, Debian/Ubuntu system Python) is blocked by PEP 668 unless the user is in a virtual environment or explicitly opts out with `--break-system-packages`.
