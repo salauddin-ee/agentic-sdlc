@@ -14,13 +14,13 @@
 | Test runner | pytest | not installed in current environment | `python3 -m pytest -q` failed with `No module named pytest` |
 
 ## Test coverage baseline
-- Total tests discovered in repo: 0 dedicated test files
-- Passing: 0
+- Total tests discovered in repo: 1 test file (`tests/test_cli.py`, 4 tests)
+- Passing: 4 (verified via `python3 -m pytest -q` with pytest installed)
 - Failing: 0
-- Coverage: unavailable; no coverage report or test harness is configured in this checkout
-- Last run: 2026-04-24
+- Coverage: not measured; no coverage tooling configured
+- Last run: 2026-04-25
 
-**Baseline note:** repository-wide search found no `tests/` tree or `test_*.py` / `*_test.py` files. Attempting `python3 -m pytest -q` failed because `pytest` is not installed in the current environment.
+**Baseline note:** `tests/test_cli.py` covers `asdlc init` behavior, platform doc entry-point checks, and unsupported-entrypoint guards. Run `python3 -m pytest -q` in a venv with dev dependencies installed.
 
 ## Existing patterns
 - Error handling: broad exception swallowing in utility paths; `dashboard.parse_markdown_file()` catches broad exceptions and prints parsing failures instead of raising typed errors.

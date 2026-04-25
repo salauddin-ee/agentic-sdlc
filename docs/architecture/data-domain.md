@@ -1,6 +1,6 @@
 # Interface contracts
 
-> **Status:** Draft
+> **Status:** Approved
 > **Version:** 0.1.0
 
 ## CLI commands
