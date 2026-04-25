@@ -1,0 +1,124 @@
+# Installation
+
+> Installation differs by platform. Pick your agent below.
+> `agentic-sdlc` is not published on PyPI as of 2026-04-25, so the supported paths start from a local clone.
+
+## Prerequisites
+
+- Python 3.9 or newer for CLI-based setup
+- `git`
+- A local clone of `https://github.com/salauddin-ee/agentic-sdlc`
+
+## Flow A - Recommended: clone + editable install + `asdlc init`
+
+Use this when you want the CLI to scaffold `docs/` and copy the packaged skills into your project.
+
+```bash
+git clone https://github.com/salauddin-ee/agentic-sdlc.git
+cd agentic-sdlc
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
+mkdir -p /path/to/your/project
+asdlc init /path/to/your/project
+```
+
+What this gives you:
+
+- `AGENTS.md` in the target project root
+- `.agents/skills/<skill-name>/SKILL.md`
+- the standard `docs/` stage directories and stub files
+
+## Flow B - Without Python: manual copy
+
+Use this if you only want the skills and entry-point docs, or if Python installation is not available on the target machine.
+
+```bash
+git clone https://github.com/salauddin-ee/agentic-sdlc.git
+mkdir -p /path/to/your-project/.agents
+cp -r agentic-sdlc/src/agentic_sdlc/skills /path/to/your-project/.agents/skills
+cp agentic-sdlc/AGENTS.md /path/to/your-project/AGENTS.md
+mkdir -p /path/to/your-project/docs/architecture/adrs
+mkdir -p /path/to/your-project/docs/product/features
+mkdir -p /path/to/your-project/docs/sdlc/stories
+mkdir -p /path/to/your-project/docs/sdlc/workspaces
+mkdir -p /path/to/your-project/docs/sdlc/test-plans
+mkdir -p /path/to/your-project/docs/sdlc/retrospectives
+```
+
+Flow B does not install the CLI. You create the required directories yourself and manage future updates manually.
+
+## Claude Code
+
+Use Flow A or Flow B above, then start Claude Code in the target project.
+
+The repository contains `.claude-plugin/plugin.json`, but it is not part of the supported install path until the manifest is verified against the official Claude Code plugin spec.
+
+## OpenAI Codex
+
+Codex can fetch the platform-specific instructions directly:
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/salauddin-ee/agentic-sdlc/main/.codex/INSTALL.md
+```
+
+For local setup, use Flow A or Flow B above, then start Codex in the target project root.
+
+## OpenCode
+
+OpenCode can fetch the platform-specific instructions directly:
+
+```text
+Fetch and follow instructions from https://raw.githubusercontent.com/salauddin-ee/agentic-sdlc/main/.opencode/INSTALL.md
+```
+
+For local setup, use Flow A or Flow B above, then start OpenCode in the target project root.
+
+## Cursor
+
+Cursor does not have a supported manifest path in this repository. Use Flow A or Flow B above, then add the project-level instructions from `AGENTS.md` to your normal Cursor workflow.
+
+## Other agents
+
+Use Flow A or Flow B above for:
+
+- Amp
+- Antigravity
+- Gemini CLI
+- GitHub Copilot CLI
+
+## Local development
+
+For contributor workflows and the `asdlc-dev` entrypoint:
+
+```bash
+git clone https://github.com/salauddin-ee/agentic-sdlc.git
+cd agentic-sdlc
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+```
+
+## Verify the install
+
+CLI path:
+
+```bash
+asdlc --help
+```
+
+Contributor path:
+
+```bash
+asdlc-dev --help
+```
+
+## Troubleshooting
+
+### `externally-managed-environment`
+
+If your Python interpreter blocks system-wide installs under PEP 668, use a virtual environment as shown in Flow A.
+
+### Direct PyPI install fails
+
+The one-line PyPI install path is expected to fail until the package is published. Use the clone-based flows above instead.

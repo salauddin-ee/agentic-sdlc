@@ -17,7 +17,7 @@ Each stage has: explicit inputs, explicit outputs written to disk, a gate that m
 
 ## Prerequisites
 
-- A supported coding agent (Codex, Claude Code, Gemini CLI, Antigravity, or Amp)
+- A supported coding agent (Codex, Claude Code, OpenCode, Cursor, Gemini CLI, Antigravity, or Amp)
 - Git (recommended)
 
 ## Installation
@@ -107,4 +107,4 @@ Never rely on conversation memory — every stage writes to these files.
 - [Workflow: Greenfield](workflow-greenfield.md)
 - [Workflow: Brownfield](workflow-brownfield.md)
 - [Skill Reference](skill-reference.md)
-- [Platform Support](future-platforms.md)
+- [Installation](installation.md)

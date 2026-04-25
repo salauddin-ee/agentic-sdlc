@@ -188,10 +188,11 @@ docs/
 |---|---|---|
 | Codex | ✅ Available | [docs/platforms/codex.md](docs/platforms/codex.md) |
 | Claude Code | ✅ Available | [CLAUDE.md](CLAUDE.md) |
+| OpenCode | ✅ Available | [docs/platforms/opencode.md](docs/platforms/opencode.md) |
+| Cursor | ✅ Available | [docs/platforms/cursor.md](docs/platforms/cursor.md) |
 | Gemini CLI | ✅ Available | [docs/platforms/gemini.md](docs/platforms/gemini.md) |
 | Antigravity | ✅ Available | [docs/platforms/antigravity.md](docs/platforms/antigravity.md) |
 | Amp | ✅ Available | [docs/platforms/amp.md](docs/platforms/amp.md) |
-| Cursor | 🗺️ Planned | [docs/future-platforms.md](docs/future-platforms.md)|
 
 ---
 
