@@ -20,13 +20,9 @@ Each stage has: explicit inputs, explicit outputs written to disk, a gate that m
 - A supported coding agent (Codex, Claude Code, Gemini CLI, Antigravity, or Amp)
 - Git (recommended)
 
-## Installation (Pip)
+## Installation
 
-The easiest way to use Agentic SDLC is via pip:
-
-```bash
-pip install agentic-sdlc
-```
+See [Installation](installation.md) for the supported install paths, verification commands, and troubleshooting notes.
 
 ## Initialize Your Project
 

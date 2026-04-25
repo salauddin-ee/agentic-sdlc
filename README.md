@@ -52,30 +52,10 @@ asdlc serve .
 ---
 
 ## Installation
-The framework is now installable via `pip`, or can be manually added as a submodule.
+See [docs/installation.md](docs/installation.md) for the supported install paths, verification steps, and troubleshooting notes.
 
-### Option A: Install via Pip (Recommended)
-```bash
-# From your project root, or globally
-pip install agentic-sdlc
-```
+After installing, bootstrap your project with:
 
-### Option B: Clone and Install Locally (for development)
-```bash
-git clone https://github.com/salauddin-ee/agentic-sdlc.git
-cd agentic-sdlc
-pip install -e ".[dev]"
-```
-
-This gives you both `asdlc` and `asdlc-dev` commands.
-
-### Option C: Manual Git Submodule
-```bash
-git submodule add https://github.com/salauddin-ee/agentic-sdlc .agentic-sdlc-framework
-```
-
-### Initialize Project
-No matter how you install it, use the `asdlc` CLI to bootstrap your project:
 ```bash
 asdlc init
 ```
