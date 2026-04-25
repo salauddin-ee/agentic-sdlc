@@ -26,6 +26,16 @@ The installation work is already documented in `docs/sdlc/epics/installation-pla
 
 That artifact should be kept as project history. It explains how the repository moved from clone-only install guidance to a cleaner pre-publish state. It should not be deleted just because the implementation is complete.
 
+### Deferred from the installation plan
+
+**Phase 4 of the installation plan (Marketplace publishing — Claude Code, Codex, Cursor) was intentionally skipped** and is tracked here for visibility:
+
+- Blocked on PyPI publish (covered by this plan).
+- Each marketplace requires its own publisher account and external review cycle.
+- Will be picked up as separate work after the first PyPI release lands and is stable.
+
+This release plan does **not** execute those submissions — it only unblocks them.
+
 ## Current baseline
 
 Already verified on this branch:
