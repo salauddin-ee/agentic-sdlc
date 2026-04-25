@@ -84,6 +84,30 @@ Exit behavior:
 - `0` when all selected scenarios pass
 - non-zero when one or more scenarios fail
 
+## Dashboard eval surface
+
+### `asdlc serve` -> `/evals`
+Purpose: render human-readable validation and scenario eval status using the same modules as the developer CLI.
+
+Inputs:
+- project root passed to `asdlc serve`
+- skills discovered from `.agents/skills/`, `skills/`, or `src/agentic_sdlc/skills/`
+- fixtures discovered from `<project-root>/fixtures/` or packaged `src/agentic_sdlc/fixtures/`
+
+Processing:
+- call `validator.validate(project_root)` for static validation and consistency checks
+- call `harness.run(project_root, fixtures_root)` when fixtures exist
+- group validation issues and scenario results by skill name
+
+Rendered result:
+- aggregate validation pass/fail status
+- aggregate scenario eval pass/fail status
+- per-skill cards showing validation issues and scenario counts
+- generated timestamp for the dashboard view
+
+Contract rule:
+- dashboard eval status must be derived from `ValidationReport` and `EvalReport`; it must not maintain separate validation or scenario-eval logic.
+
 ## Validation rule model
 Shared shape for validator output:
 
@@ -151,3 +175,11 @@ expected_result: pass
 - `passed: int`
 - `failed: int`
 - `results: list[ScenarioResult]`
+
+### `DashboardEvalData`
+- `val_report: ValidationReport`
+- `all_skills: list[str]`
+- `skill_issues: dict[str, list[ValidationIssue]]`
+- `eval_report: EvalReport | None`
+- `scenario_by_skill: dict[str, list[ScenarioResult]]`
+- `fixtures_exist: bool`

@@ -52,30 +52,10 @@ asdlc serve .
 ---
 
 ## Installation
-The framework is now installable via `pip`, or can be manually added as a submodule.
+See [docs/installation.md](docs/installation.md) for the supported install paths, verification steps, and troubleshooting notes.
 
-### Option A: Install via Pip (Recommended)
-```bash
-# From your project root, or globally
-pip install agentic-sdlc
-```
+After installing, bootstrap your project with:
 
-### Option B: Clone and Install Locally (for development)
-```bash
-git clone https://github.com/salauddin-ee/agentic-sdlc.git
-cd agentic-sdlc
-pip install -e ".[dev]"
-```
-
-This gives you both `asdlc` and `asdlc-dev` commands.
-
-### Option C: Manual Git Submodule
-```bash
-git submodule add https://github.com/salauddin-ee/agentic-sdlc .agentic-sdlc-framework
-```
-
-### Initialize Project
-No matter how you install it, use the `asdlc` CLI to bootstrap your project:
 ```bash
 asdlc init
 ```
@@ -157,7 +137,7 @@ agentic-sdlc/
 │   │   ├── asdlc-stage-gates/
 │   │   ├── asdlc-hitl-protocol/
 │   │   └── ... (21 skills total)
-│   ├── templates/            ← Document templates for each stage
+│   ├── core/                 ← Packaged entry-point docs copied into target projects
 │   └── fixtures/             ← Packaged eval fixtures for developer workflows
 └── docs/
     ├── getting-started.md
@@ -208,10 +188,11 @@ docs/
 |---|---|---|
 | Codex | ✅ Available | [docs/platforms/codex.md](docs/platforms/codex.md) |
 | Claude Code | ✅ Available | [CLAUDE.md](CLAUDE.md) |
+| OpenCode | ✅ Available | [docs/platforms/opencode.md](docs/platforms/opencode.md) |
+| Cursor | ✅ Available | [docs/platforms/cursor.md](docs/platforms/cursor.md) |
 | Gemini CLI | ✅ Available | [docs/platforms/gemini.md](docs/platforms/gemini.md) |
 | Antigravity | ✅ Available | [docs/platforms/antigravity.md](docs/platforms/antigravity.md) |
 | Amp | ✅ Available | [docs/platforms/amp.md](docs/platforms/amp.md) |
-| Cursor | 🗺️ Planned | [docs/future-platforms.md](docs/future-platforms.md)|
 
 ---
 

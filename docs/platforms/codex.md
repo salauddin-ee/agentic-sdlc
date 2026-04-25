@@ -1,40 +1,19 @@
 # Platform Support: Codex
 
-To use the Agentic SDLC framework with Codex, follow these steps:
+Codex uses `AGENTS.md` at the project root and reads `.agents/skills/` relative to that root.
 
 ## Installation
 
-### Option A: Reference via URL
-Tell Codex at the start of a session:
-```
+Use the canonical instructions in [docs/installation.md](../installation.md), or fetch the Codex-specific bootstrap doc:
+
+```text
 Fetch and follow instructions from https://raw.githubusercontent.com/salauddin-ee/agentic-sdlc/main/.codex/INSTALL.md
 ```
 
-### Option B: Local Install (submodule)
+For local setup, use Flow A or Flow B from [docs/installation.md](../installation.md).
 
-1. Add the framework as a submodule:
-   ```bash
-   git submodule add https://github.com/salauddin-ee/agentic-sdlc.git .agentic-sdlc-framework
-   ```
-2. Copy the entry point and link skills:
-   ```bash
-   cp .agentic-sdlc-framework/AGENTS.md ./AGENTS.md
-   ln -s .agentic-sdlc-framework/skills ./skills
-   ```
-3. Initialize the context directory:
-   ```bash
-   bash .agentic-sdlc-framework/scripts/init-context.sh .
-   ```
+## Notes
 
-### Option C: Local Install (copy)
-
-1. Copy the needed files from a local clone:
-   ```bash
-   cp /path/to/agentic-sdlc/AGENTS.md ./AGENTS.md
-   cp -r /path/to/agentic-sdlc/skills ./skills
-   cp -r /path/to/agentic-sdlc/scripts ./scripts
-   ```
-2. Initialize the context directory:
-   ```bash
-   bash scripts/init-context.sh .
-   ```
+- The legacy shell bootstrap script is deprecated and not part of the supported setup path.
+- The installed skill layout is `.agents/skills/<skill-name>/SKILL.md`.
+- `docs/installation.md` is the source of truth for multi-platform install guidance.

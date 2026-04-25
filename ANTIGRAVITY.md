@@ -2,14 +2,9 @@
 
 ## Installation
 
-1. Install the framework:
-   ```bash
-   pip install agentic-sdlc
-   ```
-2. Initialize the project:
-   ```bash
-   asdlc init
-   ```
+Use the supported clone-based install flow in `docs/installation.md`.
+
+Direct PyPI installation is not a supported path while the package is unpublished.
 
 ## Initialization Instructions 
 
