@@ -34,8 +34,8 @@ asdlc init
 
 This command will:
 1. Create the `docs/sdlc/` directory structure.
-2. Copy the necessary `.agents/skills/` and `templates/` into your project.
-3. Copy `AGENTS.md` and platform-specific instructions to your root.
+2. Copy the packaged `.agents/skills/` directory into your project.
+3. Copy the packaged `AGENTS.md` entry point into your project root.
 
 This creates stub files for every stage artifact. The agent will fill them in as it works through the lifecycle.
 

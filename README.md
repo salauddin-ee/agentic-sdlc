@@ -38,6 +38,8 @@ Each stage is a **skill** — a `SKILL.md` file the agent reads and follows. Ski
 
 The agent loads `AGENTS.md` at session start, which instructs it to check for relevant skills before any action.
 
+In this source repository, the repo-root [AGENTS.md](AGENTS.md) is for contributors working on `agentic-sdlc` itself. The packaged project-root `AGENTS.md` that framework users receive via `asdlc init` lives at [src/agentic_sdlc/core/AGENTS.md](src/agentic_sdlc/core/AGENTS.md).
+
 ---
 
 ## Dashboard
@@ -157,7 +159,7 @@ your-project/
 │       ├── asdlc-inception/SKILL.md
 │       ├── asdlc-implementation/SKILL.md
 │       └── ... (21 skills total)
-├── AGENTS.md
+├── AGENTS.md                ← Copied from src/agentic_sdlc/core/AGENTS.md
 └── docs/
 ```
 
@@ -187,7 +189,7 @@ docs/
 | Platform | Status | Instructions |
 |---|---|---|
 | Codex | ✅ Available | [docs/platforms/codex.md](docs/platforms/codex.md) |
-| Claude Code | ✅ Available | [CLAUDE.md](CLAUDE.md) |
+| Claude Code | ✅ Available | [docs/platforms/claude.md](docs/platforms/claude.md) |
 | OpenCode | ✅ Available | [docs/platforms/opencode.md](docs/platforms/opencode.md) |
 | Cursor | ✅ Available | [docs/platforms/cursor.md](docs/platforms/cursor.md) |
 | Gemini CLI | ✅ Available | [docs/platforms/gemini.md](docs/platforms/gemini.md) |

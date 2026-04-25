@@ -25,7 +25,7 @@ asdlc init /path/to/your/project
 
 What this gives you:
 
-- `AGENTS.md` in the target project root
+- `AGENTS.md` in the target project root, copied from `src/agentic_sdlc/core/AGENTS.md`
 - `.agents/skills/<skill-name>/SKILL.md`
 - the standard `docs/` stage directories and stub files
 
@@ -37,7 +37,7 @@ Use this if you only want the skills and entry-point docs, or if Python installa
 git clone https://github.com/salauddin-ee/agentic-sdlc.git
 mkdir -p /path/to/your-project/.agents
 cp -r agentic-sdlc/src/agentic_sdlc/skills /path/to/your-project/.agents/skills
-cp agentic-sdlc/AGENTS.md /path/to/your-project/AGENTS.md
+cp agentic-sdlc/src/agentic_sdlc/core/AGENTS.md /path/to/your-project/AGENTS.md
 mkdir -p /path/to/your-project/docs/architecture/adrs
 mkdir -p /path/to/your-project/docs/product/features
 mkdir -p /path/to/your-project/docs/sdlc/stories
@@ -47,6 +47,8 @@ mkdir -p /path/to/your-project/docs/sdlc/retrospectives
 ```
 
 Flow B does not install the CLI. You create the required directories yourself and manage future updates manually.
+
+The repo-root `AGENTS.md` in `agentic-sdlc/` is for contributors working on the framework itself. Do not copy that file into a target project.
 
 ## Claude Code
 
