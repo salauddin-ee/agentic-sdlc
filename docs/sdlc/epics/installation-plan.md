@@ -20,14 +20,13 @@ As of 2026-04-25, the repository has already completed most of the install-doc c
 
 Chosen path from here:
 
-1. Finish the remaining install-plan cleanup inside the repo
+1. Installation-plan cleanup inside the repo is complete
 2. Keep marketplace work out of scope for this iteration
 3. Move next into release prep for TestPyPI/PyPI, then update install docs once the publish path is real
 
 Remaining in-repo gaps:
 
-- keep `docs/future-platforms.md` as roadmap-only material with no live install guidance
-- reduce the remaining platform pages to canonical-install pointers plus platform-specific notes
+- none for the current pre-publish install-doc scope
 
 ## Goal
 

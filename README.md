@@ -137,7 +137,7 @@ agentic-sdlc/
 │   │   ├── asdlc-stage-gates/
 │   │   ├── asdlc-hitl-protocol/
 │   │   └── ... (21 skills total)
-│   ├── templates/            ← Document templates for each stage
+│   ├── core/                 ← Packaged entry-point docs copied into target projects
 │   └── fixtures/             ← Packaged eval fixtures for developer workflows
 └── docs/
     ├── getting-started.md
