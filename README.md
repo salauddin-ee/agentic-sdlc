@@ -146,8 +146,14 @@ agentic-sdlc/
     ├── workflow-greenfield.md
     ├── workflow-brownfield.md
     ├── skill-reference.md
-    └── future-platforms.md
+    └── future/
+        ├── README.md
+        ├── future-platforms.md
+        ├── release-plan.md
+        └── skill-evals-implementation-plan.md
 ```
+
+Deferred roadmap items and non-canonical plans live under `docs/future/`. Canonical workflow artifacts such as `docs/sdlc/epics/implementation-plan.md` remain in their standard paths.
 
 **Installed project** (after `asdlc init`, standard Agent Skills layout):
 

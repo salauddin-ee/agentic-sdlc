@@ -2,7 +2,7 @@
 
 This document is roadmap-only. It is not a source of truth for current installation instructions.
 
-For supported installation paths, use [docs/installation.md](installation.md).
+For supported installation paths, use [docs/installation.md](../installation.md).
 
 ---
 
@@ -153,4 +153,4 @@ When adding a new platform:
 
 ---
 
-*See [docs/installation.md](installation.md) for current installation instructions and [README.md](../README.md) for project overview.*
+*See [docs/installation.md](../installation.md) for current installation instructions and [README.md](../../README.md) for project overview.*

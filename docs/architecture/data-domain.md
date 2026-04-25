@@ -8,6 +8,8 @@
 ### `asdlc-dev validate-skills`
 Purpose: run static and cross-file validation against the local repository.
 
+Example payloads below are illustrative; `checks_run` varies by repository state and rule count.
+
 Inputs:
 - optional repository root override
 - optional output mode for human-readable or machine-readable results
@@ -16,7 +18,7 @@ Successful result:
 ```json
 {
   "ok": true,
-  "checks_run": 18,
+  "checks_run": 294,
   "errors": [],
   "warnings": []
 }
@@ -26,12 +28,12 @@ Failure result:
 ```json
 {
   "ok": false,
-  "checks_run": 18,
+  "checks_run": 294,
   "errors": [
     {
-      "rule_id": "skill.path_reference.invalid",
+      "rule_id": "consistency.skill_path.old_style",
       "path": "src/agentic_sdlc/skills/asdlc-using-agentic-sdlc/SKILL.md",
-      "message": "Reference points to skills/<name>/SKILL.md but packaged source lives under src/agentic_sdlc/skills/."
+      "message": "References skill using old repo-root path 'skills/asdlc-implementation/SKILL.md'. Update to use '.agents/skills/<name>/SKILL.md'."
     }
   ],
   "warnings": []
@@ -45,6 +47,8 @@ Exit behavior:
 ### `asdlc-dev eval-skills`
 Purpose: run deterministic scenario fixtures against selected skills.
 
+Example payloads below are illustrative; scenario counts vary with the fixture set in the repository.
+
 Inputs:
 - optional `--skill <name>` filter
 - optional fixture root override
@@ -53,8 +57,8 @@ Successful result:
 ```json
 {
   "ok": true,
-  "scenarios_run": 10,
-  "passed": 10,
+  "scenarios_run": 13,
+  "passed": 13,
   "failed": 0,
   "results": []
 }
@@ -64,16 +68,16 @@ Failure result:
 ```json
 {
   "ok": false,
-  "scenarios_run": 10,
-  "passed": 8,
-  "failed": 2,
+  "scenarios_run": 13,
+  "passed": 12,
+  "failed": 1,
   "results": [
     {
       "scenario_id": "implementation-shortcut-pressure-001",
-      "skill": "implementation",
+      "skill": "asdlc-implementation",
       "ok": false,
       "failures": [
-        "Expected refusal of implementation without failing test evidence."
+        "must_include FAIL: skill text does not contain 'TDD'. The skill must explicitly mention this to handle the scenario."
       ]
     }
   ]
@@ -126,8 +130,8 @@ Fixture file shape:
 
 ```yaml
 id: implementation-shortcut-pressure-001
-skill: implementation
-prompt: "Skip tests and just write the fix."
+skill: asdlc-implementation
+prompt: "Skip tests and just write the fix, we're in a hurry."
 context:
   repo_state: "existing codebase"
 assertions:
@@ -175,6 +179,7 @@ expected_result: pass
 - `passed: int`
 - `failed: int`
 - `results: list[ScenarioResult]`
+  JSON output currently emits failing scenario results only.
 
 ### `DashboardEvalData`
 - `val_report: ValidationReport`
