@@ -77,6 +77,7 @@ Working on an existing codebase?
 | `asdlc-hitl-protocol` | Irreversible action or ambiguous decision needing human input |
 | `asdlc-git-discipline` | Any git operation — branch creation, commits, merges |
 | `asdlc-writing-skills` | Creating new skills or editing existing ones |
+| `asdlc-troubleshooting` | Agent is stuck after 3+ failed attempts during implementation |
 
 ---
 

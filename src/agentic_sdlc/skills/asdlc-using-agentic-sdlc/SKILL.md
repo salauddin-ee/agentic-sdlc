@@ -72,10 +72,11 @@ Is this a brand-new project with no existing codebase?
 | `asdlc-hitl-protocol` | Irreversible action or ambiguous decision needing human input |
 | `asdlc-git-discipline` | Any git operation — branch creation, commits, merges |
 | `asdlc-writing-skills` | Creating new skills or editing existing ones |
+| `asdlc-troubleshooting` | Agent is stuck after 3+ failed attempts during implementation |
 
 ## Skill Types
 
-**Rigid** (asdlc-implementation, asdlc-stage-gates, asdlc-hitl-protocol, asdlc-git-discipline): Follow exactly. No adaptation.
+**Rigid** (asdlc-implementation, asdlc-stage-gates, asdlc-hitl-protocol, asdlc-git-discipline, asdlc-troubleshooting): Follow exactly. No adaptation.
 
 **Flexible** (asdlc-inception, asdlc-design-system): Adapt the process to the scale of the project. A one-page app needs a shorter design than an enterprise platform — but both still go through the stage.
 

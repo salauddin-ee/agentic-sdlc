@@ -10,6 +10,23 @@ Evaluate the completed implementation with fresh eyes. Your job is to find probl
 This is an adversarial review. Optimism bias will cause you to miss real problems. Actively search for issues. Treat every "looks good" instinct with suspicion.
 </EXTREMELY-IMPORTANT>
 
+## Scope Differentiation
+
+**This skill covers:** behavioral correctness, requirements coverage, security vulnerabilities, integration contract compliance.
+**`asdlc-code-review` covers:** coding standards compliance, test quality, operability, documentation completeness.
+
+The two reviews are sequential — run this skill first. If this review FAILs, fix before running code-review. If this review PASSes, proceed to code-review. Never skip either.
+
+| Question | Critical Review | Code Review |
+|---|---|---|
+| "Does it do the right thing?" | ✅ | ❌ |
+| "Is the code well-written?" | ❌ | ✅ |
+| "Are there security vulnerabilities?" | ✅ | ✅ (audit layer) |
+| "Do the tests actually test behavior?" | ❌ | ✅ |
+| "Is the README up to date?" | ❌ | ✅ |
+| "Are interface contracts still matched?" | ✅ | ❌ |
+
+
 ## Inputs
 
 Read before starting:

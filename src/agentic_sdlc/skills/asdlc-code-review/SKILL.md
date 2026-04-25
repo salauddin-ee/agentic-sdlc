@@ -6,6 +6,23 @@ version: 1.0.0
 
 Final structured review before merge or handoff. This is a compliance check against the coding constitution, a test quality review, a security audit, and an operability check — in that order.
 
+## Scope Differentiation
+
+**This skill covers:** coding standards compliance, test quality, operability, documentation completeness.
+**`asdlc-critical-review` covers:** behavioral correctness, requirements coverage, security vulnerabilities, integration contract compliance.
+
+Run `asdlc-critical-review` first. Only proceed to this skill after critical-review returns a PASS verdict. Both reviews are mandatory — they are complementary, not alternatives.
+
+| Question | Critical Review | Code Review |
+|---|---|---|
+| "Does it do the right thing?" | ✅ | ❌ |
+| "Is the code well-written?" | ❌ | ✅ |
+| "Are there security vulnerabilities?" | ✅ | ✅ (audit layer) |
+| "Do the tests actually test behavior?" | ❌ | ✅ |
+| "Is the README up to date?" | ❌ | ✅ |
+| "Are interface contracts still matched?" | ✅ | ❌ |
+
+
 ## Checklist
 
 ### Standards Compliance

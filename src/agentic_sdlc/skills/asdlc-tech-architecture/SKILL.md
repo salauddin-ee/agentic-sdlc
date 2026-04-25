@@ -14,18 +14,23 @@ Do NOT write any production code until tech-architecture.md, at least one ADR pe
 
 1. **Read inputs**: `docs/product/features/brd.md`, `docs/product/design-system.md` (if exists)
 2. **Tech stack selection** — evaluate options against NFRs, constraints, ecosystem maturity
-3. **Write ADRs** — one file per major decision in `docs/architecture/adrs/` using the `adr-template.md` file in this skill's directory
-4. **System context diagram** — C4 Level 1 (what the system is, who uses it, what it integrates with)
-5. **Container diagram** — C4 Level 2 (major deployable units)
-6. **Sequence diagrams** — 2-3 most critical flows
-7. **Directory structure** — canonical directory tree in markdown
-8. **Write coding constitution** — invoke `asdlc-coding-constitution` skill
-9. **Write `docs/architecture/tech-architecture.md`** — using format below
-10. **Self-review** — check all ADR decisions are reflected in architecture, no gaps
-11. **Present to user** — section by section
-12. **HITL checkpoint** — required before any code is written
-13. **Update AGENTS.md** — enrichment Phase 2 (see detailed instructions below)
-14. **Transition** — invoke `asdlc-implementation-planning` skill
+3. **Research selected stack** — before committing to any technology:
+   - Search for known gotchas, version-specific bugs, and anti-patterns for the selected stack
+   - Search for community-recommended project structure and coding conventions
+   - Search for any recent deprecations or upcoming breaking changes
+   - Document findings in a "Research notes" subsection of the ADR for each major decision
+4. **Write ADRs** — one file per major decision in `docs/architecture/adrs/` using the `adr-template.md` file in this skill's directory
+5. **System context diagram** — C4 Level 1 (what the system is, who uses it, what it integrates with)
+6. **Container diagram** — C4 Level 2 (major deployable units)
+7. **Sequence diagrams** — 2-3 most critical flows
+8. **Directory structure** — canonical directory tree in markdown
+9. **Write coding constitution** — invoke `asdlc-coding-constitution` skill
+10. **Write `docs/architecture/tech-architecture.md`** — using format below
+11. **Self-review** — check all ADR decisions are reflected in architecture, no gaps
+12. **Present to user** — section by section
+13. **HITL checkpoint** — required before any code is written
+14. **Update AGENTS.md** — enrichment Phase 2 (see detailed instructions below)
+15. **Transition** — invoke `asdlc-implementation-planning` skill
 
 
 **Decisions that always require an ADR:**
@@ -91,6 +96,7 @@ Read `asdlc-stage-gates` skill and evaluate:
 
 ```
 [ ] Tech stack justified via ADRs for each major component
+[ ] Stack research completed — gotchas, anti-patterns, and community conventions documented in ADR research notes
 [ ] At least one ADR per: language, framework, database, auth strategy
 [ ] System context diagram present (C4 Level 1)
 [ ] Container diagram present (C4 Level 2)
@@ -132,3 +138,15 @@ If, during implementation, a Stage 3 architectural decision proves incorrect:
 | "We don't need sequence diagrams for simple flows" | Simple flows have edge cases. Drawing the diagram reveals them. |
 | "The directory structure can be flexible" | Flexible = no structure. Lock it down and deviate intentionally. |
 | "Security can be retrofitted" | Auth and input validation must be in the architecture from day one. |
+| "I know this framework — no need to research it" | Framework knowledge goes stale. Search for current version-specific gotchas before committing. |
+
+## Scale Guide
+
+Adapt depth to project size. Every project needs architecture; output volume scales.
+
+| Project size | Expected output depth | Examples |
+|---|---|---|
+| Tiny (1-day) | 1 ADR, no diagrams required, simple directory tree | Single-endpoint API, static site |
+| Small (1-week) | 2-3 ADRs, C4 Level 1 only, 1 sequence diagram | Simple CRUD web app, CLI tool |
+| Medium (1-month) | Full ADR set, C4 L1+L2, 2-3 sequence diagrams | Full-stack web application |
+| Large (multi-month) | Full ADR set, all C4 levels, 5+ sequence diagrams, threat model | Enterprise platform, distributed system |

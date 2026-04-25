@@ -76,3 +76,12 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 | "The milestones are obvious" | Undocumented milestones have no exit criteria. Write them. |
 | "We don't have enough risks to list" | There are always risks. Forcing 3 makes you think harder. |
 | "Definition of done is too detailed" | Detailed DoD prevents "it's done... mostly" shipping. |
+
+## Scale Guide
+
+| Project size | Milestones | Interface contracts | Risk log |
+|---|---|---|---|
+| Tiny (1-day) | 1 milestone, 1-2 exit criteria | None required if single module | 1-2 risks |
+| Small (1-week) | 2-3 milestones | 1-3 contracts for key boundaries | 3 risks |
+| Medium (1-month) | 3-5 milestones with sub-tasks | Full API + event schema | Top 5 risks |
+| Large (multi-month) | Full milestone graph with owners | All contracts per ADR | Full risk register with mitigations |

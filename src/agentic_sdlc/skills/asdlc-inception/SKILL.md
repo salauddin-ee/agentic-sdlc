@@ -4,7 +4,7 @@ description: Use when starting a new project from scratch with unclear or partia
 version: 1.0.0
 ---
 
-Establish shared understanding of what is being built, for whom, and why — before anything else is done.
+Establish shared understanding of what is being built, for whom, and why — grounded in research about the real world — before anything else is done.
 
 <HARD-GATE>
 Do NOT invoke asdlc-design-system, asdlc-tech-architecture, or any implementation skill until you have produced a BRD and the user has approved it. This applies to every project regardless of perceived simplicity.
@@ -20,19 +20,23 @@ Complete in order:
 
 1. **Load domain context** — check for any existing files, docs, or prior context in `docs/sdlc/`
 2. **Identify the domain** — what industry, regulatory context, key entities, glossary terms apply?
-3. **Ask clarifying questions** — one at a time, across these axes:
+3. **Research comparable products** — search the web for 3-5 products that solve a similar problem:
+   - What do they do well? What are their known weaknesses or gaps?
+   - What UX patterns, naming conventions, or feature sets are standard in this domain?
+   - Document findings in the `## Prior art` section of the BRD
+4. **Ask clarifying questions** — one at a time, across these axes:
    - Business objective and measurable success criteria
    - User personas and their jobs-to-be-done
    - Constraints (timeline, budget, compliance, existing systems)
    - Out-of-scope items (explicit)
    - Non-functional requirements (latency, availability, scale, geography)
-4. **Write `docs/architecture/domain-model.md`** — domain knowledge, industry context, glossary
-5. **Write `docs/product/features/brd.md`** — using the `brd-template.md` file in this skill's directory
-6. **Self-review the BRD** — check for placeholders, contradictions, missing metrics
-7. **Present BRD to user** — ask for explicit approval before proceeding
-8. **HITL checkpoint** — required before moving to Stage 2 (invoke `asdlc-hitl-protocol` skill)
-9. **Update Artifact Status** — Once approved, update `docs/product/features/brd.md` status to `Approved`.
-10. **Transition** — invoke `asdlc-design-system` or `asdlc-tech-architecture` skill (ask user which order)
+5. **Write `docs/architecture/domain-model.md`** — domain knowledge, industry context, glossary
+6. **Write `docs/product/features/brd.md`** — using the `brd-template.md` file in this skill's directory
+7. **Self-review the BRD** — check for placeholders, contradictions, missing metrics
+8. **Present BRD to user** — ask for explicit approval before proceeding
+9. **HITL checkpoint** — required before moving to Stage 2 (invoke `asdlc-hitl-protocol` skill)
+10. **Update Artifact Status** — Once approved, update `docs/product/features/brd.md` status to `Approved`.
+11. **Transition** — invoke `asdlc-design-system` or `asdlc-tech-architecture` skill (ask user which order)
 
 ## Clarifying Questions Protocol
 
@@ -52,6 +56,7 @@ Evaluate before triggering HITL:
 [ ] NFRs captured (latency, availability, security baseline)
 [ ] Out-of-scope is explicit — not empty
 [ ] No open questions remain (or HITL scheduled to resolve them)
+[ ] Prior art section completed — at least 3 comparable products researched
 [ ] domain-model.md written to docs/architecture/ and brd.md written to docs/product/features/
 ```
 
@@ -80,3 +85,16 @@ Default if no response: Wait for explicit approval
 | "Success metrics can be vague" | Vague metrics cannot be verified. Make them quantifiable. |
 | "Out-of-scope is implicit" | Implicit scope causes scope creep. Write it down explicitly. |
 | "This is too small for a full BRD" | A BRD for a small project is 5 lines. Write them. |
+| "I don't need to research competitors" | Research takes 10 minutes. It prevents you from reinventing known bad solutions. |
+| "I already know what the competition does" | What you remember ≠ what a fresh search surfaces. Search now, write it down. |
+
+## Scale Guide
+
+Every project goes through inception. The output depth scales; the process doesn't.
+
+| Project size | BRD depth | Prior art research | Example |
+|---|---|---|---|
+| Tiny (1-day) | 5-10 lines: 1-sentence objective, 1-2 FRs, basic NFRs | 1-2 comparable products | Single landing page, one-off script |
+| Small (1-week) | 1 page: full FR list, 2 personas, quantified metrics | 3 comparable products | Simple web app, CLI tool, internal dashboard |
+| Medium (1-month) | 2-3 pages: all sections complete | 3-5 with notes | Full-stack web application |
+| Large (multi-month) | Full document: all sections, stakeholder sign-offs, compliance | 5+ with deep analysis | Enterprise platform, regulated product |
