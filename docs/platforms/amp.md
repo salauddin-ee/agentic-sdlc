@@ -2,6 +2,8 @@
 
 **Entry point:** `AMP.md`
 
+**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Amp reads `AMP.md` at startup.
+
 Amp works similarly to Antigravity and reads `AMP.md` at startup to apply the SDLC framework constraints.
 
 **Tool mapping:**

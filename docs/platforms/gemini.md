@@ -2,6 +2,8 @@
 
 **Entry point:** `GEMINI.md`
 
+**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Gemini CLI loads `GEMINI.md` from the project root.
+
 Gemini CLI loads `GEMINI.md` from the project root. The file should map Claude Code tool names to Gemini CLI equivalents and reference the skills directory.
 
 **Tool name mapping:**

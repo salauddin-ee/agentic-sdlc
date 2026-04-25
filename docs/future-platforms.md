@@ -1,23 +1,8 @@
 # Future Platforms & Integrations
 
-## Cursor
+This document is roadmap-only. It is not a source of truth for current installation instructions.
 
-**Entry point:** `.cursor-plugin/plugin.json`
-
-Cursor supports plugins with a `plugin.json` manifest. Rules can be injected via `asdlc-rules` or `asdlc-context` fields.
-
-**Plugin manifest:** `.cursor-plugin/plugin.json`
-
-```json
-{
-  "name": "agentic-sdlc",
-  "version": "1.0.0",
-  "rules": [
-    "Before any action, check if a skill in .agents/skills/ applies. Read the SKILL.md and follow it."
-  ],
-  "context": [".agents/skills/**/*.md"]
-}
-```
+For supported installation paths, use [docs/installation.md](installation.md).
 
 ---
 
@@ -168,4 +153,4 @@ When adding a new platform:
 
 ---
 
-*See [README.md](../README.md) for full installation instructions.*
+*See [docs/installation.md](installation.md) for current installation instructions and [README.md](../README.md) for project overview.*

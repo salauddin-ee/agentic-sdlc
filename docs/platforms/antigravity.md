@@ -2,6 +2,8 @@
 
 **Entry point:** `ANTIGRAVITY.md`
 
+**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Antigravity reads `ANTIGRAVITY.md` at session start.
+
 Antigravity operates within the Google DeepMind agentic framework. It reads `ANTIGRAVITY.md` at session start for initializing the Agentic SDLC framework.
 
 **Tool mapping:**

@@ -52,7 +52,9 @@ Flow B does not install the CLI. You create the required directories yourself an
 
 Use Flow A or Flow B above, then start Claude Code in the target project.
 
-The repository contains `.claude-plugin/plugin.json`, but it is not part of the supported install path until the manifest is verified against the official Claude Code plugin spec.
+Claude Code currently uses the same manual project-root install path as the other supported agents.
+
+An older Claude plugin manifest was removed from the supported repo surface because its schema was not verified against the official Claude Code plugin spec. If plugin packaging is reintroduced later, it should happen as a separate, spec-verified release step.
 
 ## OpenAI Codex
 
@@ -122,3 +124,5 @@ If your Python interpreter blocks system-wide installs under PEP 668, use a virt
 ### Direct PyPI install fails
 
 The one-line PyPI install path is expected to fail until the package is published. Use the clone-based flows above instead.
+
+TODO for post-publish cleanup: once `agentic-sdlc` is live on PyPI, make the package install path the recommended option and demote the local-clone flow to the fallback path.

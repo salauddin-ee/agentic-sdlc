@@ -5,6 +5,30 @@
 > **Last updated:** 2026-04-25
 > **Audience:** End users who want to install Agentic SDLC into their own projects
 
+## Execution update
+
+As of 2026-04-25, the repository has already completed most of the install-doc cleanup described below:
+
+- `docs/installation.md` is now the canonical install guide
+- `.codex/INSTALL.md` has been rewritten to use clone + editable install + `asdlc init`
+- `.opencode/INSTALL.md` now exists and mirrors the Codex fetch/bootstrap flow
+- `docs/platforms/codex.md`, `docs/platforms/opencode.md`, and `docs/platforms/cursor.md` now point at the canonical install flow
+- root entry-point docs (`CLAUDE.md`, `AMP.md`, `ANTIGRAVITY.md`, `GEMINI.md`) and packaged copies under `src/agentic_sdlc/core/` no longer present direct PyPI installation as the supported path
+- the clone-based install flow has been verified in a fresh virtual environment
+- package metadata has been hardened so `python -m build` and `python -m twine check dist/*` pass cleanly
+- the unverified Claude plugin manifest has been removed from the supported repo surface; Claude now uses the same documented manual install path as the other supported agents
+
+Chosen path from here:
+
+1. Finish the remaining install-plan cleanup inside the repo
+2. Keep marketplace work out of scope for this iteration
+3. Move next into release prep for TestPyPI/PyPI, then update install docs once the publish path is real
+
+Remaining in-repo gaps:
+
+- keep `docs/future-platforms.md` as roadmap-only material with no live install guidance
+- reduce the remaining platform pages to canonical-install pointers plus platform-specific notes
+
 ## Goal
 
 Provide first-class install instructions for Agentic SDLC across the four prioritized coding agents — **Claude Code, Codex, OpenCode, and Cursor** — using the Superpowers repository as inspiration for the multi-platform install experience.
