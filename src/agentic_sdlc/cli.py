@@ -22,10 +22,8 @@ def init(target, force):
     # 1. Create directory structure
     dirs = [
         "docs/architecture/adrs",
-        "docs/architecture/rfcs",
         "docs/product/features",
         "docs/product/mockups",
-        "docs/investigations/spikes",
         "docs/sdlc/epics",
         "docs/sdlc/stories",
         "docs/sdlc/workspaces",
@@ -43,12 +41,11 @@ def init(target, force):
         ("docs/product/features/brd.md", "Business Requirements", "asdlc-inception"),
         ("docs/product/design-system.md", "Design System", "asdlc-design-system"),
         ("docs/product/mockups.md", "UI Mockups", "asdlc-ui-mockups"),
-        ("docs/product/personas.md", "Personas", "asdlc-inception"),
+        ("docs/product/accessibility.md", "Accessibility Requirements", "asdlc-design-system"),
         ("docs/architecture/tech-architecture.md", "Technical Architecture", "asdlc-tech-architecture"),
         ("docs/architecture/coding-standards.md", "Coding Constitution", "asdlc-tech-architecture"),
         ("docs/sdlc/epics/implementation-plan.md", "Implementation Plan", "asdlc-implementation-planning"),
         ("docs/architecture/data-domain.md", "Interface Contracts", "asdlc-implementation-planning"),
-        ("docs/product/accessibility.md", "Accessibility Requirements", "asdlc-design-system"),
         ("docs/architecture/existing-system.md", "Existing System Analysis", "asdlc-context-harvest"),
     ]
 
@@ -89,10 +86,10 @@ def init(target, force):
     click.echo("  1. Instruct your agent: 'Read AGENTS.md and .agents/skills/asdlc-using-agentic-sdlc/SKILL.md'")
     click.echo("  2. Start with 'asdlc-inception' (greenfield) or 'asdlc-context-harvest' (brownfield)")
 
-@main.command()
+@main.command('update-agents')
 @click.argument('target', default='.', type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path))
 def update_agents(target):
-    """Update AGENTS.md with Phase 2 project context."""
+    """Append project context to AGENTS.md after tech architecture is approved."""
     target_path = target.resolve()
     agents_path = target_path / "AGENTS.md"
     if not agents_path.exists():
@@ -100,12 +97,11 @@ def update_agents(target):
         return
 
     click.echo(f"Updating '{agents_path}' with project context...")
-    
-    # Read context files
+
     tech_arch = target_path / "docs" / "architecture" / "tech-architecture.md"
     coding_standards = target_path / "docs" / "architecture" / "coding-standards.md"
 
-    context_block = "\n## Project Context (Phase 2)\n\nThis section contains project-specific context established during the Tech Architecture stage.\n\n"
+    context_block = "\n## Project Context\n\nThis section contains project-specific context established during the Tech Architecture stage.\n\n"
     if tech_arch.exists():
         context_block += f"- **Tech Stack**: Refer to [{tech_arch.name}]({tech_arch.relative_to(target_path)})\n"
         context_block += f"- **Directory Structure**: Refer to [{tech_arch.name}]({tech_arch.relative_to(target_path)})\n"
@@ -117,14 +113,14 @@ def update_agents(target):
 
     with open(agents_path, "a") as f:
         f.write(context_block)
-        
-    click.echo("Added Phase 2 Project Context to AGENTS.md")
+
+    click.echo("Added Project Context to AGENTS.md")
 
 @main.command()
 @click.argument('project_root', default='.')
 @click.option('--port', default=8080, help="Port to serve the dashboard on.")
 def serve(project_root, port):
-    """Start the Agnetic SDLC dashboard."""
+    """Start the Agentic SDLC dashboard."""
     dashboard.serve(project_root, port)
 
 
@@ -133,7 +129,7 @@ def dev_main():
     """Agentic SDLC Developer CLI - includes eval and validation tools."""
     pass
 
-# Register all public commands on dev_main too
+# Register all public commands on dev_main
 dev_main.add_command(init)
 dev_main.add_command(serve)
 dev_main.add_command(update_agents)
