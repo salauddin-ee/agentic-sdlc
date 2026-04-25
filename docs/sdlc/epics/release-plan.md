@@ -22,11 +22,9 @@ This plan does not cover:
 
 ## Relationship to prior work
 
-The installation work is already documented in `docs/sdlc/epics/installation-plan.md`.
+The multi-platform installation cleanup is already merged. The live install guidance lives in `docs/installation.md`; the historical plan was removed once implementation completed (see git history on the `installation-improvement` branch).
 
-That artifact should be kept as project history. It explains how the repository moved from clone-only install guidance to a cleaner pre-publish state. It should not be deleted just because the implementation is complete.
-
-### Deferred from the installation plan
+### Deferred from the installation cleanup
 
 **Phase 4 of the installation plan (Marketplace publishing — Claude Code, Codex, Cursor) was intentionally skipped** and is tracked here for visibility:
 
