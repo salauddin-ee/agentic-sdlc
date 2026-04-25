@@ -2,6 +2,8 @@
 
 Codex uses `AGENTS.md` at the project root and reads `.agents/skills/` relative to that root.
 
+In projects initialized by Agentic SDLC, that project-root `AGENTS.md` is copied from `src/agentic_sdlc/core/AGENTS.md`.
+
 ## Installation
 
 Use the canonical instructions in [docs/installation.md](../installation.md), or fetch the Codex-specific bootstrap doc:

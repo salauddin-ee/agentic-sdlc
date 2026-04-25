@@ -1,5 +1,9 @@
 ## If You Are an AI Agent — Read This First
 
+This file governs work inside the `agentic-sdlc` source repository itself.
+
+If you are using Agentic SDLC inside some other project, the project-root `AGENTS.md` for that target project comes from `src/agentic_sdlc/core/AGENTS.md`, not from this repo-root file.
+
 You have the **Agentic SDLC** framework installed. This gives you a structured, multi-stage software development lifecycle to follow — replacing ad-hoc coding with a disciplined, auditable process.
 
 ### The Prime Directive
@@ -17,13 +21,15 @@ Instruction priority:
 
 ### How to Use Skills
 
-Skills live in the `.agents/skills/` directory of this repository. Each skill is a `SKILL.md` file with:
+In this source repository, packaged skills live in `src/agentic_sdlc/skills/`. In an initialized user project, those same skills are copied to `.agents/skills/`.
+
+Each skill is a `SKILL.md` file with:
 - A `name` and `description` (YAML frontmatter) — tells you WHEN to invoke it
 - Detailed instructions for HOW to execute the stage or activity
 
-**To use a skill:** Read the relevant `.agents/skills/asdlc-<name>/SKILL.md` file at the start of any task that matches its trigger. Follow it exactly.
+**To use a skill in this repo:** Read the relevant `src/agentic_sdlc/skills/asdlc-<name>/SKILL.md` file at the start of any task that matches its trigger. Follow it exactly.
 
-**Start here:** Always read `.agents/skills/asdlc-using-agentic-sdlc/SKILL.md` at the beginning of a new project or conversation.
+**Start here:** Always read `src/agentic_sdlc/skills/asdlc-using-agentic-sdlc/SKILL.md` at the beginning of a new project or conversation.
 
 ---
 
@@ -103,13 +109,15 @@ Run `asdlc init` to create this structure in a new project.
 
 ---
 
-The Agentic SDLC framework is platform-agnostic. Installation instructions for supported agents can be found in the README and the following files:
+The Agentic SDLC framework is platform-agnostic. Platform documentation for framework users lives in the README and `docs/platforms/`:
 
-- [Codex](AGENTS.md)
-- [Claude Code](CLAUDE.md)
-- [Gemini CLI](GEMINI.md)
-- [Antigravity](ANTIGRAVITY.md)
-- [Amp](AMP.md)
+- [Codex](docs/platforms/codex.md)
+- [Claude Code](docs/platforms/claude.md)
+- [OpenCode](docs/platforms/opencode.md)
+- [Cursor](docs/platforms/cursor.md)
+- [Gemini CLI](docs/platforms/gemini.md)
+- [Antigravity](docs/platforms/antigravity.md)
+- [Amp](docs/platforms/amp.md)
 
 ### Red Flags — You Are Rationalizing
 

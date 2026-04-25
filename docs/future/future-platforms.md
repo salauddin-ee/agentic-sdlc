@@ -2,7 +2,7 @@
 
 This document is roadmap-only. It is not a source of truth for current installation instructions.
 
-For supported installation paths, use [docs/installation.md](installation.md).
+For supported installation paths, use [docs/installation.md](../installation.md).
 
 ---
 
@@ -10,7 +10,7 @@ For supported installation paths, use [docs/installation.md](installation.md).
 
 ### The Problem
 
-Multiple agentic skill frameworks now exist (Agentic SDLC, [Superpowers](https://github.com/obra/superpowers), and others). Each hijacks the agent via `AGENTS.md` / `CLAUDE.md` with a prime directive: *"Check MY skills before any action."*
+Multiple agentic skill frameworks now exist (Agentic SDLC, [Superpowers](https://github.com/obra/superpowers), and others). Each tends to anchor itself on a root instruction file such as `AGENTS.md`, with a prime directive like: *"Check MY skills before any action."*
 
 If a user installs both Superpowers and Agentic SDLC, the agent receives **two competing handbooks**:
 
@@ -144,13 +144,13 @@ Instead of forcing users to pick one or the other, the positioning becomes: **Ag
 ## Implementation Notes (for contributors)
 
 When adding a new platform:
-1. Create the platform entry point file (`CLAUDE.md`, `GEMINI.md`, etc.)
-2. Create the platform plugin manifest if applicable
-3. Map tool names from Claude Code equivalents
-4. Update `README.md` installation section
+1. Keep `AGENTS.md` as the canonical installed entry point unless the platform technically requires a different manifest or bootstrap file
+2. Create the platform plugin manifest only if the platform requires one
+3. Map tool names from the canonical `AGENTS.md` workflow to platform equivalents
+4. Update `README.md`, `docs/installation.md`, and the relevant `docs/platforms/*.md` page together
 5. Test by running the `asdlc-using-agentic-sdlc` skill on the new platform
 6. Document any behavioral differences in this file
 
 ---
 
-*See [docs/installation.md](installation.md) for current installation instructions and [README.md](../README.md) for project overview.*
+*See [docs/installation.md](../installation.md) for current installation instructions and [README.md](../../README.md) for project overview.*
