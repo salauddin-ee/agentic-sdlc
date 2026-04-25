@@ -12,7 +12,7 @@ Use the canonical instructions in [docs/installation.md](../installation.md), or
 Fetch and follow instructions from https://raw.githubusercontent.com/salauddin-ee/agentic-sdlc/main/.codex/INSTALL.md
 ```
 
-For local setup, use Flow A or Flow B from [docs/installation.md](../installation.md).
+For local setup, use Flow A, B, or C from [docs/installation.md](../installation.md).
 
 ## Notes
 
