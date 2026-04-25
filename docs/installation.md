@@ -127,4 +127,4 @@ If your Python interpreter blocks system-wide installs under PEP 668, use a virt
 
 The one-line PyPI install path is expected to fail until the package is published. Use the clone-based flows above instead.
 
-TODO for post-publish cleanup: once `agentic-sdlc` is live on PyPI, make the package install path the recommended option and demote the local-clone flow to the fallback path.
+Post-publish installation guidance is tracked in `docs/future/release-plan.md`. Until the package is published, treat the clone-based flows above as the supported setup paths.
