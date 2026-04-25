@@ -120,6 +120,7 @@ asdlc-dev eval-skills . --skill asdlc-implementation
 |---|---|
 | `asdlc-stage-gates` | Evaluating whether a stage's exit criteria are met |
 | `asdlc-hitl-protocol` | Irreversible action or ambiguous decision needing human input |
+| `asdlc-git-discipline` | Any git operation — branch creation, commits, merges |
 | `asdlc-writing-skills` | Creating or editing skills |
 
 ---
@@ -131,24 +132,21 @@ asdlc-dev eval-skills . --skill asdlc-implementation
 ```
 agentic-sdlc/
 ├── src/agentic_sdlc/
-│   ├── skills/               ← Packaged skills (asdlc- prefixed)
-│   │   ├── asdlc-using-agentic-sdlc/
-│   │   ├── asdlc-inception/
-│   │   ├── asdlc-implementation/
-│   │   ├── asdlc-brownfield-design/
-│   │   ├── asdlc-stage-gates/
-│   │   ├── asdlc-hitl-protocol/
-│   │   └── ... (21 skills total)
+│   ├── skills/               ← Packaged skills (asdlc- prefixed, 21 total)
 │   ├── core/                 ← Packaged entry-point docs copied into target projects
 │   └── fixtures/             ← Packaged eval fixtures for developer workflows
 └── docs/
+    ├── agentic-sdlc-framework.md  ← Full framework reference
     ├── getting-started.md
+    ├── installation.md
     ├── workflow-greenfield.md
     ├── workflow-brownfield.md
     ├── skill-reference.md
-    └── future/
+    ├── platforms/             ← Per-platform setup guides (7 platforms)
+    └── future/                ← Deferred roadmap and unimplemented plans
         ├── README.md
         ├── future-platforms.md
+        ├── multi-agent-orchestration-draft.md
         ├── release-plan.md
         └── skill-evals-implementation-plan.md
 ```
