@@ -1,10 +1,10 @@
 # Platform Support: Claude Code
 
-**Entry point:** `CLAUDE.md`
+**Entry point:** `AGENTS.md`
 
-**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Claude Code reads `CLAUDE.md` from the project root.
+**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Claude Code reads `AGENTS.md` from the project root.
 
-Claude Code uses the project-root `CLAUDE.md` entry point and the standard `.agents/skills/` layout in the target project.
+Claude Code uses the project-root `AGENTS.md` entry point and the standard `.agents/skills/` layout in the target project.
 
 **Tool mapping:**
 - Read Skill: file reading tools

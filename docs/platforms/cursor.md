@@ -1,5 +1,7 @@
 # Platform Support: Cursor
 
+**Entry point:** `AGENTS.md`
+
 Cursor does not have a supported plugin or manifest path in this repository.
 
 ## Installation

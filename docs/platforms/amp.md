@@ -1,10 +1,10 @@
 # Platform Support: Amp
 
-**Entry point:** `AMP.md`
+**Entry point:** `AGENTS.md`
 
-**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Amp reads `AMP.md` at startup.
+**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Amp reads `AGENTS.md` at startup.
 
-Amp works similarly to Antigravity and reads `AMP.md` at startup to apply the SDLC framework constraints.
+Amp uses the project-root `AGENTS.md` entry point and the standard `.agents/skills/` layout in the target project.
 
 **Tool mapping:**
 - Read Skill: `view_file`

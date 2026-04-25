@@ -1,10 +1,10 @@
 # Platform Support: Gemini CLI
 
-**Entry point:** `GEMINI.md`
+**Entry point:** `AGENTS.md`
 
-**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Gemini CLI loads `GEMINI.md` from the project root.
+**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Gemini CLI uses `AGENTS.md` from the project root.
 
-Gemini CLI loads `GEMINI.md` from the project root. The file should map Claude Code tool names to Gemini CLI equivalents and reference the skills directory.
+Gemini CLI uses the project-root `AGENTS.md` entry point and the standard `.agents/skills/` layout in the target project.
 
 **Tool name mapping:**
 

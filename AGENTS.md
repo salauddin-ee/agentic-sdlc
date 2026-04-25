@@ -113,6 +113,8 @@ The Agentic SDLC framework is platform-agnostic. Platform documentation for fram
 
 - [Codex](docs/platforms/codex.md)
 - [Claude Code](docs/platforms/claude.md)
+- [OpenCode](docs/platforms/opencode.md)
+- [Cursor](docs/platforms/cursor.md)
 - [Gemini CLI](docs/platforms/gemini.md)
 - [Antigravity](docs/platforms/antigravity.md)
 - [Amp](docs/platforms/amp.md)

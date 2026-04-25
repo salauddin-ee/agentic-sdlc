@@ -1,10 +1,10 @@
 # Platform Support: Antigravity
 
-**Entry point:** `ANTIGRAVITY.md`
+**Entry point:** `AGENTS.md`
 
-**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Antigravity reads `ANTIGRAVITY.md` at session start.
+**Installation:** Use the canonical instructions in [docs/installation.md](../installation.md). Once installed, Antigravity reads `AGENTS.md` at session start.
 
-Antigravity operates within the Google DeepMind agentic framework. It reads `ANTIGRAVITY.md` at session start for initializing the Agentic SDLC framework.
+Antigravity uses the project-root `AGENTS.md` entry point and the standard `.agents/skills/` layout in the target project.
 
 **Tool mapping:**
 - Read Skill: `view_file`

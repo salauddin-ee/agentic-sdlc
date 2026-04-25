@@ -1,5 +1,7 @@
 # Platform Support: OpenCode
 
+**Entry point:** `AGENTS.md`
+
 OpenCode should read the same project-root `AGENTS.md` and `.agents/skills/` layout as Codex.
 
 ## Installation
