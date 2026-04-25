@@ -31,7 +31,7 @@
 
 ## Known tech debt
 - Test infrastructure absent: no committed automated test suite or coverage reporting.
-- Documentation drift risk: repo-root agent docs and packaged `src/agentic_sdlc/core/*.md` files can diverge because both exist and are maintained separately.
+- Documentation drift risk: repo-root agent docs and the packaged `src/agentic_sdlc/core/AGENTS.md` file can diverge if they are edited independently.
 - Packaging/install drift risk: `pyproject.toml` uses PEP 517 build isolation, which currently fails in a clean offline venv because build dependencies are fetched from the index.
 - Dashboard/frontend polish is bundled inline in `dashboard.py`, which makes larger UI changes harder to review and test.
 
@@ -44,7 +44,7 @@
 
 ## Fragile / high-risk areas
 - `src/agentic_sdlc/cli.py`: installer behavior copies generated artifacts into user repos; doc/path mistakes here propagate into every initialized project.
-- `src/agentic_sdlc/core/*.md`: these files are the packaged source of truth for initialized projects and can silently drift from repo-root copies.
+- `src/agentic_sdlc/core/AGENTS.md`: this is the packaged source of truth for initialized projects and can silently drift from the repo-root `AGENTS.md`.
 - `src/agentic_sdlc/skills/*.md`: process contradictions create systemic agent behavior regressions even without Python code changes.
 - Packaging entrypoints: any change to build metadata affects `pip install` behavior across the whole project.
 

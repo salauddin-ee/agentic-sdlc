@@ -13,7 +13,7 @@ As of 2026-04-25, the repository has already completed most of the install-doc c
 - `.codex/INSTALL.md` has been rewritten to use clone + editable install + `asdlc init`
 - `.opencode/INSTALL.md` now exists and mirrors the Codex fetch/bootstrap flow
 - `docs/platforms/codex.md`, `docs/platforms/opencode.md`, and `docs/platforms/cursor.md` now point at the canonical install flow
-- root entry-point docs (`CLAUDE.md`, `AMP.md`, `ANTIGRAVITY.md`, `GEMINI.md`) and packaged copies under `src/agentic_sdlc/core/` no longer present direct PyPI installation as the supported path
+- root entry-point docs (`CLAUDE.md`, `AMP.md`, `ANTIGRAVITY.md`, `GEMINI.md`) no longer present direct PyPI installation as the supported path
 - the clone-based install flow has been verified in a fresh virtual environment
 - package metadata has been hardened so `python -m build` and `python -m twine check dist/*` pass cleanly
 - the unverified Claude plugin manifest has been removed from the supported repo surface; Claude now uses the same documented manual install path as the other supported agents
@@ -136,7 +136,7 @@ The Agent Skills compatibility target is:
 |---|---|---|
 | 1.1 | `.codex/INSTALL.md` and `docs/platforms/codex.md` | Create or update the files so they point at real repo paths and a local-clone install flow (`git clone` + `pip install -e .` + `asdlc init`) |
 | 1.2 | `.claude-plugin/plugin.json` | Decide: **(a)** fix to match official Claude plugin spec after verification; **(b)** move to a more accurate path if Claude expects it elsewhere; **(c)** delete or ignore it if it cannot be made valid. Do not make it part of the core install path unless verified. |
-| 1.3 | `AMP.md`, `CLAUDE.md`, `GEMINI.md`, `ANTIGRAVITY.md`, `docs/platforms/*.md`, and `src/agentic_sdlc/core/*.md` | Replace `pip install agentic-sdlc` with **clone + `pip install -e .`** flow in both the repo docs and the packaged copies. Add a TODO note: "switch to PyPI install once published." |
+| 1.3 | `AMP.md`, `CLAUDE.md`, `GEMINI.md`, `ANTIGRAVITY.md`, `docs/platforms/*.md`, and packaged bootstrap docs under `src/agentic_sdlc/core/` | Replace `pip install agentic-sdlc` with **clone + `pip install -e .`** flow in the repo docs and any packaged entry-point docs that are still part of the runtime surface. Add a TODO note: "switch to PyPI install once published." |
 | 1.4 | All install commands | Verify each runs successfully in a fresh venv before marking phase complete |
 
 **Done when:**
@@ -184,7 +184,7 @@ After Phase 1 identifies the canonical install paths, remove or reduce old insta
 | `docs/platforms/*.md` | Either rewrite as short pointers to `docs/installation.md` or keep only platform-specific behavior notes with no duplicated install commands |
 | `docs/future-platforms.md` | Keep only if it remains a roadmap document; remove install instructions from it |
 | Root `AMP.md`, `CLAUDE.md`, `GEMINI.md`, `ANTIGRAVITY.md` | Keep if these are copied by `asdlc init` or used by agents; otherwise reduce them to startup instructions and point install steps to `docs/installation.md` |
-| `src/agentic_sdlc/core/*.md` | Keep, because these are packaged core files; update them to match root entry-point docs |
+| `src/agentic_sdlc/core/AGENTS.md` | Keep, because this is the packaged bootstrap file copied by `asdlc init` |
 
 **Do not edit or delete generated/local environment files** such as `.venv/`; they are not source install artifacts.
 
