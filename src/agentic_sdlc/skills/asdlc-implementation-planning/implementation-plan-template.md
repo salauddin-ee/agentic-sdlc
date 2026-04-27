@@ -19,7 +19,7 @@
 
 ## Risk Log
 
-*Identify technical or delivery risks (at least 2, or 3+ per Scale Guide).*
+*Identify technical or delivery risks (at least 1, or 3+ per Scale Guide).*
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
