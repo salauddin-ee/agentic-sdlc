@@ -1,6 +1,6 @@
 ---
 name: asdlc-troubleshooting
-description: Use when the agent is stuck during implementation — a test won't pass after multiple attempts, a build fails with unclear errors, dependencies conflict, or execution is blocked and the path forward is not clear.
+description: Use when the agent is stuck after 3+ failed attempts during implementation — a test won't pass after multiple attempts, a build fails with unclear errors, dependencies conflict, or execution is blocked and the path forward is not clear.
 version: 1.0.0
 ---
 

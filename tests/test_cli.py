@@ -152,12 +152,12 @@ def test_update_agents_appends_context_block(tmp_path):
 
 
 def test_update_agents_fails_gracefully_without_init(tmp_path):
-    """update-agents should print an error, not crash, when AGENTS.md is missing."""
+    """update-agents should print an error and exit non-zero when AGENTS.md is missing."""
     runner = CliRunner()
     target = tmp_path / "uninitialised-project"
     target.mkdir()
 
     result = runner.invoke(main, ["update-agents", str(target)])
 
-    assert result.exit_code == 0
+    assert result.exit_code != 0
     assert "not found" in result.output.lower()
