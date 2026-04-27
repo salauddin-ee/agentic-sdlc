@@ -82,6 +82,7 @@ If the agent starts writing code without going through these steps, it has not l
 docs/
   architecture/
     domain-model.md        — domain knowledge (inception)
+    existing-system.md     — existing system analysis (context-harvest)
     tech-architecture.md   — architecture decisions
     coding-standards.md    — coding standards
     data-domain.md         — interface contracts

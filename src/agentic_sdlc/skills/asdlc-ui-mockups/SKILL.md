@@ -57,6 +57,20 @@ Do NOT begin production implementation, implementation-planning, or brownfield-t
 
 ---
 
+## Mockup Artifact Format
+
+A reviewable mockup artifact must take one of these forms:
+
+| Format | Description | When to use |
+|---|---|---|
+| **Screenshots** | AI-generated or exported images embedded in `docs/product/mockups.md` | Quick visual direction; no interactivity needed |
+| **Coded prototype** | Static HTML/CSS file opened in browser; screenshots captured for the mockups doc | Interactive review; fine layout detail matters |
+| **Imported screens** | Exported Figma, wireframe, or design-tool screens saved to `docs/product/mockup-assets/` | Existing design files already exist |
+
+A text description alone is **not** a valid artifact. The user must be able to review the visual direction without technical setup.
+
+---
+
 ## Mockup Techniques
 
 Choose the technique that best fits the project context. Document the chosen technique in `docs/product/mockups.md`.
