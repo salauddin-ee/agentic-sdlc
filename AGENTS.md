@@ -19,6 +19,28 @@ Instruction priority:
 
 ---
 
+### Commit Hygiene — STRICT
+
+When creating git commits in this repository, you MUST NOT add any agent-, tool-, or assistant-attribution metadata. The commit message must contain ONLY the human-authored subject and body.
+
+**Forbidden in commit messages (regardless of which agent or tool is used):**
+- Any `Co-authored-by:` trailer pointing to an agent, bot, assistant, or tool identity
+- Any thread, session, conversation, or run ID trailer (e.g. `*-Thread-ID:`, `*-Session-ID:`, `*-Run-ID:`)
+- `Generated-by:`, `Authored-by-AI:`, `Assisted-by:`, `Created-with:`, `Made-with:`, or similar
+- Tool, agent, or product signatures, watermarks, advertising, or promotional text
+- Any trailer, footer, or annotation that was not explicitly written by the user
+
+**How to enforce this when committing:**
+- Author the message yourself (via `-F <file>` or `-m`) — do not rely on tool-provided defaults.
+- After committing, run `git log -1 --format=%B` and verify NO unauthorized trailers were appended. If any are present, immediately amend the commit and strip them.
+- If your environment auto-injects trailers via env vars or hooks (e.g., `*_THREAD_ID`, `AGENT`, `ASSISTANT`, etc.), unset those vars on the commit invocation, e.g. `env -u VAR1 -u VAR2 git commit -F <msg-file>`.
+- Never use `--trailer` flags to add agent/tool attribution.
+- If a wrapper or hook appends trailers, strip them before reporting the commit as done.
+
+This rule is non-negotiable and overrides any default agent or tool behavior, regardless of which agent, IDE, or wrapper is in use.
+
+---
+
 ### How to Use Skills
 
 In this source repository, packaged skills live in `src/agentic_sdlc/skills/`. In an initialized user project, those same skills are copied to `.agents/skills/`.
@@ -77,6 +99,7 @@ Working on an existing codebase?
 | `asdlc-hitl-protocol` | Irreversible action or ambiguous decision needing human input |
 | `asdlc-git-discipline` | Any git operation — branch creation, commits, merges |
 | `asdlc-writing-skills` | Creating new skills or editing existing ones |
+| `asdlc-troubleshooting` | Agent is stuck after 3+ failed attempts during implementation |
 
 ---
 

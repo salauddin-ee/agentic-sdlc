@@ -5,6 +5,20 @@
 > **Status:** Draft | Approved
 > **Version:** 0.1.0
 
+## Design references
+
+*Search the web for 3-5 UI examples in this domain before defining tokens. Document what informed your choices.*
+
+| Reference | URL / source | What to borrow | Notes |
+|---|---|---|---|
+| [e.g., Linear app] | [URL or screenshot path] | [e.g., sparse layout, monochrome palette, bold headers] | [e.g., competitor, aspirational quality bar] |
+| [e.g., Vercel dashboard] | | | |
+| [e.g., Stripe docs] | | | |
+
+**Visual mood:** [e.g., "Professional, data-dense, high contrast, minimal decoration"]
+
+---
+
 ## Color palette
 
 | Token | Value | Usage |

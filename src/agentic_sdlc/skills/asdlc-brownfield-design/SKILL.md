@@ -1,7 +1,7 @@
 ---
 name: asdlc-brownfield-design
 description: Use when a brownfield story introduces new UI components or changes visual contracts visible to end users — before any frontend code is written for that story.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Resolve design for this story only. Inherit from the existing design system wherever possible. Introduce new design decisions only when the story genuinely requires them.
@@ -35,7 +35,11 @@ New tokens or components introduced by this story must conform to the existing s
 4. **Document delta** — only new tokens, only new components
 5. **Update `docs/product/design-system.md`** — append delta section (do not overwrite)
 6. **Update `docs/product/accessibility.md`** — append story-specific requirements
-7. **Transition** — if this story changes a visible contract in a major way, invoke `asdlc-ui-mockups`; otherwise invoke `asdlc-brownfield-tech-plan`
+7. **Generate a visual preview of the delta** — produce a small HTML/CSS snippet or screenshot showing:
+   - The new component rendered alongside an existing component (to confirm visual consistency)
+   - Any new tokens applied in context
+   - This step prevents "looks fine in isolation, clashes in context" issues
+8. **Transition** — if this story changes a visible contract in a major way, invoke `asdlc-ui-mockups`; otherwise invoke `asdlc-brownfield-tech-plan`
 
 ## Delta Design Format
 
@@ -59,6 +63,17 @@ Append to `docs/product/design-system.md`:
 - Error state: `aria-describedby` pointing to error message element
 ```
 
+## Gate
+
+```
+[ ] Existing design system reviewed — no new tokens/components without checking existing ones first
+[ ] Design delta documented — only new tokens and new components included
+[ ] docs/product/design-system.md updated (delta appended, not overwritten)
+[ ] docs/product/accessibility.md updated with story-specific requirements
+[ ] Visual preview generated — new component shown alongside existing component in context
+[ ] Transition decision made: invoke asdlc-ui-mockups (major contract change) or asdlc-brownfield-tech-plan (minor)
+```
+
 ## Red Flags
 
 | Thought | Reality |
@@ -67,3 +82,4 @@ Append to `docs/product/design-system.md`:
 | "Accessibility can be handled in implementation" | Accessibility decisions are design decisions. Make them now. |
 | "The existing components don't quite fit — I'll fork one" | Forking creates two maintenance burdens. Extend the existing one. |
 | "This is a small UI change — no design needed" | Small changes to visible contracts still need to be consistent. Document them. |
+| "The delta looks fine — I don't need a visual preview" | New components that look fine in isolation often clash in context. Generate the preview. |

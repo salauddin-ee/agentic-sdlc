@@ -38,6 +38,7 @@ Quick reference for all agentic-sdlc skills. For full instructions, read the `SK
 | `asdlc-stage-gates` | At every stage boundary | Evaluate exit criteria, enforce no-proceed-on-fail |
 | `asdlc-hitl-protocol` | Mandatory checkpoints, irreversible actions | Structured human approval |
 | `asdlc-writing-skills` | Creating or editing skills | TDD-for-skills methodology |
+| `asdlc-troubleshooting` | Agent is stuck after 3+ failed attempts during implementation | Structured diagnosis protocol before retrying or escalating |
 
 ## HITL Mandatory Checkpoints
 

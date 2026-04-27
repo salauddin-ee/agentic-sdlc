@@ -9,6 +9,21 @@
 
 [One paragraph. What problem does this solve and for whom? Be specific about the user and the pain point.]
 
+## Prior art / competitive research
+
+*Search the web for comparable products or solutions (1-5 depending on Scale Guide) before writing requirements. Document what exists so you build on — not against — the state of the art.*
+
+| Product / Solution | What it does well | Known gaps / weaknesses | Relevance to this project |
+|---|---|---|---|
+| [e.g., Notion] | [e.g., flexible data model] | [e.g., no real-time collaboration] | [e.g., our primary competitor] |
+| [e.g., Linear] | | | |
+| [e.g., Jira] | | | |
+
+**Key insights from research:**
+- [Pattern / convention the market has standardized on that we should adopt]
+- [Gap in existing solutions that this project can address]
+- [Anti-pattern seen in competitors that we should avoid]
+
 ## Success metrics
 
 | Metric | Target | How measured |

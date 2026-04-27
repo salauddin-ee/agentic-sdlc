@@ -1,7 +1,7 @@
 ---
 name: asdlc-brownfield-brainstorm
 description: Use when understanding the business impact and user impact of a story or feature request in an existing system — before any technical planning or implementation.
-version: 1.0.0
+version: 1.1.0
 ---
 
 Understand the business and user impact of this story in isolation before planning how to implement it. Small stories have large blast radii. Understand the blast radius first.
@@ -21,12 +21,16 @@ Understand the business and user impact of this story in isolation before planni
    - Who is affected — which user personas, which upstream/downstream systems?
    - Are there dependencies on other in-flight stories or parallel work?
    - Is there a deadline or regulatory driver?
-3. **Write acceptance criteria** in Given/When/Then format
-4. **Write definition of done** for this story specifically
-5. **Identify scope risks** — what could expand this story's scope unintentionally?
-6. **Check existing behavior** — does anything like this already exist? Can we extend it?
-7. **Document in `docs/product/features/brd.md`** (append a story section) — using format below
-8. **Transition** — invoke `asdlc-brownfield-design` (if UI changes) or `asdlc-brownfield-tech-plan`
+3. **Research comparable implementations** — before writing acceptance criteria:
+   - Search for how 1-3 similar products or open-source projects implement this feature (see Scale Guide)
+   - Note: patterns that are industry standard vs. differentiators worth owning
+   - Document findings in the `### Comparable implementations` subsection of the story BRD
+4. **Write acceptance criteria** in Given/When/Then format
+5. **Write definition of done** for this story specifically
+6. **Identify scope risks** — what could expand this story's scope unintentionally?
+7. **Check existing behavior** — does anything like this already exist? Can we extend it?
+8. **Document in `docs/product/features/brd.md`** (append a story section) — using format below
+9. **Transition** — invoke `asdlc-brownfield-design` (if UI changes) or `asdlc-brownfield-tech-plan`
 
 ## Questions Protocol
 
@@ -49,6 +53,10 @@ Append to `docs/product/features/brd.md` (or create if brownfield project):
 
 ### User personas affected
 [Which personas from the system context? New personas if this story introduces them?]
+
+### Comparable implementations
+[How do 1-3 similar products or open-source projects (per Scale Guide) solve this? What patterns are worth borrowing?]
+- [Product/project]: [How they handle it] — [What to borrow / what to avoid]
 
 ### Acceptance criteria
 - Given [context]
@@ -79,3 +87,13 @@ Append to `docs/product/features/brd.md` (or create if brownfield project):
 | "Success metrics aren't needed for a small story" | If you can't measure success, you can't verify done. Define them. |
 | "Scope risks are obvious" | Write them down. Unwritten risks become scope creep. |
 | "We're extending existing behavior — no need to check" | Check first. Extending the wrong thing is worse than building new. |
+| "I don't need to research how others do this" | Reinventing known patterns wastes time. Search first — borrow what works, reject what doesn't. |
+
+## Scale Guide
+
+| Story size | Expected research depth | Acceptance criteria count |
+|---|---|---|
+| Tiny (few hours) | 1 comparable example, or skip if obvious standard pattern | 1-2 |
+| Small (1-2 days) | 2-3 comparable examples | 3-5 |
+| Medium (3-5 days) | 3-5 comparable examples with notes | 5-8 |
+| Large (>5 days) | Flag for decomposition before continuing | Decompose first |

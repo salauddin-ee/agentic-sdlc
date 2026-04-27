@@ -1,4 +1,3 @@
-import os
 import shutil
 import click
 from pathlib import Path
@@ -94,7 +93,7 @@ def update_agents(target):
     agents_path = target_path / "AGENTS.md"
     if not agents_path.exists():
         click.echo("AGENTS.md not found in project root. Run 'asdlc init' first.", err=True)
-        return
+        raise click.exceptions.Exit(code=1)
 
     click.echo(f"Updating '{agents_path}' with project context...")
 
