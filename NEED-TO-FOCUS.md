@@ -335,9 +335,47 @@ Then update implementation gates to verify both views are synchronized.
 
 ---
 
+### 18. No safe command to update installed project skills
+
+**Problem:** `asdlc init` copies packaged skills into a target project at `.agents/skills/`. After the framework is upgraded, existing projects have no safe, explicit command to refresh only those installed skills. The only obvious workaround is `asdlc init --force`, but that is too broad because it can overwrite initialized project files such as `AGENTS.md` and docs stubs.
+
+**Affected Files:**
+- `src/agentic_sdlc/cli.py`
+- `tests/test_cli.py`
+- `README.md`
+- `docs/installation.md`
+- `docs/getting-started.md`
+
+**Fix:** Add a dedicated command:
+
+```bash
+asdlc update-skills /path/to/your/project
+```
+
+Expected behavior:
+- refresh `.agents/skills/` from the currently installed Agentic SDLC package
+- preserve project `docs/` artifacts
+- preserve project-specific `AGENTS.md` context by default
+- print the old and new skill versions or at least a changed-file summary
+- support `--dry-run` to show what would change
+- support `--include-agents` to update the base `AGENTS.md` template while preserving the `## Project Context` block
+- support `--force` only for deliberate overwrite of local skill edits
+
+Recommended post-upgrade workflow for users:
+
+```bash
+python -m pip install --upgrade agentic-sdlc
+asdlc update-skills /path/to/your/project --dry-run
+asdlc update-skills /path/to/your/project
+```
+
+Add tests proving `update-skills` updates `.agents/skills/` without modifying `docs/` or destroying project-specific `AGENTS.md` content.
+
+---
+
 ## Tier 3 — Nice to Have (Quality & polish improvements)
 
-### 18. `critical-review.md` and `code-review.md` overwrite on each story
+### 19. `critical-review.md` and `code-review.md` overwrite on each story
 
 **Current status:** Partially valid. `critical-review.md` is still a fixed path and retrospective reads only that file. Code-review is less fixed now, but review history can still be lost.
 
@@ -347,7 +385,7 @@ Then update implementation gates to verify both views are synchronized.
 
 ---
 
-### 19. Domain model has no template
+### 20. Domain model has no template
 
 **Problem:** `asdlc-inception` says "Write domain-model.md" but provides no template (unlike BRD which has `brd-template.md`). The domain model was freeform — no Status/Version frontmatter, no field types, no relationships section.
 
@@ -355,7 +393,7 @@ Then update implementation gates to verify both views are synchronized.
 
 ---
 
-### 20. Brownfield BRD appending creates a growing log
+### 21. Brownfield BRD appending creates a growing log
 
 **Problem:** `asdlc-brownfield-brainstorm` says "append a story section to brd.md." Over time the BRD mixes project-level requirements with story-level brainstorms, becoming an append-only log.
 
@@ -363,7 +401,7 @@ Then update implementation gates to verify both views are synchronized.
 
 ---
 
-### 21. `accessibility.md` never written as a separate file
+### 22. `accessibility.md` never written as a separate file
 
 **Current status:** Mostly covered in current skill text. Keep this only as a historical exercise finding unless a future run shows the current gate still lets agents inline accessibility.
 
@@ -373,7 +411,7 @@ Then update implementation gates to verify both views are synchronized.
 
 ---
 
-### 22. No "When to Skip" guidance for `asdlc-ui-mockups`
+### 23. No "When to Skip" guidance for `asdlc-ui-mockups`
 
 **Current status:** Partially valid. The skill has "When to Use," and workflow docs mention skip cases, but the skill itself still lacks an explicit skip section and skip artifact rule.
 
@@ -383,7 +421,7 @@ Then update implementation gates to verify both views are synchronized.
 
 ---
 
-### 23. No gate catches domain model drift after brownfield changes
+### 24. No gate catches domain model drift after brownfield changes
 
 **Problem:** When STORY-002 added `category` to `Quote`, `domain-model.md` was NOT updated. No skill or gate catches this. Over multiple stories, the domain model goes stale.
 
@@ -391,7 +429,7 @@ Then update implementation gates to verify both views are synchronized.
 
 ---
 
-### 24. Story template YAML is richer than what agents produce
+### 25. Story template YAML is richer than what agents produce
 
 **Problem:** The `story-template.md` has fields like `epic_id`, `milestone`, `track`, `depends_on`, `owner`, `branch`, etc. In practice agents only fill `story_id`, `status`, `complexity`, `risk`. No gate enforces the full template.
 
