@@ -12,6 +12,9 @@ Rules implemented:
   consistency.cli.missing_stub             Skill references a doc path that CLI init does not create
   consistency.skill_path.old_style         Skill references skills using old repo-root style
                                            (.agents/skills/<name>/SKILL.md) instead of packaged path
+  consistency.story.branch_naming          Story branch field doesn't match feature/STORY-NNN-short-desc
+  consistency.story.branch_story_id_mismatch Story branch ID doesn't match frontmatter story_id
+  consistency.story.branch_field_missing   Story file has no branch field in frontmatter
 
 All findings are ERRORS because path drift directly causes agent confusion.
 """
@@ -20,6 +23,8 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
+
+import yaml as _yaml
 
 from .models import ValidationIssue, ValidationReport
 from .utils import rel as _rel
@@ -76,6 +81,21 @@ WORKFLOW_CREATED_FILES: set[str] = {
 OLD_SKILL_PATH_RE = re.compile(
     r"(?<!\.agents/)(?<!src/agentic_sdlc/)(?:\./)?skills/([\w<>.-]+)/SKILL\.md"
 )
+
+# ---------------------------------------------------------------------------
+# Branch validation patterns (issues #2, #3, #7)
+# ---------------------------------------------------------------------------
+
+# Canonical feature branch: feature/STORY-NNN-short-desc
+# - STORY- followed by one or more digits
+# - followed by a hyphen and a non-empty lowercase slug
+STORY_BRANCH_RE = re.compile(r"^feature/STORY-(?P<id>\d+)-[a-z0-9][a-z0-9-]*$")
+
+# Docs-stage branch: docs/{stage-name}
+DOCS_BRANCH_RE = re.compile(r"^docs/[a-z][a-z0-9-]+$")
+
+# Extract YAML frontmatter from markdown
+_FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
 
 
 def _check_stale_filenames(skill_name: str, path: Path, content: str, repo_root: Path) -> list[ValidationIssue]:
@@ -218,12 +238,99 @@ CONSISTENCY_RULES = [
 
 
 # ---------------------------------------------------------------------------
+# Story file branch validation (issues #2, #3)
+# Operates on docs/sdlc/stories/STORY-*.md files, not SKILL.md files.
+# ---------------------------------------------------------------------------
+
+
+
+def _parse_story_frontmatter(content: str) -> dict | None:
+    """Return the parsed YAML frontmatter dict from a story file, or None."""
+    match = _FRONTMATTER_RE.match(content)
+    if not match:
+        return None
+    try:
+        data = _yaml.safe_load(match.group(1))
+        return data if isinstance(data, dict) else None
+    except _yaml.YAMLError:
+        return None
+
+
+def _check_story_branch_naming(story_path: Path, repo_root: Path) -> list[ValidationIssue]:
+    """
+    Validate the `branch` field in a story's YAML frontmatter.
+
+    Rules:
+      - `branch` field must be present
+      - must match `feature/STORY-NNN-short-desc` pattern
+    """
+    issues = []
+    content = story_path.read_text(encoding="utf-8")
+    fm = _parse_story_frontmatter(content)
+    if fm is None:
+        return []  # No frontmatter — skip; the story template validator would catch this
+
+    branch = fm.get("branch", "").strip()
+    rel_path = _rel(story_path, repo_root)
+
+    if not branch:
+        issues.append(ValidationIssue(
+            rule_id="consistency.story.branch_field_missing",
+            severity="error",
+            path=rel_path,
+            message=(
+                "Story frontmatter is missing a 'branch' field. "
+                "Add: branch: feature/STORY-{ID}-{short-desc}"
+            ),
+        ))
+        return issues  # Can't check naming or ID match without a value
+
+    # Skip template default — it's the placeholder in story-template.md
+    if "NNN" in branch:
+        return []
+
+    if not STORY_BRANCH_RE.match(branch):
+        issues.append(ValidationIssue(
+            rule_id="consistency.story.branch_naming",
+            severity="error",
+            path=rel_path,
+            message=(
+                f"Branch '{branch}' doesn't match the required pattern "
+                "'feature/STORY-NNN-short-desc' (e.g. feature/STORY-003-add-auth). "
+                "Update the branch field or rename the git branch."
+            ),
+        ))
+        return issues  # No point cross-checking ID if format is wrong
+
+    # Cross-check: ID in branch must match story_id in frontmatter
+    story_id_raw = str(fm.get("story_id", "")).strip()  # e.g. "STORY-003"
+    branch_id_match = STORY_BRANCH_RE.match(branch)
+    if branch_id_match and story_id_raw:
+        branch_num = branch_id_match.group("id")  # e.g. "003"
+        # story_id may be zero-padded or not — normalise both to int for comparison
+        story_id_digits = "".join(filter(str.isdigit, story_id_raw))
+        if story_id_digits and int(branch_num) != int(story_id_digits):
+            issues.append(ValidationIssue(
+                rule_id="consistency.story.branch_story_id_mismatch",
+                severity="error",
+                path=rel_path,
+                message=(
+                    f"Branch '{branch}' contains STORY-{branch_num} but frontmatter "
+                    f"story_id is '{story_id_raw}'. They must match."
+                ),
+            ))
+
+    return issues
+
+
+# ---------------------------------------------------------------------------
 # Public entry point — called by the main validate() in validator.py
 # ---------------------------------------------------------------------------
 
 def check(repo_root: Path, report: ValidationReport) -> None:
     """
-    Run all consistency checks against all SKILL.md files in repo_root.
+    Run all consistency checks against all SKILL.md files in repo_root,
+    and branch-naming checks against all story files.
 
     Findings are appended directly to the provided report.
     This is called from validator.validate() after static rules complete.
@@ -249,6 +356,19 @@ def check(repo_root: Path, report: ValidationReport) -> None:
         for rule in CONSISTENCY_RULES:
             report.checks_run += 1
             issues = rule(skill_name, skill_path, content, repo_root)
+            for issue in issues:
+                if issue.severity == "error":
+                    report.errors.append(issue)
+                else:
+                    report.warnings.append(issue)
+
+    # ── Story branch validation ───────────────────────────────────────────────
+    # Runs against docs/sdlc/stories/STORY-*.md files, not SKILL.md files.
+    stories_dir = repo_root / "docs" / "sdlc" / "stories"
+    if stories_dir.exists():
+        for story_path in sorted(stories_dir.glob("STORY-*.md")):
+            report.checks_run += 1
+            issues = _check_story_branch_naming(story_path, repo_root)
             for issue in issues:
                 if issue.severity == "error":
                     report.errors.append(issue)
