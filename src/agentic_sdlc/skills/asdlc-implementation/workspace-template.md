@@ -15,10 +15,10 @@ stage_tokens:
   implementation: 0
   review: 0
 blocked_reason: ""
-git_branch: ""
+branch: ""
 git_commit_sha: ""
-git_merge_status: pending
-# git_merge_status options: pending | merged | conflict
+merge_status: pending
+# merge_status options: pending | merged | conflict
 ---
 
 # Workspace: STORY-000
@@ -54,14 +54,14 @@ _(Copy from `docs/sdlc/stories/STORY-000.md`)_
 - Then
 
 ## Tasks
-- [ ] Create feature branch: `git checkout main && git pull origin main && git checkout -b feature/STORY-000-short-desc`
+- [ ] Create feature branch: `git checkout main && git pull origin main && git checkout -b feature/{STORY_ID}-{short-desc}`
 - [ ] Write failing test(s) — confirm RED
 - [ ] Implement to make tests pass — confirm GREEN
 - [ ] Refactor — apply coding standards
 - [ ] Run full test suite — confirm no regression
 - [ ] Security checklist
 - [ ] Update `docs/architecture/data-domain.md` if interfaces changed (triggers HITL)
-- [ ] Commit story: `git add . && git commit -m "{type}(STORY-000): story title"`
+- [ ] Commit story: `git add . && git commit -m "{type}({STORY_ID}): story title"`
 - [ ] After code-review PASS: squash merge to main and delete branch
 
 ## Notes / Blockers

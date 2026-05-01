@@ -50,6 +50,13 @@ Each planning/documentation stage (asdlc-inception, asdlc-design-system, asdlc-u
    (human reviews and approves)
 
 5. After HITL approval — merge to main:
+   # Option A: Team Workflow (PR)
+   git push origin docs/{stage-name}
+   # -> Create PR on GitHub/GitLab
+   # -> Squash merge via PR UI
+   # -> git checkout main && git pull origin main
+
+   # Option B: Solo Workflow (Local Merge)
    git checkout main
    git merge --squash docs/{stage-name}
    git commit -m "docs({stage-name}): approved — merge to main"
@@ -76,7 +83,15 @@ Each story follows this pattern:
    git commit -m "{type}(STORY-{ID}): {story title}"
    # type = feat | fix | refactor depending on the story nature
 
-4. After code-review PASS — squash merge to main:
+4. After code-review PASS — merge to main:
+   # Option A: Team Workflow (PR)
+   git push origin feature/STORY-{ID}-{short-desc}
+   # -> Create PR on GitHub/GitLab
+   # -> CI runs, team reviews
+   # -> Squash merge via PR UI (one clean commit on main)
+   # -> git checkout main && git pull origin main
+
+   # Option B: Solo Workflow (Local Merge)
    git checkout main
    git pull origin main
    git merge --squash feature/STORY-{ID}-{short-desc}
