@@ -357,14 +357,14 @@ def render_html(metrics, project_root, generated_at):
     <div class="card">
       <h2>🔄 In Progress</h2>
       <table>
-        <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Owner</th></tr></thead>
+        <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Owner</th><th>Branch</th></tr></thead>
         <tbody>{story_rows(metrics['in_progress'])}</tbody>
       </table>
     </div>
     <div class="card">
       <h2>🚫 Blocked</h2>
       <table>
-        <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Reason</th></tr></thead>
+        <thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Branch</th><th>Reason</th></tr></thead>
         <tbody>{story_rows(metrics['blockers'])}</tbody>
       </table>
     </div>
