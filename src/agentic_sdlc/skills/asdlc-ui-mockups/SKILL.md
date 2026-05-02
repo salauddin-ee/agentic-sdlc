@@ -45,13 +45,17 @@ Do NOT begin production implementation, implementation-planning, or brownfield-t
 
 7. **Share the artifact for review** — link screenshots, open the coded prototype, or embed images in the mockups doc
 
-8. **HITL checkpoint** — invoke `asdlc-hitl-protocol` skill for explicit approval:
+8. **Set artifact status** — update `docs/product/mockups.md` status to `Ready for HITL`
+
+9. **HITL checkpoint** — invoke `asdlc-hitl-protocol` skill for explicit approval:
    - If changes requested: revise the mockup and re-present (see Iteration Protocol below)
    - If approved: proceed
 
-9. **Record the decision** — update `docs/product/mockups.md` with the approved direction and any scope restrictions
+10. **Record the decision** — update `docs/product/mockups.md` with `hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, `hitl_approved_at`, the approved direction, and any scope restrictions
 
-10. **Transition**:
+11. **Update artifact status** — only after explicit approval, update `docs/product/mockups.md` status to `Approved`
+
+12. **Transition**:
     - Greenfield: continue to `asdlc-tech-architecture` or `asdlc-implementation-planning` only after approval
     - Brownfield: continue to `asdlc-brownfield-tech-plan` only after approval
 
@@ -145,7 +149,8 @@ Never proceed to implementation without explicit approval regardless of iteratio
 [ ] Accessibility requirements visible in mockup (e.g., focus states, contrast)
 [ ] docs/product/mockups.md written with artifact references and design references
 [ ] Visual direction presented to the user for review
-[ ] Explicit approval recorded via HITL before implementation proceeds
+[ ] Artifact status is `Ready for HITL` before requesting user approval
+[ ] Explicit approval recorded via HITL before implementation proceeds, including prompt and user response evidence in mockups.md metadata
 [ ] No production implementation started before approval
 ```
 

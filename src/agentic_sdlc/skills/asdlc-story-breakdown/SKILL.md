@@ -24,7 +24,10 @@ Do NOT begin implementation until the task graph is approved by the user via HIT
 10. **Write `docs/sdlc/epics/task-graph.md`** — a summary of all epics and their dependency DAGs for cross-reference.
 11. **Write story files** to `docs/sdlc/stories/STORY-[ID].md` for every individual ticket using the `story-template.md` file in this skill's directory.
 12. **Self-review** — check DAG is acyclic, all interface contracts locked, all FRs covered, no `files_touched` overlap without merge strategy
-13. **HITL checkpoint** — human reviews and approves epic breakdown before implementation
+13. **Set artifact status** — update epic/task graph status to `Ready for HITL`
+14. **HITL checkpoint** — human reviews and approves epic breakdown before implementation
+15. **Record HITL evidence** — record `hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, and `hitl_approved_at` in the epic/task graph metadata
+16. **Update artifact status** — only after explicit approval, update status to `Approved`
 
 
 ## Parallel Track Rules
@@ -47,6 +50,7 @@ For each parallel track, define:
 [ ] Every story has files_touched populated
 [ ] No files_touched overlap between parallel stories without explicit merge strategy
 [ ] HITL checkpoint tasks marked (hitl_required: true where needed)
+[ ] Epic/task graph status is `Ready for HITL` before requesting user approval
 [ ] EPIC written to docs/sdlc/epics/, task-graph.md written to docs/sdlc/epics/, and STORY-*.md files written to docs/sdlc/stories/
 ```
 

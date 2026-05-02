@@ -28,9 +28,12 @@ Do NOT write any production code until tech-architecture.md, at least one ADR pe
 10. **Write `docs/architecture/tech-architecture.md`** — using format below
 11. **Self-review** — check all ADR decisions are reflected in architecture, no gaps
 12. **Present to user** — section by section
-13. **HITL checkpoint** — required before any code is written
-14. **Update AGENTS.md** — enrichment Phase 2 (see detailed instructions below)
-15. **Transition** — invoke `asdlc-implementation-planning` skill
+13. **Set artifact status** — update `docs/architecture/tech-architecture.md` status to `Ready for HITL`
+14. **HITL checkpoint** — required before any code is written
+15. **Record HITL evidence** — once the user responds, record `hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, and `hitl_approved_at` in the architecture metadata.
+16. **Update artifact status** — only after explicit approval, update `docs/architecture/tech-architecture.md` status to `Approved`
+17. **Update AGENTS.md** — enrichment Phase 2 (see detailed instructions below)
+18. **Transition** — invoke `asdlc-implementation-planning` skill
 
 
 **Decisions that typically require an ADR (subject to Scale Guide):**
@@ -49,8 +52,13 @@ Do NOT write any production code until tech-architecture.md, at least one ADR pe
 ```markdown
 # Technical Architecture
 
-> **Status:** Draft | Approved
+> **Status:** Draft | Ready for HITL | Approved
 > **Version:** 0.1.0
+> **hitl_prompt:** [Exact HITL prompt or artifact-local reference]
+> **hitl_response:** [Exact user response after HITL, blank before response]
+> **hitl_decision:** [approved | changes_requested | rejected, blank before response]
+> **hitl_approved_by:** [user/person, blank before response]
+> **hitl_approved_at:** [timestamp/date, blank before response]
 
 ## System context (C4 Level 1)
 [Mermaid diagram — actors, system boundary, external integrations]
@@ -105,9 +113,10 @@ Read `asdlc-stage-gates` skill and evaluate:
 [ ] Coding constitution written (invoke the `asdlc-coding-constitution` skill)
 [ ] Security approach documented
 [ ] All artifacts written to docs/architecture/ (and ADRs to docs/architecture/adrs/)
-[ ] User has reviewed and approved via HITL
-[ ] AGENTS.md has been updated with Project Context (Phase 2 enrichment)
+[ ] Artifact status is `Ready for HITL` before requesting user approval
 ```
+
+After HITL approval is recorded, re-run `asdlc-stage-gates` and verify the artifact status is `Approved` with HITL evidence. Then update `AGENTS.md` with Project Context (Phase 2 enrichment) before moving to implementation-planning.
 
 ## HITL Checkpoint
 

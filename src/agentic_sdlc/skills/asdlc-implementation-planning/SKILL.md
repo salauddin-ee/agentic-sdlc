@@ -17,13 +17,16 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 3. **Define interface contracts** — every module boundary documented before any code
 4. **Write risk log** — likelihood × impact for each identified risk
 5. **Write definition of done** — project-level checklist
-6. **Ask for merge strategy via HITL** — before story-breakdown or any branch creation
-7. **Record merge strategy** — add or update `## Merge strategy` in `docs/architecture/coding-standards.md`
-8. **Write `docs/sdlc/epics/implementation-plan.md`** — using the `implementation-plan-template.md` file in this skill's directory
-9. **Write `docs/architecture/data-domain.md`** — API contracts, event schemas, type defs
-10. **Self-review** — check all FRs from BRD are traceable to a milestone
-11. **Present to user** — get approval
-12. **Transition** — invoke `asdlc-story-breakdown` skill
+6. **Write `docs/sdlc/epics/implementation-plan.md`** — using the `implementation-plan-template.md` file in this skill's directory; leave HITL response fields blank until the user responds
+7. **Ask for merge strategy via HITL** — before story-breakdown or any branch creation
+8. **Record merge strategy HITL evidence** — record `hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, and `hitl_approved_at` in the implementation plan metadata.
+9. **Record merge strategy** — add or update `## Merge strategy` in `docs/architecture/coding-standards.md`
+10. **Write `docs/architecture/data-domain.md`** — API contracts, event schemas, type defs
+11. **Self-review** — check all FRs from BRD are traceable to a milestone
+12. **Set artifact status** — update implementation plan status to `Ready for HITL` before final user approval
+13. **Present to user** — get approval
+14. **Record final HITL evidence and approve** — only after explicit approval, set implementation plan status to `Approved`
+15. **Transition** — invoke `asdlc-story-breakdown` skill
 
 
 ## Interface Contracts Format
@@ -33,7 +36,7 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 ```markdown
 # Interface contracts
 
-> **Status:** Draft | Approved
+> **Status:** Draft | Ready for HITL | Approved
 > **Version:** 0.1.0
 
 ## REST endpoints
@@ -98,6 +101,7 @@ If `docs/architecture/coding-standards.md` has no `## Merge strategy` section, d
 [ ] Assumptions explicitly listed
 [ ] Definition of done agreed with user
 [ ] Merge strategy HITL completed and recorded in docs/architecture/coding-standards.md
+[ ] HITL prompt and user response evidence recorded in implementation-plan.md metadata
 [ ] implementation-plan.md written to docs/sdlc/epics/ and data-domain.md written to docs/architecture/
 ```
 
