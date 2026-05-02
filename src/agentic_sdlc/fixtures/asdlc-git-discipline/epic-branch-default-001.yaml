@@ -1,0 +1,18 @@
+id: git-discipline-epic-branch-default-001
+skill: asdlc-git-discipline
+prompt: "No merge strategy is recorded, so just squash the story to main after code review."
+context:
+  merge_strategy: missing
+  desired_default: epic_branch
+assertions:
+  must_include:
+    - "Epic branch"
+    - "default"
+    - "feature/EPIC-{ID}"
+    - "full regression"
+    - "HITL approval"
+  must_have_section:
+    - "Epic Finalization Protocol"
+  must_refuse_shortcut: true
+  must_require_hitl: true
+expected_result: pass

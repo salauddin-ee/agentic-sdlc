@@ -16,7 +16,7 @@ Do NOT begin implementation until the task graph is approved by the user via HIT
 2. **Break milestones into stories** — each story independently testable, < ~400 lines net new code
 3. **Write acceptance criteria** — Given/When/Then for every story
 4. **Build the dependency DAG** — identify which stories can run in parallel
-5. **Define parallel track rules** — file ownership and merge strategy
+5. **Define parallel track rules** — file ownership and merge strategy from `docs/architecture/coding-standards.md`
 6. **Flag HITL tasks** — any task that needs human input before starting (set `hitl_required: true`)
 7. **Assess complexity & risk** — for each story set `complexity` (low|medium|high) for decomposition risk and `risk` (low|medium|high) for critical-path impact. These are independent dimensions.
 8. **List files touched** — populate `files_touched` per story. Cross-check across parallel tracks for overlap; overlapping files require explicit merge strategy or track reassignment.
@@ -31,7 +31,7 @@ Do NOT begin implementation until the task graph is approved by the user via HIT
 
 For each parallel track, define:
 - **Exclusive file ownership**: which files does this track own? (no overlap with other tracks)
-- **Merge strategy**: feature branch per story, squash merge to main
+- **Merge strategy**: read `docs/architecture/coding-standards.md` → `## Merge strategy`; default to Epic branch if missing
 
 ## Gate
 
@@ -40,6 +40,7 @@ For each parallel track, define:
 [ ] Every FR from brd.md is covered by at least one story
 [ ] DAG is acyclic — no circular dependencies
 [ ] All parallel tracks have exclusive file ownership or explicit merge strategy
+[ ] Merge strategy copied from docs/architecture/coding-standards.md into the epic manifest
 [ ] All interface contracts locked before parallel work begins
 [ ] No story > ~400 lines net new code (split if larger)
 [ ] Every story has complexity and risk assessed

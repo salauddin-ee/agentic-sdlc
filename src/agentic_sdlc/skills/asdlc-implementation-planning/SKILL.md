@@ -17,11 +17,13 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 3. **Define interface contracts** — every module boundary documented before any code
 4. **Write risk log** — likelihood × impact for each identified risk
 5. **Write definition of done** — project-level checklist
-6. **Write `docs/sdlc/epics/implementation-plan.md`** — using the `implementation-plan-template.md` file in this skill's directory
-7. **Write `docs/architecture/data-domain.md`** — API contracts, event schemas, type defs
-8. **Self-review** — check all FRs from BRD are traceable to a milestone
-9. **Present to user** — get approval
-10. **Transition** — invoke `asdlc-story-breakdown` skill
+6. **Ask for merge strategy via HITL** — before story-breakdown or any branch creation
+7. **Record merge strategy** — add or update `## Merge strategy` in `docs/architecture/coding-standards.md`
+8. **Write `docs/sdlc/epics/implementation-plan.md`** — using the `implementation-plan-template.md` file in this skill's directory
+9. **Write `docs/architecture/data-domain.md`** — API contracts, event schemas, type defs
+10. **Self-review** — check all FRs from BRD are traceable to a milestone
+11. **Present to user** — get approval
+12. **Transition** — invoke `asdlc-story-breakdown` skill
 
 
 ## Interface Contracts Format
@@ -56,6 +58,36 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 [TypeScript interfaces, Zod schemas, or language-equivalent type definitions]
 ```
 
+## Merge Strategy HITL
+
+Before story-breakdown begins, ask this exact HITL question and wait for an explicit response. If the user does not respond, record option A as the planned default but do not create story branches until the stage is approved.
+
+```text
+HITL REQUIRED
+Stage: implementation-planning
+Question: How should completed stories be merged?
+Context: Stories will be broken down and implemented on feature branches.
+Options: [A] Epic branch (recommended) — stories merge into feature/EPIC-{ID}, then the epic branch merges to main after full regression + your approval.
+         [B] Direct to main — each story squash-merges to main after code-review (solo-dev workflow, no integration branch).
+         [C] PR-based — stories push to remote and open PRs against main (team workflow with CI and remote review).
+Default if no response: [A] Epic branch
+```
+
+Record the answer in `docs/architecture/coding-standards.md`:
+
+```markdown
+## Merge strategy
+
+- Selected strategy: Epic branch | Direct to main | PR-based
+- Selected by: [human name or "user"]
+- Decision date: YYYY-MM-DD
+- Rationale: [why this strategy fits the project]
+- Epic integration branch: `feature/EPIC-{ID}` (required for Epic branch)
+- Main merge approval: HITL required after full regression on the epic branch
+```
+
+If `docs/architecture/coding-standards.md` has no `## Merge strategy` section, downstream skills must treat the project as **Epic branch** by default.
+
 ## Gate
 
 ```
@@ -65,6 +97,7 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 [ ] Risk log populated with at least 1 risk (3+ for small/medium/large per Scale Guide)
 [ ] Assumptions explicitly listed
 [ ] Definition of done agreed with user
+[ ] Merge strategy HITL completed and recorded in docs/architecture/coding-standards.md
 [ ] implementation-plan.md written to docs/sdlc/epics/ and data-domain.md written to docs/architecture/
 ```
 

@@ -85,6 +85,7 @@ Gate: ADRs written, diagrams present, directory structure defined, security appr
 What happens:
 - Milestones defined with exit criteria
 - Interface contracts locked between all modules
+- Merge strategy selected via HITL and recorded in `docs/architecture/coding-standards.md`
 - Risk log populated
 - Definition of done agreed
 - Output: `docs/sdlc/epics/implementation-plan.md`, `docs/architecture/data-domain.md`
@@ -114,7 +115,7 @@ What happens (per story):
 3. Refactor (clean + coding constitution compliant)
 4. Run full test suite (no regressions)
 5. Security checklist verified
-6. Story marked complete in task-graph
+6. Story merged according to the configured merge strategy; default is story branch into `feature/EPIC-{ID}`
 
 ---
 
@@ -163,6 +164,7 @@ What happens:
 What happens:
 - Execution summary written
 - Requirements fidelity table completed
+- If using the default epic branch strategy, final regression and HITL approval are recorded before `feature/EPIC-{ID}` merges to `main`
 - Lessons learned documented
 - Skills library updates proposed
 - Output: `docs/sdlc/retrospectives/retrospective.md`

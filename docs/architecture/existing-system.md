@@ -1,46 +1,60 @@
-# Existing system analysis — TrainAssist
+# Existing system analysis
 
 > **Status:** Draft
 > **Version:** 0.1.0
+> **Last updated:** 2026-05-02
 
 ## Tech stack
 | Component | Technology | Version | Notes |
 |---|---|---|---|
-| Language | JavaScript/React | - | SPA built with Vite |
-| Runtime | Browser | - | |
-| Framework | React (likely) | - | Uses `root` div and index.js bundle |
-| API Base | `/api` | - | Endpoints identified: `/api/auth/sso/google/login`, `/api/companies/` |
-| Auth | Bearer Token | - | Stored in LocalStorage |
+| Language | Python | >=3.9 | Package source under `src/agentic_sdlc/` |
+| Runtime | Python | 3.13.12 observed locally | Current local test run used Python 3.13.12 |
+| Package manager/build | setuptools | >=77.0.0 | Configured in `pyproject.toml` |
+| CLI framework | Click | >=8.1.0 | Public `asdlc`; developer `asdlc-dev` |
+| YAML support | PyYAML | >=6.0.0 | Used by skill eval/validation tooling |
+| Test runner | pytest | >=7.0.0 | Optional dev dependency |
+| Coverage | pytest-cov | >=4.0.0 | Optional dev dependency |
 
 ## Test coverage baseline
-- Total tests: [N/A]
-- Passing: [N/A]
-- Failing: [N/A]
-- Coverage: [N/A]
-- Last run: [N/A]
+- Command: `pytest --cov=agentic_sdlc -q`
+- Exit code: 0
+- Total tests: 9
+- Passing: 9
+- Failing: 0
+- Coverage: 15% total lines
+- Last run: 2026-05-02
 
-**Note: No source code access; analysis performed via browser content and JS bundle exploration.**
+**This baseline must not decrease. Any change that drops coverage requires HITL approval.**
 
 ## Existing patterns
-- Error handling: Returns JSON with `error` or `detail` keys.
-- Logging: Task submissions log prompts and responses with `|||PROMPT|||` and `|||RESPONSE|||` tags.
-- Input validation: Client-side validation exists for emails and names; server-side validation suspected.
-- Directory structure: Assets in `/assets/`.
+- Error handling: CLI commands use Click output plus `click.exceptions.Exit(code=1)` for user-facing failures.
+- Logging/output: CLI prints concise human-readable status lines with `click.echo`.
+- Input validation: Click argument and option types validate command inputs.
+- Directory structure: package code lives under `src/agentic_sdlc/`; skills under `src/agentic_sdlc/skills/asdlc-*`; fixtures under `src/agentic_sdlc/fixtures/`; tests under `tests/`.
+- Tests: `tests/test_cli.py` uses `click.testing.CliRunner` and temporary directories to validate scaffold behavior.
 
 ## Known tech debt
-- [N/A]
+- Skill process safety gaps are tracked in `NEED-TO-FOCUS.md`.
+- `docs/architecture/existing-system.md` previously described an unrelated TrainAssist app and has been refreshed for this repository.
+- Overall coverage is low because dashboard and eval modules have little or no test coverage.
 
 ## Integration points
 | Integration | Direction | Protocol | Notes |
 |---|---|---|---|
-| Google SSO | outbound | OAuth2 | Used for authentication |
-| Claude Code | inbound/outbound | - | Terminal interface for training |
+| Local filesystem | read/write | POSIX paths via `pathlib`/`shutil` | `asdlc init` scaffolds docs, `.agents/skills`, and `AGENTS.md` into target projects |
+| Python packaging | outbound | setuptools entry points | Publishes `asdlc` and `asdlc-dev` console scripts |
+| Browser dashboard | local service | HTTP | `asdlc serve` delegates to `dashboard.serve` |
+| Skill fixtures | local read | YAML files | `asdlc-dev eval-skills` reads deterministic scenario fixtures |
 
 ## Fragile / high-risk areas
-- **Bulk Invite Endpoint**: `/api/companies/${a}/members/bulk-invite` - Risk of DoS or injection.
-- **Task Submission**: `/api/tasks/${taskId}/submit` - Risk of sandbox escape if the terminal is not isolated.
-- **Role Management**: Risks of privilege escalation if roles like `super_admin` can be set by unauthorized users.
+- `src/agentic_sdlc/skills/`: Skill wording is the product contract; small instruction changes can alter agent behavior across all initialized projects.
+- `src/agentic_sdlc/core/AGENTS.md`: Copied into user projects by `asdlc init`; changes affect bootstrapping and agent instruction priority.
+- `src/agentic_sdlc/cli.py`: `init` currently owns scaffold creation and skill copying; changes can overwrite user project files if not carefully tested.
+- `docs/workflow-greenfield.md` and `docs/workflow-brownfield.md`: Must stay aligned with skill transition rules.
+- `tests/test_cli.py`: Current tests mainly cover init/update-agents scaffolding; process behavior is mostly guarded by fixtures and validation tooling.
 
 ## Constraints
-- No direct backend access.
-- Limited to public endpoints and client-side code analysis.
+- Commit messages in this repository must not contain agent/tool attribution metadata.
+- Packaged skills live in `src/agentic_sdlc/skills/`; initialized projects receive copies under `.agents/skills/`.
+- Stage artifacts should be written to `docs/` and should not rely on conversation memory.
+- User approval is required for irreversible decisions and mandatory HITL checkpoints.

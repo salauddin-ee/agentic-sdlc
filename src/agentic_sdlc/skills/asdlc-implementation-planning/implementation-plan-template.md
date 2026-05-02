@@ -10,6 +10,15 @@
 > [!IMPORTANT]
 > [Critical decisions or breaking changes requiring human sign-off]
 
+## Merge Strategy
+
+> **Selected strategy:** Epic branch | Direct to main | PR-based
+> **Recorded in:** `docs/architecture/coding-standards.md#merge-strategy`
+
+- [ ] HITL merge strategy decision completed
+- [ ] `docs/architecture/coding-standards.md` updated with the decision
+- [ ] Branch targets are clear before story-breakdown begins
+
 ## Milestones
 
 | Milestone | Exit Criteria |

@@ -18,14 +18,14 @@ blocked_reason: ""
 branch: ""
 git_commit_sha: ""
 merge_status: pending
-# merge_status options: pending | merged | conflict
+# merge_status options: pending | merged_to_epic | merged_to_main | pr_open | conflict
 ---
 
 # Workspace: STORY-000
 
 > **Instructions for agent:** Fill in the YAML frontmatter above as you work.
 > Log token estimates after each stage. Update `status` as you progress.
-> Delete this file only AFTER the story is squash merged to main (see `asdlc-git-discipline` skill). Do NOT delete before code-review.
+> Delete this file only AFTER the story is merged to the configured target (see `asdlc-git-discipline` skill). Do NOT delete before code-review.
 
 ## Context
 
@@ -62,7 +62,7 @@ _(Copy from `docs/sdlc/stories/STORY-000.md`)_
 - [ ] Security checklist
 - [ ] Update `docs/architecture/data-domain.md` if interfaces changed (triggers HITL)
 - [ ] Commit story: `git add . && git commit -m "{type}({STORY_ID}): story title"`
-- [ ] After code-review PASS: squash merge to main and delete branch
+- [ ] After code-review PASS: merge according to configured strategy and delete branch only when safe
 
 ## Notes / Blockers
 _(Use this section for real-time notes during implementation. Record blocker details here and update `blocked_reason` in YAML.)_

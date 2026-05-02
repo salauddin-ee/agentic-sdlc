@@ -48,7 +48,7 @@ blocked_reason: ""
 - [ ] Run full test suite — confirm no regression
 - [ ] Update `docs/architecture/data-domain.md` if any contract changed (triggers HITL)
 - [ ] Commit story per `asdlc-git-discipline` — only stage files listed in `files_touched` + test files
-- [ ] After code-review PASS: squash merge to main, delete feature branch per `asdlc-git-discipline`
+- [ ] After code-review PASS: merge according to `docs/architecture/coding-standards.md` → `## Merge strategy`
 
 ---
 *Written by: agentic-sdlc story-breakdown skill*
