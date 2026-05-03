@@ -149,6 +149,8 @@ git push origin feature/STORY-[ID]-[short-desc]
 
 > One squash commit per story on the configured merge target. With the Epic branch strategy, `main` is not touched until full regression passes on `feature/EPIC-[ID]` and HITL approves the epic merge.
 
+After a successful merge (strategies A or B) or PR creation (strategy C), update the `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `MERGED`.
+
 ## Gate
 
 ```

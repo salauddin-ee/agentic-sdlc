@@ -37,7 +37,7 @@ For each active ticket:
 10. Refactor — apply docs/architecture/coding-standards.md
 11. Run full test suite — confirm no regression across all tests
 12. Log token usage in workspace YAML: `tokens_input`, `tokens_output`, `stage_tokens`, `elapsed_minutes`, `hitl_count`.
-13. Mark `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: DONE`.
+13. Mark `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: IMPLEMENTED`.
 14. If any interface contract changed: update docs/architecture/data-domain.md → triggers HITL
 15. Commit the completed story (ONE commit per story):
     git add .
@@ -168,7 +168,7 @@ Before invoking `asdlc-critical-review` skill, every item below must be true for
 [ ] data-domain.md updated if any interface contract changed (triggers HITL)
 [ ] Workspace file physically exists at docs/sdlc/workspaces/workspace-STORY-[ID].md with YAML fields populated
 [ ] Token usage logged in the workspace YAML file
-[ ] Story status set to DONE in docs/sdlc/stories/STORY-[ID].md
+[ ] Story status set to IMPLEMENTED in docs/sdlc/stories/STORY-[ID].md
 [ ] Story committed on feature branch (git status shows clean working tree)
 ```
 

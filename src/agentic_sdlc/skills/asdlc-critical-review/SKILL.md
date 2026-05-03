@@ -122,7 +122,7 @@ Write findings to `docs/sdlc/retrospectives/critical-review.md`:
 [ ] If FAIL: implementation skill invoked to fix before re-running this review
 ```
 
-Only proceed to `asdlc-testing` skill when verdict is PASS (all P0 and P1 findings resolved).
+Only proceed to `asdlc-testing` skill when verdict is PASS (all P0 and P1 findings resolved). If verdict is PASS, update the `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `REVIEWED` before continuing.
 
 ## Red Flags
 

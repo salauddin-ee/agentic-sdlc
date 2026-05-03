@@ -1,7 +1,7 @@
 ---
 story_id: STORY-NNN
 status: TO_DO
-# status options: TO_DO | IN_PROGRESS | BLOCKED | DONE | ARCHIVED
+# status options: TO_DO | IN_PROGRESS | BLOCKED | IMPLEMENTED | REVIEWED | TESTED | APPROVED | MERGED | ARCHIVED
 epic_id: EPIC-000
 milestone: M1
 track: A

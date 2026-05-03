@@ -58,6 +58,8 @@ Evaluate before triggering HITL:
 [ ] Out-of-scope is explicit — not empty
 [ ] No open questions remain (or HITL scheduled to resolve them)
 [ ] Prior art section completed — at least 1 comparable product researched (3+ for small/medium/large per Scale Guide)
+[ ] BRD status is 'Ready for HITL' before HITL is triggered
+[ ] BRD status is 'Approved' after HITL evidence is recorded
 [ ] domain-model.md written to docs/architecture/ and brd.md written to docs/product/features/
 ```
 

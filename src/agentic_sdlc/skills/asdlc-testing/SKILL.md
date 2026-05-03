@@ -20,7 +20,8 @@ Do NOT proceed to asdlc-code-review until all automated tests pass, test pyramid
 4. **Run HITL test cases** — scenarios the agent cannot verify alone
 5. **Run load/performance tests** if NFRs specify targets
 6. **Document results in `docs/sdlc/test-plans/test-plan.md`** — fill Results Summary, mark each test case Passed/Failed/Skipped
-7. **Gate evaluation** — all criteria must pass before proceeding
+7. **Update story status** — set `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `TESTED`
+8. **Gate evaluation** — all criteria must pass before proceeding
 
 
 ## Running Tests
@@ -64,6 +65,7 @@ If NFRs specify latency, throughput, or load targets:
 [ ] Performance targets met (or deviation accepted via HITL)
 [ ] No P0 or P1 findings from critical-review remain open
 [ ] test-plan.md Results Summary section updated with actual pass/fail counts
+[ ] docs/sdlc/stories/STORY-[ID].md frontmatter status updated to TESTED
 ```
 
 ## Red Flags
