@@ -148,6 +148,8 @@ The stage-gates skill should never require `Status: Approved` before the mandato
 
 ### 6. Implementation flow skips testing before code-review
 
+**Status:** ✅ DONE (2026-05-03) — The transition sequence in `asdlc-implementation` now explicitly includes `asdlc-testing` before `asdlc-code-review`. `asdlc-code-review` requires evidence that testing was completed before allowing the review to proceed. `workflow-greenfield.md` and `workflow-brownfield.md` were also updated to move the "merge" step out of Stage 6 and into Stage 9, reflecting the true flow.
+
 **Problem:** The global workflow says `implementation → critical-review → testing → code-review`, and `asdlc-code-review` says it runs after testing is complete. But `asdlc-implementation` transitions directly from critical-review to code-review and then merge. This contradiction lets agents bypass the testing stage even if `asdlc-testing` exists.
 
 **Affected Files:**
@@ -156,18 +158,6 @@ The stage-gates skill should never require `Status: Approved` before the mandato
 - `src/agentic_sdlc/skills/asdlc-testing/SKILL.md`
 - `docs/workflow-greenfield.md`
 - `docs/workflow-brownfield.md`
-
-**Fix:** Update `asdlc-implementation` transition to:
-
-```
-implementation gate PASS
-→ critical-review
-→ testing
-→ code-review
-→ merge according to configured merge strategy
-```
-
-Add a code-review gate item requiring a completed testing artifact or command evidence from `docs/sdlc/test-plans/test-plan.md`.
 
 ---
 

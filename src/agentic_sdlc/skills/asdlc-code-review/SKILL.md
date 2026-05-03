@@ -11,7 +11,7 @@ Final structured review before merge or handoff. This is a compliance check agai
 **This skill covers:** coding standards compliance, test quality, operability, documentation completeness.
 **`asdlc-critical-review` covers:** behavioral correctness, requirements coverage, security vulnerabilities, integration contract compliance.
 
-Run `asdlc-critical-review` first. Only proceed to this skill after critical-review returns a PASS verdict. Both reviews are mandatory — they are complementary, not alternatives.
+Run `asdlc-critical-review` first, followed by `asdlc-testing`. Only proceed to this skill after both critical-review and testing return a PASS verdict. All three stages are mandatory.
 
 | Question | Critical Review | Code Review |
 |---|---|---|
@@ -151,6 +151,7 @@ git push origin feature/STORY-[ID]-[short-desc]
 ## Gate
 
 ```
+[ ] asdlc-testing stage was completed and passed (verify test-plan.md existence and results)
 [ ] Standards compliance section: PASS
 [ ] Test quality section: PASS
 [ ] Security audit section: PASS

@@ -115,7 +115,7 @@ What happens (per story):
 3. Refactor (clean + coding constitution compliant)
 4. Run full test suite (no regressions)
 5. Security checklist verified
-6. Story merged according to the configured merge strategy; default is story branch into `feature/EPIC-{ID}`
+6. Transition to critical-review, testing, and code-review
 
 ---
 
@@ -154,6 +154,7 @@ What happens:
 - Security audit (dependency scan + auth verification)
 - Operability check (logging, health check, graceful shutdown)
 - Documentation completeness
+- Story merged according to the configured merge strategy
 
 ---
 

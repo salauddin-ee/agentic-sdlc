@@ -42,7 +42,7 @@ For each active ticket:
 15. Commit the completed story (ONE commit per story):
     git add .
     git commit -m "{type}(STORY-[ID]): [story title]"
-16. → Invoke critical-review and code-review (see Transition section below).
+16. → Invoke critical-review, testing, and code-review (see Transition section below).
 17. Cleanup Workspace: Delete your `workspace-STORY-[ID].md` AFTER the story is merged to the configured target.
 ```
 
@@ -175,7 +175,8 @@ Before invoking `asdlc-critical-review` skill, every item below must be true for
 
 After all tasks in a story are complete:
 1. → Invoke `asdlc-critical-review` skill.
-2. → Invoke `asdlc-code-review` skill.
-3. → After code-review PASS, invoke `asdlc-git-discipline` and merge according to `docs/architecture/coding-standards.md` → `## Merge strategy`.
-4. → Default Epic branch strategy: squash merge the story into `feature/EPIC-[ID]`; do not merge to `main` until all epic stories are integrated, full regression passes, and HITL approves the epic merge.
-5. → Direct-to-main is allowed only if the user explicitly selected that strategy during implementation-planning.
+2. → Invoke `asdlc-testing` skill.
+3. → Invoke `asdlc-code-review` skill.
+4. → After code-review PASS, invoke `asdlc-git-discipline` and merge according to `docs/architecture/coding-standards.md` → `## Merge strategy`.
+5. → Default Epic branch strategy: squash merge the story into `feature/EPIC-[ID]`; do not merge to `main` until all epic stories are integrated, full regression passes, and HITL approves the epic merge.
+6. → Direct-to-main is allowed only if the user explicitly selected that strategy during implementation-planning.
