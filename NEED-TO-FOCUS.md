@@ -21,6 +21,8 @@ exercise artifacts on 2026-05-01.
 
 ### 1. Stories merge directly to `main` — unsafe by default
 
+**Status:** ✅ DONE (2026-05-02, commit `91d5f35`) — Epic integration branch is now the default. `asdlc-git-discipline` defines three strategies (Epic branch / Direct to main / PR-based), with Epic branch as the missing-config default. New **Epic Finalization Protocol** requires full regression on `feature/EPIC-{ID}` and explicit HITL approval before merging to `main`. `asdlc-implementation`, `asdlc-code-review`, and `asdlc-retrospective` all defer to the configured strategy.
+
 **Problem:** The framework currently squash-merges each story directly to `main` after code review. This has three compounding risks:
 - **No integration testing** — stories that work individually can break each other on `main`.
 - **No PR flow** — bypasses CI, team review, and remote branch protection.
@@ -60,6 +62,8 @@ This means:
 
 ### 2. Ask the user for merge strategy during planning — not after
 
+**Status:** ✅ DONE (2026-05-02, commit `91d5f35`) — `asdlc-implementation-planning` now includes a mandatory **Merge Strategy HITL** step (steps 6–7) with the exact prompt template and three options (Epic / Direct / PR), defaulting to Epic branch if no response. Decision is recorded in `docs/architecture/coding-standards.md` under `## Merge strategy`. `asdlc-git-discipline`, `asdlc-implementation`, `asdlc-story-breakdown`, `asdlc-code-review`, and `asdlc-retrospective` all read this section. Eval fixtures `merge-strategy-hitl-001.yaml` and `epic-branch-default-001.yaml` cover both behaviors.
+
 **Problem:** The current framework hard-codes the merge strategy (squash to main). The user is never asked how they want to handle branching. This decision should happen during the **implementation-planning** phase, before any branches are created.
 
 **Affected Files:**
@@ -88,6 +92,8 @@ Record the decision in `docs/architecture/coding-standards.md` under a new `## M
 
 ### 3. HITL is never actually invoked — agents self-approve
 
+**Status:** ✅ DONE (2026-05-02) — `asdlc-stage-gates` now requires durable HITL evidence (`hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, `hitl_approved_at`) before `Status: Approved` is valid. `asdlc-hitl-protocol` now defines the artifact evidence lifecycle: `Ready for HITL` before prompting, then `Approved` only after the user response is recorded. Added stage-gate eval coverage for approved-without-HITL-evidence.
+
 **Current status:** Partially fixed in text, still unsafe. `asdlc-stage-gates` now says user approval is not assumed, but there is no artifact-level proof of the actual prompt and user response. There is also a gate-ordering conflict: stage-gates require `Status: Approved` before the gate passes, while stage skills often set `Approved` only after HITL.
 
 **Problem:** Despite HITL being mandatory at the end of inception, tech-architecture, and story-breakdown, the dummy exercise passed through ALL stages without a single HITL prompt being presented to the user. The agent self-approved everything. This is the most critical process deviation — HITL is the framework's primary safety mechanism.
@@ -106,6 +112,8 @@ Consider adding a `hitl_response` field to artifact frontmatter so the gate can 
 
 ### 4. `asdlc-testing` is orphaned — no prior skill creates its input
 
+**Status:** ✅ DONE (2026-05-03) — `asdlc-testing` now owns its own bootstrap: Step 1 checks whether `docs/sdlc/test-plans/test-plan.md` exists and creates it from `test-plan-template.md` if absent, deriving initial test cases from BRD acceptance criteria and the implementation-plan definition of done. A new gate item explicitly requires the file to physically exist. `asdlc-using-agentic-sdlc` context directory comment updated to clarify this stage creates + fills the file.
+
 **Problem:** The testing skill reads `docs/sdlc/test-plans/test-plan.md` as its primary input. But **no earlier skill creates this file**. The implementation skill doesn't mention it. The critical-review transitions to "proceed to testing" but the input doesn't exist. During the exercise, the entire testing stage was silently skipped.
 
 **Affected Files:**
@@ -117,6 +125,8 @@ Consider adding a `hitl_response` field to artifact frontmatter so the gate can 
 ---
 
 ### 5. Stage gate approval order is internally inconsistent
+
+**Status:** ✅ DONE (2026-05-02) — mandatory HITL stages now use `Draft -> Ready for HITL -> Approved`. Pre-HITL gates stop after prompting and waiting; post-HITL gates require recorded prompt and user response evidence before proceeding.
 
 **Problem:** `asdlc-stage-gates` requires primary artifacts to have `Status: Approved` before a gate passes, then says to proceed to HITL after the gate passes. Stage skills such as `asdlc-inception` say artifacts become `Approved` only after HITL. This creates two bad outcomes:
 - **Deadlock** — an agent cannot pass the gate because HITL has not happened yet.
@@ -138,6 +148,8 @@ The stage-gates skill should never require `Status: Approved` before the mandato
 
 ### 6. Implementation flow skips testing before code-review
 
+**Status:** ✅ DONE (2026-05-03) — The transition sequence in `asdlc-implementation` now explicitly includes `asdlc-testing` before `asdlc-code-review`. `asdlc-code-review` requires evidence that testing was completed before allowing the review to proceed. `workflow-greenfield.md` and `workflow-brownfield.md` were also updated to move the "merge" step out of Stage 6 and into Stage 9, reflecting the true flow.
+
 **Problem:** The global workflow says `implementation → critical-review → testing → code-review`, and `asdlc-code-review` says it runs after testing is complete. But `asdlc-implementation` transitions directly from critical-review to code-review and then merge. This contradiction lets agents bypass the testing stage even if `asdlc-testing` exists.
 
 **Affected Files:**
@@ -147,21 +159,11 @@ The stage-gates skill should never require `Status: Approved` before the mandato
 - `docs/workflow-greenfield.md`
 - `docs/workflow-brownfield.md`
 
-**Fix:** Update `asdlc-implementation` transition to:
-
-```
-implementation gate PASS
-→ critical-review
-→ testing
-→ code-review
-→ merge according to configured merge strategy
-```
-
-Add a code-review gate item requiring a completed testing artifact or command evidence from `docs/sdlc/test-plans/test-plan.md`.
-
 ---
 
 ### 7. Test and coverage claims can be fabricated
+
+**Status:** ✅ DONE (2026-05-03) — Added strict test execution evidence requirements (command, exit code, timestamp, output snippet) to `asdlc-context-harvest`, `asdlc-testing`, `asdlc-code-review`, and `asdlc-stage-gates`. Test results are no longer accepted as valid gate passes without explicit console output pasted into the artifact.
 
 **Problem:** The dummy app records test pass counts and coverage, but the repo lacks runnable Android build files (`gradlew`, `build.gradle`, `settings.gradle`). A written claim like "1 passing test, 100% coverage" is not enough. Gate checks currently trust handwritten results too much.
 

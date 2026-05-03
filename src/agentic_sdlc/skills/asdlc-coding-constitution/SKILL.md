@@ -103,8 +103,8 @@ A coding constitution is **binding**, not aspirational. If it's in the constitut
 ## Git conventions
 See `asdlc-git-discipline` skill for full conventions. Project-specific overrides:
 - Commit format: Conventional Commits (feat/fix/chore/docs/test/refactor)
-- Branch naming: feature/STORY-{ID}-{short-desc} (stories), docs/{stage-name} (stages)
-- Merge strategy: squash merge to main
+- Branch naming: feature/STORY-{ID}-{short-desc} (stories), feature/EPIC-{ID} (epic integration), docs/{stage-name} (stages)
+- Merge strategy: Epic branch by default; Direct to main only with explicit user opt-in; PR-based if selected during implementation-planning
 - PR requirement: all PRs require passing CI + review (human or agent)
 ```
 
@@ -135,4 +135,3 @@ For brownfield projects, the coding constitution documents the **existing** stan
 | "The team already knows the standards" | Implicit standards diverge silently. Write them down. |
 | "Aspirational standards are fine" | Aspirational standards are fiction. Only include what you will actually enforce. |
 | "We can inherit the existing standards without documenting them" | Implicit is undiscoverable. Document what you inherit from context-harvest. |
-

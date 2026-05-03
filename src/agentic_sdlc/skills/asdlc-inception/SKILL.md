@@ -33,10 +33,11 @@ Complete in order:
 5. **Write `docs/architecture/domain-model.md`** — domain knowledge, industry context, glossary
 6. **Write `docs/product/features/brd.md`** — using the `brd-template.md` file in this skill's directory
 7. **Self-review the BRD** — check for placeholders, contradictions, missing metrics
-8. **Present BRD to user** — ask for explicit approval before proceeding
+8. **Set artifact status** — update `docs/product/features/brd.md` status to `Ready for HITL`
 9. **HITL checkpoint** — required before moving to Stage 2 (invoke `asdlc-hitl-protocol` skill)
-10. **Update Artifact Status** — Once approved, update `docs/product/features/brd.md` status to `Approved`.
-11. **Transition** — invoke `asdlc-design-system` or `asdlc-tech-architecture` skill (ask user which order)
+10. **Record HITL evidence** — once the user responds, record `hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, and `hitl_approved_at` in the BRD metadata.
+11. **Update Artifact Status** — only after an explicit approval response, update `docs/product/features/brd.md` status to `Approved`.
+12. **Transition** — invoke `asdlc-design-system` or `asdlc-tech-architecture` skill (ask user which order)
 
 ## Clarifying Questions Protocol
 

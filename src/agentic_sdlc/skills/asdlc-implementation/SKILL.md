@@ -25,8 +25,9 @@ For each active ticket:
 1. Pick a Story: Read `docs/sdlc/stories/` and pick a story that has `status: TO_DO` and whose dependencies are met (check `docs/sdlc/epics/`).
 2. Initialize Workspace: Copy `workspace-template.md` (in this skill's directory) to `docs/sdlc/workspaces/workspace-STORY-[ID].md`. Fill in YAML: `story_id`, `agent`, `model`, `branch`, `started_at`.
 3. Create feature branch (invoke `asdlc-git-discipline` skill):
-   git checkout main && git pull origin main
-   git checkout -b feature/STORY-[ID]-[short-desc]
+   - Read `docs/architecture/coding-standards.md` → `## Merge strategy`
+   - Missing merge strategy = Epic branch default
+   - Create `feature/STORY-[ID]-[short-desc]` from the configured target branch
 4. Set State: Update `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: IN_PROGRESS`.
 5. Read any relevant skill (language/platform-specific if available)
 6. Write failing test(s) — unit first, integration if needed
@@ -41,11 +42,11 @@ For each active ticket:
 15. Commit the completed story (ONE commit per story):
     git add .
     git commit -m "{type}(STORY-[ID]): [story title]"
-16. → Invoke critical-review and code-review (see Transition section below).
-17. Cleanup Workspace: Delete your `workspace-STORY-[ID].md` AFTER squash merge to main.
+16. → Invoke critical-review, testing, and code-review (see Transition section below).
+17. Cleanup Workspace: Delete your `workspace-STORY-[ID].md` AFTER the story is merged to the configured target.
 ```
 
-> **Git note:** Keep all intermediate work on the feature branch. The single story commit captures the finished, reviewed state. Do NOT delete the workspace until after the story is merged — you may need it if reviews find issues. Invoke `asdlc-git-discipline` skill if in doubt about any git operation.
+> **Git note:** Keep all intermediate work on the story feature branch. The single story commit captures the finished, reviewed state. Do NOT delete the workspace until after the story is merged to the configured target — you may need it if reviews find issues. Invoke `asdlc-git-discipline` skill if in doubt about any git operation.
 
 ## Test Pyramid Targets
 
@@ -174,12 +175,8 @@ Before invoking `asdlc-critical-review` skill, every item below must be true for
 
 After all tasks in a story are complete:
 1. → Invoke `asdlc-critical-review` skill.
-2. → Invoke `asdlc-code-review` skill.
-3. → After code-review PASS, squash merge to main (invoke `asdlc-git-discipline` skill):
-   ```
-   git checkout main && git pull origin main
-   git merge --squash feature/STORY-[ID]-[short-desc]
-   git commit -m "feat(STORY-[ID]): [story title]"
-   git branch -d feature/STORY-[ID]-[short-desc]
-   git push origin main
-   ```
+2. → Invoke `asdlc-testing` skill.
+3. → Invoke `asdlc-code-review` skill.
+4. → After code-review PASS, invoke `asdlc-git-discipline` and merge according to `docs/architecture/coding-standards.md` → `## Merge strategy`.
+5. → Default Epic branch strategy: squash merge the story into `feature/EPIC-[ID]`; do not merge to `main` until all epic stories are integrated, full regression passes, and HITL approves the epic merge.
+6. → Direct-to-main is allowed only if the user explicitly selected that strategy during implementation-planning.

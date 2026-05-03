@@ -48,6 +48,7 @@ Run the full test suite and record:
 - Total tests
 - Passing / failing
 - Coverage % (from coverage report, not estimated)
+- **Mandatory Evidence**: You must record the exact command used to run tests, the exit code, timestamp, and a snippet of the summary output.
 
 This is the **immutable baseline**. Coverage must not decrease when you're done.
 
@@ -84,6 +85,13 @@ Read representative files from key directories. Identify:
 - Failing: [N] (list any pre-existing failures)
 - Coverage: [N]% lines / [N]% branches
 - Last run: [timestamp]
+- **Evidence**:
+  - Command: `[exact command]`
+  - Exit code: `[0 or other]`
+  - Output summary:
+    ```text
+    [paste final 5-10 lines of test output showing pass/fail counts]
+    ```
 
 **This baseline must not decrease. Any change that drops coverage requires HITL approval.**
 
@@ -117,6 +125,7 @@ Read representative files from key directories. Identify:
 ```
 [ ] Tech stack and versions documented
 [ ] Test coverage baseline recorded (exact numbers, not estimates)
+[ ] Test execution evidence provided (command, exit code, timestamp, output snippet)
 [ ] Existing patterns documented — error handling, logging, validation, directory structure
 [ ] Integration points identified with direction and protocol
 [ ] Fragile / high-risk areas flagged

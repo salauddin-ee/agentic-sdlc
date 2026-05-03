@@ -11,7 +11,7 @@ Final structured review before merge or handoff. This is a compliance check agai
 **This skill covers:** coding standards compliance, test quality, operability, documentation completeness.
 **`asdlc-critical-review` covers:** behavioral correctness, requirements coverage, security vulnerabilities, integration contract compliance.
 
-Run `asdlc-critical-review` first. Only proceed to this skill after critical-review returns a PASS verdict. Both reviews are mandatory — they are complementary, not alternatives.
+Run `asdlc-critical-review` first, followed by `asdlc-testing`. Only proceed to this skill after both critical-review and testing return a PASS verdict. All three stages are mandatory.
 
 | Question | Critical Review | Code Review |
 |---|---|---|
@@ -43,6 +43,7 @@ Run `asdlc-critical-review` first. Only proceed to this skill after critical-rev
 [ ] No copy-paste test code — DRY applies to tests too
 [ ] Edge cases covered — empty inputs, nulls, boundary values, network errors
 [ ] Tests are isolated — no test depends on the execution order of another
+[ ] Test execution claims are backed by explicit evidence (command, exit code, output snippet)
 ```
 
 ### Security Audit
@@ -108,28 +109,50 @@ All five sections must be PASS before merging. If any section is FAIL:
 
 ## Merge Protocol (after APPROVED verdict)
 
-Invoke `asdlc-git-discipline` skill, then run:
+Invoke `asdlc-git-discipline` skill and follow the configured merge strategy from `docs/architecture/coding-standards.md`.
+
+Default behavior is **Epic branch**, not direct-to-main. Run exactly one strategy path below; never run all three examples as one script.
 
 ```bash
 # 1. Ensure story is committed on feature branch
 git status  # must show clean working tree
+```
 
-# 2. Squash merge to main
+**Strategy A — Epic branch (default):**
+
+```bash
+git checkout feature/EPIC-[ID]
+git merge --squash feature/STORY-[ID]-[short-desc]
+git commit -m "feat(STORY-[ID]): [story title]"
+git push origin feature/EPIC-[ID]  # if the epic branch is remote-backed
+git branch -d feature/STORY-[ID]-[short-desc]
+```
+
+**Strategy B — Direct to main, only if selected during implementation-planning:**
+
+```bash
 git checkout main
 git pull origin main
 git merge --squash feature/STORY-[ID]-[short-desc]
 git commit -m "feat(STORY-[ID]): [story title]"
-
-# 3. Push and clean up
 git push origin main
 git branch -d feature/STORY-[ID]-[short-desc]
 ```
 
-> One squash commit per story on `main`. Feature branch is deleted after successful merge.
+**Strategy C — PR-based:**
+
+```bash
+git push origin feature/STORY-[ID]-[short-desc]
+# -> Create PR against the configured base branch
+# -> Delete the branch only after the PR is merged
+```
+
+> One squash commit per story on the configured merge target. With the Epic branch strategy, `main` is not touched until full regression passes on `feature/EPIC-[ID]` and HITL approves the epic merge.
 
 ## Gate
 
 ```
+[ ] asdlc-testing stage was completed and passed (verify test-plan.md existence, results, and explicit execution evidence)
 [ ] Standards compliance section: PASS
 [ ] Test quality section: PASS
 [ ] Security audit section: PASS
@@ -137,6 +160,7 @@ git branch -d feature/STORY-[ID]-[short-desc]
 [ ] Documentation section: PASS
 [ ] Overall verdict: APPROVED
 [ ] Review result written to docs/sdlc/retrospectives/ or inline note committed
+[ ] Merge strategy checked in docs/architecture/coding-standards.md before any merge
 ```
 
 A single FAIL in any section means the overall verdict is CHANGES REQUIRED.

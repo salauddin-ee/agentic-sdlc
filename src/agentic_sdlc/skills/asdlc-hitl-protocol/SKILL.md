@@ -43,6 +43,54 @@ git commit -m "docs({stage-name}): HITL decision recorded — {option chosen}"
 
 > See `asdlc-git-discipline` skill for full conventions.
 
+## Artifact Evidence Protocol
+
+HITL is only complete when the stage artifact contains durable evidence. Conversation memory is not evidence. Use YAML frontmatter where the artifact already has it; otherwise use the artifact's top metadata block.
+
+Before sending the HITL prompt:
+
+1. Set the primary artifact frontmatter or metadata block to `Status: Ready for HITL`
+2. Add `hitl_prompt` with the exact prompt text or a stable artifact-local reference to it
+3. Leave `hitl_response`, `hitl_decision`, `hitl_approved_by`, and `hitl_approved_at` blank
+4. Commit the pre-HITL artifact state
+5. Present the HITL prompt to the user and stop
+
+After the user responds:
+
+1. Record the user's actual response in `hitl_response`
+2. Set `hitl_decision` to one of: `approved`, `changes_requested`, `rejected`
+3. Set `hitl_approved_by` to the human identifier, name, or `user`
+4. Set `hitl_approved_at` to the current date/time
+5. Set `Status: Approved` only when `hitl_decision: approved`
+6. Commit the recorded decision
+7. Re-run `asdlc-stage-gates`
+
+Required fields for mandatory HITL artifacts:
+
+```yaml
+Status: Ready for HITL
+hitl_prompt: "HITL REQUIRED..."
+hitl_response: ""
+hitl_decision: ""
+hitl_approved_by: ""
+hitl_approved_at: ""
+```
+
+Approved form:
+
+```yaml
+Status: Approved
+hitl_prompt: "HITL REQUIRED..."
+hitl_response: "Approved"
+hitl_decision: approved
+hitl_approved_by: user
+hitl_approved_at: "2026-05-02T00:00:00+05:30"
+```
+
+<HARD-GATE>
+Never write `Status: Approved` for a mandatory HITL artifact before a human response is recorded. An agent-authored approval is self-approval and fails the gate.
+</HARD-GATE>
+
 ## HITL Prompt Format
 
 Use this exact format when requesting human input:
@@ -109,7 +157,7 @@ Default if no response: Wait for explicit approval
 
 ## After Receiving HITL Response
 
-1. Record the human's decision in the stage artifact (e.g., `docs/product/features/brd.md` Open questions section)
+1. Record the human's decision in the stage artifact frontmatter or metadata block (`hitl_response`, `hitl_decision`, `hitl_approved_by`, `hitl_approved_at`) and relevant body section if useful
 2. Commit the decision: `git add docs/ && git commit -m "docs({stage}): HITL decision recorded — {option chosen}"`
 3. If the decision changes context (e.g., new constraint, approved direction): update relevant artifacts and commit
 4. If approved — merge the `docs/{stage-name}` branch to main (see Git Protocol above)
@@ -134,6 +182,7 @@ The next step being "clear" to the agent is not a substitute for human approval.
 | "This is a small destructive action" | All destructive actions require HITL regardless of size. |
 | "I'll ask forgiveness, not permission" | Irreversible mistakes don't have forgiveness. Ask first. |
 | "I can infer the answer from context" | Inferred approval is not approval. Ask explicitly. |
+| "The artifact status says Approved, so no need to store the prompt" | Status without prompt and response evidence is self-approval. Record both. |
 | "The HITL will slow us down" | The HITL exists because the alternative is production incidents. |
 | "The next step is clear — I'll proceed" | Clarity of next step does not replace human approval. Stop and wait. |
 | "The user hasn't responded but I can continue" | No response is not approval. Stop and wait for an explicit answer. |

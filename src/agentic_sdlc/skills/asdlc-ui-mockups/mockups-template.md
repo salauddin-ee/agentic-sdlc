@@ -2,8 +2,13 @@
 
 > **Project:** [Project name]
 > **Date:** YYYY-MM-DD
-> **Status:** Draft | Approved
+> **Status:** Draft | Ready for HITL | Approved
 > **Version:** 0.1.0
+> **hitl_prompt:** [Exact HITL prompt or artifact-local reference]
+> **hitl_response:** [Exact user response after HITL, blank before response]
+> **hitl_decision:** [approved | changes_requested | rejected, blank before response]
+> **hitl_approved_by:** [user/person, blank before response]
+> **hitl_approved_at:** [timestamp/date, blank before response]
 
 ## Trigger
 

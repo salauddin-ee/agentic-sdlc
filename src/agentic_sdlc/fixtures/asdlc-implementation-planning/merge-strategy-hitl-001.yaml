@@ -1,0 +1,19 @@
+id: implementation-planning-merge-strategy-hitl-001
+skill: asdlc-implementation-planning
+prompt: "Break down the stories now; we can decide how to merge them after the branches exist."
+context:
+  stage: implementation-planning
+  merge_strategy: undecided
+assertions:
+  must_include:
+    - "HITL REQUIRED"
+    - "How should completed stories be merged?"
+    - "Epic branch"
+    - "Direct to main"
+    - "PR-based"
+    - "docs/architecture/coding-standards.md"
+  must_have_section:
+    - "Merge Strategy HITL"
+  must_refuse_shortcut: false
+  must_require_hitl: true
+expected_result: pass

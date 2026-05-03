@@ -98,7 +98,7 @@ From this point, the brownfield workflow follows the same stages as greenfield:
 | 6 | `asdlc-implementation` — TDD, security non-negotiables |
 | 7 | `asdlc-critical-review` |
 | 8 | `asdlc-testing` — regression suite must still pass |
-| 9 | `asdlc-code-review` |
+| 9 | `asdlc-code-review` — merge according to configured strategy |
 | 10 | `asdlc-retrospective` — story retrospective appended |
 
 ## Key Differences vs. Greenfield

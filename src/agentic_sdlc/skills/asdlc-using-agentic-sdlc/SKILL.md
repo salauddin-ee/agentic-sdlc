@@ -109,7 +109,7 @@ docs/
   sdlc/epics/task-graph.md               ← asdlc-story-breakdown
   sdlc/stories/                          ← asdlc-story-breakdown
   sdlc/workspaces/                       ← asdlc-implementation, brownfield-tech-plan
-  sdlc/test-plans/test-plan.md           ← asdlc-testing
+  sdlc/test-plans/test-plan.md           ← asdlc-testing (created + filled by this stage if not already present)
   sdlc/retrospectives/critical-review.md ← asdlc-critical-review
   sdlc/retrospectives/retrospective.md   ← asdlc-retrospective
 ```
