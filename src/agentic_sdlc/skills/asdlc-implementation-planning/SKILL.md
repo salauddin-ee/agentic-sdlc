@@ -17,15 +17,15 @@ Do NOT begin implementation (Stage 6) until this plan is approved. All inter-mod
 3. **Define interface contracts** — every module boundary documented before any code
 4. **Write risk log** — likelihood × impact for each identified risk
 5. **Write definition of done** — project-level checklist
-6. **Write `docs/sdlc/epics/implementation-plan.md`** — using the `implementation-plan-template.md` file in this skill's directory; leave HITL response fields blank until the user responds
+6. **Write `docs/sdlc/epics/implementation-plan.md`** — using the `implementation-plan-template.md` file in this skill's directory; leave both HITL response field groups blank until each user response is recorded
 7. **Ask for merge strategy via HITL** — before story-breakdown or any branch creation
-8. **Record merge strategy HITL evidence** — record `hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, and `hitl_approved_at` in the implementation plan metadata.
+8. **Record merge-strategy HITL evidence** — record `merge_strategy_hitl_prompt`, `merge_strategy_hitl_response`, `merge_strategy_hitl_decision`, `merge_strategy_hitl_approved_by`, and `merge_strategy_hitl_approved_at` in the implementation plan metadata. Do NOT use the plan-approval fields for this answer.
 9. **Record merge strategy** — add or update `## Merge strategy` in `docs/architecture/coding-standards.md`
 10. **Write `docs/architecture/data-domain.md`** — API contracts, event schemas, type defs
 11. **Self-review** — check all FRs from BRD are traceable to a milestone
 12. **Set artifact status** — update implementation plan status to `Ready for HITL` before final user approval
 13. **Present to user** — get approval
-14. **Record final HITL evidence and approve** — only after explicit approval, set implementation plan status to `Approved`
+14. **Record plan-approval HITL evidence** — only after explicit approval, populate `plan_approval_hitl_prompt`, `plan_approval_hitl_response`, `plan_approval_hitl_decision`, `plan_approval_hitl_approved_by`, `plan_approval_hitl_approved_at`, and set status to `Approved`. Never overwrite the merge-strategy HITL fields with the plan-approval response.
 15. **Transition** — invoke `asdlc-story-breakdown` skill
 
 
@@ -101,7 +101,9 @@ If `docs/architecture/coding-standards.md` has no `## Merge strategy` section, d
 [ ] Assumptions explicitly listed
 [ ] Definition of done agreed with user
 [ ] Merge strategy HITL completed and recorded in docs/architecture/coding-standards.md
-[ ] HITL prompt and user response evidence recorded in implementation-plan.md metadata
+[ ] Merge-strategy HITL evidence (`merge_strategy_hitl_*` fields) populated in implementation-plan.md metadata
+[ ] Plan-approval HITL evidence (`plan_approval_hitl_*` fields) populated in implementation-plan.md metadata before status flips to `Approved`
+[ ] Merge-strategy and plan-approval HITL field groups are distinct — neither overwrites the other
 [ ] implementation-plan.md written to docs/sdlc/epics/ and data-domain.md written to docs/architecture/
 ```
 

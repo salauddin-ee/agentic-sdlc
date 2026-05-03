@@ -34,6 +34,7 @@ There is no partial pass. Every criterion must be checked. Unchecked items are f
      - `hitl_decision`: `approved`, `changes_requested`, or `rejected`
      - `hitl_approved_by`: human identifier, name, or `user`
      - `hitl_approved_at`: timestamp/date
+   - Stages that record more than one HITL on the same artifact (e.g., `asdlc-implementation-planning` records both a merge-strategy HITL and a plan-approval HITL) MUST use distinct prefixed field groups (e.g., `merge_strategy_hitl_*` and `plan_approval_hitl_*`). Reuse of generic `hitl_*` for multiple events on the same artifact fails the gate.
 6. Mark each criterion `[x]` (pass) or `[ ]` (fail - with reason)
 7. If the stage gate criteria pass but HITL has not yet been invoked:
    - Commit current stage artifacts to the current `docs/{stage-name}` branch

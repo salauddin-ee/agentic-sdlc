@@ -4,11 +4,20 @@
 > **Date:** YYYY-MM-DD
 > **Status:** Draft | Ready for HITL | Approved
 > **Version:** 0.1.0
-> **hitl_prompt:** [Exact merge-strategy HITL prompt or artifact-local reference]
-> **hitl_response:** [Exact user response after HITL, blank before response]
-> **hitl_decision:** [approved | changes_requested | rejected, blank before response]
-> **hitl_approved_by:** [user/person, blank before response]
-> **hitl_approved_at:** [timestamp/date, blank before response]
+>
+> **Merge-strategy HITL (asked early, before story-breakdown):**
+> **merge_strategy_hitl_prompt:** [Exact merge-strategy HITL prompt or artifact-local reference]
+> **merge_strategy_hitl_response:** [Exact user response after HITL, blank before response]
+> **merge_strategy_hitl_decision:** [approved | changes_requested | rejected, blank before response]
+> **merge_strategy_hitl_approved_by:** [user/person, blank before response]
+> **merge_strategy_hitl_approved_at:** [timestamp/date, blank before response]
+>
+> **Plan approval HITL (final stage gate):**
+> **plan_approval_hitl_prompt:** [Exact plan-approval HITL prompt or artifact-local reference]
+> **plan_approval_hitl_response:** [Exact user response after HITL, blank before response]
+> **plan_approval_hitl_decision:** [approved | changes_requested | rejected, blank before response]
+> **plan_approval_hitl_approved_by:** [user/person, blank before response]
+> **plan_approval_hitl_approved_at:** [timestamp/date, blank before response]
 
 ## User Review Required
 
