@@ -29,6 +29,7 @@ Do NOT proceed to asdlc-code-review until all automated tests pass, test pyramid
 2. **Any failure = blocker** — fix before continuing, even if unrelated to current story
 3. **Record actual vs. expected** for every failing test
 4. **Do not modify existing tests to make them pass** — unless the behavior change is explicitly in scope
+5. **Mandatory Evidence:** For every run, record the exact command, exit code, timestamp, and a summary output snippet.
 
 ## HITL Test Cases
 
@@ -56,6 +57,7 @@ If NFRs specify latency, throughput, or load targets:
 
 ```
 [ ] docs/sdlc/test-plans/test-plan.md physically exists (created this stage if absent)
+[ ] Test execution evidence provided in test-plan.md (command, exit code, timestamp, output snippet)
 [ ] All automated tests passing — 0 failures, 0 errors
 [ ] Test pyramid targets met (or deviation documented with justification)
 [ ] All HITL test cases resolved with human sign-off

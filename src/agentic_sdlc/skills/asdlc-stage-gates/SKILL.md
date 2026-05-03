@@ -93,7 +93,7 @@ RESULT: PASS — proceed to asdlc-design-system
 
 **"No open questions"** — Every question in `docs/product/features/brd.md > Open questions` is resolved. Not merely noted.
 
-**"All tests passing"** — Run the test suite. Zero failures. Not "probably passing."
+**"All tests passing"** — Run the test suite. Zero failures. Not "probably passing." The artifact must contain explicit test execution evidence (the exact command run, exit code, timestamp, and a summary output snippet).
 
 **"Interface contracts locked"** — The contracts in `docs/architecture/data-domain.md` are stable and approved. Not "mostly defined."
 
@@ -105,7 +105,7 @@ RESULT: PASS — proceed to asdlc-design-system
 | Success metrics are vague | Rewrite with quantifiable targets, re-evaluate |
 | HITL not completed | Trigger HITL, wait for response, re-evaluate |
 | Missing HITL evidence | Add `hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, and `hitl_approved_at` to artifact frontmatter |
-| Tests not run | Run the suite, record results, re-evaluate |
+| Tests not run or missing evidence | Run the suite, record results and output snippet, re-evaluate |
 | Open questions remain | Resolve them (or explicitly schedule HITL for them), re-evaluate |
 
 ## Red Flags

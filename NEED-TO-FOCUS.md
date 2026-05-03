@@ -163,6 +163,8 @@ The stage-gates skill should never require `Status: Approved` before the mandato
 
 ### 7. Test and coverage claims can be fabricated
 
+**Status:** ✅ DONE (2026-05-03) — Added strict test execution evidence requirements (command, exit code, timestamp, output snippet) to `asdlc-context-harvest`, `asdlc-testing`, `asdlc-code-review`, and `asdlc-stage-gates`. Test results are no longer accepted as valid gate passes without explicit console output pasted into the artifact.
+
 **Problem:** The dummy app records test pass counts and coverage, but the repo lacks runnable Android build files (`gradlew`, `build.gradle`, `settings.gradle`). A written claim like "1 passing test, 100% coverage" is not enough. Gate checks currently trust handwritten results too much.
 
 **Affected Files:**

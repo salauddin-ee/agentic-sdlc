@@ -21,5 +21,14 @@
 |---|---|---|---|
 | 0 | 0 | 0 | 0 |
 
+### Execution Evidence
+- **Command:** `[exact command]`
+- **Exit code:** `[0 or other]`
+- **Timestamp:** `[timestamp]`
+- **Output summary:**
+  ```text
+  [paste final 5-10 lines of test output showing pass/fail counts]
+  ```
+
 ---
 *Written by: agentic-sdlc testing skill*

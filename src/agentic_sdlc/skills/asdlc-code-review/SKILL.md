@@ -43,6 +43,7 @@ Run `asdlc-critical-review` first, followed by `asdlc-testing`. Only proceed to 
 [ ] No copy-paste test code — DRY applies to tests too
 [ ] Edge cases covered — empty inputs, nulls, boundary values, network errors
 [ ] Tests are isolated — no test depends on the execution order of another
+[ ] Test execution claims are backed by explicit evidence (command, exit code, output snippet)
 ```
 
 ### Security Audit
@@ -151,7 +152,7 @@ git push origin feature/STORY-[ID]-[short-desc]
 ## Gate
 
 ```
-[ ] asdlc-testing stage was completed and passed (verify test-plan.md existence and results)
+[ ] asdlc-testing stage was completed and passed (verify test-plan.md existence, results, and explicit execution evidence)
 [ ] Standards compliance section: PASS
 [ ] Test quality section: PASS
 [ ] Security audit section: PASS
