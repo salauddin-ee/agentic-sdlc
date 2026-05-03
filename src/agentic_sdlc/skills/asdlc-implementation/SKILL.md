@@ -166,7 +166,8 @@ Before invoking `asdlc-critical-review` skill, every item below must be true for
 [ ] Coding constitution followed: naming, error handling, logging
 [ ] No TODO comments left in production code
 [ ] data-domain.md updated if any interface contract changed (triggers HITL)
-[ ] Token usage logged in workspace YAML
+[ ] Workspace file physically exists at docs/sdlc/workspaces/workspace-STORY-[ID].md with YAML fields populated
+[ ] Token usage logged in the workspace YAML file
 [ ] Story status set to DONE in docs/sdlc/stories/STORY-[ID].md
 [ ] Story committed on feature branch (git status shows clean working tree)
 ```

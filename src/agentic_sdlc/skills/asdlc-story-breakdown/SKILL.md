@@ -51,7 +51,9 @@ For each parallel track, define:
 [ ] No files_touched overlap between parallel stories without explicit merge strategy
 [ ] HITL checkpoint tasks marked (hitl_required: true where needed)
 [ ] Epic/task graph status is `Ready for HITL` before requesting user approval
-[ ] EPIC written to docs/sdlc/epics/, task-graph.md written to docs/sdlc/epics/, and STORY-*.md files written to docs/sdlc/stories/
+[ ] EPIC-[ID].md physically exists at docs/sdlc/epics/EPIC-[ID].md
+[ ] task-graph.md physically exists at docs/sdlc/epics/task-graph.md
+[ ] STORY-[ID].md physically exists at docs/sdlc/stories/ for every story
 ```
 
 ## HITL Checkpoint
