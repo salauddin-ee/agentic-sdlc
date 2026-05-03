@@ -21,7 +21,7 @@ Do NOT begin implementation until the task graph is approved by the user via HIT
 7. **Assess complexity & risk** — for each story set `complexity` (low|medium|high) for decomposition risk and `risk` (low|medium|high) for critical-path impact. These are independent dimensions.
 8. **List files touched** — populate `files_touched` per story. Cross-check across parallel tracks for overlap; overlapping files require explicit merge strategy or track reassignment.
 9. **Write an epic manifest** to `docs/sdlc/epics/EPIC-[ID].md` using the `task-graph-template.md` file in this skill's directory.
-10. **Write `docs/sdlc/epics/task-graph.md`** — a summary of all epics and their dependency DAGs for cross-reference.
+10. **Write `docs/sdlc/epics/task-graph.md`** — a summary of all epics and their dependency DAGs for cross-reference. **Note: this file is the canonical, single-source-of-truth index for all story IDs and titles. All downstream skills will validate against it.**
 11. **Write story files** to `docs/sdlc/stories/STORY-[ID].md` for every individual ticket using the `story-template.md` file in this skill's directory.
 12. **Self-review** — check DAG is acyclic, all interface contracts locked, all FRs covered, no `files_touched` overlap without merge strategy
 13. **Set artifact status** — update epic/task graph status to `Ready for HITL`
