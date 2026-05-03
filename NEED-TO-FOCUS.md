@@ -92,7 +92,7 @@ Record the decision in `docs/architecture/coding-standards.md` under a new `## M
 
 ### 3. HITL is never actually invoked — agents self-approve
 
-**Status:** DONE (2026-05-02) — `asdlc-stage-gates` now requires durable HITL evidence (`hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, `hitl_approved_at`) before `Status: Approved` is valid. `asdlc-hitl-protocol` now defines the artifact evidence lifecycle: `Ready for HITL` before prompting, then `Approved` only after the user response is recorded. Added stage-gate eval coverage for approved-without-HITL-evidence.
+**Status:** ✅ DONE (2026-05-02) — `asdlc-stage-gates` now requires durable HITL evidence (`hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, `hitl_approved_at`) before `Status: Approved` is valid. `asdlc-hitl-protocol` now defines the artifact evidence lifecycle: `Ready for HITL` before prompting, then `Approved` only after the user response is recorded. Added stage-gate eval coverage for approved-without-HITL-evidence.
 
 **Current status:** Partially fixed in text, still unsafe. `asdlc-stage-gates` now says user approval is not assumed, but there is no artifact-level proof of the actual prompt and user response. There is also a gate-ordering conflict: stage-gates require `Status: Approved` before the gate passes, while stage skills often set `Approved` only after HITL.
 
@@ -112,6 +112,8 @@ Consider adding a `hitl_response` field to artifact frontmatter so the gate can 
 
 ### 4. `asdlc-testing` is orphaned — no prior skill creates its input
 
+**Status:** ✅ DONE (2026-05-03) — `asdlc-testing` now owns its own bootstrap: Step 1 checks whether `docs/sdlc/test-plans/test-plan.md` exists and creates it from `test-plan-template.md` if absent, deriving initial test cases from BRD acceptance criteria and the implementation-plan definition of done. A new gate item explicitly requires the file to physically exist. `asdlc-using-agentic-sdlc` context directory comment updated to clarify this stage creates + fills the file.
+
 **Problem:** The testing skill reads `docs/sdlc/test-plans/test-plan.md` as its primary input. But **no earlier skill creates this file**. The implementation skill doesn't mention it. The critical-review transitions to "proceed to testing" but the input doesn't exist. During the exercise, the entire testing stage was silently skipped.
 
 **Affected Files:**
@@ -124,7 +126,7 @@ Consider adding a `hitl_response` field to artifact frontmatter so the gate can 
 
 ### 5. Stage gate approval order is internally inconsistent
 
-**Status:** DONE (2026-05-02) — mandatory HITL stages now use `Draft -> Ready for HITL -> Approved`. Pre-HITL gates stop after prompting and waiting; post-HITL gates require recorded prompt and user response evidence before proceeding.
+**Status:** ✅ DONE (2026-05-02) — mandatory HITL stages now use `Draft -> Ready for HITL -> Approved`. Pre-HITL gates stop after prompting and waiting; post-HITL gates require recorded prompt and user response evidence before proceeding.
 
 **Problem:** `asdlc-stage-gates` requires primary artifacts to have `Status: Approved` before a gate passes, then says to proceed to HITL after the gate passes. Stage skills such as `asdlc-inception` say artifacts become `Approved` only after HITL. This creates two bad outcomes:
 - **Deadlock** — an agent cannot pass the gate because HITL has not happened yet.
