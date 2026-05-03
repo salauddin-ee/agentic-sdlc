@@ -186,7 +186,7 @@ If the command cannot run, the gate must fail or record an explicit HITL accepta
 
 ## Tier 2 — High (Gate enforcement gaps — artifacts required but never verified)
 
-### 8. `data-domain.md` never written
+### ✅ DONE 8. `data-domain.md` never written
 
 **Current status:** Partially valid. The current implementation-planning gate requires the file, but the Scale Guide says tiny single-module projects may have no interface contracts. That can be misread as "no `data-domain.md` file required," while downstream skills still read it.
 
@@ -198,7 +198,7 @@ If the command cannot run, the gate must fail or record an explicit HITL accepta
 
 ---
 
-### 9. `task-graph.md` and EPIC manifest never written
+### ✅ DONE 9. `task-graph.md` and EPIC manifest never written
 
 **Current status:** Mostly covered in current skill text. Keep this as an evidence-backed gate concern: the skill now requires these files, but the dummy exercise shows agents can still skip them unless gates require physical-file verification.
 
@@ -210,7 +210,7 @@ If the command cannot run, the gate must fail or record an explicit HITL accepta
 
 ---
 
-### 10. Workspace file never created during implementation
+### ✅ DONE 10. Workspace file never created during implementation
 
 **Problem:** The implementation skill says "Copy `workspace-template.md` to `docs/sdlc/workspaces/workspace-STORY-[ID].md`." This was never done. Token logging depends on this file. The gate checks "Token usage logged in workspace YAML" without verifying the file exists.
 
@@ -220,7 +220,7 @@ If the command cannot run, the gate must fail or record an explicit HITL accepta
 
 ---
 
-### 11. BRD status never updated from "Draft" to "Approved"
+### ✅ DONE 11. BRD status never updated from "Draft" to "Approved"
 
 **Current status:** Partially fixed but entangled with Tier 1 item 5. Inception now says to update status after approval, and stage-gates require approved status, but the approval-order conflict still enables either deadlock or self-approval.
 
@@ -234,7 +234,7 @@ If the command cannot run, the gate must fail or record an explicit HITL accepta
 
 ---
 
-### 12. ADR files never written to `docs/architecture/adrs/`
+### ✅ DONE 12. ADR files never written to `docs/architecture/adrs/`
 
 **Current status:** Mostly covered in current skill text. Keep this as an evidence-backed gate concern: tech-architecture now requires ADR files, but the dummy exercise skipped them.
 
@@ -246,7 +246,7 @@ If the command cannot run, the gate must fail or record an explicit HITL accepta
 
 ---
 
-### 13. Story identity drift is not caught
+### ✅ DONE 13. Story identity drift is not caught
 
 **Problem:** In the dummy app, `STORY-002` means "Implement Local Persistence" in `implementation-plan.md`, but later means "Add Quote Categories" in the BRD append and brownfield tech plan. Story IDs must be immutable; otherwise review, test, branch, and retrospective artifacts can refer to different work under the same ID.
 
@@ -264,7 +264,7 @@ If the command cannot run, the gate must fail or record an explicit HITL accepta
 
 ---
 
-### 14. Architecture and context claims can drift from repository reality
+### ✅ DONE 14. Architecture and context claims can drift from repository reality
 
 **Problem:** The dummy app docs claim Compose, Hilt, Room, Retrofit, SQLite, Gradle, and runnable tests, but the repo only contains a small Kotlin source tree with no Android build files. Architecture docs must distinguish planned architecture from implemented/current architecture.
 
@@ -280,7 +280,7 @@ If the command cannot run, the gate must fail or record an explicit HITL accepta
 
 ---
 
-### 15. Retrospective requirement fidelity can be declared without evidence
+### ✅ DONE 15. Retrospective requirement fidelity can be declared without evidence
 
 **Problem:** The dummy retrospective marks `FR-001` as fully implemented even though the code only defines a data model and repository interface. No implementation fetches one quote every 24 hours. The retrospective currently has no hard requirement to trace fidelity claims to actual tests and code.
 
@@ -300,7 +300,7 @@ If evidence is missing, the fidelity status must be `partial` or `not implemente
 
 ---
 
-### 16. Story status is marked `DONE` too early
+### ✅ DONE 16. Story status is marked `DONE` too early
 
 **Problem:** `asdlc-implementation` marks a story `DONE` before critical-review, testing, and code-review. That makes "done" mean "locally implemented" rather than "accepted and merged." Gates and dashboards can then overstate progress.
 
@@ -320,7 +320,7 @@ Only set `DONE` or `MERGED` after the configured merge target receives the story
 
 ---
 
-### 17. Canonical task graph can go stale during implementation
+### ✅ DONE 17. Canonical task graph can go stale during implementation
 
 **Problem:** Workflow docs say implementation marks stories complete in `task-graph.md`, but the implementation skill only updates the story file. If the task graph is the dependency source of truth, it must be updated when story status changes.
 
