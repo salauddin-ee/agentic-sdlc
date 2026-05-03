@@ -21,6 +21,12 @@
 
 - [Item 1]
 
+## Requirements Fidelity
+
+| FR ID | Status | Story ID(s) | Test Name(s) | Source File(s) |
+|---|---|---|---|---|
+| FR-001 | complete / partial / not implemented | | | |
+
 ## Action items
 
 - [ ] [Who] [What] [By when]
