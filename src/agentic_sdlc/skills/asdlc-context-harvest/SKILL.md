@@ -25,6 +25,8 @@ Do NOT propose any changes, write any code, or invoke any implementation skill u
 ## Codebase Fingerprinting Process
 
 ### Tech stack detection
+Read project configuration files to detect the tech stack, library versions, and build tools. For each claimed or detected technology, classify its status: `present` (backed by a build/config file), `planned` (documented but no code yet), or `not found` (claimed in docs but missing).
+
 ```bash
 # Check package files
 cat package.json | grep -E "(dependencies|devDependencies)"
@@ -71,13 +73,13 @@ Read representative files from key directories. Identify:
 > **Version:** 0.1.0
 
 ## Tech stack
-| Component | Technology | Version | Notes |
-|---|---|---|---|
-| Language | TypeScript | 5.2 | Strict mode enabled |
-| Runtime | Node.js | 20 LTS | |
-| Framework | Express | 4.18 | With zod validation middleware |
-| Database | PostgreSQL | 15 | Accessed via Prisma ORM |
-| Test runner | Vitest | 1.2 | |
+| Component | Technology | Version | Status | Notes |
+|---|---|---|---|---|
+| Language | TypeScript | 5.2 | present | Strict mode enabled |
+| Runtime | Node.js | 20 LTS | present | |
+| Framework | Express | 4.18 | present | With zod validation middleware |
+| Database | PostgreSQL | 15 | planned | Mentioned in docs, not in repo yet |
+| Test runner | Vitest | 1.2 | present | |
 
 ## Test coverage baseline
 - Total tests: [N]
@@ -127,10 +129,12 @@ Read representative files from key directories. Identify:
 [ ] Test coverage baseline recorded (exact numbers, not estimates)
 [ ] Test execution evidence provided (command, exit code, timestamp, output snippet)
 [ ] Existing patterns documented — error handling, logging, validation, directory structure
+[ ] Tech stack entries classified as present/planned/not-found with file evidence
+[ ] Architecture claims validated against repo reality
 [ ] Integration points identified with direction and protocol
 [ ] Fragile / high-risk areas flagged
 [ ] Known tech debt inventoried (not to fix — just to be aware of)
-[ ] existing-system.md written to docs/architecture/
+[ ] existing-system.md physically exists at docs/architecture/existing-system.md
 ```
 
 ## Red Flags

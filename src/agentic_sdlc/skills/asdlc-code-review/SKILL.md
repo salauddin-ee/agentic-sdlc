@@ -68,6 +68,7 @@ Run `asdlc-critical-review` first, followed by `asdlc-testing`. Only proceed to 
 ### Documentation
 ```
 [ ] README updated — setup, run, test, deploy instructions accurate
+[ ] README commands verified — test and run commands execute successfully or failures are documented
 [ ] API documentation updated (OpenAPI spec, Postman collection, or equivalent)
 [ ] Architecture diagrams updated if topology changed
 [ ] CHANGELOG entry written (if project maintains one)
