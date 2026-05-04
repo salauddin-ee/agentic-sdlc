@@ -157,6 +157,7 @@ After a successful merge (strategies A or B) or PR creation (strategy C), update
 ## Gate
 
 ```
+[ ] Story status is TESTED in docs/sdlc/stories/STORY-[ID].md before starting review
 [ ] asdlc-testing stage was completed and passed (verify test-plan.md existence, results, and explicit execution evidence)
 [ ] Standards compliance section: PASS
 [ ] Test quality section: PASS
@@ -164,6 +165,8 @@ After a successful merge (strategies A or B) or PR creation (strategy C), update
 [ ] Operability section: PASS
 [ ] Documentation section: PASS
 [ ] Overall verdict: APPROVED
+[ ] Story status set to APPROVED before merge execution
+[ ] Story status set to MERGED and synced to task-graph.md after successful merge
 [ ] Review result written to docs/sdlc/retrospectives/ or inline note committed
 [ ] Merge strategy checked in docs/architecture/coding-standards.md before any merge
 ```

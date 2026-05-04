@@ -130,7 +130,7 @@ Read representative files from key directories. Identify:
 [ ] Test execution evidence provided (command, exit code, timestamp, output snippet)
 [ ] Existing patterns documented — error handling, logging, validation, directory structure
 [ ] Tech stack entries classified as present/planned/not-found with file evidence
-[ ] Architecture claims validated against repo reality
+[ ] Architecture claims validated against repo reality (README run/test commands executed successfully or failures documented)
 [ ] Integration points identified with direction and protocol
 [ ] Fragile / high-risk areas flagged
 [ ] Known tech debt inventoried (not to fix — just to be aware of)

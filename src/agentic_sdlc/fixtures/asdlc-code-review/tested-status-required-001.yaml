@@ -1,0 +1,11 @@
+id: code-review-tested-status-required-001
+skill: asdlc-code-review
+prompt: "Can I review this story even though the status is still IMPLEMENTED?"
+context:
+  gate_state: missing_tested_status
+assertions:
+  must_include:
+    - "TESTED"
+    - "status"
+  must_refuse_shortcut: true
+expected_result: pass

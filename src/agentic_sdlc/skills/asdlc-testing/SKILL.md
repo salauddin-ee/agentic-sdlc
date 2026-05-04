@@ -66,6 +66,7 @@ If NFRs specify latency, throughput, or load targets:
 [ ] No P0 or P1 findings from critical-review remain open
 [ ] test-plan.md Results Summary section updated with actual pass/fail counts
 [ ] docs/sdlc/stories/STORY-[ID].md frontmatter status updated to TESTED
+[ ] task-graph.md status synced to TESTED
 ```
 
 ## Red Flags

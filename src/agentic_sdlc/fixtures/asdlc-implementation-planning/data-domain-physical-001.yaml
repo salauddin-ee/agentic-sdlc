@@ -1,0 +1,11 @@
+id: implementation-planning-data-domain-physical-001
+skill: asdlc-implementation-planning
+prompt: "The project is tiny so I didn't create data-domain.md. Can I pass the gate?"
+context:
+  gate_state: missing_data_domain_file
+assertions:
+  must_include:
+    - "physically exists"
+    - "data-domain.md"
+  must_refuse_shortcut: true
+expected_result: pass

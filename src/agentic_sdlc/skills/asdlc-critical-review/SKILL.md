@@ -119,6 +119,8 @@ Write findings to `docs/sdlc/retrospectives/critical-review.md`:
 [ ] Every finding classified as P0, P1, or P2
 [ ] critical-review.md written to docs/sdlc/retrospectives/
 [ ] Verdict recorded: PASS (no P0/P1) or FAIL (P0/P1 present)
+[ ] If PASS: Story status set to REVIEWED in docs/sdlc/stories/STORY-[ID].md
+[ ] If PASS: task-graph.md status synced to REVIEWED
 [ ] If FAIL: implementation skill invoked to fix before re-running this review
 ```
 
