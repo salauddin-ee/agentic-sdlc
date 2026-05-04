@@ -115,7 +115,8 @@ What happens (per story):
 3. Refactor (clean + coding constitution compliant)
 4. Run full test suite (no regressions)
 5. Security checklist verified
-6. Transition to critical-review, testing, and code-review
+6. Mark story status as `IMPLEMENTED` and sync to `task-graph.md`
+7. Transition to critical-review, testing, and code-review
 
 ---
 
@@ -128,6 +129,7 @@ What happens:
 - P0/P1 findings block Stage 8
 - P2 findings logged as tech debt
 - P0/P1 found → return to Stage 6 and fix
+- If PASS → update story status to `REVIEWED` and sync to `task-graph.md`
 
 ---
 
@@ -140,6 +142,7 @@ What happens:
 - Test pyramid targets verified
 - HITL test cases sent to human
 - Performance targets verified against NFRs
+- Update story status to `TESTED` and sync to `task-graph.md`
 - Output: `docs/sdlc/test-plans/test-plan.md`
 
 ---
@@ -154,7 +157,8 @@ What happens:
 - Security audit (dependency scan + auth verification)
 - Operability check (logging, health check, graceful shutdown)
 - Documentation completeness
-- Story merged according to the configured merge strategy
+- Story status updated to `APPROVED`
+- Story merged according to the configured merge strategy, status updated to `MERGED` and synced to `task-graph.md`
 
 ---
 

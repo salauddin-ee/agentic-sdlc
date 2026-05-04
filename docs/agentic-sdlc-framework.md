@@ -431,7 +431,7 @@ Task A → Task C → Task D
 6. Run tests — confirm GREEN
 7. Refactor — apply coding constitution, clean code principles
 8. Run full test suite — confirm no regression
-9. Mark task complete in task-graph.md
+9. Update task status to IMPLEMENTED in `task-graph.md` and `docs/sdlc/stories/STORY-[ID].md`
 10. Update interface-contracts.md if any contract changed (triggers HITL)
 ```
 
@@ -486,7 +486,7 @@ Reference: [Martin Fowler — Practical Test Pyramid](https://martinfowler.com/a
 - [ ] All interface contracts still match implementation
 - [ ] No breaking changes introduced to existing consumers
 
-**Output:** `critical-review.md` — list of findings categorised as P0 (block release), P1 (fix before merge), P2 (log as tech debt).
+**Output:** `critical-review.md` — list of findings categorised as P0 (block release), P1 (fix before merge), P2 (log as tech debt). If PASS, story status is set to `REVIEWED` and synced to `task-graph.md`.
 
 **Loop rule:** P0 and P1 findings must be fixed and re-reviewed before Stage 8. P2s are logged in `retrospective.md`.
 
@@ -529,6 +529,7 @@ Reference: [Martin Fowler — Practical Test Pyramid](https://martinfowler.com/a
 2. Run any HITL test cases — ask the human for input on scenarios requiring judgment.
 3. Run load/performance test if NFRs specify targets.
 4. Document results in `test-plan.md`.
+5. Update story status to `TESTED` and sync to `task-graph.md`.
 
 **Gate:**
 
@@ -572,6 +573,8 @@ Reference: [Martin Fowler — Practical Test Pyramid](https://martinfowler.com/a
 - [ ] README updated
 - [ ] API documentation updated
 - [ ] Architecture diagrams updated if topology changed
+- [ ] Story status updated to `APPROVED` before merge
+- [ ] Story merged according to merge strategy, status updated to `MERGED` and synced to `task-graph.md`
 
 ---
 
