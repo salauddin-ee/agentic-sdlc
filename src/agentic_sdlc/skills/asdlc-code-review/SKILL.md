@@ -110,6 +110,8 @@ All five sections must be PASS before merging. If any section is FAIL:
 
 ## Merge Protocol (after APPROVED verdict)
 
+Before executing the merge, update the `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `APPROVED` and sync this status to `docs/sdlc/epics/task-graph.md`.
+
 Invoke `asdlc-git-discipline` skill and follow the configured merge strategy from `docs/architecture/coding-standards.md`.
 
 Default behavior is **Epic branch**, not direct-to-main. Run exactly one strategy path below; never run all three examples as one script.
@@ -150,7 +152,7 @@ git push origin feature/STORY-[ID]-[short-desc]
 
 > One squash commit per story on the configured merge target. With the Epic branch strategy, `main` is not touched until full regression passes on `feature/EPIC-[ID]` and HITL approves the epic merge.
 
-After a successful merge (strategies A or B) or PR creation (strategy C), update the `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `MERGED`.
+After a successful merge (strategies A or B) or PR creation (strategy C), update the `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `MERGED` and sync this status to `docs/sdlc/epics/task-graph.md`.
 
 ## Gate
 

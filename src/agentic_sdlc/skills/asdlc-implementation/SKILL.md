@@ -43,7 +43,7 @@ For each active ticket:
 16. Commit the completed story (ONE commit per story):
     git add .
     git commit -m "{type}(STORY-[ID]): [story title]"
-16. → Invoke critical-review, testing, and code-review (see Transition section below).
+17. → Invoke critical-review, testing, and code-review (see Transition section below).
 17. Cleanup Workspace: Delete your `workspace-STORY-[ID].md` AFTER the story is merged to the configured target.
 ```
 
@@ -126,7 +126,7 @@ If implementation reveals a Stage 3 architectural decision was wrong:
 
 ## Completing a Task
 
-Before marking a story `DONE` in `docs/sdlc/stories/`:
+Before marking a story `IMPLEMENTED` in `docs/sdlc/stories/`:
 
 ```
 [ ] Every new function/method has a test that was written first and watched fail
@@ -139,7 +139,7 @@ Before marking a story `DONE` in `docs/sdlc/stories/`:
 
 ## ⚡ Token Logging (Required)
 
-Agents **must** log token usage into the workspace YAML before marking a story DONE. This powers the project dashboard. Fill in all fields before cleanup:
+Agents **must** log token usage into the workspace YAML before marking a story IMPLEMENTED. This powers the project dashboard. Fill in all fields before cleanup:
 
 ```yaml
 tokens_input: 12400        # Total input tokens consumed this story

@@ -20,7 +20,7 @@ Do NOT proceed to asdlc-code-review until all automated tests pass, test pyramid
 4. **Run HITL test cases** — scenarios the agent cannot verify alone
 5. **Run load/performance tests** if NFRs specify targets
 6. **Document results in `docs/sdlc/test-plans/test-plan.md`** — fill Results Summary, mark each test case Passed/Failed/Skipped
-7. **Update story status** — set `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `TESTED`
+7. **Update story status** — set `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `TESTED` and sync this status to `docs/sdlc/epics/task-graph.md`
 8. **Gate evaluation** — all criteria must pass before proceeding
 
 
