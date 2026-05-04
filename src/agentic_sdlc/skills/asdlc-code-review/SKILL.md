@@ -68,6 +68,7 @@ Run `asdlc-critical-review` first, followed by `asdlc-testing`. Only proceed to 
 ### Documentation
 ```
 [ ] README updated — setup, run, test, deploy instructions accurate
+[ ] README commands verified — test and run commands execute successfully or failures are documented
 [ ] API documentation updated (OpenAPI spec, Postman collection, or equivalent)
 [ ] Architecture diagrams updated if topology changed
 [ ] CHANGELOG entry written (if project maintains one)
@@ -109,6 +110,8 @@ All five sections must be PASS before merging. If any section is FAIL:
 
 ## Merge Protocol (after APPROVED verdict)
 
+Before executing the merge, update the `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `APPROVED` and sync this status to `docs/sdlc/epics/task-graph.md`.
+
 Invoke `asdlc-git-discipline` skill and follow the configured merge strategy from `docs/architecture/coding-standards.md`.
 
 Default behavior is **Epic branch**, not direct-to-main. Run exactly one strategy path below; never run all three examples as one script.
@@ -149,9 +152,12 @@ git push origin feature/STORY-[ID]-[short-desc]
 
 > One squash commit per story on the configured merge target. With the Epic branch strategy, `main` is not touched until full regression passes on `feature/EPIC-[ID]` and HITL approves the epic merge.
 
+After a successful merge (strategies A or B) or PR creation (strategy C), update the `docs/sdlc/stories/STORY-[ID].md` frontmatter status to `MERGED` and sync this status to `docs/sdlc/epics/task-graph.md`.
+
 ## Gate
 
 ```
+[ ] Story status is TESTED in docs/sdlc/stories/STORY-[ID].md before starting review
 [ ] asdlc-testing stage was completed and passed (verify test-plan.md existence, results, and explicit execution evidence)
 [ ] Standards compliance section: PASS
 [ ] Test quality section: PASS
@@ -159,6 +165,8 @@ git push origin feature/STORY-[ID]-[short-desc]
 [ ] Operability section: PASS
 [ ] Documentation section: PASS
 [ ] Overall verdict: APPROVED
+[ ] Story status set to APPROVED before merge execution
+[ ] Story status set to MERGED and synced to task-graph.md after successful merge
 [ ] Review result written to docs/sdlc/retrospectives/ or inline note committed
 [ ] Merge strategy checked in docs/architecture/coding-standards.md before any merge
 ```

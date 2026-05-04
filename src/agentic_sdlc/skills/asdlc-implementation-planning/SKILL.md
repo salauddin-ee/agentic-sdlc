@@ -104,7 +104,8 @@ If `docs/architecture/coding-standards.md` has no `## Merge strategy` section, d
 [ ] Merge-strategy HITL evidence (`merge_strategy_hitl_*` fields) populated in implementation-plan.md metadata
 [ ] Plan-approval HITL evidence (`plan_approval_hitl_*` fields) populated in implementation-plan.md metadata before status flips to `Approved`
 [ ] Merge-strategy and plan-approval HITL field groups are distinct — neither overwrites the other
-[ ] implementation-plan.md written to docs/sdlc/epics/ and data-domain.md written to docs/architecture/
+[ ] implementation-plan.md physically exists at docs/sdlc/epics/implementation-plan.md
+[ ] data-domain.md physically exists at docs/architecture/data-domain.md — even for tiny projects (can contain "No cross-module contracts" with justification)
 ```
 
 ## Red Flags
@@ -120,7 +121,7 @@ If `docs/architecture/coding-standards.md` has no `## Merge strategy` section, d
 
 | Project size | Milestones | Interface contracts | Risk log |
 |---|---|---|---|
-| Tiny (1-day) | 1 milestone, 1-2 exit criteria | None required if single module | 1-2 risks |
+| Tiny (1-day) | 1 milestone, 1-2 exit criteria | None required (file must exist with "None required" rationale) | 1-2 risks |
 | Small (1-week) | 2-3 milestones | 1-3 contracts for key boundaries | 3 risks |
 | Medium (1-month) | 3-5 milestones with sub-tasks | Full API + event schema | Top 5 risks |
 | Large (multi-month) | Full milestone graph with owners | All contracts per ADR | Full risk register with mitigations |

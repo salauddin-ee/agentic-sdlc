@@ -75,6 +75,7 @@ Plan the technical approach for this story without re-architecting the system. I
 ## Gate
 
 ```
+[ ] Story ID and title match the canonical entry in task-graph.md
 [ ] Approach follows existing codebase patterns — no new patterns without justification
 [ ] DRY check completed — no duplication of existing logic
 [ ] All files to be changed identified

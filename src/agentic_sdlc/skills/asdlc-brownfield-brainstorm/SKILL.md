@@ -15,7 +15,8 @@ Understand the business and user impact of this story in isolation before planni
 ## Checklist
 
 1. **Read `docs/architecture/existing-system.md`** — understand the system context
-2. **Ask clarifying questions** (one at a time):
+2. **Verify Story ID**: Ensure the story ID and title match the canonical entry in `docs/sdlc/epics/task-graph.md`. If `task-graph.md` does not exist or lacks this story, create/update it first.
+3. **Ask clarifying questions** (one at a time):
    - What user job-to-be-done does this story serve?
    - What is the measurable business outcome? (conversion, retention, error rate reduction)
    - Who is affected — which user personas, which upstream/downstream systems?
@@ -88,6 +89,15 @@ Append to `docs/product/features/brd.md` (or create if brownfield project):
 | "Scope risks are obvious" | Write them down. Unwritten risks become scope creep. |
 | "We're extending existing behavior — no need to check" | Check first. Extending the wrong thing is worse than building new. |
 | "I don't need to research how others do this" | Reinventing known patterns wastes time. Search first — borrow what works, reject what doesn't. |
+
+## Gate
+
+```
+[ ] Story ID and title match the canonical entry in task-graph.md (created if missing)
+[ ] Story BRD appended to docs/product/features/brd.md
+[ ] Acceptance criteria and definition of done written
+[ ] Comparable implementations researched
+```
 
 ## Scale Guide
 

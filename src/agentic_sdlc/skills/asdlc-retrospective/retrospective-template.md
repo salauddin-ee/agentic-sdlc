@@ -21,6 +21,14 @@
 
 - [Item 1]
 
+## Requirements Fidelity
+
+| FR ID | Status | Acceptance Criteria ID(s) | Story ID(s) | Test Name(s) | Source File(s) |
+|---|---|---|---|---|---|
+| FR-001 | complete | AC-1, AC-2 | STORY-001 | `test_auth_flow` | `src/auth.ts` |
+| FR-002 | partial | AC-3 | STORY-002 | `test_timeout` | `src/api.ts` (missing retry logic) |
+| FR-003 | not implemented | | | | |
+
 ## Action items
 
 - [ ] [Who] [What] [By when]

@@ -90,7 +90,7 @@ RESULT: PASS — proceed to asdlc-design-system
 
 **"HITL checkpoint invoked"** — The artifact must reference the actual HITL prompt and user response in frontmatter or the artifact metadata block. The agent cannot infer, summarize from memory, or self-approve this item.
 
-**"Status: Approved"** — Valid only after HITL evidence exists. Before HITL, use `Status: Ready for HITL`.
+**"Status: Approved"** — Valid only after HITL evidence exists. Before HITL, use `Status: Ready for HITL`. After any HITL approval, you must immediately update the primary artifact Status field to `Approved` and commit before proceeding to the next stage.
 
 **"No open questions"** — Every question in `docs/product/features/brd.md > Open questions` is resolved. Not merely noted.
 

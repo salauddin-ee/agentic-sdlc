@@ -22,7 +22,7 @@ Write code before the test? Delete it. Start over. No exceptions:
 For each active ticket:
 
 ```
-1. Pick a Story: Read `docs/sdlc/stories/` and pick a story that has `status: TO_DO` and whose dependencies are met (check `docs/sdlc/epics/`).
+1. Pick a Story: Read `docs/sdlc/stories/` and pick a story that has `status: TO_DO` and whose dependencies are met (check `docs/sdlc/epics/task-graph.md`). Before proceeding, verify the story ID and title exactly match the canonical entry in `task-graph.md`.
 2. Initialize Workspace: Copy `workspace-template.md` (in this skill's directory) to `docs/sdlc/workspaces/workspace-STORY-[ID].md`. Fill in YAML: `story_id`, `agent`, `model`, `branch`, `started_at`.
 3. Create feature branch (invoke `asdlc-git-discipline` skill):
    - Read `docs/architecture/coding-standards.md` → `## Merge strategy`
@@ -37,12 +37,13 @@ For each active ticket:
 10. Refactor — apply docs/architecture/coding-standards.md
 11. Run full test suite — confirm no regression across all tests
 12. Log token usage in workspace YAML: `tokens_input`, `tokens_output`, `stage_tokens`, `elapsed_minutes`, `hitl_count`.
-13. Mark `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: DONE`.
-14. If any interface contract changed: update docs/architecture/data-domain.md → triggers HITL
-15. Commit the completed story (ONE commit per story):
+13. Mark `docs/sdlc/stories/STORY-[ID].md` frontmatter to `status: IMPLEMENTED`.
+14. Update `docs/sdlc/epics/task-graph.md` to reflect the new `IMPLEMENTED` status for this story.
+15. If any interface contract changed: update docs/architecture/data-domain.md → triggers HITL
+16. Commit the completed story (ONE commit per story):
     git add .
     git commit -m "{type}(STORY-[ID]): [story title]"
-16. → Invoke critical-review, testing, and code-review (see Transition section below).
+17. → Invoke critical-review, testing, and code-review (see Transition section below).
 17. Cleanup Workspace: Delete your `workspace-STORY-[ID].md` AFTER the story is merged to the configured target.
 ```
 
@@ -125,7 +126,7 @@ If implementation reveals a Stage 3 architectural decision was wrong:
 
 ## Completing a Task
 
-Before marking a story `DONE` in `docs/sdlc/stories/`:
+Before marking a story `IMPLEMENTED` in `docs/sdlc/stories/`:
 
 ```
 [ ] Every new function/method has a test that was written first and watched fail
@@ -138,7 +139,7 @@ Before marking a story `DONE` in `docs/sdlc/stories/`:
 
 ## ⚡ Token Logging (Required)
 
-Agents **must** log token usage into the workspace YAML before marking a story DONE. This powers the project dashboard. Fill in all fields before cleanup:
+Agents **must** log token usage into the workspace YAML before marking a story IMPLEMENTED. This powers the project dashboard. Fill in all fields before cleanup:
 
 ```yaml
 tokens_input: 12400        # Total input tokens consumed this story
@@ -166,8 +167,11 @@ Before invoking `asdlc-critical-review` skill, every item below must be true for
 [ ] Coding constitution followed: naming, error handling, logging
 [ ] No TODO comments left in production code
 [ ] data-domain.md updated if any interface contract changed (triggers HITL)
-[ ] Token usage logged in workspace YAML
-[ ] Story status set to DONE in docs/sdlc/stories/STORY-[ID].md
+[ ] Workspace file physically exists at docs/sdlc/workspaces/workspace-STORY-[ID].md with YAML fields populated
+[ ] Token usage logged in the workspace YAML file
+[ ] Story status set to IMPLEMENTED in docs/sdlc/stories/STORY-[ID].md
+[ ] task-graph.md status for this story matches the story file status
+[ ] Story ID and title match the canonical entry in task-graph.md
 [ ] Story committed on feature branch (git status shows clean working tree)
 ```
 

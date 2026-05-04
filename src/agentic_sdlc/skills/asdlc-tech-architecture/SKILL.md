@@ -106,13 +106,14 @@ Read `asdlc-stage-gates` skill and evaluate:
 [ ] Tech stack justified via ADRs for each major component
 [ ] Stack research completed — gotchas, anti-patterns, and community conventions documented in ADR research notes
 [ ] At least one ADR per major decision (language, framework, DB, auth) — OR fewer per Scale Guide (tiny/small projects)
+[ ] ADR files physically exist at docs/architecture/adrs/ADR-NNN.md for every row in the ADR summary table
 [ ] System context diagram present (C4 Level 1) — OR skipped per Scale Guide (tiny projects only) with rationale
 [ ] Container diagram present (C4 Level 2) — OR skipped per Scale Guide (tiny/small projects) with rationale
 [ ] At least 2 sequence diagrams for the most critical flows — OR fewer per Scale Guide with rationale
 [ ] Directory structure defined and documented
 [ ] Coding constitution written (invoke the `asdlc-coding-constitution` skill)
 [ ] Security approach documented
-[ ] All artifacts written to docs/architecture/ (and ADRs to docs/architecture/adrs/)
+[ ] tech-architecture.md and coding-standards.md physically exist at docs/architecture/
 [ ] Artifact status is `Ready for HITL` before requesting user approval
 ```
 

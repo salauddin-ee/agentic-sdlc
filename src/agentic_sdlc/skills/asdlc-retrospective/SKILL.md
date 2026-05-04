@@ -18,10 +18,11 @@ Close the loop. Account for what happened, extract reusable knowledge into the s
 2. **Read merge strategy**: `docs/architecture/coding-standards.md` → `## Merge strategy`
 3. **If using Epic branch**: verify all stories are merged into `feature/EPIC-{ID}`, full regression passed on that branch, and HITL approved merge to `main`
 4. **Write the retrospective** — using the `retrospective-template.md` file in this skill's directory
-5. **Identify skills library updates** — new patterns worth capturing, existing skills to improve
-6. **Propose process improvements** — changes to the framework that would improve future runs
-7. **Write / append to `docs/sdlc/retrospectives/retrospective.md`**
-8. **If skills library updates are proposed**: invoke `asdlc-writing-skills` skill
+5. **Fill requirements fidelity table** — for each FR, you must provide the story ID, acceptance criteria ID, passing test name, and source file reference. If any evidence is missing, mark as `partial` or `not implemented`.
+6. **Identify skills library updates** — new patterns worth capturing, existing skills to improve
+7. **Propose process improvements** — changes to the framework that would improve future runs
+8. **Write / append to `docs/sdlc/retrospectives/retrospective.md`**
+9. **If skills library updates are proposed**: invoke `asdlc-writing-skills` skill
 
 ## Retrospective Format
 
@@ -42,7 +43,7 @@ If you identify a pattern worth capturing as a reusable skill:
 ```
 [ ] retrospective.md written (or appended) to docs/sdlc/retrospectives/
 [ ] All P2 tech debt from critical-review logged under 'Tech debt logged'
-[ ] Requirements fidelity table completed for all FRs
+[ ] Requirements fidelity table completed — each FR marked 'complete' must cite story ID(s), test name(s), and source file(s); FRs without evidence must be 'partial' or 'not implemented'
 [ ] Merge strategy reviewed; if Epic branch, final regression and HITL approval for merge to main are recorded
 [ ] Skills library updates section completed (even if empty — 'none this cycle' is valid)
 [ ] Process improvements section completed

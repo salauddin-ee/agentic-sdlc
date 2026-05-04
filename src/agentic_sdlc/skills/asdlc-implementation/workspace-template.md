@@ -1,7 +1,7 @@
 ---
 story_id: STORY-000
 status: TO_DO
-# status options: TO_DO | IN_PROGRESS | BLOCKED | DONE
+# status options: TO_DO | IN_PROGRESS | BLOCKED | IMPLEMENTED | REVIEWED | TESTED | APPROVED | MERGED | ARCHIVED
 agent: ""
 model: ""
 started_at: ""
