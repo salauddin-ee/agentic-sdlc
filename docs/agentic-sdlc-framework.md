@@ -92,7 +92,7 @@ Mandatory human approval is required at these points (HARD-GATES):
 2. **Architecture End**: After tech stack, diagrams, and ADRs are approved (Stage 3 exit).
 3. **Task Graph Approval**: After story breakdown but before any code is written (Stage 5 exit).
 4. **Architectural Deviation**: If implementation reveals a Stage 3 decision was wrong (Stage 6 rollback).
-5. **Contract Change**: Any change to `interface-contracts.md` mid-implementation.
+5. **Contract Change**: Any change to `data-domain.md` mid-implementation.
 6. **Destructive Operations**: Before any production DB migration or data deletion.
 7. **Ambiguity**: When the agent is blocked and cannot resolve a requirement autonomously.
 
@@ -134,7 +134,7 @@ Written at Stage 3 (greenfield) or inherited at Stage 0 (brownfield). Covers:
 
 **Process:**
 
-1. Identify the problem domain. Write `domain.md` with relevant domain knowledge — regulatory context, industry conventions, key entities, glossary.
+1. Identify the problem domain. Write `domain-model.md` with relevant domain knowledge — regulatory context, industry conventions, key entities, glossary.
 2. Run the skills constitution: ask clarifying questions across these axes:
    - Business objective and measurable success criteria
    - User personas and their jobs-to-be-done
@@ -195,7 +195,7 @@ Written at Stage 3 (greenfield) or inherited at Stage 0 (brownfield). Covers:
 
 **Purpose:** Establish visual and interaction language before technical decisions lock in. (Stages 2 and 3 may run in either order depending on whether UI is primary.)
 
-**Inputs:** `brd.md`, `domain.md`
+**Inputs:** `brd.md`, `domain-model.md`
 
 **Outputs:** `design-system.md`, `accessibility.md`, component inventory
 
@@ -238,7 +238,7 @@ Written at Stage 3 (greenfield) or inherited at Stage 0 (brownfield). Covers:
 
 **Inputs:** `brd.md`, `design-system.md`
 
-**Outputs:** `tech-architecture.md`, `adr/`, `coding-constitution.md`, directory structure
+**Outputs:** `tech-architecture.md`, `adr/`, `coding-standards.md`, directory structure
 
 **Process:**
 
@@ -272,7 +272,7 @@ Written at Stage 3 (greenfield) or inherited at Stage 0 (brownfield). Covers:
 [Trade-offs, risks, follow-up actions]
 ```
 
-5. **Coding constitution** — write `coding-constitution.md` covering all items in the shared infrastructure section above, plus language-specific standards from the relevant skill.
+5. **Coding constitution** — write `coding-standards.md` covering all items in the shared infrastructure section above, plus language-specific standards from the relevant skill.
 
 **Gate:**
 
@@ -294,7 +294,7 @@ Written at Stage 3 (greenfield) or inherited at Stage 0 (brownfield). Covers:
 
 **Purpose:** Produce a machine-readable execution contract the agent follows in Stages 5–6.
 
-**Inputs:** `brd.md`, `tech-architecture.md`, `coding-constitution.md`
+**Inputs:** `brd.md`, `tech-architecture.md`, `coding-standards.md`
 
 **Output:** `implementation-plan.md`
 
@@ -347,7 +347,7 @@ Defined before any parallel work begins. Every module boundary must have:
 
 **Purpose:** Decompose the implementation plan into atomic, executable tasks with a dependency graph.
 
-**Inputs:** `implementation-plan.md`, `interface-contracts.md`
+**Inputs:** `implementation-plan.md`, `data-domain.md`
 
 **Output:** `task-graph.md`
 
@@ -418,7 +418,7 @@ Task A → Task C → Task D
 
 **Purpose:** Write production-quality code following TDD, the coding constitution, and the task graph.
 
-**Inputs:** `task-graph.md`, `interface-contracts.md`, `coding-constitution.md`, relevant skills
+**Inputs:** `task-graph.md`, `data-domain.md`, `coding-standards.md`, relevant skills
 
 **Per-task loop:**
 
@@ -432,7 +432,7 @@ Task A → Task C → Task D
 7. Refactor — apply coding constitution, clean code principles
 8. Run full test suite — confirm no regression
 9. Update task status to IMPLEMENTED in `task-graph.md` and `docs/sdlc/stories/STORY-[ID].md`
-10. Update interface-contracts.md if any contract changed (triggers HITL)
+10. Update data-domain.md if any contract changed (triggers HITL)
 ```
 
 **Test pyramid targets (defaults — adjust per project NFRs):**
@@ -462,7 +462,7 @@ Reference: [Martin Fowler — Practical Test Pyramid](https://martinfowler.com/a
 
 **Purpose:** Evaluate completed implementation with fresh eyes against the original requirements. This stage is intentionally adversarial — the agent's job is to find problems, not confirm success.
 
-**Inputs:** `brd.md`, `task-graph.md`, `interface-contracts.md`, full codebase
+**Inputs:** `brd.md`, `task-graph.md`, `data-domain.md`, full codebase
 
 **Checklist (run against every story):**
 
@@ -653,7 +653,21 @@ Reference: [Martin Fowler — Practical Test Pyramid](https://martinfowler.com/a
 
 ---
 
-### Stage 1 — Design (lite)
+### Stage 1 — Brainstorm (lite)
+
+**Purpose:** Understand the business impact and user impact of this story in isolation.
+
+**Per story / epic:**
+
+- What is the user job-to-be-done this story serves?
+- What is the measurable business outcome (conversion, retention, error rate reduction, etc.)?
+- What are the acceptance criteria in Given / When / Then format?
+- What is the definition of done for this story specifically?
+- Are there dependencies on other in-flight stories?
+
+---
+
+### Stage 2 — Design (lite) — if UI
 
 **Purpose:** Resolve design for this story only. Inherit from the existing design system where one exists.
 
@@ -667,21 +681,9 @@ Reference: [Martin Fowler — Practical Test Pyramid](https://martinfowler.com/a
 - Are there accessibility implications (new form fields, modals, dynamic content)?
 - Does this story change any existing visual contract visible to end users?
 
+Skip if: story has no UI impact.
+
 Reference [component.gallery](https://component.gallery) for component patterns.
-
----
-
-### Stage 2 — Brainstorm (lite)
-
-**Purpose:** Understand the business impact and user impact of this story in isolation.
-
-**Per story / epic:**
-
-- What is the user job-to-be-done this story serves?
-- What is the measurable business outcome (conversion, retention, error rate reduction, etc.)?
-- What are the acceptance criteria in Given / When / Then format?
-- What is the definition of done for this story specifically?
-- Are there dependencies on other in-flight stories?
 
 ---
 
@@ -699,7 +701,7 @@ Reference [component.gallery](https://component.gallery) for component patterns.
 **Outputs:**
 
 - `tech-plan-[story-id].md` — approach, files to be changed, new files required, interface changes
-- Updated `interface-contracts.md` if any contract changes (triggers HITL)
+- Updated `data-domain.md` if any contract changes (triggers HITL)
 
 **Regression risk assessment:**
 

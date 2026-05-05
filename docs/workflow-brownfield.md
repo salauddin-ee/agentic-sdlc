@@ -95,10 +95,10 @@ From this point, the brownfield workflow follows the same stages as greenfield:
 |---|---|
 | 4 | `asdlc-implementation-planning` — scoped to this story |
 | 5 | `asdlc-story-breakdown` |
-| 6 | `asdlc-implementation` — TDD, security non-negotiables |
-| 7 | `asdlc-critical-review` |
-| 8 | `asdlc-testing` — regression suite must still pass |
-| 9 | `asdlc-code-review` — merge according to configured strategy |
+| 6 | `asdlc-implementation` — TDD, security non-negotiables; mark story `IMPLEMENTED` + sync `task-graph.md` |
+| 7 | `asdlc-critical-review` — if PASS, mark story `REVIEWED` + sync `task-graph.md` |
+| 8 | `asdlc-testing` — regression suite must still pass; mark story `TESTED` + sync `task-graph.md` |
+| 9 | `asdlc-code-review` — mark story `APPROVED`, merge per configured strategy, mark `MERGED` + sync `task-graph.md` |
 | 10 | `asdlc-retrospective` — story retrospective appended |
 
 ## Key Differences vs. Greenfield
