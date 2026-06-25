@@ -1,8 +1,8 @@
 # Existing system analysis
 
-> **Status:** Draft
-> **Version:** 0.1.0
-> **Last updated:** 2026-05-02
+> **Status:** Current
+> **Version:** 0.2.0
+> **Last updated:** 2026-06-25
 
 ## Tech stack
 | Component | Technology | Version | Notes |
@@ -15,16 +15,15 @@
 | Test runner | pytest | >=7.0.0 | Optional dev dependency |
 | Coverage | pytest-cov | >=4.0.0 | Optional dev dependency |
 
-## Test coverage baseline
-- Command: `pytest --cov=agentic_sdlc -q`
+## Test baseline
+- Latest production-readiness command: `pytest -q`
 - Exit code: 0
 - Total tests: 9
 - Passing: 9
 - Failing: 0
-- Coverage: 15% total lines
-- Last run: 2026-05-02
+- Last run: 2026-06-25T02:45:03Z
 
-**This baseline must not decrease. Any change that drops coverage requires HITL approval.**
+A historical coverage run on 2026-05-02 reported 15% total line coverage with `pytest --cov=agentic_sdlc -q`. Any future work that claims coverage improvement or regression should rerun coverage explicitly and record fresh evidence.
 
 ## Existing patterns
 - Error handling: CLI commands use Click output plus `click.exceptions.Exit(code=1)` for user-facing failures.
@@ -34,9 +33,9 @@
 - Tests: `tests/test_cli.py` uses `click.testing.CliRunner` and temporary directories to validate scaffold behavior.
 
 ## Known tech debt
-- Skill process safety gaps are tracked in `NEED-TO-FOCUS.md`.
+- Additional eval-tooling test hardening is tracked in `docs/future/skill-evals-implementation-plan.md`.
 - `docs/architecture/existing-system.md` previously described an unrelated TrainAssist app and has been refreshed for this repository.
-- Overall coverage is low because dashboard and eval modules have little or no test coverage.
+- Overall coverage is low because dashboard and eval modules have limited dedicated test coverage.
 
 ## Integration points
 | Integration | Direction | Protocol | Notes |

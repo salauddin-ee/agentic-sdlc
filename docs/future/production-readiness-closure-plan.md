@@ -1,5 +1,7 @@
 # Production Readiness Closure Plan
 
+> **Status:** Completed
+> **Completion evidence:** `docs/sdlc/retrospectives/retrospective.md` and `docs/sdlc/retrospectives/code-review-production-readiness-2026-06-25.md`
 > Date: 2026-06-25
 > Scope: Stabilize and close the `agentic-sdlc` source repository for production readiness.
 > Outcome target: READY verdict, or clear NOT READY verdict with exact remaining blockers.

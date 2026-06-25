@@ -1,5 +1,8 @@
 # Code review — evals fixture packaging — 2026-04-11
 
+> **Historical status:** Superseded by `docs/sdlc/retrospectives/code-review-production-readiness-2026-06-25.md`.
+> This file is retained as audit history. Its `CHANGES REQUIRED` verdict reflected the 2026-04-11 environment and is no longer the current release verdict.
+
 ## Standards compliance: FAIL
 - `docs/architecture/coding-standards.md` is missing from this repository, so standards compliance could not be checked against the project artifact required by the workflow.
 

@@ -1,5 +1,8 @@
 # Code review — dev CLI split for eval tooling — 2026-04-13
 
+> **Historical status:** Superseded by `docs/sdlc/retrospectives/code-review-production-readiness-2026-06-25.md`.
+> This file is retained as audit history. Its `CHANGES REQUIRED` verdict reflected the 2026-04-13 environment and is no longer the current release verdict.
+
 ## Standards compliance: FAIL
 - `docs/architecture/coding-standards.md` is still missing from this repository, so standards compliance cannot be checked against the project artifact required by the workflow.
 
