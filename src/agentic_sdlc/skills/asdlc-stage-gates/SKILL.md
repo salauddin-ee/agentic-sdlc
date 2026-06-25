@@ -98,6 +98,8 @@ RESULT: PASS — proceed to asdlc-design-system
 
 **"Interface contracts locked"** — The contracts in `docs/architecture/data-domain.md` are stable and approved. Not "mostly defined."
 
+**"Evidence is current"** — Test results, review verdicts, and verification outputs are only valid if they were recorded **after** the last relevant code change. Evidence that predates a subsequent commit to any file touched by the story is stale and fails the gate. To verify: check the evidence timestamp against `git log --since` on the touched files. If the evidence is older than the most recent relevant commit, re-run the verification and record fresh output.
+
 ## Common Gate Failures
 
 | Failure | What it means |
@@ -108,6 +110,8 @@ RESULT: PASS — proceed to asdlc-design-system
 | Missing HITL evidence | Add `hitl_prompt`, `hitl_response`, `hitl_decision`, `hitl_approved_by`, and `hitl_approved_at` to artifact frontmatter |
 | Tests not run or missing evidence | Run the suite, record results and output snippet, re-evaluate |
 | Open questions remain | Resolve them (or explicitly schedule HITL for them), re-evaluate |
+| Stale evidence | Evidence timestamp predates a relevant code change. Re-run verification, record fresh output with current timestamp, re-evaluate |
+| Cross-artifact status mismatch | Story frontmatter, task-graph, review verdict, test-plan, and handoff must all agree. If any one says green while another says not done or the repo is red, the gate fails immediately. Reconcile all artifacts before re-evaluating |
 
 ## Red Flags
 
@@ -119,3 +123,5 @@ RESULT: PASS — proceed to asdlc-design-system
 | "The user will notice later" | Gates exist so users don't discover gaps in production. |
 | "The artifact says Approved, so HITL happened" | Status alone proves nothing. Require recorded prompt and user response. |
 | "I asked in chat but did not record it" | Unrecorded HITL fails the gate. Write the evidence to artifact frontmatter. |
+| "The tests passed earlier so evidence is still valid" | Evidence is only valid if it postdates the last relevant code change. Re-run if in doubt. |
+| "The story file says green so the gate passes" | One artifact saying green is not enough. All artifacts must agree and match repo reality. |

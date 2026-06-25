@@ -31,6 +31,7 @@ Do NOT proceed to asdlc-code-review until all automated tests pass, test pyramid
 3. **Record actual vs. expected** for every failing test
 4. **Do not modify existing tests to make them pass** — unless the behavior change is explicitly in scope
 5. **Mandatory Evidence:** For every run, record the exact command, exit code, timestamp, and a summary output snippet.
+6. **Targeted tests do not override a failing full regression** — if the full suite is red, the story cannot be marked `TESTED`, even if every story-specific test passes. A targeted green result inside a red full suite means the story is not done. Fix the regression first, then re-run the full suite.
 
 ## HITL Test Cases
 
