@@ -8,10 +8,12 @@ All notable changes to this project are documented here.
 - Source release for local clone, editable install, and manual installation workflows.
 - PyPI/TestPyPI publishing is intentionally deferred and tracked in `docs/future/release-plan.md`.
 
-### Production-readiness evidence
-- `pytest -q` passes.
-- `asdlc-dev validate-skills .` passes.
-- `asdlc-dev eval-skills .` passes.
-- `asdlc --help` and `asdlc-dev --help` work from installed entrypoints.
-- Dependency audit passes with no known vulnerabilities.
-- Closure docs and final APPROVED code review are recorded under `docs/sdlc/`.
+### User-facing release notes
+- Install from a local clone or editable source checkout.
+- Use `asdlc init` to bootstrap Agentic SDLC into a project.
+- Use `asdlc serve` for the local dashboard.
+- See `docs/installation.md` for supported source-install flows.
+
+### Maintainer verification
+- GitHub Actions `Production Readiness` workflow is green.
+- Detailed maintainer-only verification evidence is recorded in `docs/sdlc/test-plans/test-plan.md`.
