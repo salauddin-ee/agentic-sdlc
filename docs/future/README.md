@@ -14,5 +14,4 @@ Live docs and usage guidance live in the root `docs/` pages. Canonical SDLC arti
 | `release-plan.md` | TestPyPI / PyPI publishing readiness and post-publish doc updates (not yet published) |
 | `future-platforms.md` | Roadmap for multi-framework composability: layered namespace system, `skill-manifest.json`, `asdlc resolve-skills` CLI |
 | `multi-agent-orchestration-draft.md` | Draft skill for parallel sub-agent track orchestration (not yet a packaged skill) |
-| `cashupi-asdlc-findings.md` | Retained research notes on ASDLC closure drift and multi-agent coordination lessons |
 | `production-readiness-closure-plan.md` | Completed closure plan retained as audit evidence for the 2026-06-25 READY verdict |

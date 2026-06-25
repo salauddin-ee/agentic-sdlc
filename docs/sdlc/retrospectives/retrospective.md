@@ -8,7 +8,7 @@ READY.
 - Added missing closure artifacts required by the production-readiness plan.
 - Reconciled stale historical `CHANGES REQUIRED` review notes with fresh passing evidence and a superseding final code review.
 - Promoted package classifier from Beta to Production/Stable in `pyproject.toml`.
-- Preserved closure lessons from CashUPI in `docs/future/cashupi-asdlc-findings.md` and strengthened ASDLC testing/stage-gate skills to reject stale evidence and targeted-test false confidence.
+- Strengthened ASDLC testing/stage-gate skills to reject stale evidence and targeted-test false confidence.
 
 ## Evidence
 
